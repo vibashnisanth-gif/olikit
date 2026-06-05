@@ -3,12 +3,11 @@ import { dirname } from "node:path"
 import { fileURLToPath } from "node:url"
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const workspaceRoot = dirname(__dirname)
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   turbopack: {
-    root: workspaceRoot,
+    root: __dirname,
   },
   async headers() {
     return [

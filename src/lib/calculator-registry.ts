@@ -1,11 +1,11 @@
-import type { Calculator } from '../../../src/types'
-import { CompoundInterestCalculator } from '../../../src/calculators/compound-interest'
-import { LoanAmortizationCalculator } from '../../../src/calculators/loan-amortization'
-import { MortgageCalculator } from '../../../src/calculators/mortgage'
-import { RetirementSavingsCalculator } from '../../../src/calculators/retirement-savings'
-import { SalaryCalculator } from '../../../src/calculators/salary'
-import { BreakEvenCalculator } from '../../../src/calculators/break-even'
-import { TaxCalculator } from '../../../src/calculators/tax'
+import type { Calculator } from '@/types'
+import { CompoundInterestCalculator } from '@/calculators/compound-interest'
+import { LoanAmortizationCalculator } from '@/calculators/loan-amortization'
+import { MortgageCalculator } from '@/calculators/mortgage'
+import { RetirementSavingsCalculator } from '@/calculators/retirement-savings'
+import { SalaryCalculator } from '@/calculators/salary'
+import { BreakEvenCalculator } from '@/calculators/break-even'
+import { TaxCalculator } from '@/calculators/tax'
 
 import type {
   CompoundInterestInput, CompoundInterestOutput,
@@ -15,7 +15,7 @@ import type {
   SalaryInput, SalaryOutput,
   BreakEvenInput, BreakEvenOutput,
   TaxInput, TaxOutput,
-} from '../../../src/types'
+} from '@/types'
 
 export interface CalculatorField {
   name: string
