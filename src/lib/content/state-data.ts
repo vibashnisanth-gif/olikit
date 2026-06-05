@@ -20,7 +20,7 @@ export const stateDataSets: StateDataSet[] = [
       medianHomeValue: 750000,
       costOfLivingIndex: 142,
     },
-    source: "Bureau of Labor Statistics, US Census Bureau, California Department of Tax and Fee Administration (2024)",
+    source: "Bureau of Labor Statistics, US Census Bureau, California Department of Tax and Fee Administration (2025)",
   },
   {
     stateSlug: "texas",
@@ -34,7 +34,7 @@ export const stateDataSets: StateDataSet[] = [
       medianHomeValue: 310000,
       costOfLivingIndex: 92,
     },
-    source: "Bureau of Labor Statistics, US Census Bureau, Texas Tax Foundation (2024)",
+    source: "Bureau of Labor Statistics, US Census Bureau, Texas Tax Foundation (2025)",
   },
   {
     stateSlug: "florida",
@@ -48,7 +48,7 @@ export const stateDataSets: StateDataSet[] = [
       medianHomeValue: 395000,
       costOfLivingIndex: 100,
     },
-    source: "Bureau of Labor Statistics, US Census Bureau, Florida Department of Revenue (2024)",
+    source: "Bureau of Labor Statistics, US Census Bureau, Florida Department of Revenue (2025)",
   },
   {
     stateSlug: "new-york",
@@ -62,7 +62,7 @@ export const stateDataSets: StateDataSet[] = [
       medianHomeValue: 370000,
       costOfLivingIndex: 130,
     },
-    source: "Bureau of Labor Statistics, US Census Bureau, New York Department of Taxation and Finance (2024)",
+    source: "Bureau of Labor Statistics, US Census Bureau, New York Department of Taxation and Finance (2025)",
   },
   {
     stateSlug: "illinois",
@@ -76,7 +76,7 @@ export const stateDataSets: StateDataSet[] = [
       medianHomeValue: 250000,
       costOfLivingIndex: 92,
     },
-    source: "Bureau of Labor Statistics, US Census Bureau, Illinois Department of Revenue (2024)",
+    source: "Bureau of Labor Statistics, US Census Bureau, Illinois Department of Revenue (2025)",
   },
   {
     stateSlug: "pennsylvania",
@@ -90,7 +90,7 @@ export const stateDataSets: StateDataSet[] = [
       medianHomeValue: 240000,
       costOfLivingIndex: 97,
     },
-    source: "Bureau of Labor Statistics, US Census Bureau, Pennsylvania Department of Revenue (2024)",
+    source: "Bureau of Labor Statistics, US Census Bureau, Pennsylvania Department of Revenue (2025)",
   },
   {
     stateSlug: "ohio",
@@ -104,7 +104,7 @@ export const stateDataSets: StateDataSet[] = [
       medianHomeValue: 200000,
       costOfLivingIndex: 88,
     },
-    source: "Bureau of Labor Statistics, US Census Bureau, Ohio Department of Taxation (2024)",
+    source: "Bureau of Labor Statistics, US Census Bureau, Ohio Department of Taxation (2025)",
   },
   {
     stateSlug: "georgia",
@@ -118,7 +118,7 @@ export const stateDataSets: StateDataSet[] = [
       medianHomeValue: 320000,
       costOfLivingIndex: 94,
     },
-    source: "Bureau of Labor Statistics, US Census Bureau, Georgia Department of Revenue (2024)",
+    source: "Bureau of Labor Statistics, US Census Bureau, Georgia Department of Revenue (2025)",
   },
   {
     stateSlug: "north-carolina",
@@ -132,7 +132,7 @@ export const stateDataSets: StateDataSet[] = [
       medianHomeValue: 310000,
       costOfLivingIndex: 96,
     },
-    source: "Bureau of Labor Statistics, US Census Bureau, North Carolina Department of Revenue (2024)",
+    source: "Bureau of Labor Statistics, US Census Bureau, North Carolina Department of Revenue (2025)",
   },
   {
     stateSlug: "washington",
@@ -146,7 +146,7 @@ export const stateDataSets: StateDataSet[] = [
       medianHomeValue: 570000,
       costOfLivingIndex: 120,
     },
-    source: "Bureau of Labor Statistics, US Census Bureau, Washington State Department of Revenue (2024)",
+    source: "Bureau of Labor Statistics, US Census Bureau, Washington State Department of Revenue (2025)",
   },
 ]
 

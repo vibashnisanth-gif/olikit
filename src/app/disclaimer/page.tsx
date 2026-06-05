@@ -42,7 +42,7 @@ export default function DisclaimerPage() {
       <main className="max-w-3xl mx-auto px-4 py-12 space-y-10">
         <section>
           <h1 className="text-4xl font-bold mb-4">Disclaimer</h1>
-          <p className="text-sm text-zinc-500 dark:text-zinc-500 mb-2">Last updated: June 2025</p>
+          <p className="text-sm text-zinc-500 dark:text-zinc-500 mb-2">Last updated: June 2026</p>
           <p className="text-zinc-700 dark:text-zinc-300">
             Olikit provides financial calculators for educational and informational purposes only.
             The information on this website does not constitute professional advice.

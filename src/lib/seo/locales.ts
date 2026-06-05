@@ -7,7 +7,7 @@ export const locales: Locale[] = [
     slug: "us",
     currency: { symbol: "$", code: "USD", name: "US Dollar" },
     taxTerms: {
-      incomeTaxYear: "2024-2025",
+      incomeTaxYear: "2025-2026",
       vatName: "Sales Tax",
       vatRate: 0,
       currency: "USD",
@@ -28,7 +28,7 @@ export const locales: Locale[] = [
     slug: "uk",
     currency: { symbol: "\u00a3", code: "GBP", name: "British Pound" },
     taxTerms: {
-      incomeTaxYear: "2024-2025",
+      incomeTaxYear: "2025-2026",
       vatName: "VAT",
       vatRate: 20,
       currency: "GBP",
@@ -47,7 +47,7 @@ export const locales: Locale[] = [
     slug: "au",
     currency: { symbol: "A$", code: "AUD", name: "Australian Dollar" },
     taxTerms: {
-      incomeTaxYear: "2024-2025",
+      incomeTaxYear: "2025-2026",
       vatName: "GST",
       vatRate: 10,
       currency: "AUD",
@@ -73,7 +73,7 @@ export const locales: Locale[] = [
     slug: "ca",
     currency: { symbol: "C$", code: "CAD", name: "Canadian Dollar" },
     taxTerms: {
-      incomeTaxYear: "2024",
+      incomeTaxYear: "2025",
       vatName: "GST/HST",
       vatRate: 5,
       currency: "CAD",
@@ -97,7 +97,7 @@ export const locales: Locale[] = [
     slug: "nz",
     currency: { symbol: "NZ$", code: "NZD", name: "New Zealand Dollar" },
     taxTerms: {
-      incomeTaxYear: "2024-2025",
+      incomeTaxYear: "2025-2026",
       vatName: "GST",
       vatRate: 15,
       currency: "NZD",
@@ -115,7 +115,7 @@ export const locales: Locale[] = [
     slug: "in",
     currency: { symbol: "\u20b9", code: "INR", name: "Indian Rupee" },
     taxTerms: {
-      incomeTaxYear: "2024-2025",
+      incomeTaxYear: "2025-2026",
       vatName: "GST",
       vatRate: 18,
       currency: "INR",
@@ -143,7 +143,7 @@ export const locales: Locale[] = [
     slug: "sg",
     currency: { symbol: "S$", code: "SGD", name: "Singapore Dollar" },
     taxTerms: {
-      incomeTaxYear: "2024",
+      incomeTaxYear: "2025",
       vatName: "GST",
       vatRate: 9,
       currency: "SGD",

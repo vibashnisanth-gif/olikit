@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { getLocale, locales } from "@/lib/seo/locales"
+import { locales, getLocale } from "@/lib/seo/locales"
 import { buildMetadata } from "@/lib/seo/metadata"
 import { tools } from "@/lib/content/templates"
 import { guides } from "@/lib/content/guide-templates"
@@ -173,7 +173,7 @@ export default async function LocalePage({ params }: Props) {
               href={`/${slug}/tools/${tool.slug}/compare`}
               className="rounded-md bg-white px-4 py-2 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 transition hover:bg-zinc-50 hover:text-zinc-950"
             >
-              {tool.name} - Compare
+              {tool.name} — Compare
             </a>
           ))}
         </div>

@@ -13,7 +13,7 @@ export interface LocaleSources {
 
 export const sourceRegistry: Record<string, LocaleSources> = {
   us: {
-    lastUpdated: "June 2025",
+    lastUpdated: "June 2026",
     methodology:
       "Our calculators use tax brackets, contribution limits, and rates published by the relevant US government agencies. Salary data is sourced from Bureau of Labor Statistics (BLS) surveys. Mortgage rates reflect national averages and may vary by lender, location, and credit profile. All figures are for educational purposes and should be verified with a qualified professional.",
     officialSources: [
@@ -50,7 +50,7 @@ export const sourceRegistry: Record<string, LocaleSources> = {
     ],
   },
   uk: {
-    lastUpdated: "June 2025",
+    lastUpdated: "June 2026",
     methodology:
       "Our UK calculators use tax bands, National Insurance rates, and contribution limits published by HMRC. Salary and economic data comes from the Office for National Statistics (ONS). Mortgage calculations use average UK interest rates and may vary by lender and individual circumstances. All figures are for educational purposes.",
     officialSources: [
@@ -75,7 +75,7 @@ export const sourceRegistry: Record<string, LocaleSources> = {
     ],
   },
   au: {
-    lastUpdated: "June 2025",
+    lastUpdated: "June 2026",
     methodology:
       "Our Australian calculators follow tax rates, thresholds, and superannuation rules published by the Australian Taxation Office (ATO). Wage and economic data is sourced from the Australian Bureau of Statistics (ABS). Mortgage rates reflect RBA cash rate influences and market averages. All figures are for educational purposes.",
     officialSources: [
@@ -100,7 +100,7 @@ export const sourceRegistry: Record<string, LocaleSources> = {
     ],
   },
   ca: {
-    lastUpdated: "June 2025",
+    lastUpdated: "June 2026",
     methodology:
       "Our Canadian calculators use federal and provincial tax brackets, CPP/QPP contribution rates, and EI premiums published by the Canada Revenue Agency (CRA). Economic data is sourced from Statistics Canada. Mortgage calculations use Bank of Canada rates and market averages. All figures are for educational purposes.",
     officialSources: [
@@ -125,7 +125,7 @@ export const sourceRegistry: Record<string, LocaleSources> = {
     ],
   },
   nz: {
-    lastUpdated: "June 2025",
+    lastUpdated: "June 2026",
     methodology:
       "Our New Zealand calculators follow tax brackets, KiwiSaver contribution rates, and ACC levies published by Inland Revenue (IRD). Economic data is sourced from Stats NZ. Mortgage calculations use RBNZ official cash rate and market averages. All figures are for educational purposes.",
     officialSources: [
@@ -150,7 +150,7 @@ export const sourceRegistry: Record<string, LocaleSources> = {
     ],
   },
   in: {
-    lastUpdated: "June 2025",
+    lastUpdated: "June 2026",
     methodology:
       "Our India calculators use income tax slabs, GST rates, and contribution limits published by the Income Tax Department and the Ministry of Finance. Economic data is sourced from Data.gov.in and the Ministry of Statistics and Programme Implementation (MOSPI). All figures are for educational purposes and should be verified with a qualified chartered accountant.",
     officialSources: [
@@ -181,7 +181,7 @@ export const sourceRegistry: Record<string, LocaleSources> = {
     ],
   },
   sg: {
-    lastUpdated: "June 2025",
+    lastUpdated: "June 2026",
     methodology:
       "Our Singapore calculators follow income tax rates, CPF contribution rates, and GST rates published by IRAS and the Ministry of Finance. Economic data is sourced from SingStat and the Department of Statistics. All figures are for educational purposes and should be verified with a qualified professional.",
     officialSources: [

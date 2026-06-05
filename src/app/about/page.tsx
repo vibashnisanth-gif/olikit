@@ -33,7 +33,7 @@ const jsonLd = {
     url: SITE_URL,
     description:
       "Free online finance and business calculators with multi-country support.",
-    foundingDate: "2025",
+    foundingDate: "2026",
   },
 }
 
@@ -115,7 +115,7 @@ export default function AboutPage() {
             references, so you always know which rates are being applied.
           </p>
           <p className="text-sm text-zinc-500 dark:text-zinc-500 mt-2">
-            Last updated: June 2025 — Data reflects 2024-2025 tax years.
+            Last updated: June 2026 — Data reflects 2025-2026 tax years.
           </p>
         </section>
 

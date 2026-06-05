@@ -45,3 +45,5 @@ next-env.d.ts
 # audit files (stale local reports, not for repo)
 audit-results.json
 audit-routes.txt
+
+.vercel

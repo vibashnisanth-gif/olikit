@@ -1,6 +1,6 @@
 import type { Locale, Tool, InternalLink, BreadcrumbItem } from "@/types/seo"
 import { stateSeoToolSlugs, tools } from "@/lib/content/templates"
-import { locales, getPrimaryLocales, getExpansionLocales } from "@/lib/seo/locales"
+import { getPrimaryLocales, getExpansionLocales, locales } from "@/lib/seo/locales"
 
 export function getRelatedTools(
   tool: Tool,
@@ -41,7 +41,7 @@ export function getComparisonLinks(
 ): InternalLink[] {
   const others = locales.filter((l) => l.slug !== currentLocale.slug)
   return others.map((locale) => ({
-    label: `${tool.name} - ${locale.name} vs ${currentLocale.name}`,
+    label: `${locale.name}`,
     href: `/${currentLocale.slug}/tools/${tool.slug}/compare?with=${locale.slug}`,
     type: "comparison" as const,
   }))

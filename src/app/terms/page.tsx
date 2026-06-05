@@ -42,7 +42,7 @@ export default function TermsPage() {
       <main className="max-w-3xl mx-auto px-4 py-12 space-y-10">
         <section>
           <h1 className="text-4xl font-bold mb-4">Terms of Service</h1>
-          <p className="text-sm text-zinc-500 dark:text-zinc-500 mb-2">Last updated: June 2025</p>
+          <p className="text-sm text-zinc-500 dark:text-zinc-500 mb-2">Last updated: June 2026</p>
           <p className="text-zinc-700 dark:text-zinc-300">
             By using Olikit, you agree to these terms. If you do not agree, please do not use our services.
           </p>
