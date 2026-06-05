@@ -1,0 +1,34 @@
+{
+  "name": "olikit",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "db:apply": "wrangler d1 migrations apply olikit-datasets --local",
+    "db:seed": "tsx db/seed/index.ts",
+    "db:migrate": "node scripts/run-migrations.mjs",
+    "pipeline:all": "tsx src/lib/pipeline/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "16.2.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240501.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.6",
+    "tailwindcss": "^4",
+    "tsx": "^4.7.0",
+    "typescript": "^5",
+    "wrangler": "^3.50.0"
+  }
+}
