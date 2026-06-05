@@ -60,7 +60,7 @@ function CalculatorFieldInput({
         min={field.min}
         max={field.max}
         step={field.step ?? 'any'}
-        onChange={(e) => onChange(field.name, parseFloat(e.target.value) || 0)}
+        onChange={(e) => onChange(field.name, e.target.value === '' ? '' : parseFloat(e.target.value) || 0)}
       />
     </div>
   )

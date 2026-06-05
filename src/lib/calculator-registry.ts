@@ -143,7 +143,7 @@ const calculatorConfigs: Record<string, SupportedCalculatorConfig> = {
         { label: 'Married', value: 'married' },
         { label: 'Head of Household', value: 'headOfHousehold' },
       ]},
-      { name: 'taxYear', label: 'Tax Year', type: 'number', defaultValue: 2025, min: 2025, max: 2026, step: 1 },
+      { name: 'taxYear', label: 'Tax Year', type: 'number', defaultValue: 2026, min: 2025, max: 2027, step: 1 },
     ],
     formatResult(output: TaxOutput, locale: CalculatorLocale): ResultGroup[] {
       return [
