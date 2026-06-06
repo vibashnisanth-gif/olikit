@@ -5,6 +5,7 @@ import { buildMetadata } from "@/lib/seo/metadata"
 import { tools } from "@/lib/content/templates"
 import { guides } from "@/lib/content/guide-templates"
 import { buildLocalBusinessJsonLd, buildOrganizationJsonLd } from "@/lib/seo/json-ld"
+import { StateNav } from "@/components/state-nav"
 
 type Props = {
   params: Promise<{ locale: string }>
@@ -145,16 +146,8 @@ export default async function LocalePage({ params }: Props) {
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">
             {name} by State
           </h2>
-          <div className="flex flex-wrap gap-2 rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
-            {states.map((state) => (
-              <a
-                key={state.code}
-                href={`/${slug}/state/${state.slug}`}
-                className="rounded-md bg-zinc-100 px-3 py-1.5 text-sm text-zinc-700 transition-colors hover:bg-zinc-200 hover:text-zinc-950"
-              >
-                {state.name}
-              </a>
-            ))}
+          <div className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
+            <StateNav states={states} localeSlug={slug} />
           </div>
         </section>
       )}

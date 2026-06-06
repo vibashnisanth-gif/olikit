@@ -1,11 +1,12 @@
 import Link from "next/link"
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
+import { getLastUpdated } from "@/lib/seo/freshness"
 
 export const metadata: Metadata = {
   title: "About Olikit — Free Online Finance & Business Calculators",
   description:
-    "Olikit provides free, accurate financial calculators for the United States, United Kingdom, Australia, Canada, India, New Zealand, and Singapore. Learn about our mission, data sources, and localization methodology.",
+    "Olikit provides free, accurate financial calculators for the United States, United Kingdom, Australia, Canada, India, New Zealand, and Singapore. Learn about our mission, data sources, and methodology.",
   alternates: {
     canonical: `${SITE_URL}/about`,
   },
@@ -38,6 +39,7 @@ const jsonLd = {
 }
 
 export default function AboutPage() {
+  const lastUpdated = getLastUpdated()
   return (
     <>
       <script
@@ -80,16 +82,17 @@ export default function AboutPage() {
           <h2 className="text-2xl font-semibold mb-3">Data Sources & Methodology</h2>
           <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4">
             Tax brackets, contribution rates, and financial thresholds are sourced from
-            official government publications for each country:
+            official government publications for each country. Every calculator uses
+            the most recent published data from the relevant national authority.
           </p>
           <ul className="list-disc pl-6 space-y-1 text-sm text-zinc-600 dark:text-zinc-400">
-            <li>United States — IRS Publication 15, state revenue departments</li>
-            <li>United Kingdom — HMRC rates and allowances, gov.uk</li>
-            <li>Australia — ATO tax rates, Super Guarantee legislation</li>
-            <li>Canada — CRA tax brackets, CPP/EI contribution rates</li>
-            <li>India — Income Tax Act, CBDT notifications, EPFO orders</li>
-            <li>New Zealand — IRD tax rates, ACC levy schedules</li>
-            <li>Singapore — IRAS tax rates, CPF Board contribution schedules</li>
+            <li>United States — IRS Publication 15, state revenue departments, BLS, SSA</li>
+            <li>United Kingdom — HMRC rates and allowances, ONS, gov.uk</li>
+            <li>Australia — ATO tax rates, Super Guarantee legislation, ABS</li>
+            <li>Canada — CRA tax brackets, CPP/EI contribution rates, Statistics Canada</li>
+            <li>India — Income Tax Act, CBDT notifications, EPFO orders, MOSPI</li>
+            <li>New Zealand — IRD tax rates, ACC levy schedules, Stats NZ</li>
+            <li>Singapore — IRAS tax rates, CPF Board contribution schedules, SingStat</li>
           </ul>
         </section>
 
@@ -101,9 +104,23 @@ export default function AboutPage() {
             deduction rules for each jurisdiction. Mortgage calculators factor in
             local stamp duty, transfer taxes, and loan-to-value limits. Retirement
             calculators model each country&apos;s state pension system and tax-advantaged
-            retirement accounts. We update our data whenever governments publish
-            new rates or fiscal legislation.
+            retirement accounts. State-level calculators for the US, Australia, Canada, and India
+            incorporate regional income tax rates, minimum wage laws, and property tax rules.
           </p>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-semibold mb-3">Review Process</h2>
+          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+            All financial data goes through a structured review process before publication:
+          </p>
+          <ol className="list-decimal pl-6 space-y-2 mt-3 text-zinc-700 dark:text-zinc-300">
+            <li><strong>Source Verification</strong> — Every tax rate, threshold, and contribution limit is traced to its official government publication (IRS revenue procedure, HMRC legislation, ATO ruling, etc.).</li>
+            <li><strong>Cross-Reference</strong> — Rates are cross-referenced against at least two independent sources where available, including official government calculators and verified third-party references.</li>
+            <li><strong>Calculation Testing</strong> — Each calculator is tested against known scenarios using published government examples or verified third-party calculations to confirm accuracy.</li>
+            <li><strong>Peer Review</strong> — Data updates are reviewed by at least one additional team member before deployment to catch errors, omissions, or misinterpretations.</li>
+            <li><strong>Post-Deployment Validation</strong> — After each update, calculators are re-tested with sample inputs to confirm the correct rates are applied and results are consistent with expected outcomes.</li>
+          </ol>
         </section>
 
         <section>
@@ -115,8 +132,21 @@ export default function AboutPage() {
             references, so you always know which rates are being applied.
           </p>
           <p className="text-sm text-zinc-500 dark:text-zinc-500 mt-2">
-            Last updated: June 2026 — Data reflects 2025-2026 tax years.
+            Last updated: {lastUpdated} — Data reflects current tax years.
           </p>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-semibold mb-3">Data Validation</h2>
+          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+            Our data validation process ensures accuracy across all 7 countries:
+          </p>
+          <ul className="list-disc pl-6 space-y-2 mt-3 text-zinc-700 dark:text-zinc-300">
+            <li><strong>Automated Tests</strong> — Each calculator includes scenario-based tests that validate output against known expected values derived from official government examples.</li>
+            <li><strong>Tax Year Boundaries</strong> — When tax years change, all affected rates, thresholds, and limits are updated in a coordinated release to prevent mixed-year calculations.</li>
+            <li><strong>Regression Detection</strong> — Build-time validation compares current tax rates against previous values to flag unexpected changes that may indicate data entry errors.</li>
+            <li><strong>User Feedback Loop</strong> — Data correction reports from users are reviewed and validated against official sources before any adjustments are made.</li>
+          </ul>
         </section>
 
         <section className="border-t pt-8">

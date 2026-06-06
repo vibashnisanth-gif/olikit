@@ -9,6 +9,7 @@ export interface GuideContent {
   directAnswer?: DirectAnswerBlock
   steps?: { name: string; text: string; url?: string }[]
   toolLinks: { label: string; href: string; description: string }[]
+  keyTakeaways?: string[]
 }
 
 export function generateGuideContent(
@@ -27,6 +28,13 @@ export function generateGuideContent(
     "salary-after-tax-by-country": () => ({
       h1: `Salary After Tax in ${locale.name} - Take-Home Pay Guide ${taxYear}`,
       intro: `Understanding your salary after tax is crucial for financial planning in ${locale.name}. Your take-home pay depends on progressive income tax brackets, social security contributions, and other mandatory deductions specific to ${locale.name}. This guide explains how salary after tax is calculated, what deductions apply, and how ${locale.name}'s tax system affects your net income compared to other countries.`,
+      keyTakeaways: [
+        `Your take-home pay in ${locale.name} is your gross salary minus income tax, social security, and other mandatory deductions based on ${taxYear} rates.`,
+        `Progressive tax brackets mean higher portions of income are taxed at higher rates, while your effective tax rate is always lower than your marginal rate.`,
+        `${locale.name} offers various deductions and credits that can significantly reduce your tax liability and increase net pay.`,
+        `Comparing salary after tax across countries reveals dramatic differences in take-home percentages due to varying tax structures and social security systems.`,
+        `Use our salary calculator to model your specific income, deductions, and filing status for an accurate take-home pay estimate.`,
+      ],
       sections: [
         {
           heading: `How Salary After Tax Works in ${locale.name}`,
@@ -88,6 +96,13 @@ export function generateGuideContent(
     "tax-brackets-by-country": () => ({
       h1: `${locale.name} Tax Brackets ${taxYear} - Complete Guide to Income Tax Rates`,
       intro: `Understanding tax brackets is essential for effective financial planning in ${locale.name}. The ${taxYear} tax year features a progressive tax system where your income is divided into portions, each taxed at a different rate. This guide explains how tax brackets work in ${locale.name}, what your marginal and effective tax rates mean, and how ${locale.name}'s tax system compares to other countries. Knowing your tax bracket helps you make informed decisions about salary negotiation, additional work, investments, and retirement contributions.`,
+      keyTakeaways: [
+        `${locale.name} uses a progressive tax system for ${taxYear} where income is divided into brackets, each taxed at a different rate.`,
+        `Your marginal tax rate is the rate on your last dollar earned; your effective rate is your total tax divided by total income and is always lower.`,
+        `Standard deductions and personal allowances reduce your taxable income before brackets are applied, potentially lowering your overall tax.`,
+        `Tax brackets vary significantly across countries — some use flat rates, progressive systems, or no income tax at all.`,
+        `Use our tax calculator to see exactly which brackets apply to your income level and calculate your estimated tax liability.`,
+      ],
       sections: [
         {
           heading: `How Tax Brackets Work in ${locale.name}`,
@@ -145,6 +160,13 @@ export function generateGuideContent(
     "how-much-house-can-i-afford": () => ({
       h1: `How Much House Can I Afford in ${locale.name}? - Complete Guide ${taxYear}`,
       intro: `Determining how much house you can afford in ${locale.name} requires understanding your budget, the 28% rule, down payment requirements, and total homeownership costs. This guide walks you through the process of calculating your affordable home price range in ${locale.name}, considering local property prices, mortgage rates for ${taxYear}, property taxes, insurance, and other costs specific to ${locale.name}. Whether you are a first-time homebuyer or looking to upgrade, knowing your budget before house hunting saves time and prevents financial strain.`,
+      keyTakeaways: [
+        `The 28% rule limits monthly housing costs to 28% of gross monthly income — a conservative starting point for ${locale.name} homebuyers.`,
+        `Down payments in ${locale.name} range from 3-20%; a 20% down payment avoids private mortgage insurance and reduces monthly costs.`,
+        `Total homeownership costs include mortgage principal and interest, property taxes, insurance, maintenance, and applicable ${locale.taxTerms.vatName}.`,
+        `Your credit score directly affects your mortgage rate and therefore how much house you can afford for the same monthly payment.`,
+        `Use our mortgage calculator to model different down payments, interest rates, and loan terms for your ${locale.name} home purchase.`,
+      ],
       sections: [
         {
           heading: `The 28% Rule for Mortgage Affordability in ${locale.name}`,
@@ -206,6 +228,13 @@ export function generateGuideContent(
     "retirement-planning-guide": () => ({
       h1: `Retirement Planning Guide for ${locale.name} - How Much to Save ${taxYear}`,
       intro: `Planning for retirement in ${locale.name} requires understanding your savings targets, available pension systems, investment options, and the impact of inflation on your purchasing power. This comprehensive guide covers everything you need to know about retirement planning in ${locale.name}, including how much to save, what retirement accounts are available, how the state pension works, and strategies to ensure a comfortable retirement. Starting early and understanding the rules specific to ${locale.name} can significantly improve your retirement outcome.`,
+      keyTakeaways: [
+        `Aim to save 10-12 times your final annual income for a comfortable retirement in ${locale.name}, adjusted for the state pension.`,
+        `Tax-advantaged retirement accounts in ${locale.name} provide significant long-term benefits through compound growth without annual tax drag.`,
+        `The 4% withdrawal rule suggests you need 25 times your annual expenses in savings for a sustainable retirement.`,
+        `Starting early dramatically reduces monthly contributions needed — a 25-year-old needs to save far less than a 35-year-old for the same outcome.`,
+        `Use our retirement calculator to model your personalized savings target based on age, current savings, and expected retirement lifestyle.`,
+      ],
       sections: [
         {
           heading: `How Much You Need to Retire in ${locale.name}`,
@@ -263,6 +292,13 @@ export function generateGuideContent(
     "compound-interest-examples": () => ({
       h1: `Compound Interest Examples for ${locale.name} - Investment Growth Guide`,
       intro: `Compound interest is the most powerful force in personal finance, allowing your money to grow exponentially over time. In ${locale.name}, understanding how compounding works is essential for building wealth through investments, retirement accounts, and savings. This guide provides real compound interest examples showing how different investment amounts, return rates, and time horizons affect your wealth in ${locale.name}. Whether you are investing for retirement, education, or other financial goals, these examples demonstrate the importance of starting early and investing consistently.`,
+      keyTakeaways: [
+        `Compound interest means earning returns on both your principal and previously accumulated returns — the earlier you start, the more powerful the effect.`,
+        `A ${currency}10,000 investment at 7% annual return grows to approximately ${currency}76,100 in 30 years through compounding alone.`,
+        `Starting early matters more than investing larger amounts — a 10-year investment starting at 25 can outperform a 30-year investment starting at 35.`,
+        `Tax-advantaged accounts in ${locale.name} significantly enhance compounding by eliminating annual tax drag on investment growth.`,
+        `Use our investment calculator to see how different contribution amounts, rates, and timelines affect your long-term wealth in ${locale.name}.`,
+      ],
       sections: [
         {
           heading: `How Compound Interest Works for Investors in ${locale.name}`,

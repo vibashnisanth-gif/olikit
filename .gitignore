@@ -48,3 +48,6 @@ audit-results.json
 audit-routes.txt
 
 .vercel
+
+# Generated reports
+stale-content-report.json

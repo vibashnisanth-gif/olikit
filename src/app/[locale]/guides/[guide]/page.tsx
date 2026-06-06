@@ -166,6 +166,21 @@ export default async function GuidePage({ params }: Props) {
               <p className="text-zinc-600 leading-relaxed">{section.body}</p>
             </section>
           ))}
+          {content.keyTakeaways && content.keyTakeaways.length > 0 && (
+            <section className="rounded-lg border border-emerald-200 bg-emerald-50 p-5 shadow-sm">
+              <h2 className="mb-3 text-xl font-semibold text-zinc-950">
+                Key Takeaways
+              </h2>
+              <ul className="space-y-2">
+                {content.keyTakeaways.map((takeaway, i) => (
+                  <li key={i} className="flex gap-2 text-sm text-zinc-700">
+                    <span className="mt-0.5 shrink-0 text-emerald-600">&#10003;</span>
+                    <span>{takeaway}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
         </div>
 
         <aside className="space-y-6">
