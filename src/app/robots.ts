@@ -1,16 +1,4 @@
 import type { MetadataRoute } from "next"
-import { SITE_URL } from "@/lib/seo/constants"
-
-const crawlers = [
-  "Googlebot",
-  "Google-Extended",
-  "Bingbot",
-  "GPTBot",
-  "OAI-SearchBot",
-  "PerplexityBot",
-  "ClaudeBot",
-  "Applebot",
-]
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -20,11 +8,35 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/", "/_next/"],
       },
-      ...crawlers.map((agent) => ({
-        userAgent: agent,
+      {
+        userAgent: "GPTBot",
         allow: "/",
-      })),
+      },
+      {
+        userAgent: "CCBot",
+        allow: "/",
+      },
+      {
+        userAgent: "Claude-Web",
+        allow: "/",
+      },
+      {
+        userAgent: "anthropic-ai",
+        allow: "/",
+      },
+      {
+        userAgent: "PerplexityBot",
+        allow: "/",
+      },
+      {
+        userAgent: "Googlebot",
+        allow: "/",
+      },
+      {
+        userAgent: "Googlebot-Image",
+        allow: "/",
+      },
     ],
-    sitemap: `${SITE_URL}/sitemap.xml`,
+    sitemap: "https://olikit.com/sitemap.xml",
   }
 }

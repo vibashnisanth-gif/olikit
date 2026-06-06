@@ -6,8 +6,9 @@ import { SITE_URL } from "@/lib/seo/constants"
 import { getGuideBySlug, guides } from "@/lib/content/guide-templates"
 import { generateGuideContent } from "@/lib/content/guide-generators"
 import { buildBreadcrumbs } from "@/lib/linking/internal-links"
-import { buildFaqJsonLd, buildHowToJsonLd, buildBreadcrumbJsonLd, buildSpeakableJsonLd, buildWebPageJsonLd } from "@/lib/seo/json-ld"
+import { buildFaqJsonLd, buildHowToJsonLd, buildBreadcrumbJsonLd, buildSpeakableJsonLd, buildWebPageJsonLd, buildArticleJsonLd } from "@/lib/seo/json-ld"
 import { SourceFooter } from "@/components/source-footer"
+import { LastUpdated } from "@/components/last-updated"
 
 type Props = {
   params: Promise<{ locale: string; guide: string }>
@@ -45,6 +46,7 @@ export default async function GuidePage({ params }: Props) {
 
   const guideName = guide.name
   const schemas = [
+    buildArticleJsonLd(content.h1, content.intro, path, locale),
     buildWebPageJsonLd(locale, path),
     buildBreadcrumbJsonLd([
       { label: "Home", url: `${SITE_URL}/${locale.slug}` },
@@ -223,6 +225,7 @@ export default async function GuidePage({ params }: Props) {
         </aside>
       </div>
 
+      <LastUpdated />
       <SourceFooter localeSlug={locale.slug} />
     </div>
   )

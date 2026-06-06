@@ -8,6 +8,7 @@ import { generateComparisonContent } from "@/lib/content/generators"
 import { getComparisonLinks } from "@/lib/linking/internal-links"
 import { buildWebPageJsonLd, buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/seo/json-ld"
 import { SourceFooter } from "@/components/source-footer"
+import { LastUpdated } from "@/components/last-updated"
 
 type Props = {
   params: Promise<{ locale: string; tool: string }>
@@ -195,14 +196,44 @@ export default async function ComparePage({ params, searchParams }: Props) {
       )}
 
       {!comparisonContent && (
-        <section className="p-8 text-center rounded-lg border border-dashed border-zinc-300">
-          <p className="text-zinc-500">
-            Select a country above to see the comparison.
-          </p>
+        <section className="p-8 rounded-lg border border-dashed border-zinc-300 space-y-6">
+          <div className="text-center">
+            <p className="text-zinc-500 mb-2">
+              Select a country above to compare {toolName} across countries.
+            </p>
+            <p className="text-sm text-zinc-400">
+              See how tax rates, brackets, and rules differ between {localeName} and other countries.
+            </p>
+          </div>
+          <div className="border-t border-zinc-200 pt-6">
+            <h3 className="text-sm font-semibold text-zinc-700 mb-3 text-center">
+              Quick Compare Examples
+            </h3>
+            <div className="grid gap-3 sm:grid-cols-2 max-w-lg mx-auto">
+              {comparisonLinks.slice(0, 4).map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="block px-4 py-3 rounded-lg bg-white border border-zinc-200 text-center text-sm font-medium text-zinc-700 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className="text-center border-t border-zinc-200 pt-6">
+            <a
+              href={`/${localeSlug2}/tools/${toolSlug2}`}
+              className="inline-block px-6 py-2.5 bg-zinc-950 text-white font-medium rounded-lg hover:bg-zinc-800 transition-colors"
+            >
+              Back to {toolName} Calculator
+            </a>
+          </div>
         </section>
       )}
 
       <div className="mt-10">
+        <LastUpdated />
         <SourceFooter localeSlug={localeSlug2} />
       </div>
     </div>

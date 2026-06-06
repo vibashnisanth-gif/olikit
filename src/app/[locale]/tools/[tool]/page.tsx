@@ -9,6 +9,7 @@ import { buildBreadcrumbs, getAllInternalLinks } from "@/lib/linking/internal-li
 import { buildAggregateJsonLd } from "@/lib/seo/json-ld"
 import { CalculatorInteractive } from "@/components/calculator-interactive"
 import { SourceFooter } from "@/components/source-footer"
+import { LastUpdated } from "@/components/last-updated"
 
 type Props = {
   params: Promise<{ locale: string; tool: string }>
@@ -236,6 +237,7 @@ export default async function ToolPage({ params }: Props) {
         </div>
       </section>
 
+      <LastUpdated />
       <SourceFooter localeSlug={locale.slug} />
     </div>
   )

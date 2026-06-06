@@ -11,6 +11,29 @@ function replaceAll(str: string, replacements: Record<string, string>): string {
   return result
 }
 
+function buildOgImageUrl(title: string, localeName: string, type: string, year: string): string {
+  const params = new URLSearchParams({
+    title,
+    locale: localeName,
+    type,
+    year,
+  })
+  return `${SITE_URL}/api/og?${params.toString()}`
+}
+
+function getPageType(tool: Tool | null, subRegion?: SubRegion, path?: string): string {
+  if (tool && subRegion) return "state"
+  if (tool && path?.includes("/compare")) return "compare"
+  if (tool) return "tool"
+  if (path?.includes("/guides")) return "guide"
+  return "home"
+}
+
+function getPageTitle(meta: SeoMetadata, tool: Tool | null): string {
+  if (tool) return meta.title.replace(/\s*\|\s*Olikit$/, "")
+  return meta.title
+}
+
 export function buildMetadata(
   locale: Locale,
   tool: Tool | null,
@@ -24,6 +47,12 @@ export function buildMetadata(
     ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
     : undefined
   const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID
+
+  const pageType = getPageType(tool, subRegion, path)
+  const title = getPageTitle(meta, tool)
+  const year = locale.taxTerms.incomeTaxYear
+
+  const ogImageUrl = buildOgImageUrl(title, locale.name, pageType, year)
 
   return {
     title: meta.title,
@@ -40,6 +69,13 @@ export function buildMetadata(
       siteName: meta.openGraph.siteName,
       locale: meta.openGraph.locale,
       type: meta.openGraph.type,
+      images: [{ url: ogImageUrl, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.openGraph.title,
+      description: meta.openGraph.description,
+      images: [ogImageUrl],
     },
     robots: {
       index: true,

@@ -1,5 +1,6 @@
 import type { Locale, Tool, JsonLd, SubRegion, StateDataPoints } from "@/types/seo"
 import { SITE_URL } from "./constants"
+import { getDateModified } from "./freshness"
 
 export function buildWebApplicationJsonLd(
   tool: Tool,
@@ -24,6 +25,7 @@ export function buildWebApplicationJsonLd(
       name: "Olikit",
       url: SITE_URL,
     },
+    dateModified: getDateModified(),
     inLanguage: locale.code,
   }
 }
@@ -147,10 +149,43 @@ export function buildWebPageJsonLd(
     name,
     url: `${SITE_URL}${path}`,
     inLanguage: locale.code,
+    dateModified: getDateModified(),
     isPartOf: {
       "@type": "WebSite",
       name: "Olikit",
       url: `${SITE_URL}/${locale.slug}`,
+    },
+  }
+}
+
+export function buildArticleJsonLd(
+  title: string,
+  description: string,
+  path: string,
+  locale: Locale,
+): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    url: `${SITE_URL}${path}`,
+    inLanguage: locale.code,
+    datePublished: "2026-01-15",
+    dateModified: getDateModified(),
+    author: {
+      "@type": "Organization",
+      name: "Olikit",
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Olikit",
+      url: SITE_URL,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}${path}`,
     },
   }
 }

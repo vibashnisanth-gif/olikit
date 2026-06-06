@@ -10,6 +10,7 @@ import { buildAggregateJsonLd, buildDatasetJsonLd } from "@/lib/seo/json-ld"
 import { CalculatorInteractive } from "@/components/calculator-interactive"
 import { StateDataTable } from "@/components/state-data-table"
 import { SourceFooter } from "@/components/source-footer"
+import { LastUpdated } from "@/components/last-updated"
 
 type Props = {
   params: Promise<{ locale: string; subregion: string; tool: string }>
@@ -283,6 +284,7 @@ export default async function SubRegionToolPage({ params }: Props) {
       </section>
 
       <div className="mt-10">
+        <LastUpdated />
         <SourceFooter localeSlug={locale.slug} />
       </div>
     </div>
