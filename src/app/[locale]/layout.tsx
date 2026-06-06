@@ -54,6 +54,18 @@ export default async function LocaleLayout({
             >
               Guides
             </a>
+            <a
+              href={`/${slug}/salary`}
+              className="hidden text-zinc-600 transition-colors hover:text-zinc-950 md:inline"
+            >
+              Salary
+            </a>
+            <Link
+              href={`/${slug}/search`}
+              className="hidden text-zinc-600 transition-colors hover:text-zinc-950 lg:inline"
+            >
+              Search
+            </Link>
             <Link
               href="/about"
               className="hidden text-zinc-600 transition-colors hover:text-zinc-950 lg:inline"
@@ -98,6 +110,14 @@ export default async function LocaleLayout({
               <ul className="space-y-2 text-sm text-zinc-500">
                 <li><a href={`/${slug}`} className="hover:text-zinc-950">All Tools</a></li>
                 <li><a href={`/${slug}/guides`} className="hover:text-zinc-950">Guides</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="mb-3 text-sm font-semibold text-zinc-950">Resources</h3>
+              <ul className="space-y-2 text-sm text-zinc-500">
+                <li><a href={`/${slug}/salary`} className="hover:text-zinc-950">Salary Hub</a></li>
+                <li><a href={`/${slug}/average-salary/california`} className="hover:text-zinc-950">Average Salary</a></li>
+                <li><a href={`/${slug}/cost-of-living/california`} className="hover:text-zinc-950">Cost of Living</a></li>
               </ul>
             </div>
             <div>

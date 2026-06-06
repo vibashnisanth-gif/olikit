@@ -88,6 +88,33 @@ export function buildBreadcrumbs(
   return crumbs
 }
 
+export function getContentLinks(
+  tool: Tool,
+  locale: Locale
+): InternalLink[] {
+  const links: InternalLink[] = []
+  if (tool.slug === "salary-calculator" || tool.slug === "tax-calculator") {
+    links.push({
+      label: `Salary Hub`,
+      href: `/${locale.slug}/salary`,
+      type: "content",
+    })
+    if (locale.states) {
+      links.push({
+        label: `Average Salary by State`,
+        href: `/${locale.slug}/average-salary/${locale.states[0].slug}`,
+        type: "content",
+      })
+      links.push({
+        label: `Cost of Living by State`,
+        href: `/${locale.slug}/cost-of-living/${locale.states[0].slug}`,
+        type: "content",
+      })
+    }
+  }
+  return links
+}
+
 export function getAllInternalLinks(
   tool: Tool,
   locale: Locale
@@ -97,5 +124,6 @@ export function getAllInternalLinks(
     ...getLocaleLinks(locale, tool.slug),
     ...getComparisonLinks(tool, locale),
     ...getSubRegionLinks(locale, tool),
+    ...getContentLinks(tool, locale),
   ]
 }

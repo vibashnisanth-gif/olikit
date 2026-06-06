@@ -148,6 +148,20 @@ export const stateDataSets: StateDataSet[] = [
     },
     source: "Bureau of Labor Statistics, US Census Bureau, Washington State Department of Revenue (2025)",
   },
+  {
+    stateSlug: "michigan",
+    stateName: "Michigan",
+    dataPoints: {
+      averageSalary: 56000,
+      medianHouseholdIncome: 65000,
+      minimumWage: 10.33,
+      stateIncomeTaxRate: "4.25% flat",
+      effectivePropertyTaxRate: 1.38,
+      medianHomeValue: 230000,
+      costOfLivingIndex: 89,
+    },
+    source: "Bureau of Labor Statistics, US Census Bureau, Michigan Department of Treasury (2025)",
+  },
 ]
 
 export function getStateDataBySlug(slug: string): StateDataSet | undefined {

@@ -2,6 +2,10 @@ export function getLastUpdated(): string {
   return "June 2026"
 }
 
+export function getCurrentYear(): number {
+  return new Date().getFullYear()
+}
+
 export function getDateModified(): string {
   return "2026-06-01"
 }

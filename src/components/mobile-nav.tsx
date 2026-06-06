@@ -58,6 +58,20 @@ export function MobileNav({ currentSlug, currentName, locales }: Props) {
               >
                 Guides
               </a>
+              <a
+                href={`/${currentSlug}/salary`}
+                className="rounded-md px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-100"
+                onClick={() => setOpen(false)}
+              >
+                Salary
+              </a>
+              <Link
+                href={`/${currentSlug}/search`}
+                className="rounded-md px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-100"
+                onClick={() => setOpen(false)}
+              >
+                Search
+              </Link>
               <Link
                 href="/about"
                 className="rounded-md px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-100"

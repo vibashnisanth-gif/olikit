@@ -23,7 +23,6 @@ export function SiteScripts() {
   }, [])
 
   const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
-  const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID
 
   if (consent !== true) return null
 
@@ -44,14 +43,6 @@ export function SiteScripts() {
             `}
           </Script>
         </>
-      )}
-      {adsenseClient && (
-        <Script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
       )}
     </>
   )

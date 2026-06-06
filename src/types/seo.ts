@@ -87,7 +87,7 @@ export interface JsonLd {
 export interface InternalLink {
   label: string
   href: string
-  type: "related" | "locale" | "comparison" | "subregion" | "breadcrumb"
+  type: "related" | "locale" | "comparison" | "subregion" | "breadcrumb" | "content"
 }
 
 export interface BreadcrumbItem {

@@ -199,6 +199,25 @@ export default async function ToolPage({ params }: Props) {
             </div>
           </div>
 
+          {links.filter((l) => l.type === "content").length > 0 && (
+            <div className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
+              <h3 className="mb-3 font-semibold text-zinc-950">Salary Resources</h3>
+              <div className="space-y-2">
+                {links
+                  .filter((l) => l.type === "content")
+                  .map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      className="block rounded-md px-2 py-1.5 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+              </div>
+            </div>
+          )}
+
           {content.faqs.length > 0 && (
             <div className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
               <h3 className="mb-3 font-semibold text-zinc-950">
