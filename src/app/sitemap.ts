@@ -6,6 +6,9 @@ import { stateDataSets } from "@/lib/content/state-data"
 import { costOfLivingData } from "@/lib/content/state-expansion"
 import { glossaryEntries } from "@/lib/content/glossary"
 import { researchReports } from "@/lib/content/research"
+import { comparisonPairs } from "@/lib/content/comparison-engine"
+import { professions } from "@/lib/content/professions-data"
+import { professionComparisonPairs } from "@/lib/content/profession-comparisons"
 import { SITE_URL } from "@/lib/seo/constants"
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -70,6 +73,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     })
+
+    for (const profession of professions) {
+      entries.push({
+        url: `${SITE_URL}/${locale.slug}/salary/${profession.slug}`,
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: 0.8,
+      })
+    }
 
     entries.push({
       url: `${SITE_URL}/${locale.slug}/financial-data`,
@@ -151,6 +163,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 0.6,
     })
+
+    for (const pair of comparisonPairs) {
+      const slugA = pair.regionA ?? pair.pairA
+      const slugB = pair.regionB ?? pair.pairB
+      entries.push({
+        url: `${SITE_URL}/${locale.slug}/comparisons/${pair.type}/${slugA}-vs-${slugB}`,
+        lastModified: now,
+        changeFrequency: "weekly",
+        priority: 0.7,
+      })
+    }
+
+    for (const pair of professionComparisonPairs) {
+      entries.push({
+        url: `${SITE_URL}/${locale.slug}/comparisons/profession-salary/${pair.professionSlug}-${pair.pairA}-vs-${pair.pairB}`,
+        lastModified: now,
+        changeFrequency: "weekly",
+        priority: 0.7,
+      })
+    }
 
     if (locale.states) {
       for (const state of locale.states) {

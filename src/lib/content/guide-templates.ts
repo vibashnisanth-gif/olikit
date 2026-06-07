@@ -106,6 +106,69 @@ export const guides: Guide[] = [
     ],
     relatedToolSlugs: ["investment-calculator", "retirement-calculator"],
   },
+  {
+    id: "best-money-transfer-services",
+    slug: "best-money-transfer-services",
+    name: "Best Money Transfer Services in {country}",
+    shortName: "Money Transfer",
+    category: "salary",
+    description:
+      "Compare the best money transfer services for sending money internationally from {country}. Find low-fee options with great exchange rates.",
+    metaTitleTemplate:
+      "Best Money Transfer Services in {country} (2025) - Compare Fees & Rates",
+    metaDescriptionTemplate:
+      "Compare the best money transfer services in {country}. See fees, exchange rates, and transfer speeds for Wise, Revolut, Remitly, and more. Save on international transfers.",
+    keywords: [
+      "money transfer",
+      "send money abroad",
+      "international transfer",
+      "currency exchange",
+      "best transfer rates",
+    ],
+    relatedToolSlugs: ["salary-calculator"],
+  },
+  {
+    id: "best-tax-software",
+    slug: "best-tax-software",
+    name: "Best Tax Software in {country}",
+    shortName: "Tax Software",
+    category: "tax",
+    description:
+      "Find the best tax software for filing your taxes in {country}. Compare features, pricing, and ease of use for top tax filing platforms.",
+    metaTitleTemplate:
+      "Best Tax Software in {country} (2025) - Compare Top Tax Filing Platforms",
+    metaDescriptionTemplate:
+      "Compare the best tax software in {country}. Find affordable options, free filing, and expert-assisted tax preparation with our comprehensive guide.",
+    keywords: [
+      "tax software",
+      "best tax filing",
+      "tax return software",
+      "online tax filing",
+      "income tax software",
+    ],
+    relatedToolSlugs: ["tax-calculator", "salary-calculator"],
+  },
+  {
+    id: "best-investment-platforms",
+    slug: "best-investment-platforms",
+    name: "Best Investment Platforms in {country}",
+    shortName: "Investing",
+    category: "investment",
+    description:
+      "Compare the best investment platforms and trading apps available in {country}. Find low-fee options for stocks, ETFs, and managed portfolios.",
+    metaTitleTemplate:
+      "Best Investment Platforms in {country} (2025) - Compare Trading Apps",
+    metaDescriptionTemplate:
+      "Compare the best investment platforms in {country}. Find low-fee trading apps, robo-advisors, and managed portfolios. Start investing with confidence.",
+    keywords: [
+      "investment platforms",
+      "best trading apps",
+      "online brokerage",
+      "investing for beginners",
+      "stock trading platform",
+    ],
+    relatedToolSlugs: ["investment-calculator", "retirement-calculator", "salary-calculator"],
+  },
 ]
 
 export function getGuideBySlug(slug: string): Guide | undefined {

@@ -3,6 +3,7 @@
 import { useState, useMemo, useCallback } from 'react'
 import { getCalculatorConfig } from '@/lib/calculator-registry'
 import type { CalculatorField, ResultGroup } from '@/lib/calculator-registry'
+import { CalculatorShare } from '@/components/calculator-share'
 
 const CURRENCY_SYMBOLS: Record<string, string> = {
   us: '$',
@@ -172,6 +173,12 @@ export function CalculatorInteractive({ toolSlug, localeSlug }: Props) {
               {calculation.results.map((group, i) => (
                 <ResultCard key={i} group={group} />
               ))}
+              <CalculatorShare
+                toolSlug={toolSlug}
+                localeSlug={localeSlug}
+                inputValues={values as Record<string, number | string>}
+                resultSummary={calculation.results.map(g => `${g.title}: ${g.items.map(i => `${i.label}: ${i.value}`).join(', ')}`).join(' | ')}
+              />
             </div>
           )}
           {!calculation.results && !calculation.error && (

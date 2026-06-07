@@ -10,6 +10,10 @@ import { buildAggregateJsonLd } from "@/lib/seo/json-ld"
 import { CalculatorInteractive } from "@/components/calculator-interactive"
 import { SourceFooter } from "@/components/source-footer"
 import { LastUpdated } from "@/components/last-updated"
+import { AffiliateSidebar } from "@/components/affiliate-sidebar"
+import { NewsletterSignup } from "@/components/newsletter-signup"
+import { AdUnit } from "@/components/ad-unit"
+import { professions } from "@/lib/content/professions-data"
 
 type Props = {
   params: Promise<{ locale: string; tool: string }>
@@ -134,6 +138,8 @@ export default async function ToolPage({ params }: Props) {
         </section>
       )}
 
+      <NewsletterSignup locale={locale.slug} source="tool-inline" variant="banner" />
+
       <div className="grid gap-8 md:grid-cols-3">
         <div className="md:col-span-2 space-y-8">
           {content.sections.map((section, i) => (
@@ -182,6 +188,16 @@ export default async function ToolPage({ params }: Props) {
             </div>
           </div>
 
+          <AffiliateSidebar
+            countrySlug={locale.slug}
+            toolCategory={tool.category}
+            toolName={tool.name}
+          />
+
+          <NewsletterSignup locale={locale.slug} source="tool-sidebar" variant="sidebar" />
+
+          <AdUnit slot="1234567890" format="rectangle" className="hidden md:block" />
+
           <div className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
             <h3 className="mb-3 font-semibold text-zinc-950">Related Guide</h3>
             <div className="space-y-2">
@@ -217,6 +233,21 @@ export default async function ToolPage({ params }: Props) {
               </div>
             </div>
           )}
+
+          <div className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
+            <h3 className="mb-3 font-semibold text-zinc-950">Salary by Profession</h3>
+            <div className="space-y-2">
+              {professions.slice(0, 6).map((p) => (
+                <a
+                  key={p.slug}
+                  href={`/${locale.slug}/salary/${p.slug}`}
+                  className="block rounded-md px-2 py-1.5 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950"
+                >
+                  {p.name}
+                </a>
+              ))}
+            </div>
+          </div>
 
           {content.faqs.length > 0 && (
             <div className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">

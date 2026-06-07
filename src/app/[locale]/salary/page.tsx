@@ -8,6 +8,8 @@ import { getLastUpdated } from "@/lib/seo/freshness"
 import { tools } from "@/lib/content/templates"
 import { guides } from "@/lib/content/guide-templates"
 import { stateDataSets } from "@/lib/content/state-data"
+import { professions } from "@/lib/content/professions-data"
+import { AdUnit } from "@/components/ad-unit"
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale: locale.slug }))
@@ -72,9 +74,9 @@ export default async function SalaryHubPage(props: { params: Promise<{ locale: s
           <p className="text-lg text-zinc-600 dark:text-zinc-400">{content.intro}</p>
         </section>
 
-        <section className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6 space-y-3">
-          <h2 className="text-xl font-semibold">Key Takeaways</h2>
-          <ul className="list-disc pl-6 space-y-2 text-zinc-700 dark:text-zinc-300">
+        <section className="bg-blue-50 dark:bg-blue-900/30 rounded-lg p-6 space-y-3 border border-blue-100 dark:border-blue-800/30">
+          <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">Key Takeaways</h2>
+          <ul className="list-disc pl-6 space-y-2 text-zinc-800 dark:text-zinc-200">
             {content.keyTakeaways.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
@@ -87,6 +89,8 @@ export default async function SalaryHubPage(props: { params: Promise<{ locale: s
             Use our free salary calculator to estimate your take-home pay after federal and state taxes, Social Security, and Medicare. Explore average salary data by state, compare cost of living across regions, and read our expert guides on salary negotiation and tax planning.
           </p>
         </section>
+
+        <AdUnit slot="1234567897" format="horizontal" />
 
         {content.sections.map((section, i) => (
           <section key={i}>
@@ -145,6 +149,21 @@ export default async function SalaryHubPage(props: { params: Promise<{ locale: s
             </div>
           </section>
         )}
+
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">Salary by Profession</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            {professions.map((p) => (
+              <Link
+                key={p.slug}
+                href={`/${locale.slug}/salary/${p.slug}`}
+                className="border rounded-lg p-4 hover:border-blue-400 transition text-zinc-700 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400"
+              >
+                {p.name}
+              </Link>
+            ))}
+          </div>
+        </section>
 
         <section>
           <h2 className="text-2xl font-semibold mb-4">Frequently Asked Questions</h2>

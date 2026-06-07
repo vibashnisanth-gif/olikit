@@ -1,6 +1,7 @@
 import type { Locale, Tool, InternalLink, BreadcrumbItem } from "@/types/seo"
 import { stateSeoToolSlugs, tools } from "@/lib/content/templates"
 import { getPrimaryLocales, getExpansionLocales, locales } from "@/lib/seo/locales"
+import { professions } from "@/lib/content/professions-data"
 
 export function getRelatedTools(
   tool: Tool,
@@ -99,6 +100,13 @@ export function getContentLinks(
       href: `/${locale.slug}/salary`,
       type: "content",
     })
+    for (const profession of professions.slice(0, 3)) {
+      links.push({
+        label: `${profession.name} Salary`,
+        href: `/${locale.slug}/salary/${profession.slug}`,
+        type: "content",
+      })
+    }
     if (locale.states) {
       links.push({
         label: `Average Salary by State`,
