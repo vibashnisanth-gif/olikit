@@ -4,6 +4,7 @@ import { SITE_URL } from "@/lib/seo/constants"
 import { getDateModified } from "@/lib/seo/freshness"
 import { professions, getProfession } from "@/lib/content/professions-data"
 import { getAllCountries } from "@/lib/content/country-registry"
+import { Shell } from "@/components/shell"
 
 export const metadata: Metadata = {
   title: "Compare Salaries, Taxes and Cost of Living Across Major Economies",
@@ -330,8 +331,9 @@ export default function GlobalHomePage() {
   const countries = getAllCountries()
 
   return (
-    <div className="space-y-12 lg:space-y-16">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
+    <Shell>
+      <div className="space-y-12 lg:space-y-16">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
@@ -1012,5 +1014,6 @@ export default function GlobalHomePage() {
         </div>
       </section>
     </div>
+    </Shell>
   )
 }
