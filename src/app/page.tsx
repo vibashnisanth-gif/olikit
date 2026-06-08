@@ -639,7 +639,7 @@ export default function GlobalHomePage() {
                 <span className="text-3xl shrink-0">{c.flag}</span>
                 <div className="min-w-0 flex-1">
                   <h3 className="font-semibold text-zinc-950 group-hover:text-zinc-800 transition-colors">
-                    {c.flag} {c.name}
+                    {c.name}
                   </h3>
                   <p className="mt-0.5 text-xs leading-5 text-zinc-500">
                     {c.description}
