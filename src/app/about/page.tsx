@@ -2,6 +2,7 @@ import Link from "next/link"
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { getLastUpdated } from "@/lib/seo/freshness"
+import { Shell } from "@/components/shell"
 
 export const metadata: Metadata = {
   title: "About Olikit — Free Online Finance & Business Calculators",
@@ -41,12 +42,12 @@ const jsonLd = {
 export default function AboutPage() {
   const lastUpdated = getLastUpdated()
   return (
-    <>
+    <Shell>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="max-w-3xl mx-auto px-4 py-12 space-y-10">
+      <div className="max-w-3xl mx-auto px-4 py-12 space-y-10">
         <section>
           <h1 className="text-4xl font-bold mb-4">About Olikit</h1>
           <p className="text-lg text-zinc-600 dark:text-zinc-400">
@@ -156,7 +157,7 @@ export default function AboutPage() {
             {" "}&mdash; Average salary data, cost of living comparisons, and salary guides.
           </p>
         </section>
-      </main>
-    </>
+      </div>
+    </Shell>
   )
 }

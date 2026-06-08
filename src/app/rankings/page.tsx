@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { getAllCountries } from "@/lib/content/country-registry"
 import { professions } from "@/lib/content/professions-data"
+import { Shell } from "@/components/shell"
 
 export const metadata: Metadata = {
   title: "Global Rankings — Salaries, Taxes & Financial Data",
@@ -54,7 +55,8 @@ export default function RankingsPage() {
     .slice(0, 5)
 
   return (
-    <div className="space-y-8">
+    <Shell>
+      <div className="space-y-8">
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
         <h1 className="text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Global Rankings</h1>
         <p className="mt-3 max-w-2xl text-base leading-7 text-zinc-500 sm:text-lg">
@@ -157,5 +159,6 @@ export default function RankingsPage() {
         </div>
       </section>
     </div>
+    </Shell>
   )
 }

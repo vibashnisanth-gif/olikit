@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
+import { Shell } from "@/components/shell"
 
 export const metadata: Metadata = {
   title: "Methodology — How Olikit Calculates Data",
@@ -9,7 +10,8 @@ export const metadata: Metadata = {
 
 export default function MethodologyPage() {
   return (
-    <div className="space-y-8 max-w-3xl">
+    <Shell>
+      <div className="space-y-8 max-w-3xl">
       <section className="rounded-lg border border-zinc-200 bg-white px-5 py-8 shadow-sm sm:px-8 sm:py-10">
         <h1 className="text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Methodology</h1>
         <p className="mt-3 text-lg leading-8 text-zinc-600">
@@ -69,5 +71,6 @@ export default function MethodologyPage() {
         </p>
       </section>
     </div>
+    </Shell>
   )
 }

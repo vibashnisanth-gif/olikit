@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { locales } from "@/lib/seo/locales"
 import { getSiteIntelligence } from "@/lib/site-intelligence"
+import { Shell } from "@/components/shell"
 
 export const metadata: Metadata = {
   title: "All Countries — Global Overview",
@@ -20,7 +21,8 @@ export default function CountriesPage() {
   const si = getSiteIntelligence()
 
   return (
-    <div className="space-y-12">
+    <Shell>
+      <div className="space-y-12">
       <section className="rounded-lg border border-zinc-200 bg-white px-5 py-8 shadow-sm sm:px-8 sm:py-10">
         <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">
           Olikit Global
@@ -65,5 +67,6 @@ export default function CountriesPage() {
         ))}
       </div>
     </div>
+    </Shell>
   )
 }

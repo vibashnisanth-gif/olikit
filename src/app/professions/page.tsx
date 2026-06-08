@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { locales } from "@/lib/seo/locales"
 import { professions, getProfession } from "@/lib/content/professions-data"
+import { Shell } from "@/components/shell"
 
 const CURRENCY_SYMBOLS: Record<string, string> = {
   us: "$", uk: "£", au: "A$", ca: "C$", nz: "NZ$", in: "₹", sg: "S$",
@@ -30,7 +31,8 @@ export const metadata: Metadata = {
 
 export default function ProfessionsPage() {
   return (
-    <div className="space-y-12">
+    <Shell>
+      <div className="space-y-12">
       <section className="rounded-lg border border-zinc-200 bg-white px-5 py-8 shadow-sm sm:px-8 sm:py-10">
         <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">
           Olikit Global
@@ -119,5 +121,6 @@ export default function ProfessionsPage() {
         </div>
       </section>
     </div>
+    </Shell>
   )
 }

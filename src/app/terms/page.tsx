@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
+import { Shell } from "@/components/shell"
 
 export const metadata: Metadata = {
   title: "Terms of Service — Olikit",
@@ -34,7 +35,7 @@ const jsonLd = {
 
 export default function TermsPage() {
   return (
-    <>
+    <Shell>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -116,6 +117,6 @@ export default function TermsPage() {
           </p>
         </section>
       </div>
-    </>
+    </Shell>
   )
 }
