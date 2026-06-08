@@ -64,7 +64,7 @@ export function generateGuideContent(
         },
         {
           question: `How does ${locale.name}'s tax system compare to other countries?`,
-          answer: `${locale.name}'s tax system has its own unique combination of rates, thresholds, and deductions. Some countries have no income tax, while others have higher rates but offer more public services. Our comparison tools help you understand the differences across all 7 countries.`,
+          answer: `${locale.name}'s tax system has its own unique combination of rates, thresholds, and deductions. Some countries have no income tax, while others have higher rates but offer more public services. Our comparison tools help you understand the differences across major economies.`,
         },
         {
           question: `How can I maximize my take-home pay in ${locale.name}?`,

@@ -5,11 +5,11 @@ import { professions } from "@/lib/content/professions-data"
 
 export const metadata: Metadata = {
   title: "Global Rankings — Salaries, Taxes & Financial Data",
-  description: "Explore data-driven rankings of salaries, tax rates, and financial metrics across 7 countries. See highest-paying countries, lowest tax burdens, and most affordable destinations.",
+  description: "Explore data-driven rankings of salaries, tax rates, and financial metrics across major economies. See highest-paying countries, lowest tax burdens, and most affordable destinations.",
   alternates: { canonical: `${SITE_URL}/rankings` },
   openGraph: {
     title: "Global Rankings — Salaries, Taxes & Financial Data",
-    description: "Data-driven rankings of salaries, tax rates, and financial metrics across 7 countries. Highest-paying, lowest tax, most affordable.",
+    description: "Data-driven rankings of salaries, tax rates, and financial metrics across major economies. Highest-paying, lowest tax, most affordable.",
     url: `${SITE_URL}/rankings`,
     siteName: "Olikit",
     type: "website",
@@ -58,7 +58,7 @@ export default function RankingsPage() {
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
         <h1 className="text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Global Rankings</h1>
         <p className="mt-3 max-w-2xl text-base leading-7 text-zinc-500 sm:text-lg">
-          Data-driven rankings of salaries, tax rates, and financial metrics across 7 countries. See where each country stands.
+          Data-driven rankings of salaries, tax rates, and financial metrics across major economies. See where each country stands.
         </p>
       </section>
 

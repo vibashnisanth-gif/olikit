@@ -4,11 +4,11 @@ import { getAllCountries } from "@/lib/content/country-registry"
 
 export const metadata: Metadata = {
   title: "Global Research — Tax Systems & Salary Trends",
-  description: "In-depth research on tax systems, salary trends, and financial regulations across 7 countries. Country-by-country analysis of income tax, VAT/GST, and compensation data from official government sources.",
+  description: "In-depth research on tax systems, salary trends, and financial regulations across major economies. Country-by-country analysis of income tax, VAT/GST, and compensation data from official government sources.",
   alternates: { canonical: `${SITE_URL}/research` },
   openGraph: {
     title: "Global Research — Tax Systems & Salary Trends",
-    description: "In-depth research on tax systems, salary trends, and financial regulations across 7 countries. Analysis from official government sources.",
+    description: "In-depth research on tax systems, salary trends, and financial regulations across major economies. Analysis from official government sources.",
     url: `${SITE_URL}/research`,
     siteName: "Olikit",
     type: "website",
@@ -21,7 +21,7 @@ export default function ResearchPage() {
   const reports = [
     {
       title: "Global Salary Report",
-      description: "Comprehensive analysis of salary benchmarks across 7 countries. Software engineer, doctor, teacher, nurse, and accountant salary comparisons with currency-adjusted data.",
+      description: "Comprehensive analysis of salary benchmarks across major economies. Software engineer, doctor, teacher, nurse, and accountant salary comparisons with currency-adjusted data.",
       icon: "💰",
       href: "/compare",
       date: "2025-2026",
@@ -37,7 +37,7 @@ export default function ResearchPage() {
     },
     {
       title: "Cost of Living Index",
-      description: "Analysis of cost-of-living indicators across 7 countries. Housing, transportation, healthcare, and goods and services costs compared using government statistical data.",
+      description: "Analysis of cost-of-living indicators across major economies. Housing, transportation, healthcare, and goods and services costs compared using government statistical data.",
       icon: "🏠",
       href: "/compare",
       date: "2025-2026",
@@ -45,7 +45,7 @@ export default function ResearchPage() {
     },
     {
       title: "Technology Sector Compensation",
-      description: "In-depth research on technology sector salaries including software engineers, data scientists, and IT professionals across all 7 countries.",
+      description: "In-depth research on technology sector salaries including software engineers, data scientists, and IT professionals across major economies.",
       icon: "💻",
       href: "/us/salary/software-engineer",
       date: "2025-2026",
@@ -74,7 +74,7 @@ export default function ResearchPage() {
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
         <h1 className="text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Global Research</h1>
         <p className="mt-3 max-w-2xl text-base leading-7 text-zinc-500 sm:text-lg">
-          In-depth research on tax systems, salary trends, and financial regulations across 7 countries. Analysis based on official government data from IRS, HMRC, ATO, CRA, IRD, and IRAS.
+          In-depth research on tax systems, salary trends, and financial regulations across major economies. Analysis based on official government data from IRS, HMRC, ATO, CRA, IRD, and IRAS.
         </p>
       </section>
 

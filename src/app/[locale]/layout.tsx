@@ -102,7 +102,7 @@ export default async function LocaleLayout({
                 <a href={`/${slug}`} className="hover:text-zinc-700">Olikit</a>
               </h3>
               <p className="text-sm text-zinc-500">
-                Free calculators for financial decisions across 7 countries.
+                Free calculators for financial decisions across major economies.
               </p>
             </div>
             <div>

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Olikit — Free Online Finance & Business Calculators",
     description:
-      "Olikit provides free, accurate financial calculators for 7 countries. Learn about our mission, data sources, and methodology.",
+      "Olikit provides free, accurate financial calculators across major economies. Learn about our mission, data sources, and methodology.",
     url: `${SITE_URL}/about`,
     siteName: "Olikit",
     locale: "en-US",
@@ -26,7 +26,7 @@ const jsonLd = {
   "@type": "AboutPage",
   name: "About Olikit",
   description:
-    "Olikit provides free, accurate financial calculators for 7 countries with localized tax, salary, mortgage, and investment tools.",
+    "Olikit provides free, accurate financial calculators across major economies with localized tax, salary, mortgage, and investment tools.",
   url: `${SITE_URL}/about`,
   mainEntity: {
     "@type": "Organization",
@@ -50,14 +50,14 @@ export default function AboutPage() {
         <section>
           <h1 className="text-4xl font-bold mb-4">About Olikit</h1>
           <p className="text-lg text-zinc-600 dark:text-zinc-400">
-            Free, accurate financial calculators designed for every country we serve. Olikit helps you understand your salary, taxes, mortgage, investments, and retirement across 7 countries.
+            Free, accurate financial calculators designed for every country we serve. Olikit helps you understand your salary, taxes, mortgage, investments, and retirement across major economies.
           </p>
         </section>
 
         <section>
           <h2 className="text-2xl font-semibold mb-3">What Is Olikit?</h2>
           <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
-            Olikit is a free online financial tools platform that provides salary calculators, tax calculators, mortgage calculators, investment calculators, retirement planners, business loan calculators, and profit margin calculators. Every tool is fully localized for 7 countries: the United States, United Kingdom, Australia, Canada, India, New Zealand, and Singapore. We also provide state-level calculators for regions with sub-national tax systems.
+            Olikit is a free online financial tools platform that provides salary calculators, tax calculators, mortgage calculators, investment calculators, retirement planners, business loan calculators, and profit margin calculators. Every tool is fully localized for the United States, United Kingdom, Australia, Canada, India, New Zealand, and Singapore. We also provide state-level calculators for regions with sub-national tax systems.
           </p>
           <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed mt-3">
             Our mission is to make financial planning accessible to everyone, regardless of where they live. We do not sell user data, require accounts, or charge for any calculator. Every tool is free to use, ad-supported, and updated annually to reflect the latest tax laws and financial regulations.

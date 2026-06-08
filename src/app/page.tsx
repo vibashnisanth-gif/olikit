@@ -257,6 +257,10 @@ const popularResearchLinks = [
   { label: "Global Salary Rankings", href: "/rankings" },
   { label: "Global Tax Comparisons", href: "/compare" },
   { label: "Cost of Living Rankings", href: "/research" },
+  { label: "Software Engineer Salary", href: "/us/salary/software-engineer" },
+  { label: "Doctor Salary", href: "/us/salary/doctor" },
+  { label: "Salary After Tax", href: "/us/tools/tax-calculator" },
+  { label: "Compensation Benchmarks", href: "/professions" },
 ]
 
 const popularProfessionCards = [
@@ -297,25 +301,14 @@ const highestPayingProfessions = [
   },
 ]
 
-const frequentlyResearchedTopics = [
-  { label: "Software Engineer Salary", href: "/us/salary/software-engineer" },
-  { label: "Doctor Salary", href: "/us/salary/doctor" },
-  { label: "Income Tax Rates", href: "/compare" },
-  { label: "Cost of Living Rankings", href: "/research" },
-  { label: "Highest Paying Jobs", href: "/rankings" },
-  { label: "Salary After Tax", href: "/us/tools/tax-calculator" },
-  { label: "Compensation Benchmarks", href: "/professions" },
-  { label: "Purchasing Power", href: "/research" },
-]
-
 const countryKeyStrengths: Record<string, string> = {
-  us: "High earning potential across technology, healthcare and finance.",
-  uk: "Strong financial services sector with competitive professional salaries.",
-  au: "High purchasing power and quality of life with strong minimum wage protections.",
-  ca: "Competitive technology and healthcare salaries with universal healthcare.",
-  nz: "Balanced lifestyle with growing technology and healthcare sectors.",
-  in: "Fast-growing technology and services sectors with competitive domestic compensation.",
-  sg: "Competitive salaries with relatively low personal income tax.",
+  us: "High technology, healthcare and finance compensation.",
+  uk: "Global finance, professional services and technology sectors.",
+  au: "Strong purchasing power and quality-of-life outcomes.",
+  ca: "Growing technology sector and skilled immigration pathways.",
+  nz: "Healthcare, engineering and skilled trades opportunities.",
+  in: "Large technology workforce and rapidly growing digital economy.",
+  sg: "Competitive salaries and relatively low personal income tax.",
 }
 
 const governmentAuthorities = [
@@ -440,24 +433,23 @@ export default function GlobalHomePage() {
         </p>
         <div className="grid gap-6 lg:gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {professionSnapshots.map((prof) => {
-            const maxPct = Math.max(...prof.rows.map((r) => r.pct), 1)
             return (
               <div
                 key={prof.name}
                 className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm flex flex-col"
               >
-                <h3 className="mb-4 font-semibold text-zinc-950">{prof.name}</h3>
-                <div className="space-y-3 flex-1">
+                <h3 className="mb-4 text-lg font-semibold text-zinc-950">{prof.name}</h3>
+                <div className="space-y-4 flex-1">
                   {prof.rows.map((row) => (
                     <div key={row.country}>
-                      <div className="flex items-center justify-between mb-1">
+                      <div className="flex items-center justify-between mb-1.5">
                         <span className="flex items-center gap-1.5 text-sm text-zinc-600">
                           <span>{row.flag}</span>
                           <span>{row.country}</span>
                         </span>
-                        <span className="text-sm font-semibold text-zinc-950">{row.formatted}</span>
+                        <span className="text-base font-bold text-zinc-950">{row.formatted}</span>
                       </div>
-                      <div className="h-2 w-full rounded-full bg-zinc-100 overflow-hidden">
+                      <div className="h-3 w-full rounded-full bg-zinc-100 overflow-hidden">
                         <div
                           className="h-full rounded-full bg-emerald-500"
                           style={{ width: `${row.pct}%` }}
@@ -480,81 +472,74 @@ export default function GlobalHomePage() {
         </div>
       </section>
 
-      {/* SECTION 4 — FEATURED INSIGHTS */}
-      <section>
-        <h2 className="mb-6 text-xl font-semibold text-zinc-950 sm:text-2xl">
-          Featured Insights
-        </h2>
-        <div className="grid gap-6 lg:gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredInsights.map((insight) => (
-            <div
-              key={insight.title}
-              className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm flex flex-col"
-            >
-              <h3 className="font-semibold text-zinc-950">{insight.title}</h3>
-              <p className="mt-1.5 text-sm leading-6 text-zinc-600 flex-1">{insight.summary}</p>
-              <a
-                href={insight.href}
-                className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
-              >
-                {insight.cta}
-                <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* SECTION 5 — FEATURED RESEARCH */}
+      {/* SECTION 4+5 — FEATURED INSIGHTS & RESEARCH (MERGED) */}
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-700">
-          Featured Research
-        </p>
-        <div className="max-w-3xl">
-          <h2 className="text-xl font-semibold text-zinc-950 sm:text-2xl">
-            Olikit Global Salary Index 2026
-          </h2>
-          <p className="mt-3 text-base leading-7 text-zinc-600">
-            Compare salaries, taxes, purchasing power and cost-of-living outcomes across major economies using government-sourced data.
-          </p>
-          <div className="mt-4 grid gap-3 sm:grid-cols-2">
-            <div className="flex items-center gap-2 text-sm text-zinc-600">
-              <svg className="h-4 w-4 shrink-0 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-              Highest Paying Countries
+        <h2 className="mb-6 text-xl font-semibold text-zinc-950 sm:text-2xl">
+          Featured Insights &amp; Research
+        </h2>
+        <div className="grid gap-6 lg:gap-4 lg:grid-cols-5">
+          <div className="lg:col-span-2 rounded-lg border border-zinc-200 bg-zinc-50 p-5">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-700">
+              Featured Research
+            </p>
+            <h3 className="text-lg font-semibold text-zinc-950">
+              Olikit Global Salary Index 2026
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-zinc-600">
+              Compare salaries, taxes, purchasing power and cost-of-living outcomes across major economies using government-sourced data.
+            </p>
+            <div className="mt-3 space-y-1.5">
+              <div className="flex items-center gap-2 text-sm text-zinc-600">
+                <svg className="h-4 w-4 shrink-0 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Highest Paying Countries
+              </div>
+              <div className="flex items-center gap-2 text-sm text-zinc-600">
+                <svg className="h-4 w-4 shrink-0 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Tax Adjusted Rankings
+              </div>
+              <div className="flex items-center gap-2 text-sm text-zinc-600">
+                <svg className="h-4 w-4 shrink-0 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Profession Benchmarks
+              </div>
+              <div className="flex items-center gap-2 text-sm text-zinc-600">
+                <svg className="h-4 w-4 shrink-0 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Cost of Living Comparisons
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-sm text-zinc-600">
-              <svg className="h-4 w-4 shrink-0 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-              Tax Adjusted Rankings
-            </div>
-            <div className="flex items-center gap-2 text-sm text-zinc-600">
-              <svg className="h-4 w-4 shrink-0 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-              Profession Benchmarks
-            </div>
-            <div className="flex items-center gap-2 text-sm text-zinc-600">
-              <svg className="h-4 w-4 shrink-0 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-              Cost of Living Comparisons
-            </div>
-          </div>
-          <div className="mt-5">
             <a
               href="/research"
-              className="inline-flex items-center gap-2 rounded-lg bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800 shadow-sm"
+              className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
             >
-              Read Report
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
+              Read Global Salary Index &rarr;
             </a>
+          </div>
+          <div className="lg:col-span-3 grid gap-6 lg:gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {featuredInsights.map((insight) => (
+              <div
+                key={insight.title}
+                className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm flex flex-col"
+              >
+                <h3 className="font-semibold text-zinc-950">{insight.title}</h3>
+                <p className="mt-1.5 text-sm leading-6 text-zinc-600 flex-1">{insight.summary}</p>
+                <a
+                  href={insight.href}
+                  className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
+                >
+                  {insight.cta}
+                  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -918,7 +903,7 @@ export default function GlobalHomePage() {
         <span>Cost of Living Data</span>
       </div>
 
-      {/* SECTION 16 — POPULAR RESEARCH & RANKINGS */}
+      {/* SECTION 16+17 — POPULAR RESEARCH & RANKINGS (MERGED) */}
       <section>
         <h2 className="mb-6 text-xl font-semibold text-zinc-950 sm:text-2xl">
           Popular Research &amp; Rankings
@@ -932,26 +917,6 @@ export default function GlobalHomePage() {
             >
               <h3 className="font-semibold text-zinc-950 group-hover:text-zinc-700 transition-colors">
                 {link.label}
-              </h3>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      {/* SECTION 17 — FREQUENTLY RESEARCHED TOPICS */}
-      <section>
-        <h2 className="mb-6 text-xl font-semibold text-zinc-950 sm:text-2xl">
-          Frequently Researched Topics
-        </h2>
-        <div className="grid gap-6 lg:gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {frequentlyResearchedTopics.map((topic) => (
-            <a
-              key={topic.label}
-              href={topic.href}
-              className="group rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300"
-            >
-              <h3 className="font-semibold text-zinc-950 group-hover:text-zinc-700 transition-colors">
-                {topic.label}
               </h3>
             </a>
           ))}

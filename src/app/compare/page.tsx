@@ -5,11 +5,11 @@ import { professions } from "@/lib/content/professions-data"
 
 export const metadata: Metadata = {
   title: "Global Comparisons — Compare Countries",
-  description: "Compare financial metrics, tax systems, salary benchmarks, and cost-of-living across 7 countries. Side-by-side analysis of salaries, tax rates, and compensation data from official government sources.",
+  description: "Compare financial metrics, tax systems, salary benchmarks, and cost-of-living across major economies. Side-by-side analysis of salaries, tax rates, and compensation data from official government sources.",
   alternates: { canonical: `${SITE_URL}/compare` },
   openGraph: {
     title: "Global Comparisons — Compare Countries",
-    description: "Compare salaries, tax systems, and cost-of-living across 7 countries. Side-by-side analysis from official government sources.",
+    description: "Compare salaries, tax systems, and cost-of-living across major economies. Side-by-side analysis from official government sources.",
     url: `${SITE_URL}/compare`,
     siteName: "Olikit",
     type: "website",
@@ -27,7 +27,7 @@ export default function ComparePage() {
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
         <h1 className="text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Global Comparisons</h1>
         <p className="mt-3 max-w-2xl text-base leading-7 text-zinc-500 sm:text-lg">
-          Compare salaries, tax systems, and cost-of-living across 7 countries. Side-by-side analysis sourced from official government authorities including IRS, HMRC, ATO, CRA, IRD, and IRAS.
+          Compare salaries, tax systems, and cost-of-living across major economies. Side-by-side analysis sourced from official government authorities including IRS, HMRC, ATO, CRA, IRD, and IRAS.
         </p>
       </section>
 
@@ -63,7 +63,7 @@ export default function ComparePage() {
 
       <section className="rounded-xl border border-zinc-200 bg-zinc-50 px-6 py-8 sm:px-10">
         <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">Salary Comparison by Profession</h2>
-        <p className="mb-6 text-sm leading-6 text-zinc-500">Annual average salaries across 7 countries for key professions (converted to USD for comparison).</p>
+        <p className="mb-6 text-sm leading-6 text-zinc-500">Annual average salaries across major economies for key professions (converted to USD for comparison).</p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
