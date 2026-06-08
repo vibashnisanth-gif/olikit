@@ -18,6 +18,8 @@ export interface AffiliateProduct {
   category: AffiliateCategory
   commission?: string
   featured?: boolean
+  referralUrl?: string
+  countries?: string[]
 }
 
 export interface AffiliatePlacement {

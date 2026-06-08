@@ -115,6 +115,14 @@ export const affiliateProducts: AffiliateProduct[] = [
   { name: "Wagepoint", description: "Canadian payroll made simple", url: "https://www.wagepoint.com", countrySlug: "ca", category: "payroll" },
 ]
 
+export function getAffiliateProductsByCategory(category: string): AffiliateProduct[] {
+  return affiliateProducts.filter((p) => p.category === category)
+}
+
+export function getAffiliateProductsByCountry(countrySlug: string): AffiliateProduct[] {
+  return affiliateProducts.filter((p) => p.countrySlug === countrySlug)
+}
+
 export const sponsoredSlots: SponsoredSlot[] = [
   {
     name: "Sponsor Placeholder",

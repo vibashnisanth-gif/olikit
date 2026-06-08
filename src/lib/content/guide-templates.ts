@@ -10,9 +10,9 @@ export const guides: Guide[] = [
     description:
       "Compare take-home pay after taxes across {country}. See how income tax brackets, social security, and deductions affect your net salary.",
     metaTitleTemplate:
-      "{guide} - Compare Take-Home Pay Across 7 Countries",
+      "{guide} - Compare Take-Home Pay by Country",
     metaDescriptionTemplate:
-      "Compare salary after tax across 7 countries. See how much you keep after income tax, social security, and deductions in each country with our detailed guide.",
+      "Compare salary after tax across major economies. See how much you keep after income tax, social security, and deductions in each country with our detailed guide.",
     keywords: [
       "salary after tax",
       "take home pay comparison",
@@ -31,9 +31,9 @@ export const guides: Guide[] = [
     description:
       "Compare income tax brackets and rates across {country}. Understand progressive tax systems, thresholds, and effective tax rates.",
     metaTitleTemplate:
-      "{guide} - Compare Income Tax Rates Across 7 Countries",
+      "{guide} - Compare Income Tax Rates by Country",
     metaDescriptionTemplate:
-      "Compare tax brackets and income tax rates across 7 countries. Understand progressive tax systems, marginal rates, and how taxes affect your income.",
+      "Compare tax brackets and income tax rates across major economies. Understand progressive tax systems, marginal rates, and how taxes affect your income.",
     keywords: [
       "tax brackets",
       "income tax rates",
@@ -75,7 +75,7 @@ export const guides: Guide[] = [
     metaTitleTemplate:
       "{guide} - Retirement Savings & Planning by Country",
     metaDescriptionTemplate:
-      "Comprehensive retirement planning guide covering 7 countries. Learn how much to save, pension options, and investment strategies for a secure retirement.",
+      "Comprehensive retirement planning guide covering major economies. Learn how much to save, pension options, and investment strategies for a secure retirement.",
     keywords: [
       "retirement planning",
       "retirement savings",

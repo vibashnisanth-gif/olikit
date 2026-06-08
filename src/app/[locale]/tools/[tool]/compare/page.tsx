@@ -2,11 +2,10 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { getLocale, locales } from "@/lib/seo/locales"
 import { buildMetadata } from "@/lib/seo/metadata"
-import { SITE_URL } from "@/lib/seo/constants"
 import { getToolBySlug, tools as allTools } from "@/lib/content/templates"
 import { generateComparisonContent } from "@/lib/content/generators"
 import { getComparisonLinks } from "@/lib/linking/internal-links"
-import { buildWebPageJsonLd, buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/seo/json-ld"
+import { buildWebPageJsonLd, buildFaqJsonLd } from "@/lib/seo/json-ld"
 import { SourceFooter } from "@/components/source-footer"
 import { LastUpdated } from "@/components/last-updated"
 
@@ -61,11 +60,6 @@ export default async function ComparePage({ params, searchParams }: Props) {
   const toolSlug2 = tool.slug
 
   const webPageJsonLd = buildWebPageJsonLd(locale, path)
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { label: "Home", url: `${SITE_URL}/${localeSlug2}` },
-    { label: toolName, url: `${SITE_URL}${path.replace("/compare", "")}` },
-    { label: "Compare", url: `${SITE_URL}${path}` },
-  ])
   const faqJsonLd = comparisonContent?.faqs ? buildFaqJsonLd(comparisonContent.faqs) : null
 
   return (
@@ -76,12 +70,6 @@ export default async function ComparePage({ params, searchParams }: Props) {
           __html: JSON.stringify(webPageJsonLd),
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbJsonLd),
-        }}
-      />
       {faqJsonLd && (
         <script
           type="application/ld+json"
@@ -90,21 +78,6 @@ export default async function ComparePage({ params, searchParams }: Props) {
           }}
         />
       )}
-      <nav className="text-sm text-zinc-500 mb-6">
-        <a href={`/${localeSlug2}`} className="hover:text-zinc-800">
-          Home
-        </a>
-        <span className="mx-2">/</span>
-        <a
-          href={`/${localeSlug2}/tools/${toolSlug2}`}
-          className="hover:text-zinc-800"
-        >
-          {toolName}
-        </a>
-        <span className="mx-2">/</span>
-        <span className="text-zinc-800">Compare</span>
-      </nav>
-
       <div className="mb-10">
         <h1 className="text-3xl font-bold mb-4">
           {toolName} - Compare Across Countries

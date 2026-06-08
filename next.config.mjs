@@ -9,6 +9,15 @@ const nextConfig = {
   turbopack: {
     root: __dirname,
   },
+  async redirects() {
+    return [
+      {
+        source: "/:locale/tools/salary/compare",
+        destination: "/:locale/tools/salary-calculator/compare",
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {

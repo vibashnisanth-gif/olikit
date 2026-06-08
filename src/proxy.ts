@@ -64,8 +64,17 @@ export function proxy(request: NextRequest) {
     "/privacy-policy",
     "/terms",
     "/disclaimer",
+    "/countries",
+    "/professions",
+    "/compare",
+    "/rankings",
+    "/research",
+    "/methodology",
+    "/data-sources",
+    "/editorial-policy",
+    "/search",
   ]
-  if (skipPatterns.some((p) => pathname.startsWith(p))) {
+  if (pathname === "/" || skipPatterns.some((p) => pathname.startsWith(p))) {
     return NextResponse.next()
   }
 

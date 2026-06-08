@@ -3,6 +3,12 @@
 import { useState, useEffect } from "react"
 import Script from "next/script"
 
+declare global {
+  interface Window {
+    GA_MEASUREMENT_ID?: string
+  }
+}
+
 const CONSENT_KEY = "olikit_consent"
 
 function getStoredConsent(): boolean | null {
@@ -39,7 +45,11 @@ export function SiteScripts() {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${measurementId}');
+              gtag('config', '${measurementId}', {
+                page_path: window.location.pathname,
+                page_title: document.title,
+                send_page_view: true
+              });
             `}
           </Script>
         </>

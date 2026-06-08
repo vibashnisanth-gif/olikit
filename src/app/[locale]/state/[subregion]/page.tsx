@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { getLocale, getSubRegion, getLocalesWithSubRegion, locales } from "@/lib/seo/locales"
+import { COUNTRY_FLAGS } from "@/lib/content/country-registry"
 import { buildMetadata } from "@/lib/seo/metadata"
 import { SITE_URL } from "@/lib/seo/constants"
 import { getToolsBySlugs, stateSeoToolSlugs } from "@/lib/content/templates"
@@ -44,17 +45,19 @@ export default async function SubRegionPage({ params }: Props) {
   const slug = locale.slug
   const name = subRegion.name
   const countryName = locale.name
+  const countryFlag = COUNTRY_FLAGS[slug]
   const stateTools = getToolsBySlugs(stateSeoToolSlugs)
 
   const path = `/${slug}/state/${subRegion.slug}`
   const webPageJsonLd = buildWebPageJsonLd(locale, path, subRegion)
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { label: "Home", url: `${SITE_URL}/${slug}` },
-    { label: `${name}, ${countryName}`, url: `${SITE_URL}${path}` },
+    { label: `${countryName} States & Regions`, url: `${SITE_URL}/${slug}/states` },
+    { label: name, url: `${SITE_URL}${path}` },
   ])
 
   return (
-    <div>
+    <div className="space-y-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -67,17 +70,11 @@ export default async function SubRegionPage({ params }: Props) {
           __html: JSON.stringify(breadcrumbJsonLd),
         }}
       />
-      <nav className="text-sm text-zinc-500 mb-6">
-        <a href={`/${slug}`} className="hover:text-zinc-800">Home</a>
-        <span className="mx-2">/</span>
-        <span className="text-zinc-800">{name}, {countryName}</span>
-      </nav>
-
-      <section className="mb-12">
-        <h1 className="text-3xl font-bold mb-4">
-          {name}, {countryName} - Free Finance & Business Tools
+      <section className="rounded-lg border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-8 sm:py-8">
+        <h1 className="text-2xl font-bold tracking-tight text-zinc-950 sm:text-3xl">
+          {name}, {countryName} — Free Finance & Business Tools
         </h1>
-        <p className="text-lg text-zinc-600 max-w-2xl">
+        <p className="mt-2 max-w-xl text-sm leading-6 text-zinc-600">
           Free finance and business tools for {name}, {countryName}. Use our
           calculators to make informed financial decisions with {name}-specific
           rates and regulations.
@@ -85,7 +82,7 @@ export default async function SubRegionPage({ params }: Props) {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-6">
+        <h2 className="text-xl font-semibold text-zinc-950 mb-4">
           All Tools for {name}
         </h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -93,9 +90,9 @@ export default async function SubRegionPage({ params }: Props) {
             <a
               key={tool.id}
               href={`/${slug}/state/${subRegion.slug}/${tool.slug}`}
-              className="block p-5 rounded-lg border border-zinc-200 hover:border-zinc-400 hover:shadow-sm transition-all"
+              className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
             >
-              <h3 className="font-semibold text-lg mb-2">{tool.name}</h3>
+              <h3 className="font-semibold text-zinc-950 mb-1">{tool.name}</h3>
               <p className="text-sm text-zinc-500">
                 {tool.description.replace("{country}", `${name}, ${countryName}`)}
               </p>
@@ -103,6 +100,34 @@ export default async function SubRegionPage({ params }: Props) {
           ))}
         </div>
       </section>
+
+      {locale.states && locale.states.length > 1 && (
+        <section>
+          <h2 className="text-xl font-semibold text-zinc-950 mb-4">
+            Other {countryFlag} {countryName} States & Regions
+          </h2>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {locale.states.filter((s) => s.slug !== subRegion.slug).map((other) => (
+              <a
+                key={other.slug}
+                href={`/${slug}/state/${other.slug}`}
+                className="block rounded-lg border border-zinc-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
+              >
+                <h3 className="font-semibold text-zinc-950">{other.name}</h3>
+                <p className="text-xs text-zinc-500 mt-0.5">
+                  Financial tools for {other.name}, {countryName}
+                </p>
+              </a>
+            ))}
+          </div>
+          <a
+            href={`/${slug}/states`}
+            className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 hover:text-emerald-700"
+          >
+            View all {countryFlag} {countryName} states & regions →
+          </a>
+        </section>
+      )}
 
       <div className="mt-10">
         <SourceFooter localeSlug={slug} />

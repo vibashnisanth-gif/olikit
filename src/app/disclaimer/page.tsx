@@ -39,19 +39,19 @@ export default function DisclaimerPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <main className="max-w-3xl mx-auto px-4 py-12 space-y-10">
+      <div className="max-w-3xl space-y-10">
         <section>
-          <h1 className="text-4xl font-bold mb-4">Disclaimer</h1>
-          <p className="text-sm text-zinc-500 dark:text-zinc-500 mb-2">Last updated: June 2026</p>
-          <p className="text-zinc-700 dark:text-zinc-300">
+          <h1 className="text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Disclaimer</h1>
+          <p className="mt-3 text-sm text-zinc-500 mb-4">Last updated: June 2026</p>
+          <p className="text-zinc-600">
             Olikit provides financial calculators for educational and informational purposes only.
             The information on this website does not constitute professional advice.
           </p>
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-3">Educational Purposes Only</h2>
-          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+          <h2 className="text-xl font-semibold text-zinc-950 mb-3">Educational Purposes Only</h2>
+          <p className="text-zinc-600 leading-relaxed">
             All content, calculators, and tools on Olikit are provided for educational and
             informational purposes only. They are designed to help you understand financial
             concepts and estimate potential outcomes, not to make definitive financial decisions.
@@ -59,8 +59,8 @@ export default function DisclaimerPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-3">No Investment Advice</h2>
-          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+          <h2 className="text-xl font-semibold text-zinc-950 mb-3">No Investment Advice</h2>
+          <p className="text-zinc-600 leading-relaxed">
             Olikit does not provide investment advice. Our investment calculators project
             potential returns based on user-input assumptions. These projections are hypothetical
             and do not guarantee actual results. Past performance of any investment vehicle
@@ -70,8 +70,8 @@ export default function DisclaimerPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-3">No Tax Advice</h2>
-          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+          <h2 className="text-xl font-semibold text-zinc-950 mb-3">No Tax Advice</h2>
+          <p className="text-zinc-600 leading-relaxed">
             Our tax calculators estimate tax liabilities based on published brackets and rates.
             Actual tax liability depends on your specific circumstances, deductions, credits,
             and applicable legislation. Tax laws vary by jurisdiction and change frequently.
@@ -80,8 +80,8 @@ export default function DisclaimerPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-3">No Legal Advice</h2>
-          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+          <h2 className="text-xl font-semibold text-zinc-950 mb-3">No Legal Advice</h2>
+          <p className="text-zinc-600 leading-relaxed">
             Olikit does not provide legal advice. Our mortgage and property calculators provide
             estimates that may help you understand potential costs, but they do not constitute
             legal guidance. Consult a qualified attorney for legal advice regarding property
@@ -90,8 +90,8 @@ export default function DisclaimerPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-3">Accuracy of Information</h2>
-          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+          <h2 className="text-xl font-semibold text-zinc-950 mb-3">Accuracy of Information</h2>
+          <p className="text-zinc-600 leading-relaxed">
             We make reasonable efforts to ensure the accuracy of the data used in our calculators,
             including tax brackets, contribution rates, and financial thresholds. However, we
             do not guarantee that all information is current, complete, or error-free. Financial
@@ -101,8 +101,8 @@ export default function DisclaimerPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-3">No Professional Relationship</h2>
-          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+          <h2 className="text-xl font-semibold text-zinc-950 mb-3">No Professional Relationship</h2>
+          <p className="text-zinc-600 leading-relaxed">
             Use of this website does not create a professional relationship between you and
             Olikit, its operators, or its contributors. We are not a financial advisory firm,
             tax preparation service, or law firm.
@@ -110,13 +110,13 @@ export default function DisclaimerPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-3">Contact</h2>
-          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+          <h2 className="text-xl font-semibold text-zinc-950 mb-3">Contact</h2>
+          <p className="text-zinc-600 leading-relaxed">
             If you have questions about this disclaimer, contact us at{" "}
-            <a href="mailto:support@olikit.com" className="text-blue-600 hover:underline">support@olikit.com</a>.
+            <a href="mailto:support@olikit.com" className="text-emerald-600 hover:text-emerald-700">support@olikit.com</a>.
           </p>
         </section>
-      </main>
+      </div>
     </>
   )
 }

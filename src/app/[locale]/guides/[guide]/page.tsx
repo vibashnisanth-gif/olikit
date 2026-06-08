@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = getLocale(localeSlug)
   const guide = getGuideBySlug(guideSlug)
   if (!locale || !guide) return {}
-  return buildMetadata(locale, null, `/${locale.slug}/guides/${guide.slug}`)
+  return buildMetadata(locale, null, `/${locale.slug}/guides/${guide.slug}`, undefined, undefined, guide)
 }
 
 export default async function GuidePage({ params }: Props) {
@@ -68,20 +68,7 @@ export default async function GuidePage({ params }: Props) {
         }}
       />
 
-      <nav className="text-sm text-zinc-500 mb-6">
-        {breadcrumbs.map((crumb, i) => (
-          <span key={crumb.href}>
-            {i > 0 && <span className="mx-2">/</span>}
-            <a href={crumb.href} className="hover:text-zinc-800">
-              {crumb.label}
-            </a>
-          </span>
-        ))}
-        <span className="mx-2">/</span>
-        <span className="text-zinc-800">{guideName}</span>
-      </nav>
-
-      <div className="rounded-lg border border-zinc-200 bg-white px-5 py-7 shadow-sm sm:px-8">
+      <div className="rounded-lg border border-zinc-200 bg-white px-5 py-7 shadow-sm sm:px-8 sm:py-10">
         <p className="mb-3 text-sm font-semibold uppercase text-emerald-700">
           {locale.name} guide
         </p>
@@ -144,7 +131,7 @@ export default async function GuidePage({ params }: Props) {
                   {step.url && (
                     <a
                       href={step.url}
-                      className="mt-1 inline-block text-sm font-medium text-emerald-600 hover:text-emerald-800"
+                      className="mt-1 inline-block text-sm font-medium text-emerald-600 hover:text-emerald-700"
                     >
                       Use the calculator &rarr;
                     </a>
@@ -156,7 +143,7 @@ export default async function GuidePage({ params }: Props) {
         </section>
       )}
 
-      <div className="grid gap-8 md:grid-cols-3">
+      <div className="grid gap-8 lg:grid-cols-3">
         <div className="md:col-span-2 space-y-8">
           {content.sections.map((section, i) => (
             <section key={i} className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm">
@@ -192,7 +179,7 @@ export default async function GuidePage({ params }: Props) {
                   <a
                     key={link.href}
                     href={link.href}
-                    className="block rounded-md px-2 py-1.5 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950"
+                    className="block rounded-md px-3 py-2.5 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950"
                   >
                     {link.label}
                   </a>

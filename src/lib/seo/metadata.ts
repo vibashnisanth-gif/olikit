@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import type { Locale, Tool, SeoMetadata, SubRegion } from "@/types/seo"
+import type { Locale, Tool, Guide, SeoMetadata, SubRegion } from "@/types/seo"
 import { generateHreflangTags } from "./hreflang"
 import { SITE_URL } from "./constants"
 
@@ -21,16 +21,16 @@ function buildOgImageUrl(title: string, localeName: string, type: string, year: 
   return `${SITE_URL}/api/og?${params.toString()}`
 }
 
-function getPageType(tool: Tool | null, subRegion?: SubRegion, path?: string): string {
+function getPageType(tool: Tool | null, guide?: Guide, subRegion?: SubRegion, path?: string): string {
   if (tool && subRegion) return "state"
   if (tool && path?.includes("/compare")) return "compare"
   if (tool) return "tool"
-  if (path?.includes("/guides")) return "guide"
+  if (guide || path?.includes("/guides")) return "guide"
   return "home"
 }
 
-function getPageTitle(meta: SeoMetadata, tool: Tool | null): string {
-  if (tool) return meta.title.replace(/\s*\|\s*Olikit$/, "")
+function getPageTitle(meta: SeoMetadata, tool: Tool | null, guide?: Guide): string {
+  if (tool || guide) return meta.title.replace(/\s*\|\s*Olikit$/, "")
   return meta.title
 }
 
@@ -39,17 +39,18 @@ export function buildMetadata(
   tool: Tool | null,
   path: string,
   subRegion?: SubRegion,
-  validLocaleSlugs?: string[]
+  validLocaleSlugs?: string[],
+  guide?: Guide,
 ): Metadata {
-  const meta = buildSeoMetadata(locale, tool, path, subRegion, validLocaleSlugs)
+  const meta = buildSeoMetadata(locale, tool, path, subRegion, validLocaleSlugs, guide)
 
   const verification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
     ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
     : undefined
   const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID
 
-  const pageType = getPageType(tool, subRegion, path)
-  const title = getPageTitle(meta, tool)
+  const pageType = getPageType(tool, guide, subRegion, path)
+  const title = getPageTitle(meta, tool, guide)
   const year = locale.taxTerms.incomeTaxYear
 
   const ogImageUrl = buildOgImageUrl(title, locale.name, pageType, year)
@@ -93,7 +94,8 @@ export function buildSeoMetadata(
   tool: Tool | null,
   path: string,
   subRegion?: SubRegion,
-  validLocaleSlugs?: string[]
+  validLocaleSlugs?: string[],
+  guide?: Guide,
 ): SeoMetadata {
   const baseUrl = SITE_URL
 
@@ -168,6 +170,40 @@ export function buildSeoMetadata(
         tool.name.toLowerCase(),
         locale.name.toLowerCase(),
         ...tool.keywords,
+      ],
+    }
+  }
+
+  if (guide) {
+    const guideName = guide.name.replace("{country}", locale.name)
+    const title = replaceAll(guide.metaTitleTemplate, {
+      "{guide}": guideName,
+      "{country}": locale.name,
+    })
+    const description = replaceAll(guide.metaDescriptionTemplate, {
+      "{guide}": guideName,
+      "{country}": locale.name,
+    })
+    return {
+      title,
+      description,
+      canonical: `${baseUrl}${path}`,
+      openGraph: {
+        title: `${guideName} - ${locale.name}`,
+        description: description,
+        url: `${baseUrl}${path}`,
+        siteName: "Olikit",
+        locale: locale.code,
+        type: "website",
+      },
+      alternates: {
+        canonical: `${baseUrl}${path}`,
+        languages: buildLanguageAlternates(path, validLocaleSlugs),
+      },
+      keywords: [
+        ...guide.keywords,
+        guide.category.toLowerCase(),
+        locale.name.toLowerCase(),
       ],
     }
   }
