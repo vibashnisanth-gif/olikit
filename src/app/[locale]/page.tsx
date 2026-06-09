@@ -24,6 +24,8 @@ const COUNTRY_CONTENT: Record<string, {
   snapshotTopRegion: string
   snapshotTopProfession: string
   snapshotGlobalPosition: string
+  snapshotSectorLabel?: string
+  snapshotRegionLabel?: string
   snapshotDesc?: string[]
   aiQuickAnswers?: { q: string; a: string }[]
   keyTakeaways?: { title: string; desc: string }[]
@@ -163,47 +165,126 @@ const COUNTRY_CONTENT: Record<string, {
     ],
   },
   uk: {
-    heroH1: "United Kingdom Salary, Tax and Cost-of-Living Intelligence",
-    heroDesc: "Research salaries, compare regions and understand taxes and living costs across the United Kingdom using transparent and government-backed data. Olikit provides salary benchmarks, tax insights and affordability research for professionals evaluating career opportunities across England, Scotland, Wales and Northern Ireland.",
-    snapshotCurrency: "Pound Sterling (GBP \u00a3)",
+    heroH1: "United Kingdom Salary, Tax and Cost of Living Intelligence",
+    heroDesc: "Research salaries, estimate take-home pay, compare regions and understand cost-of-living differences across the United Kingdom. Olikit combines salary benchmarks, tax insights, affordability research and compensation analysis to help professionals make informed financial and career decisions. Whether you are evaluating a new role in London, comparing salaries across the UK or planning a relocation, our calculators, rankings and guides provide transparent insights built from government-sourced and publicly available data.",
+    snapshotCurrency: "GBP (\u00a3)",
     snapshotTaxAuthority: "HM Revenue & Customs (HMRC)",
-    snapshotTopSectors: "Finance, Technology, Professional Services",
+    snapshotTopSectors: "Financial Services",
     snapshotTopRegion: "London",
     snapshotTopProfession: "Software Engineer",
-    snapshotGlobalPosition: "Major European financial and technology hub",
+    snapshotGlobalPosition: "Major European Financial Hub",
+    snapshotSectorLabel: "Largest Salary Sector",
+    snapshotRegionLabel: "Highest Paying Region",
+    snapshotDesc: [
+      "The United Kingdom is one of Europe's largest economies and a global centre for finance, professional services and technology.",
+      "Salary levels vary considerably between London and the rest of the country. While London frequently offers some of the highest salaries in the UK, higher housing and living costs can significantly affect purchasing power.",
+      "Understanding take-home pay, taxes and affordability together provides a clearer picture of financial outcomes than salary alone.",
+    ],
+    aiQuickAnswers: [
+      { q: "What is the average salary in the United Kingdom?", a: "Salary levels vary by profession, industry and location, with London frequently reporting higher compensation than other regions." },
+      { q: "Which region pays the highest salaries?", a: "London consistently ranks among the highest-paying regions due to its concentration of finance, technology and professional services employers." },
+      { q: "Which professions earn the highest salaries?", a: "Finance, technology, healthcare and executive leadership roles frequently rank among the highest-paying occupations." },
+      { q: "How do taxes affect take-home pay?", a: "Income Tax and National Insurance contributions can significantly affect take-home earnings and should be considered alongside gross salary." },
+    ],
+    keyTakeaways: [
+      { title: "London Commands a Premium", desc: "London salaries often exceed national averages, though housing and living costs can reduce purchasing power." },
+      { title: "Regional Differences Matter", desc: "Compensation and affordability vary significantly across England, Scotland, Wales and Northern Ireland." },
+      { title: "Financial Services Drive Earnings", desc: "The UK remains one of the world's most important financial centres, supporting strong compensation in banking, consulting and professional services." },
+      { title: "Technology Continues Growing", desc: "Technology occupations remain among the fastest-growing and most researched professions in the country." },
+    ],
     featuredInsights: [
-      { title: "London Salary Premium", desc: "London consistently offers higher compensation than other UK regions, particularly in finance, technology and professional services. Compare London salaries against the rest of the UK to understand regional differences.", href: "/uk/salary" },
-      { title: "Finance and Technology Compensation", desc: "The United Kingdom is a global hub for financial services and technology. Explore salary benchmarks across investment banking, fintech, software engineering and consulting.", href: "/uk/salary/software-engineer" },
-      { title: "Tax and National Insurance", desc: "UK workers pay income tax and National Insurance contributions. Understanding the tax system helps evaluate take-home pay across different salary levels.", href: "/uk/tools/tax-calculator" },
-      { title: "Regional Cost Differences", desc: "Housing costs, transportation and living expenses vary significantly between London and other UK regions. Compare affordability across major UK cities.", href: "/uk/guides" },
+      { title: "London Salary Premium", desc: "Compare compensation levels in London against the rest of the United Kingdom.", href: "/uk/salary" },
+      { title: "Technology Salary Trends", desc: "Track salary growth across software engineering, cybersecurity and data-related occupations.", href: "/uk/salary/software-engineer" },
+      { title: "Income Tax and National Insurance", desc: "Understand how deductions affect take-home earnings.", href: "/uk/tools/tax-calculator" },
+      { title: "Cost of Living Across the UK", desc: "Compare affordability, housing costs and purchasing power across major regions.", href: "/uk/guides" },
     ],
     professionGroups: [
       { category: "Technology", items: [
         { label: "Software Engineer Salary", href: "/uk/salary/software-engineer" },
         { label: "Data Scientist Salary", href: "/uk/salary/data-scientist" },
         { label: "Product Manager Salary", href: "/uk/tools/salary-calculator" },
+        { label: "Cybersecurity Analyst Salary", href: "/uk/tools/salary-calculator" },
       ]},
       { category: "Healthcare", items: [
         { label: "Doctor Salary", href: "/uk/salary/doctor" },
         { label: "Registered Nurse Salary", href: "/uk/salary/registered-nurse" },
+        { label: "Pharmacist Salary", href: "/uk/tools/salary-calculator" },
       ]},
       { category: "Finance", items: [
         { label: "Accountant Salary", href: "/uk/salary/accountant" },
         { label: "Financial Analyst Salary", href: "/uk/tools/salary-calculator" },
+        { label: "Investment Analyst Salary", href: "/uk/tools/salary-calculator" },
       ]},
       { category: "Engineering", items: [
         { label: "Mechanical Engineer Salary", href: "/uk/salary/mechanical-engineer" },
+        { label: "Civil Engineer Salary", href: "/uk/tools/salary-calculator" },
+        { label: "Electrical Engineer Salary", href: "/uk/tools/salary-calculator" },
+      ]},
+      { category: "Business", items: [
+        { label: "Business Analyst Salary", href: "/uk/tools/salary-calculator" },
+        { label: "Project Manager Salary", href: "/uk/tools/salary-calculator" },
+        { label: "Human Resources Manager Salary", href: "/uk/tools/salary-calculator" },
       ]},
     ],
-    relocationText: "The United Kingdom remains a leading destination for professionals in finance, technology and professional services. Before relocating, compare salary opportunities, taxes, housing costs and purchasing power. Olikit provides comparison tools to evaluate the United Kingdom alongside the United States, Australia, Canada and Singapore.",
+    careerPaths: [
+      { title: "Technology Careers", desc: "Research compensation trends across software engineering, cybersecurity, product management and data science.", href: "/uk/salary" },
+      { title: "Healthcare Careers", desc: "Compare salaries across medicine, nursing, pharmacy and healthcare support professions.", href: "/uk/salary" },
+      { title: "Finance Careers", desc: "Explore compensation in accounting, investment management, banking and financial analysis.", href: "/uk/salary" },
+      { title: "Engineering Careers", desc: "Review salary benchmarks across civil, mechanical and electrical engineering disciplines.", href: "/uk/salary" },
+      { title: "Business Careers", desc: "Understand compensation trends across management, operations and business analysis roles.", href: "/uk/salary" },
+    ],
+    featuredResearch: [
+      { title: "Highest Paying Jobs in the United Kingdom", desc: "Explore salary benchmarks across finance, technology, healthcare and engineering occupations.", href: "/uk/rankings", cta: "Explore Report" },
+      { title: "Best Regions for High Earners", desc: "Compare compensation, taxes and affordability across the UK.", href: "/uk/salary", cta: "Compare Regions" },
+      { title: "United Kingdom Salary Intelligence Report 2026", desc: "Comprehensive analysis of salaries, taxes, affordability and purchasing power throughout the country.", href: "/uk/research", cta: "Explore Report" },
+    ],
+    salaryLandscape: {
+      text: [
+        "The United Kingdom labour market combines strong professional opportunities with significant regional differences.",
+        "London remains the country's dominant financial and business centre, while major cities such as Manchester, Birmingham, Edinburgh and Bristol continue to attract growing technology and professional services sectors.",
+        "Professionals comparing opportunities should evaluate salary alongside taxes, housing costs and overall purchasing power.",
+        "A higher salary does not always result in a stronger financial outcome if living costs are significantly higher.",
+      ],
+      factors: [],
+      sectorsIntro: "",
+    },
+    relocationText: "Considering a move to the United Kingdom? Compare salaries, taxes, housing costs and purchasing power against the United States, Canada, Australia, New Zealand and Singapore. Understanding both compensation and affordability can help determine whether relocating improves long-term financial outcomes.",
+    researchTopics: [
+      "Highest Paying Jobs",
+      "Highest Paying Regions",
+      "Salary Rankings",
+      "Tax Burden Rankings",
+      "Cost of Living Rankings",
+      "Purchasing Power Rankings",
+    ],
+    stateDestinations: ["London", "South East England", "Scotland", "North West England", "West Midlands", "Wales"],
+    govSources: [
+      { name: "HM Revenue & Customs (HMRC)", desc: "Tax rates and allowances" },
+      { name: "Office for National Statistics (ONS)", desc: "Employment and economic data" },
+      { name: "Bank of England", desc: "Monetary and financial stability" },
+      { name: "GOV.UK", desc: "Official government publications" },
+      { name: "UK Parliament Research Briefings", desc: "Economic policy analysis" },
+    ],
+    trustItems: [
+      { title: "Government-Sourced Data", desc: "Salary, tax and economic information is derived from official public sources whenever possible." },
+      { title: "Transparent Methodology", desc: "Calculation assumptions and methodologies are publicly documented." },
+      { title: "Independent Research", desc: "Research and rankings are created independently using transparent criteria." },
+      { title: "Regular Updates", desc: "Benchmarks, tax rates and methodologies are reviewed regularly." },
+    ],
     faqQs: [
-      { q: "What is the average salary in the United Kingdom?", a: "Average salaries vary by profession, industry and region. Finance and technology occupations generally offer the highest compensation." },
-      { q: "Which professions earn the highest salaries?", a: "Finance professionals, software engineers and senior healthcare roles are among the highest-paid occupations." },
-      { q: "Which regions offer the highest salaries?", a: "London consistently offers the highest salaries, followed by the South East and other major cities." },
-      { q: "How much income tax do workers pay?", a: "Income tax is deducted through PAYE. Rates depend on earnings, with a personal allowance and progressive tax bands." },
-      { q: "How does the United Kingdom compare internationally?", a: "The UK offers competitive salaries in finance and technology, though compensation in some sectors may be lower than the United States." },
-      { q: "What sources does Olikit use?", a: "Olikit uses HMRC publications, Office for National Statistics data and official government resources." },
-      { q: "How often is the information updated?", a: "Salary benchmarks, tax information and methodologies are reviewed regularly and updated when significant changes occur." },
+      { q: "What is the average salary in the United Kingdom?", a: "Salary levels vary by profession, experience and location. London typically reports higher salaries than many other regions, though living costs are also higher." },
+      { q: "What is considered a good salary in the UK?", a: "A good salary depends on location, household size and living costs. Evaluating take-home pay and affordability together provides a clearer picture than salary alone." },
+      { q: "Which professions earn the highest salaries?", a: "Finance, technology, healthcare and executive leadership positions frequently rank among the highest-paying occupations." },
+      { q: "Is London worth the higher cost of living?", a: "London often provides higher salaries, but housing and everyday expenses are also significantly higher. Purchasing power should be evaluated alongside compensation." },
+      { q: "How much income tax do workers pay in the UK?", a: "Income tax depends on earnings, tax bands and personal circumstances. National Insurance contributions also affect take-home pay." },
+      { q: "What are National Insurance contributions?", a: "National Insurance contributions help fund public services and benefits and are deducted from earnings alongside income tax." },
+      { q: "Which regions pay the highest salaries?", a: "London typically ranks highest, followed by several regions with strong finance, technology and professional services sectors." },
+      { q: "How does the UK compare with the United States?", a: "The United States often reports higher salaries, while differences in taxation, healthcare and living costs affect overall financial outcomes." },
+      { q: "How does the UK compare with Canada?", a: "Both countries offer strong professional opportunities, though compensation, taxes and affordability vary by region and profession." },
+      { q: "Can I compare salaries across regions?", a: "Yes. Comparing salaries alongside taxes, housing costs and purchasing power provides a more complete picture of financial outcomes." },
+      { q: "What sources does Olikit use?", a: "Olikit relies on official government publications, public datasets and economic research sources whenever possible." },
+      { q: "How often is data updated?", a: "Salary benchmarks, tax information and methodologies are reviewed regularly and updated when significant changes occur." },
+      { q: "Are Olikit calculators free to use?", a: "Yes. Olikit calculators, guides and research resources are available without charge." },
     ],
   },
   au: {
@@ -524,8 +605,8 @@ export default async function LocalePage({ params }: Props) {
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <SnapshotCard label="Currency" value={content.snapshotCurrency} />
           <SnapshotCard label="Tax Authority" value={content.snapshotTaxAuthority} />
-          <SnapshotCard label="Highest Paying Sector" value={content.snapshotTopSectors} />
-          <SnapshotCard label="Highest Paying State" value={content.snapshotTopRegion} />
+          <SnapshotCard label={content.snapshotSectorLabel || "Highest Paying Sector"} value={content.snapshotTopSectors} />
+          <SnapshotCard label={content.snapshotRegionLabel || "Highest Paying State"} value={content.snapshotTopRegion} />
           <SnapshotCard label="Most Researched Profession" value={content.snapshotTopProfession} />
           <SnapshotCard label="Global Position" value={content.snapshotGlobalPosition} />
         </div>
