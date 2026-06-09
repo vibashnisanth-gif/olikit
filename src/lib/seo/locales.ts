@@ -6,6 +6,7 @@ export const locales: Locale[] = [
     name: "United States",
     slug: "us",
     currency: { symbol: "$", code: "USD", name: "US Dollar" },
+    taxAuthority: "Internal Revenue Service (IRS)",
     taxTerms: {
       incomeTaxYear: "2025-2026",
       vatName: "Sales Tax",
@@ -27,6 +28,7 @@ export const locales: Locale[] = [
     name: "United Kingdom",
     slug: "uk",
     currency: { symbol: "\u00a3", code: "GBP", name: "British Pound" },
+    taxAuthority: "HM Revenue & Customs (HMRC)",
     taxTerms: {
       incomeTaxYear: "2025-2026",
       vatName: "VAT",
@@ -46,6 +48,7 @@ export const locales: Locale[] = [
     name: "Australia",
     slug: "au",
     currency: { symbol: "A$", code: "AUD", name: "Australian Dollar" },
+    taxAuthority: "Australian Taxation Office (ATO)",
     taxTerms: {
       incomeTaxYear: "2025-2026",
       vatName: "GST",
@@ -72,6 +75,7 @@ export const locales: Locale[] = [
     name: "Canada",
     slug: "ca",
     currency: { symbol: "C$", code: "CAD", name: "Canadian Dollar" },
+    taxAuthority: "Canada Revenue Agency (CRA)",
     taxTerms: {
       incomeTaxYear: "2025",
       vatName: "GST/HST",
@@ -96,6 +100,7 @@ export const locales: Locale[] = [
     name: "New Zealand",
     slug: "nz",
     currency: { symbol: "NZ$", code: "NZD", name: "New Zealand Dollar" },
+    taxAuthority: "Inland Revenue Department (IRD)",
     taxTerms: {
       incomeTaxYear: "2025-2026",
       vatName: "GST",
@@ -114,6 +119,7 @@ export const locales: Locale[] = [
     name: "India",
     slug: "in",
     currency: { symbol: "\u20b9", code: "INR", name: "Indian Rupee" },
+    taxAuthority: "Income Tax Department",
     taxTerms: {
       incomeTaxYear: "2025-2026",
       vatName: "GST",
@@ -142,6 +148,7 @@ export const locales: Locale[] = [
     name: "Singapore",
     slug: "sg",
     currency: { symbol: "S$", code: "SGD", name: "Singapore Dollar" },
+    taxAuthority: "Inland Revenue Authority of Singapore (IRAS)",
     taxTerms: {
       incomeTaxYear: "2025",
       vatName: "GST",

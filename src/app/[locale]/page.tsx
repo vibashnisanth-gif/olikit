@@ -25,9 +25,12 @@ const COUNTRY_CONTENT: Record<string, {
   snapshotTopProfession: string
   snapshotGlobalPosition: string
   snapshotDesc?: string[]
+  aiQuickAnswers?: { q: string; a: string }[]
   keyTakeaways?: { title: string; desc: string }[]
   featuredInsights: { title: string; desc: string; href: string }[]
   professionGroups: { category: string; items: { label: string; href: string }[] }[]
+  careerPaths?: { title: string; desc: string; href: string }[]
+  featuredResearch?: { title: string; desc: string; href: string; cta?: string }[]
   salaryLandscape?: { text: string[]; factors: string[]; sectorsIntro: string }
   relocationText: string
   researchTopics?: string[]
@@ -38,29 +41,35 @@ const COUNTRY_CONTENT: Record<string, {
 }> = {
   us: {
     heroH1: "United States Salary, Tax and Cost of Living Intelligence",
-    heroDesc: "Research salaries, estimate take-home pay, compare states and understand the real cost of living across the United States. Olikit combines salary benchmarks, tax insights and affordability research to help professionals, job seekers and families make better financial decisions. Whether you are evaluating a career move, comparing job offers or researching compensation trends, our calculators, rankings and guides provide transparent insights built from publicly available data and documented methodologies.",
-    snapshotCurrency: "United States Dollar (USD)",
+    heroDesc: "Research salaries, estimate take-home pay, compare states and understand cost-of-living differences across the United States. Olikit combines salary benchmarks, tax insights, affordability research and compensation analysis to help professionals, job seekers and families make better financial decisions. Whether you are evaluating a new job offer, planning a relocation or researching compensation trends, our calculators, rankings and guides provide transparent insights built from government-sourced and publicly available data.",
+    snapshotCurrency: "USD ($)",
     snapshotTaxAuthority: "Internal Revenue Service (IRS)",
-    snapshotTopSectors: "Technology, Healthcare, Finance, Engineering",
-    snapshotTopRegion: "California, Washington, Massachusetts, New York",
+    snapshotTopSectors: "Technology",
+    snapshotTopRegion: "California",
     snapshotTopProfession: "Software Engineer",
     snapshotGlobalPosition: "One of the world's highest-paying labor markets",
     snapshotDesc: [
-      "The United States remains one of the world's largest and most competitive labor markets. It is home to leading technology companies, global financial institutions, major healthcare systems and some of the highest-paying professional occupations globally.",
-      "Compensation levels can vary dramatically depending on industry, experience, location and tax jurisdiction. A software engineer in California, a financial analyst in New York and a nurse in Texas may all face very different salary ranges, tax obligations and living costs.",
-      "Understanding salary alone is not enough. The real value of income depends on housing costs, taxes, healthcare expenses and purchasing power. Olikit helps you evaluate all of these factors together.",
+      "The United States remains one of the world's largest and most competitive labor markets.",
+      "Compensation varies significantly by profession, industry, state and experience level. Technology, healthcare, finance and engineering continue to drive some of the highest salaries in the country, while differences in taxation and living costs can substantially affect purchasing power.",
+      "Understanding salary alone is not enough. Real financial outcomes depend on take-home pay, taxes, housing costs and affordability.",
+    ],
+    aiQuickAnswers: [
+      { q: "What is the average salary in the United States?", a: "Salary levels vary significantly by profession, industry and location, with technology, healthcare and finance frequently reporting above-average compensation." },
+      { q: "Which states pay the highest salaries?", a: "California, Washington, Massachusetts and New York frequently rank among the strongest states for compensation." },
+      { q: "Which professions earn the highest salaries?", a: "Doctors, software engineers, finance professionals and specialized healthcare occupations often rank among the highest-paid careers." },
+      { q: "How do taxes affect take-home pay?", a: "Federal taxes, state taxes and payroll deductions can significantly affect net income and purchasing power." },
     ],
     keyTakeaways: [
-      { title: "What Makes the United States Unique?", desc: "The United States consistently ranks among the highest-paying countries for skilled professionals, particularly in technology, healthcare and finance." },
-      { title: "State Differences Matter", desc: "Two workers earning the same salary may experience very different take-home outcomes depending on state taxes, housing costs and living expenses." },
-      { title: "Technology Drives Compensation", desc: "Technology remains one of the strongest compensation sectors in the United States, with software engineers, product managers and data professionals frequently earning above national averages." },
-      { title: "Healthcare Remains a Major Employer", desc: "Healthcare occupations continue to experience strong demand and competitive salaries across many regions." },
+      { title: "High Salaries, Wide Differences", desc: "The United States offers some of the highest salaries globally, but earnings can vary significantly across states and industries." },
+      { title: "State Taxes Matter", desc: "Workers with identical salaries may experience very different take-home pay depending on state tax rules." },
+      { title: "Technology Drives Compensation", desc: "Software engineering, product management and data science remain among the highest-paying professional categories." },
+      { title: "Healthcare Remains Critical", desc: "Healthcare occupations continue to provide strong compensation and long-term demand across the country." },
     ],
     featuredInsights: [
-      { title: "Highest Paying States", desc: "Salary levels vary significantly across the United States. States with strong technology, healthcare and financial sectors often report higher average compensation than the national average. Explore how states compare and identify regions that offer stronger earning potential.", href: "/us/best-states-for-salary" },
-      { title: "Software Engineer Salary Trends", desc: "Software engineering remains one of the most researched professions in the United States. Compensation depends on experience level, industry, company size and geographic location. Technology hubs such as California, Washington and New York often command higher salaries, though housing costs may offset part of the advantage.", href: "/us/salary/software-engineer" },
-      { title: "State Income Tax Differences", desc: "The United States operates under a combination of federal and state tax systems. Some states levy no state income tax, while others impose significant additional tax obligations. Comparing take-home pay after taxes often reveals meaningful differences between states.", href: "/us/tools/tax-calculator" },
-      { title: "Cost of Living Across America", desc: "Housing costs, transportation expenses and everyday living costs vary widely. A salary that provides a comfortable lifestyle in one state may offer substantially less purchasing power elsewhere. Cost-of-living analysis helps provide a clearer picture of real earning potential.", href: "/us/cost-of-living/california" },
+      { title: "Highest Paying States", desc: "Compare compensation levels across California, Washington, Massachusetts, New York and Texas.", href: "/us/best-states-for-salary" },
+      { title: "Software Engineer Salary Trends", desc: "Track compensation benchmarks across experience levels, industries and major technology hubs.", href: "/us/salary/software-engineer" },
+      { title: "State Income Tax Differences", desc: "Understand how federal and state tax systems affect take-home income.", href: "/us/tools/tax-calculator" },
+      { title: "Cost of Living Across America", desc: "Compare affordability, housing costs and purchasing power across states.", href: "/us/cost-of-living" },
     ],
     professionGroups: [
       { category: "Technology", items: [
@@ -90,45 +99,67 @@ const COUNTRY_CONTENT: Record<string, {
         { label: "Human Resources Manager Salary", href: "/us/tools/salary-calculator" },
       ]},
     ],
+    careerPaths: [
+      { title: "Technology Careers", desc: "Research compensation trends across software engineering, data science, cybersecurity and product management.", href: "/us/salary" },
+      { title: "Healthcare Careers", desc: "Explore salaries for doctors, nurses, pharmacists and healthcare professionals.", href: "/us/salary" },
+      { title: "Finance Careers", desc: "Compare compensation across accounting, corporate finance and financial analysis.", href: "/us/salary" },
+      { title: "Engineering Careers", desc: "Review salary benchmarks across civil, mechanical and electrical engineering disciplines.", href: "/us/salary" },
+      { title: "Business Careers", desc: "Understand compensation trends for analysts, project managers and leadership roles.", href: "/us/salary" },
+    ],
+    featuredResearch: [
+      { title: "Highest Paying Jobs in the United States", desc: "Explore salary benchmarks across technology, healthcare, finance and engineering occupations.", href: "/us/rankings", cta: "Explore Report" },
+      { title: "Best States for High Earners", desc: "Compare compensation, taxes and purchasing power across major labor markets.", href: "/us/best-states-for-salary", cta: "Compare States" },
+      { title: "United States Salary Intelligence Report 2026", desc: "Comprehensive analysis of salaries, taxes, affordability and purchasing power.", href: "/us/research", cta: "Explore Report" },
+    ],
     salaryLandscape: {
       text: [
-        "The United States labor market is highly diverse. Compensation varies based on education, experience, industry, region and demand for skills.",
-        "Technology and finance roles often provide some of the highest salary levels, while healthcare occupations offer a combination of strong demand and long-term career stability. Workers evaluating opportunities should consider both salary and purchasing power when comparing jobs or relocation options.",
+        "The United States labor market combines high earning potential with significant regional variation.",
+        "Professionals evaluating opportunities should consider salary alongside taxes, housing costs and affordability.",
+        "Technology and healthcare continue to offer some of the strongest compensation opportunities, while finance and engineering remain important sources of high-paying employment.",
+        "Comparing purchasing power rather than salary alone provides a more accurate picture of financial outcomes.",
       ],
-      factors: ["Education", "Experience", "Industry", "Region", "Demand for skills"],
-      sectorsIntro: "Technology and finance roles often provide some of the highest salary levels, while healthcare occupations offer a combination of strong demand and long-term career stability.",
+      factors: [],
+      sectorsIntro: "",
     },
-    relocationText: "The United States remains a leading destination for professionals seeking career growth and higher compensation. Before relocating, compare salary opportunities, federal and state taxes, housing costs, healthcare expenses and purchasing power. Olikit provides comparison tools to evaluate the United States alongside Canada, the United Kingdom, Australia, Singapore and New Zealand.",
+    relocationText: "Considering a move to the United States? Compare salaries, taxes, housing costs and purchasing power against Canada, the United Kingdom, Australia, Singapore and New Zealand. Evaluate how compensation translates into real financial outcomes before making relocation decisions.",
     researchTopics: [
-      "Highest Paying Jobs in the United States",
+      "Highest Paying Jobs",
       "Highest Paying States",
-      "Salary Rankings by Profession",
+      "Salary Rankings",
+      "Tax Burden Rankings",
       "Cost of Living Rankings",
       "Purchasing Power Rankings",
-      "Tax Burden Comparisons",
     ],
-    stateDestinations: ["California", "Texas", "Florida", "New York", "Washington", "Massachusetts", "Illinois", "Colorado"],
+    stateDestinations: ["California", "Texas", "Florida", "New York", "Washington", "Massachusetts"],
     govSources: [
-      { name: "Internal Revenue Service (IRS)", desc: "Federal tax brackets and tax guidance" },
+      { name: "Internal Revenue Service (IRS)", desc: "Federal tax brackets and guidance" },
       { name: "Bureau of Labor Statistics (BLS)", desc: "Employment and wage data" },
       { name: "U.S. Census Bureau", desc: "Demographic and economic statistics" },
       { name: "Federal Reserve", desc: "Economic research and data" },
       { name: "Bureau of Economic Analysis (BEA)", desc: "GDP and regional economic data" },
     ],
     trustItems: [
-      { title: "Transparent Methodology", desc: "Calculation assumptions and methodologies are documented and publicly available." },
       { title: "Government-Sourced Data", desc: "Salary, tax and economic information is derived from official public sources whenever possible." },
-      { title: "Independent Research", desc: "Research and rankings are produced using transparent criteria and are not influenced by advertisers." },
-      { title: "Regular Updates", desc: "Tax rates, salary benchmarks and supporting methodologies are reviewed regularly." },
+      { title: "Transparent Methodology", desc: "Calculation assumptions and methodologies are publicly documented." },
+      { title: "Independent Research", desc: "Research and rankings are created independently using transparent criteria." },
+      { title: "Regular Updates", desc: "Benchmarks, tax rates and methodologies are reviewed regularly." },
     ],
     faqQs: [
-      { q: "What is the average salary in the United States?", a: "Average salaries vary significantly by profession, industry and location. Technology, healthcare and finance occupations frequently report above-average compensation." },
-      { q: "Which professions earn the highest salaries?", a: "Doctors, specialized healthcare professionals, software engineers and senior finance professionals are among the highest-paid occupations." },
-      { q: "Which states pay the highest salaries?", a: "California, Washington, Massachusetts and New York frequently rank among the strongest states for compensation." },
-      { q: "How much income tax do workers pay?", a: "Income tax depends on federal tax brackets, filing status and state tax rules." },
-      { q: "How does the United States compare internationally?", a: "The United States generally ranks among the highest-paying countries for skilled professionals, though taxes and living costs should be considered alongside salary." },
-      { q: "What sources does Olikit use?", a: "Olikit uses government publications, labor market data and official tax resources." },
-      { q: "How often is the information updated?", a: "Salary benchmarks, tax information and methodologies are reviewed regularly and updated when significant changes occur." },
+      { q: "What is the average salary in the United States?", a: "Salary levels vary significantly across industries, professions and locations. Technology, healthcare, finance and engineering occupations frequently report higher-than-average earnings, while salaries in other sectors may vary depending on demand, education requirements and regional labor market conditions. When evaluating salaries, it is important to consider taxes, housing costs and purchasing power rather than salary alone." },
+      { q: "What is considered a good salary in the United States?", a: "A good salary depends on where you live, your household size and your financial goals. A salary that provides strong purchasing power in one state may offer a different standard of living in another due to differences in housing costs, taxes and living expenses." },
+      { q: "Which professions earn the highest salaries in the United States?", a: "Many of the highest-paying occupations are found in healthcare, technology and finance, including physicians, software engineers, specialized healthcare professionals and senior finance professionals." },
+      { q: "Which states pay the highest salaries?", a: "California, Washington, Massachusetts and New York frequently rank among the strongest states for compensation, though living costs should also be considered." },
+      { q: "Which states have the lowest taxes?", a: "Some states do not levy state income tax, while others apply progressive tax systems. Tax outcomes should be evaluated alongside housing and living costs." },
+      { q: "How much income tax do workers pay in the United States?", a: "Tax obligations depend on income level, filing status, federal tax brackets, state tax rules and available deductions or credits." },
+      { q: "What is the average software engineer salary in the United States?", a: "Software engineering remains one of the most competitive and highly compensated professions, with salary levels varying by experience, industry and location." },
+      { q: "How much do registered nurses earn in the United States?", a: "Registered nurse compensation depends on specialization, experience, employer type and geographic location." },
+      { q: "How does cost of living vary by state?", a: "Housing, transportation, healthcare and daily expenses vary widely, making purchasing power a critical factor when comparing states." },
+      { q: "How does the United States compare with Canada?", a: "The United States often offers higher salaries in technology and finance, while differences in healthcare systems, taxes and housing costs affect overall outcomes." },
+      { q: "How does the United States compare with the United Kingdom?", a: "The United States generally reports higher compensation levels across many professional sectors, though taxes and affordability should be considered alongside salary." },
+      { q: "Can I compare salaries across states?", a: "Yes. Comparing salaries alongside taxes, housing costs and purchasing power provides a clearer picture of financial outcomes." },
+      { q: "What sources does Olikit use?", a: "Olikit relies on official government publications and public datasets, including IRS, BLS, Census Bureau, Federal Reserve and BEA resources." },
+      { q: "How often is salary data updated?", a: "Salary benchmarks, tax information and methodologies are reviewed regularly and updated when significant changes occur." },
+      { q: "Are Olikit calculators free to use?", a: "Yes. Olikit calculators, guides and research resources are available without charge." },
     ],
   },
   uk: {
@@ -475,11 +506,12 @@ export default async function LocalePage({ params }: Props) {
         <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">
           {content.heroDesc}
         </p>
-        <div className="mt-8 flex flex-wrap gap-3">
+        <p className="mt-3 text-xs text-zinc-400">Last updated: June 2026</p>
+        <div className="mt-6 flex flex-wrap gap-3">
           <a href={`/${slug}/tools/salary-calculator`} className="rounded-md bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800">Salary Calculator</a>
           <a href={`/${slug}/tools/tax-calculator`} className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Tax Calculator</a>
           <a href={`/${slug}/tools/mortgage-calculator`} className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Mortgage Calculator</a>
-          <a href={`/${slug}/salary`} className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Salary Research</a>
+          <a href={`/${slug}/tools/salary-calculator?mode=after-tax`} className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Salary After Tax</a>
         </div>
       </section>
 
@@ -492,14 +524,29 @@ export default async function LocalePage({ params }: Props) {
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <SnapshotCard label="Currency" value={content.snapshotCurrency} />
           <SnapshotCard label="Tax Authority" value={content.snapshotTaxAuthority} />
-          <SnapshotCard label="Major Salary Sectors" value={content.snapshotTopSectors} />
-          <SnapshotCard label="Highest Paying Region" value={content.snapshotTopRegion} />
+          <SnapshotCard label="Highest Paying Sector" value={content.snapshotTopSectors} />
+          <SnapshotCard label="Highest Paying State" value={content.snapshotTopRegion} />
           <SnapshotCard label="Most Researched Profession" value={content.snapshotTopProfession} />
           <SnapshotCard label="Global Position" value={content.snapshotGlobalPosition} />
         </div>
       </section>
 
-      {/* 2b. KEY TAKEAWAYS */}
+      {/* 3. AI QUICK ANSWERS */}
+      {content.aiQuickAnswers && (
+        <section className="rounded-lg border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-8">
+          <h2 className="mb-4 text-lg font-semibold text-zinc-950">AI Quick Answers</h2>
+          <div className="space-y-3">
+            {content.aiQuickAnswers.map((item, i) => (
+              <div key={i}>
+                <p className="text-sm font-medium text-zinc-950">{item.q}</p>
+                <p className="text-sm text-zinc-500 mt-0.5">{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* 4. KEY TAKEAWAYS */}
       {content.keyTakeaways && (
         <section>
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Key Takeaways</h2>
@@ -514,19 +561,32 @@ export default async function LocalePage({ params }: Props) {
         </section>
       )}
 
-      {/* 3. FREQUENTLY REFERENCED METRICS */}
-      <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-6 shadow-sm sm:px-8">
-        <h2 className="mb-3 text-lg font-semibold text-zinc-950">Frequently Referenced Metrics</h2>
-        <div className="flex flex-wrap gap-2">
-          <a href={`/${slug}/salary`} className="rounded-md bg-white px-3 py-1.5 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 transition hover:bg-zinc-50 hover:text-zinc-950">Average Salary in {name}</a>
-          <a href={`/${slug}/salary`} className="rounded-md bg-white px-3 py-1.5 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 transition hover:bg-zinc-50 hover:text-zinc-950">Median Salary in {name}</a>
-          <a href={`/${slug}/salary`} className="rounded-md bg-white px-3 py-1.5 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 transition hover:bg-zinc-50 hover:text-zinc-950">Highest Paying Profession</a>
-          <a href={`/${slug}/best-states-for-salary`} className="rounded-md bg-white px-3 py-1.5 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 transition hover:bg-zinc-50 hover:text-zinc-950">Highest Paying Region</a>
-          <a href={`/${slug}/tools/tax-calculator`} className="rounded-md bg-white px-3 py-1.5 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 transition hover:bg-zinc-50 hover:text-zinc-950">Effective Tax Range</a>
+      {/* 5. POPULAR PROFESSION SALARIES */}
+      <section className="rounded-lg border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-8">
+        <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Popular Profession Salaries</h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {content.professionGroups.map((group) => (
+            <ProfessionGroup key={group.category} {...group} />
+          ))}
         </div>
       </section>
 
-      {/* 4. FEATURED INSIGHTS */}
+      {/* 6. EXPLORE SALARIES BY CAREER PATH */}
+      {content.careerPaths && (
+        <section>
+          <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Explore Salaries by Career Path</h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {content.careerPaths.map((path) => (
+              <a key={path.title} href={path.href} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
+                <h3 className="mb-2 text-lg font-semibold text-zinc-950">{path.title}</h3>
+                <p className="text-sm leading-6 text-zinc-600">{path.desc}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* 7. FEATURED INSIGHTS */}
       <section>
         <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Featured Insights</h2>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -536,68 +596,56 @@ export default async function LocalePage({ params }: Props) {
         </div>
       </section>
 
-      {/* 5. POPULAR PROFESSION SALARIES */}
-      <section className="rounded-lg border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-8">
-        <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Popular Profession Salaries</h2>
-        <p className="mb-6 text-sm text-zinc-600">Explore salary benchmarks by profession in {name}.</p>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {content.professionGroups.map((group) => (
-            <ProfessionGroup key={group.category} {...group} />
-          ))}
-        </div>
-      </section>
+      {/* 8. FEATURED RESEARCH */}
+      {content.featuredResearch && (
+        <section>
+          <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Featured Research</h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {content.featuredResearch.map((item) => (
+              <a key={item.title} href={item.href} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
+                <h3 className="mb-2 text-lg font-semibold text-zinc-950">{item.title}</h3>
+                <p className="text-sm leading-6 text-zinc-600">{item.desc}</p>
+                {item.cta && (
+                  <span className="mt-3 inline-block text-sm font-medium text-blue-600">{item.cta}</span>
+                )}
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
 
-      {/* 5b. SALARY LANDSCAPE */}
+      {/* 9. SALARY LANDSCAPE */}
       {content.salaryLandscape && (
         <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-6 shadow-sm sm:px-8">
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">{name} Salary Landscape</h2>
-          <h3 className="mb-3 text-base font-semibold text-zinc-950">Understanding Compensation in the United States</h3>
           {content.salaryLandscape.text.map((p, i) => (
             <p key={i} className="mb-3 text-sm leading-7 text-zinc-600 last:mb-0">{p}</p>
           ))}
         </section>
       )}
 
-      {/* 6. COUNTRY RESEARCH & RANKINGS */}
+      {/* 10. RESEARCH & RANKINGS */}
       <section>
         <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Research &amp; Rankings</h2>
         <p className="mb-4 text-sm text-zinc-600">Explore in-depth research covering compensation trends, tax burdens and affordability across {content.researchTopics ? "the country" : name}.</p>
         {content.researchTopics && (
-          <div className="mb-4">
-            <p className="text-sm font-medium text-zinc-700 mb-2">Topics include:</p>
-            <ul className="flex flex-wrap gap-x-4 gap-y-1">
-              {content.researchTopics.map((topic) => (
-                <li key={topic} className="text-sm text-zinc-500">&bull; {topic}</li>
-              ))}
-            </ul>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {content.researchTopics.map((topic) => {
+              const href = topic === "Highest Paying Jobs" ? `/${slug}/rankings` :
+                topic === "Highest Paying States" ? `/${slug}/best-states-for-salary` :
+                topic === "Salary Rankings" ? "/rankings" :
+                topic === "Tax Burden Rankings" ? `/${slug}/tools/tax-calculator` :
+                topic === "Cost of Living Rankings" ? `/${slug}/guides` :
+                topic === "Purchasing Power Rankings" ? "/compare" :
+                `/${slug}/rankings`
+              return (
+                <a key={topic} href={href} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
+                  <h3 className="text-lg font-semibold text-zinc-950">{topic}</h3>
+                </a>
+              )
+            })}
           </div>
         )}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <a href={`/${slug}/rankings`} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
-            <h3 className="text-lg font-semibold text-zinc-950">Highest Paying Jobs</h3>
-            <p className="mt-1 text-sm text-zinc-600">Profession rankings based on salary data.</p>
-          </a>
-          <a href={`/${slug}/best-states-for-salary`} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
-            <h3 className="text-lg font-semibold text-zinc-950">Highest Paying Regions</h3>
-            <p className="mt-1 text-sm text-zinc-600">Regional salary rankings and comparisons.</p>
-          </a>
-          <a href="/rankings" className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
-            <h3 className="text-lg font-semibold text-zinc-950">Salary Rankings</h3>
-            <p className="mt-1 text-sm text-zinc-600">Global salary rankings by country.</p>
-          </a>
-          <a href={`/${slug}/tools/tax-calculator`} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
-            <h3 className="text-lg font-semibold text-zinc-950">Tax Burden Rankings</h3>
-            <p className="mt-1 text-sm text-zinc-600">Compare tax systems across countries.</p>
-          </a>
-          <a href={`/${slug}/guides`} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
-            <h3 className="text-lg font-semibold text-zinc-950">Cost-of-Living Rankings</h3>
-            <p className="mt-1 text-sm text-zinc-600">Living cost comparisons and analysis.</p>
-          </a>
-          <a href="/compare" className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
-            <h3 className="text-lg font-semibold text-zinc-950">Purchasing Power Rankings</h3>
-            <p className="mt-1 text-sm text-zinc-600">Cross-country purchasing power analysis.</p>
-          </a>
-        </div>
       </section>
 
       {/* 7. RELOCATION INTELLIGENCE */}
@@ -646,7 +694,7 @@ export default async function LocalePage({ params }: Props) {
             </div>
           )}
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {usStates.slice(0, 9).map((s) => {
+            {usStates.slice(0, 6).map((s) => {
               const d = stateDataSets.find(d => d.stateSlug === s.slug)
               if (!d) return null
               return (
@@ -674,7 +722,7 @@ export default async function LocalePage({ params }: Props) {
           {guides.map((guide) => (
             <a key={guide.id} href={`/${slug}/guides/${guide.slug}`} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
               <p className="mb-2 text-xs font-semibold uppercase text-zinc-500">{guide.category}</p>
-              <h3 className="mb-2 text-lg font-semibold text-zinc-950">{guide.name}</h3>
+              <h3 className="mb-2 text-lg font-semibold text-zinc-950">{guide.name.replace("{country}", name)}</h3>
               <p className="text-sm leading-6 text-zinc-600">{guide.description.replace("{country}", name)}</p>
             </a>
           ))}

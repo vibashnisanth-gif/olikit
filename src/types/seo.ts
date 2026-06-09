@@ -4,6 +4,7 @@ export interface Locale {
   slug: string
   currency: Currency
   taxTerms: TaxTerms
+  taxAuthority: string
   language: string
   region: string
   defaultTitle: string

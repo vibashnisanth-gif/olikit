@@ -6,6 +6,8 @@ import { trackCountrySwitch } from "@/lib/tracking"
 type Props = {
   slug: string | null
   name: string | null
+  currencyCode: string
+  taxAuthority: string
 }
 
 const BAR_STYLES: Record<string, string> = {
@@ -19,7 +21,7 @@ const BAR_STYLES: Record<string, string> = {
   sg: "bg-red-50 text-red-800 border-b border-red-200",
 }
 
-export function ContextBar({ slug, name }: Props) {
+export function ContextBar({ slug, name, currencyCode, taxAuthority }: Props) {
   const isGlobal = !slug
   const flag = isGlobal ? "🌍" : (COUNTRY_FLAGS[slug] || "🌍")
   const label = isGlobal ? "Global" : name
@@ -31,6 +33,11 @@ export function ContextBar({ slug, name }: Props) {
         <span className="flex items-center gap-1.5 text-xs font-semibold tracking-wider">
           <span className="text-sm leading-none">{flag}</span>
           {label}
+          {!isGlobal && (
+            <span className="text-[10px] font-normal opacity-60">
+              &nbsp;&bull; {currencyCode} &bull; {taxAuthority}
+            </span>
+          )}
         </span>
         {!isGlobal && (
           <a

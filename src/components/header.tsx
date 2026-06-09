@@ -132,20 +132,12 @@ export function Header({ currentSlug }: Props) {
                 <p className="px-3 pb-2 text-xs font-semibold uppercase tracking-wider text-zinc-400">
                   Countries
                 </p>
-                <div className="grid grid-cols-2 gap-1">
-                  {countries.map((c) => (
-                    <a
-                      key={c.slug}
-                      href={`/${c.slug}`}
-                      className={`rounded-md px-3 py-2 text-sm hover:bg-zinc-100 ${
-                        c.slug === currentSlug ? "font-medium text-zinc-950 bg-zinc-50" : "text-zinc-600"
-                      }`}
-                      onClick={() => setOpen(false)}
-                    >
-                      <span>{c.flag}</span>
-                      <span className="ml-1.5">{c.name}</span>
-                    </a>
-                  ))}
+                <div className="px-3">
+                  <CountrySwitcher
+                    currentSlug={currentSlug}
+                    currentName={label}
+                    countries={countries.map((c) => ({ slug: c.slug, name: c.name, flag: c.flag }))}
+                  />
                 </div>
               </div>
             </div>

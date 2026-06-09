@@ -4,7 +4,7 @@ export const guides: Guide[] = [
   {
     id: "salary-after-tax-by-country",
     slug: "salary-after-tax-by-country",
-    name: "Salary After Tax by Country",
+    name: "Salary After Tax in {country}",
     shortName: "Salary Comparison",
     category: "salary",
     description:
@@ -25,7 +25,7 @@ export const guides: Guide[] = [
   {
     id: "tax-brackets-by-country",
     slug: "tax-brackets-by-country",
-    name: "Tax Brackets by Country",
+    name: "Tax Brackets in {country}",
     shortName: "Tax Brackets",
     category: "tax",
     description:

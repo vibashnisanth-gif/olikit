@@ -17,7 +17,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex flex-col min-h-full">
-      <ContextBar slug={country?.slug ?? null} name={country?.name ?? null} />
+      <ContextBar slug={country?.slug ?? null} name={country?.name ?? null} currencyCode="" taxAuthority="" />
       <PageTracker />
       <Header currentSlug={country?.slug ?? null} />
       <main className="flex-1 mx-auto w-full max-w-6xl px-4 py-8 sm:py-10">
