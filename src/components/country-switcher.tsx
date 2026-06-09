@@ -3,7 +3,7 @@
 import { useRouter, usePathname } from "next/navigation"
 
 type Props = {
-  currentSlug: string
+  currentSlug: string | null
   currentName: string
   countries: { slug: string; name: string; flag: string }[]
 }
@@ -15,10 +15,12 @@ export function CountrySwitcher({ currentSlug, currentName, countries }: Props) 
   const pathname = usePathname()
 
   const allOptions = [GLOBAL_OPTION, ...countries]
+  const safeSlug = currentSlug ?? ""
   const currentFlag = countries.find((c) => c.slug === currentSlug)?.flag || "🌍"
 
   const switchUrl = (toSlug: string): string => {
     if (!toSlug) return "/"
+    if (!currentSlug) return `/${toSlug}`
     if (toSlug === currentSlug) return pathname
     return pathname.replace(`/${currentSlug}`, `/${toSlug}`)
   }
@@ -35,7 +37,7 @@ export function CountrySwitcher({ currentSlug, currentName, countries }: Props) 
             router.push(switchUrl(e.target.value))
           }
         }}
-        defaultValue={currentSlug}
+        defaultValue={safeSlug}
         aria-label="Select country"
       >
         {allOptions.map((opt) => (

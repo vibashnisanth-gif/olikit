@@ -68,7 +68,7 @@ export default async function SalaryHubPage(props: { params: Promise<{ locale: s
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <main className="max-w-4xl mx-auto px-4 py-12 space-y-10">
+      <div className="max-w-4xl mx-auto px-4 py-12 space-y-10">
         <section>
           <h1 className="text-4xl font-bold mb-4">{content.h1}</h1>
           <p className="text-lg text-zinc-600 dark:text-zinc-400">{content.intro}</p>
@@ -186,7 +186,7 @@ export default async function SalaryHubPage(props: { params: Promise<{ locale: s
             <li>Last updated: {lastUpdated}</li>
           </ul>
         </section>
-      </main>
+      </div>
     </>
   )
 }
