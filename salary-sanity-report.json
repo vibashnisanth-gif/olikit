@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-06-09T01:29:40.781Z",
+  "passed": true,
+  "totalProfessions": 10,
+  "errors": [],
+  "warnings": [],
+  "professionMaxUsd": {
+    "software-engineer": 120000,
+    "data-scientist": 125000,
+    "doctor": 220000,
+    "registered-nurse": 82000,
+    "teacher": 58000,
+    "accountant": 75000,
+    "marketing-manager": 95000,
+    "mechanical-engineer": 85000,
+    "electrician": 60000,
+    "construction-worker": 45000
+  }
+}

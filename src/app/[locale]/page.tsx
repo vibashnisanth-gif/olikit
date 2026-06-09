@@ -24,9 +24,16 @@ const COUNTRY_CONTENT: Record<string, {
   snapshotTopRegion: string
   snapshotTopProfession: string
   snapshotGlobalPosition: string
+  snapshotDesc?: string[]
+  keyTakeaways?: { title: string; desc: string }[]
   featuredInsights: { title: string; desc: string; href: string }[]
   professionGroups: { category: string; items: { label: string; href: string }[] }[]
+  salaryLandscape?: { text: string[]; factors: string[]; sectorsIntro: string }
   relocationText: string
+  researchTopics?: string[]
+  stateDestinations?: string[]
+  govSources?: { name: string; desc: string }[]
+  trustItems?: { title: string; desc: string }[]
   faqQs: { q: string; a: string }[]
 }> = {
   us: {
@@ -38,6 +45,17 @@ const COUNTRY_CONTENT: Record<string, {
     snapshotTopRegion: "California, Washington, Massachusetts, New York",
     snapshotTopProfession: "Software Engineer",
     snapshotGlobalPosition: "One of the world's highest-paying labor markets",
+    snapshotDesc: [
+      "The United States remains one of the world's largest and most competitive labor markets. It is home to leading technology companies, global financial institutions, major healthcare systems and some of the highest-paying professional occupations globally.",
+      "Compensation levels can vary dramatically depending on industry, experience, location and tax jurisdiction. A software engineer in California, a financial analyst in New York and a nurse in Texas may all face very different salary ranges, tax obligations and living costs.",
+      "Understanding salary alone is not enough. The real value of income depends on housing costs, taxes, healthcare expenses and purchasing power. Olikit helps you evaluate all of these factors together.",
+    ],
+    keyTakeaways: [
+      { title: "What Makes the United States Unique?", desc: "The United States consistently ranks among the highest-paying countries for skilled professionals, particularly in technology, healthcare and finance." },
+      { title: "State Differences Matter", desc: "Two workers earning the same salary may experience very different take-home outcomes depending on state taxes, housing costs and living expenses." },
+      { title: "Technology Drives Compensation", desc: "Technology remains one of the strongest compensation sectors in the United States, with software engineers, product managers and data professionals frequently earning above national averages." },
+      { title: "Healthcare Remains a Major Employer", desc: "Healthcare occupations continue to experience strong demand and competitive salaries across many regions." },
+    ],
     featuredInsights: [
       { title: "Highest Paying States", desc: "Salary levels vary significantly across the United States. States with strong technology, healthcare and financial sectors often report higher average compensation than the national average. Explore how states compare and identify regions that offer stronger earning potential.", href: "/us/best-states-for-salary" },
       { title: "Software Engineer Salary Trends", desc: "Software engineering remains one of the most researched professions in the United States. Compensation depends on experience level, industry, company size and geographic location. Technology hubs such as California, Washington and New York often command higher salaries, though housing costs may offset part of the advantage.", href: "/us/salary/software-engineer" },
@@ -72,7 +90,37 @@ const COUNTRY_CONTENT: Record<string, {
         { label: "Human Resources Manager Salary", href: "/us/tools/salary-calculator" },
       ]},
     ],
+    salaryLandscape: {
+      text: [
+        "The United States labor market is highly diverse. Compensation varies based on education, experience, industry, region and demand for skills.",
+        "Technology and finance roles often provide some of the highest salary levels, while healthcare occupations offer a combination of strong demand and long-term career stability. Workers evaluating opportunities should consider both salary and purchasing power when comparing jobs or relocation options.",
+      ],
+      factors: ["Education", "Experience", "Industry", "Region", "Demand for skills"],
+      sectorsIntro: "Technology and finance roles often provide some of the highest salary levels, while healthcare occupations offer a combination of strong demand and long-term career stability.",
+    },
     relocationText: "The United States remains a leading destination for professionals seeking career growth and higher compensation. Before relocating, compare salary opportunities, federal and state taxes, housing costs, healthcare expenses and purchasing power. Olikit provides comparison tools to evaluate the United States alongside Canada, the United Kingdom, Australia, Singapore and New Zealand.",
+    researchTopics: [
+      "Highest Paying Jobs in the United States",
+      "Highest Paying States",
+      "Salary Rankings by Profession",
+      "Cost of Living Rankings",
+      "Purchasing Power Rankings",
+      "Tax Burden Comparisons",
+    ],
+    stateDestinations: ["California", "Texas", "Florida", "New York", "Washington", "Massachusetts", "Illinois", "Colorado"],
+    govSources: [
+      { name: "Internal Revenue Service (IRS)", desc: "Federal tax brackets and tax guidance" },
+      { name: "Bureau of Labor Statistics (BLS)", desc: "Employment and wage data" },
+      { name: "U.S. Census Bureau", desc: "Demographic and economic statistics" },
+      { name: "Federal Reserve", desc: "Economic research and data" },
+      { name: "Bureau of Economic Analysis (BEA)", desc: "GDP and regional economic data" },
+    ],
+    trustItems: [
+      { title: "Transparent Methodology", desc: "Calculation assumptions and methodologies are documented and publicly available." },
+      { title: "Government-Sourced Data", desc: "Salary, tax and economic information is derived from official public sources whenever possible." },
+      { title: "Independent Research", desc: "Research and rankings are produced using transparent criteria and are not influenced by advertisers." },
+      { title: "Regular Updates", desc: "Tax rates, salary benchmarks and supporting methodologies are reviewed regularly." },
+    ],
     faqQs: [
       { q: "What is the average salary in the United States?", a: "Average salaries vary significantly by profession, industry and location. Technology, healthcare and finance occupations frequently report above-average compensation." },
       { q: "Which professions earn the highest salaries?", a: "Doctors, specialized healthcare professionals, software engineers and senior finance professionals are among the highest-paid occupations." },
@@ -437,7 +485,10 @@ export default async function LocalePage({ params }: Props) {
 
       {/* 2. COUNTRY SNAPSHOT */}
       <section>
-        <h2 className="mb-4 text-2xl font-semibold text-zinc-950">{name} Financial Snapshot</h2>
+        <h2 className="mb-2 text-2xl font-semibold text-zinc-950">{name} Financial Snapshot</h2>
+        {content.snapshotDesc?.map((p, i) => (
+          <p key={i} className="mb-3 text-sm leading-7 text-zinc-600 last:mb-4">{p}</p>
+        ))}
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <SnapshotCard label="Currency" value={content.snapshotCurrency} />
           <SnapshotCard label="Tax Authority" value={content.snapshotTaxAuthority} />
@@ -447,6 +498,21 @@ export default async function LocalePage({ params }: Props) {
           <SnapshotCard label="Global Position" value={content.snapshotGlobalPosition} />
         </div>
       </section>
+
+      {/* 2b. KEY TAKEAWAYS */}
+      {content.keyTakeaways && (
+        <section>
+          <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Key Takeaways</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {content.keyTakeaways.map((item) => (
+              <div key={item.title} className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm">
+                <h3 className="mb-1.5 text-base font-semibold text-zinc-950">{item.title}</h3>
+                <p className="text-sm leading-6 text-zinc-600">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* 3. FREQUENTLY REFERENCED METRICS */}
       <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-6 shadow-sm sm:px-8">
@@ -481,10 +547,31 @@ export default async function LocalePage({ params }: Props) {
         </div>
       </section>
 
+      {/* 5b. SALARY LANDSCAPE */}
+      {content.salaryLandscape && (
+        <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-6 shadow-sm sm:px-8">
+          <h2 className="mb-4 text-2xl font-semibold text-zinc-950">{name} Salary Landscape</h2>
+          <h3 className="mb-3 text-base font-semibold text-zinc-950">Understanding Compensation in the United States</h3>
+          {content.salaryLandscape.text.map((p, i) => (
+            <p key={i} className="mb-3 text-sm leading-7 text-zinc-600 last:mb-0">{p}</p>
+          ))}
+        </section>
+      )}
+
       {/* 6. COUNTRY RESEARCH & RANKINGS */}
       <section>
         <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Research &amp; Rankings</h2>
-        <p className="mb-4 text-sm text-zinc-600">Explore in-depth research covering compensation trends, tax burdens and affordability across {name}.</p>
+        <p className="mb-4 text-sm text-zinc-600">Explore in-depth research covering compensation trends, tax burdens and affordability across {content.researchTopics ? "the country" : name}.</p>
+        {content.researchTopics && (
+          <div className="mb-4">
+            <p className="text-sm font-medium text-zinc-700 mb-2">Topics include:</p>
+            <ul className="flex flex-wrap gap-x-4 gap-y-1">
+              {content.researchTopics.map((topic) => (
+                <li key={topic} className="text-sm text-zinc-500">&bull; {topic}</li>
+              ))}
+            </ul>
+          </div>
+        )}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <a href={`/${slug}/rankings`} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
             <h3 className="text-lg font-semibold text-zinc-950">Highest Paying Jobs</h3>
@@ -548,11 +635,16 @@ export default async function LocalePage({ params }: Props) {
         <section>
           <div className="mb-4 flex items-end justify-between gap-4">
             <div>
-              <h2 className="text-2xl font-semibold text-zinc-950">States &amp; Regions</h2>
-              <p className="mt-1 text-sm text-zinc-600">Salary and cost-of-living insights by state</p>
+              <h2 className="text-2xl font-semibold text-zinc-950">Explore States</h2>
+              <p className="mt-1 text-sm text-zinc-600">Salary and cost-of-living insights by state. Compare salaries, taxes and affordability across states to better understand regional differences.</p>
             </div>
             <a href={`/${slug}/states`} className="shrink-0 text-sm font-medium text-blue-600 hover:underline">All States</a>
           </div>
+          {content.stateDestinations && (
+            <div className="mb-4 flex flex-wrap gap-2">
+              {content.stateDestinations.map((s) => <span key={s} className="rounded-md bg-zinc-100 px-3 py-1.5 text-sm font-medium text-zinc-700">{s}</span>)}
+            </div>
+          )}
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {usStates.slice(0, 9).map((s) => {
               const d = stateDataSets.find(d => d.stateSlug === s.slug)
@@ -596,7 +688,7 @@ export default async function LocalePage({ params }: Props) {
           Olikit uses publicly available information from government agencies and official publications. Salary, tax and economic information is derived from official public sources whenever possible.
         </p>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {[
+          {(content.govSources || [
             { name: "IRS", desc: "US tax brackets and labor data" },
             { name: "HMRC", desc: "UK tax rates and allowances" },
             { name: "ATO", desc: "Australian tax and superannuation" },
@@ -605,7 +697,7 @@ export default async function LocalePage({ params }: Props) {
             { name: "Income Tax Dept", desc: "India tax slabs and rules" },
             { name: "IRAS", desc: "Singapore individual tax rates" },
             { name: "CPF Board", desc: "Singapore CPF contributions" },
-          ].map((source) => (
+          ]).map((source) => (
             <div key={source.name} className="rounded-md bg-zinc-50 p-3">
               <p className="font-semibold text-zinc-950 text-sm">{source.name}</p>
               <p className="text-xs text-zinc-500 mt-0.5">{source.desc}</p>
@@ -618,22 +710,17 @@ export default async function LocalePage({ params }: Props) {
       <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-6 shadow-sm sm:px-8">
         <h2 className="mb-6 text-2xl font-semibold text-zinc-950">Why Trust Olikit</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <h3 className="mb-1.5 text-sm font-semibold text-zinc-950">Government-Sourced Data</h3>
-            <p className="text-sm leading-6 text-zinc-600">Salary, tax and labor-market information is derived from official publications and public datasets.</p>
-          </div>
-          <div>
-            <h3 className="mb-1.5 text-sm font-semibold text-zinc-950">Transparent Methodology</h3>
-            <p className="text-sm leading-6 text-zinc-600">Calculation assumptions, methodologies and update processes are publicly documented.</p>
-          </div>
-          <div>
-            <h3 className="mb-1.5 text-sm font-semibold text-zinc-950">Independent Research</h3>
-            <p className="text-sm leading-6 text-zinc-600">Research and rankings are created independently using transparent criteria.</p>
-          </div>
-          <div>
-            <h3 className="mb-1.5 text-sm font-semibold text-zinc-950">Regular Updates</h3>
-            <p className="text-sm leading-6 text-zinc-600">Salary benchmarks, tax rates and methodologies are reviewed and updated as new information becomes available.</p>
-          </div>
+          {(content.trustItems || [
+            { title: "Government-Sourced Data", desc: "Salary, tax and labor-market information is derived from official publications and public datasets." },
+            { title: "Transparent Methodology", desc: "Calculation assumptions, methodologies and update processes are publicly documented." },
+            { title: "Independent Research", desc: "Research and rankings are created independently using transparent criteria." },
+            { title: "Regular Updates", desc: "Salary benchmarks, tax rates and methodologies are reviewed and updated as new information becomes available." },
+          ]).map((item) => (
+            <div key={item.title}>
+              <h3 className="mb-1.5 text-sm font-semibold text-zinc-950">{item.title}</h3>
+              <p className="text-sm leading-6 text-zinc-600">{item.desc}</p>
+            </div>
+          ))}
         </div>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link href="/about" className="rounded-md bg-zinc-950 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800">About Our Methodology</Link>
