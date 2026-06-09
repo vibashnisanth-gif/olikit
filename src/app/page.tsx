@@ -790,7 +790,7 @@ export default function GlobalHomePage() {
                 {prof.name}
               </h3>
               <p className="mt-1 text-sm leading-6 text-zinc-600">
-                Available across supported countries
+                Government-sourced salary data
               </p>
               <div className="mt-2 space-y-0.5">
                 <p className="text-xs leading-5 text-zinc-400">

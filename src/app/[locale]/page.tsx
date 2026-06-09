@@ -11,8 +11,368 @@ import { glossaryEntries } from "@/lib/content/glossary"
 import { getLatestUpdates } from "@/lib/content/updates"
 import { getLastUpdated } from "@/lib/seo/freshness"
 import { buildLocalBusinessJsonLd, buildOrganizationJsonLd } from "@/lib/seo/json-ld"
+import { getAllCountries } from "@/lib/content/country-registry"
 
 type Props = { params: Promise<{ locale: string }> }
+
+const COUNTRY_CONTENT: Record<string, {
+  heroH1: string
+  heroDesc: string
+  snapshotCurrency: string
+  snapshotTaxAuthority: string
+  snapshotTopSectors: string
+  snapshotTopRegion: string
+  snapshotTopProfession: string
+  snapshotGlobalPosition: string
+  featuredInsights: { title: string; desc: string; href: string }[]
+  professionGroups: { category: string; items: { label: string; href: string }[] }[]
+  relocationText: string
+  faqQs: { q: string; a: string }[]
+}> = {
+  us: {
+    heroH1: "United States Salary, Tax and Cost of Living Intelligence",
+    heroDesc: "Research salaries, estimate take-home pay, compare states and understand the real cost of living across the United States. Olikit combines salary benchmarks, tax insights and affordability research to help professionals, job seekers and families make better financial decisions. Whether you are evaluating a career move, comparing job offers or researching compensation trends, our calculators, rankings and guides provide transparent insights built from publicly available data and documented methodologies.",
+    snapshotCurrency: "United States Dollar (USD)",
+    snapshotTaxAuthority: "Internal Revenue Service (IRS)",
+    snapshotTopSectors: "Technology, Healthcare, Finance, Engineering",
+    snapshotTopRegion: "California, Washington, Massachusetts, New York",
+    snapshotTopProfession: "Software Engineer",
+    snapshotGlobalPosition: "One of the world's highest-paying labor markets",
+    featuredInsights: [
+      { title: "Highest Paying States", desc: "Salary levels vary significantly across the United States. States with strong technology, healthcare and financial sectors often report higher average compensation than the national average. Explore how states compare and identify regions that offer stronger earning potential.", href: "/us/best-states-for-salary" },
+      { title: "Software Engineer Salary Trends", desc: "Software engineering remains one of the most researched professions in the United States. Compensation depends on experience level, industry, company size and geographic location. Technology hubs such as California, Washington and New York often command higher salaries, though housing costs may offset part of the advantage.", href: "/us/salary/software-engineer" },
+      { title: "State Income Tax Differences", desc: "The United States operates under a combination of federal and state tax systems. Some states levy no state income tax, while others impose significant additional tax obligations. Comparing take-home pay after taxes often reveals meaningful differences between states.", href: "/us/tools/tax-calculator" },
+      { title: "Cost of Living Across America", desc: "Housing costs, transportation expenses and everyday living costs vary widely. A salary that provides a comfortable lifestyle in one state may offer substantially less purchasing power elsewhere. Cost-of-living analysis helps provide a clearer picture of real earning potential.", href: "/us/cost-of-living/california" },
+    ],
+    professionGroups: [
+      { category: "Technology", items: [
+        { label: "Software Engineer Salary", href: "/us/salary/software-engineer" },
+        { label: "Data Scientist Salary", href: "/us/salary/data-scientist" },
+        { label: "Product Manager Salary", href: "/us/tools/salary-calculator" },
+        { label: "Cybersecurity Analyst Salary", href: "/us/tools/salary-calculator" },
+      ]},
+      { category: "Healthcare", items: [
+        { label: "Doctor Salary", href: "/us/salary/doctor" },
+        { label: "Registered Nurse Salary", href: "/us/salary/registered-nurse" },
+        { label: "Pharmacist Salary", href: "/us/tools/salary-calculator" },
+      ]},
+      { category: "Finance", items: [
+        { label: "Accountant Salary", href: "/us/salary/accountant" },
+        { label: "Financial Analyst Salary", href: "/us/tools/salary-calculator" },
+        { label: "Auditor Salary", href: "/us/tools/salary-calculator" },
+      ]},
+      { category: "Engineering", items: [
+        { label: "Mechanical Engineer Salary", href: "/us/salary/mechanical-engineer" },
+        { label: "Civil Engineer Salary", href: "/us/tools/salary-calculator" },
+        { label: "Electrical Engineer Salary", href: "/us/tools/salary-calculator" },
+      ]},
+      { category: "Business", items: [
+        { label: "Business Analyst Salary", href: "/us/tools/salary-calculator" },
+        { label: "Project Manager Salary", href: "/us/tools/salary-calculator" },
+        { label: "Human Resources Manager Salary", href: "/us/tools/salary-calculator" },
+      ]},
+    ],
+    relocationText: "The United States remains a leading destination for professionals seeking career growth and higher compensation. Before relocating, compare salary opportunities, federal and state taxes, housing costs, healthcare expenses and purchasing power. Olikit provides comparison tools to evaluate the United States alongside Canada, the United Kingdom, Australia, Singapore and New Zealand.",
+    faqQs: [
+      { q: "What is the average salary in the United States?", a: "Average salaries vary significantly by profession, industry and location. Technology, healthcare and finance occupations frequently report above-average compensation." },
+      { q: "Which professions earn the highest salaries?", a: "Doctors, specialized healthcare professionals, software engineers and senior finance professionals are among the highest-paid occupations." },
+      { q: "Which states pay the highest salaries?", a: "California, Washington, Massachusetts and New York frequently rank among the strongest states for compensation." },
+      { q: "How much income tax do workers pay?", a: "Income tax depends on federal tax brackets, filing status and state tax rules." },
+      { q: "How does the United States compare internationally?", a: "The United States generally ranks among the highest-paying countries for skilled professionals, though taxes and living costs should be considered alongside salary." },
+      { q: "What sources does Olikit use?", a: "Olikit uses government publications, labor market data and official tax resources." },
+      { q: "How often is the information updated?", a: "Salary benchmarks, tax information and methodologies are reviewed regularly and updated when significant changes occur." },
+    ],
+  },
+  uk: {
+    heroH1: "United Kingdom Salary, Tax and Cost-of-Living Intelligence",
+    heroDesc: "Research salaries, compare regions and understand taxes and living costs across the United Kingdom using transparent and government-backed data. Olikit provides salary benchmarks, tax insights and affordability research for professionals evaluating career opportunities across England, Scotland, Wales and Northern Ireland.",
+    snapshotCurrency: "Pound Sterling (GBP \u00a3)",
+    snapshotTaxAuthority: "HM Revenue & Customs (HMRC)",
+    snapshotTopSectors: "Finance, Technology, Professional Services",
+    snapshotTopRegion: "London",
+    snapshotTopProfession: "Software Engineer",
+    snapshotGlobalPosition: "Major European financial and technology hub",
+    featuredInsights: [
+      { title: "London Salary Premium", desc: "London consistently offers higher compensation than other UK regions, particularly in finance, technology and professional services. Compare London salaries against the rest of the UK to understand regional differences.", href: "/uk/salary" },
+      { title: "Finance and Technology Compensation", desc: "The United Kingdom is a global hub for financial services and technology. Explore salary benchmarks across investment banking, fintech, software engineering and consulting.", href: "/uk/salary/software-engineer" },
+      { title: "Tax and National Insurance", desc: "UK workers pay income tax and National Insurance contributions. Understanding the tax system helps evaluate take-home pay across different salary levels.", href: "/uk/tools/tax-calculator" },
+      { title: "Regional Cost Differences", desc: "Housing costs, transportation and living expenses vary significantly between London and other UK regions. Compare affordability across major UK cities.", href: "/uk/guides" },
+    ],
+    professionGroups: [
+      { category: "Technology", items: [
+        { label: "Software Engineer Salary", href: "/uk/salary/software-engineer" },
+        { label: "Data Scientist Salary", href: "/uk/salary/data-scientist" },
+        { label: "Product Manager Salary", href: "/uk/tools/salary-calculator" },
+      ]},
+      { category: "Healthcare", items: [
+        { label: "Doctor Salary", href: "/uk/salary/doctor" },
+        { label: "Registered Nurse Salary", href: "/uk/salary/registered-nurse" },
+      ]},
+      { category: "Finance", items: [
+        { label: "Accountant Salary", href: "/uk/salary/accountant" },
+        { label: "Financial Analyst Salary", href: "/uk/tools/salary-calculator" },
+      ]},
+      { category: "Engineering", items: [
+        { label: "Mechanical Engineer Salary", href: "/uk/salary/mechanical-engineer" },
+      ]},
+    ],
+    relocationText: "The United Kingdom remains a leading destination for professionals in finance, technology and professional services. Before relocating, compare salary opportunities, taxes, housing costs and purchasing power. Olikit provides comparison tools to evaluate the United Kingdom alongside the United States, Australia, Canada and Singapore.",
+    faqQs: [
+      { q: "What is the average salary in the United Kingdom?", a: "Average salaries vary by profession, industry and region. Finance and technology occupations generally offer the highest compensation." },
+      { q: "Which professions earn the highest salaries?", a: "Finance professionals, software engineers and senior healthcare roles are among the highest-paid occupations." },
+      { q: "Which regions offer the highest salaries?", a: "London consistently offers the highest salaries, followed by the South East and other major cities." },
+      { q: "How much income tax do workers pay?", a: "Income tax is deducted through PAYE. Rates depend on earnings, with a personal allowance and progressive tax bands." },
+      { q: "How does the United Kingdom compare internationally?", a: "The UK offers competitive salaries in finance and technology, though compensation in some sectors may be lower than the United States." },
+      { q: "What sources does Olikit use?", a: "Olikit uses HMRC publications, Office for National Statistics data and official government resources." },
+      { q: "How often is the information updated?", a: "Salary benchmarks, tax information and methodologies are reviewed regularly and updated when significant changes occur." },
+    ],
+  },
+  au: {
+    heroH1: "Australia Salary, Tax and Cost-of-Living Intelligence",
+    heroDesc: "Research salaries, taxes and affordability across Australia using transparent methodologies and publicly available government data. Olikit provides salary benchmarks, tax insights and cost-of-living analysis for professionals across New South Wales, Victoria, Queensland and all Australian states and territories.",
+    snapshotCurrency: "Australian Dollar (A$)",
+    snapshotTaxAuthority: "Australian Taxation Office (ATO)",
+    snapshotTopSectors: "Mining, Technology, Healthcare",
+    snapshotTopRegion: "New South Wales",
+    snapshotTopProfession: "Software Engineer",
+    snapshotGlobalPosition: "High-income economy with strong purchasing power",
+    featuredInsights: [
+      { title: "Highest Paying States", desc: "Salary levels vary across Australian states. New South Wales, Victoria and Western Australia generally report higher average compensation. Explore how states compare.", href: "/au/best-states-for-salary" },
+      { title: "Mining and Engineering Salaries", desc: "Australia's mining and resources sector offers some of the highest compensation levels, particularly in Western Australia and Queensland.", href: "/au/salary/mechanical-engineer" },
+      { title: "Technology Salary Benchmarks", desc: "Australia's technology sector continues to grow, with competitive salaries for software engineers, data scientists and IT professionals.", href: "/au/salary/software-engineer" },
+      { title: "Cost of Living Across Major Cities", desc: "Housing costs and living expenses vary significantly between Sydney, Melbourne, Brisbane, Perth and Adelaide. Compare affordability across cities.", href: "/au/guides" },
+    ],
+    professionGroups: [
+      { category: "Technology", items: [
+        { label: "Software Engineer Salary", href: "/au/salary/software-engineer" },
+        { label: "Data Scientist Salary", href: "/au/salary/data-scientist" },
+      ]},
+      { category: "Healthcare", items: [
+        { label: "Doctor Salary", href: "/au/salary/doctor" },
+        { label: "Registered Nurse Salary", href: "/au/salary/registered-nurse" },
+      ]},
+      { category: "Finance", items: [
+        { label: "Accountant Salary", href: "/au/salary/accountant" },
+      ]},
+      { category: "Engineering", items: [
+        { label: "Mechanical Engineer Salary", href: "/au/salary/mechanical-engineer" },
+      ]},
+    ],
+    relocationText: "Australia continues to attract skilled professionals with competitive salaries and high quality of life. Compare Australian salaries and purchasing power against Canada, New Zealand, the United Kingdom and Singapore.",
+    faqQs: [
+      { q: "What is the average salary in Australia?", a: "Average salaries vary by profession and state. Mining, technology and healthcare sectors generally offer above-average compensation." },
+      { q: "Which professions earn the highest salaries?", a: "Mining engineers, software engineers and medical professionals are among the highest-paid occupations." },
+      { q: "Which states offer the highest salaries?", a: "New South Wales, Victoria and Western Australia generally report the strongest compensation levels." },
+      { q: "How much income tax do workers pay?", a: "Australia uses a progressive tax system with tax-free threshold and Medicare Levy. Rates depend on annual earnings." },
+      { q: "How does Australia compare internationally?", a: "Australia offers competitive salaries with strong purchasing power compared to many other developed economies." },
+      { q: "What sources does Olikit use?", a: "Olikit uses ATO publications, Australian Bureau of Statistics data and official government resources." },
+      { q: "How often is the information updated?", a: "Salary benchmarks, tax information and methodologies are reviewed regularly and updated when significant changes occur." },
+    ],
+  },
+  ca: {
+    heroH1: "Canada Salary, Tax and Cost-of-Living Intelligence",
+    heroDesc: "Explore compensation benchmarks, tax insights and affordability research across Canada using transparent methodologies and government-sourced data. Olikit provides salary analysis, tax comparisons and cost-of-living data for professionals across all provinces and territories.",
+    snapshotCurrency: "Canadian Dollar (C$)",
+    snapshotTaxAuthority: "Canada Revenue Agency (CRA)",
+    snapshotTopSectors: "Energy, Technology, Finance",
+    snapshotTopRegion: "Alberta",
+    snapshotTopProfession: "Software Engineer",
+    snapshotGlobalPosition: "Leading destination for skilled professionals",
+    featuredInsights: [
+      { title: "Highest Paying Provinces", desc: "Compensation levels vary across Canada. Alberta, Ontario and British Columbia generally offer the highest salaries. Explore how provinces compare.", href: "/ca/best-states-for-salary" },
+      { title: "Technology Salaries", desc: "Canada's technology sector is growing rapidly, with strong demand for software engineers, data scientists and IT professionals across Toronto, Vancouver and Montreal.", href: "/ca/salary/software-engineer" },
+      { title: "Federal and Provincial Tax Burdens", desc: "Canada has both federal and provincial income taxes. Understanding how tax brackets differ by province is essential for estimating take-home pay.", href: "/ca/tools/tax-calculator" },
+      { title: "Housing and Cost-of-Living Trends", desc: "Housing costs vary significantly across Canadian cities. Vancouver and Toronto are among the most expensive, while other regions offer more affordable options.", href: "/ca/guides" },
+    ],
+    professionGroups: [
+      { category: "Technology", items: [
+        { label: "Software Engineer Salary", href: "/ca/salary/software-engineer" },
+        { label: "Data Scientist Salary", href: "/ca/salary/data-scientist" },
+      ]},
+      { category: "Healthcare", items: [
+        { label: "Doctor Salary", href: "/ca/salary/doctor" },
+        { label: "Registered Nurse Salary", href: "/ca/salary/registered-nurse" },
+      ]},
+      { category: "Finance", items: [
+        { label: "Accountant Salary", href: "/ca/salary/accountant" },
+      ]},
+      { category: "Engineering", items: [
+        { label: "Mechanical Engineer Salary", href: "/ca/salary/mechanical-engineer" },
+      ]},
+    ],
+    relocationText: "Canada continues to attract skilled professionals with competitive salaries and strong quality of life. Compare Canadian salaries and purchasing power against the United States, the United Kingdom, Australia and New Zealand.",
+    faqQs: [
+      { q: "What is the average salary in Canada?", a: "Average salaries vary by province and industry. Energy, technology and finance sectors generally offer above-average compensation." },
+      { q: "Which professions earn the highest salaries?", a: "Software engineers, medical professionals and energy sector workers are among the highest-paid occupations." },
+      { q: "Which provinces offer the highest salaries?", a: "Alberta, Ontario and British Columbia generally report the strongest compensation levels." },
+      { q: "How much income tax do workers pay?", a: "Canada uses federal and provincial income taxes with progressive rate structures. Tax burden varies by province." },
+      { q: "How does Canada compare internationally?", a: "Canada offers competitive salaries with strong social services and quality of life." },
+      { q: "What sources does Olikit use?", a: "Olikit uses CRA publications, Statistics Canada data and official government resources." },
+      { q: "How often is the information updated?", a: "Salary benchmarks, tax information and methodologies are reviewed regularly and updated when significant changes occur." },
+    ],
+  },
+  nz: {
+    heroH1: "New Zealand Salary, Tax and Cost-of-Living Intelligence",
+    heroDesc: "Research salaries, taxes and affordability across New Zealand using public data and transparent methodologies. Olikit provides salary benchmarks, tax insights and cost-of-living research for professionals across the North Island and South Island.",
+    snapshotCurrency: "New Zealand Dollar (NZ$)",
+    snapshotTaxAuthority: "Inland Revenue Department (IRD)",
+    snapshotTopSectors: "Healthcare, Engineering, Technology",
+    snapshotTopRegion: "Auckland",
+    snapshotTopProfession: "Registered Nurse",
+    snapshotGlobalPosition: "Strong quality-of-life and skilled-worker demand",
+    featuredInsights: [
+      { title: "Healthcare Compensation", desc: "Healthcare is a major employer in New Zealand with strong demand for registered nurses, doctors and allied health professionals.", href: "/nz/salary/registered-nurse" },
+      { title: "Engineering Salaries", desc: "Engineering professionals in New Zealand earn competitive salaries, particularly in civil, mechanical and structural engineering roles.", href: "/nz/salary/mechanical-engineer" },
+      { title: "Regional Salary Differences", desc: "Salary levels differ between Auckland, Wellington, Christchurch and other regions. Compare compensation across New Zealand.", href: "/nz/salary" },
+      { title: "Cost-of-Living Comparisons", desc: "Housing costs and living expenses vary across New Zealand. Auckland is the most expensive region, while other areas offer more affordable options.", href: "/nz/guides" },
+    ],
+    professionGroups: [
+      { category: "Technology", items: [
+        { label: "Software Engineer Salary", href: "/nz/salary/software-engineer" },
+        { label: "Data Scientist Salary", href: "/nz/salary/data-scientist" },
+      ]},
+      { category: "Healthcare", items: [
+        { label: "Doctor Salary", href: "/nz/salary/doctor" },
+        { label: "Registered Nurse Salary", href: "/nz/salary/registered-nurse" },
+      ]},
+      { category: "Finance", items: [
+        { label: "Accountant Salary", href: "/nz/salary/accountant" },
+      ]},
+      { category: "Engineering", items: [
+        { label: "Mechanical Engineer Salary", href: "/nz/salary/mechanical-engineer" },
+      ]},
+    ],
+    relocationText: "New Zealand offers a strong quality of life and growing demand for skilled professionals. Compare New Zealand salaries and purchasing power against Australia, Canada and the United Kingdom.",
+    faqQs: [
+      { q: "What is the average salary in New Zealand?", a: "Average salaries vary by profession and region. Healthcare and engineering professions generally offer strong compensation." },
+      { q: "Which professions earn the highest salaries?", a: "Healthcare professionals, engineers and IT specialists are among the highest-paid occupations." },
+      { q: "Which regions offer the highest salaries?", a: "Auckland and Wellington generally offer the highest salaries in New Zealand." },
+      { q: "How much income tax do workers pay?", a: "New Zealand uses a progressive income tax system with no regional or state taxes." },
+      { q: "How does New Zealand compare internationally?", a: "New Zealand offers competitive salaries with strong quality of life and work-life balance." },
+      { q: "What sources does Olikit use?", a: "Olikit uses IRD publications, Stats NZ data and official government resources." },
+      { q: "How often is the information updated?", a: "Salary benchmarks, tax information and methodologies are reviewed regularly and updated when significant changes occur." },
+    ],
+  },
+  in: {
+    heroH1: "India Salary, Tax and Cost-of-Living Intelligence",
+    heroDesc: "Explore salary benchmarks, tax insights and affordability data across India using government-sourced and public information. Olikit provides compensation research, tax analysis and cost comparisons for professionals across India's major technology and business hubs.",
+    snapshotCurrency: "Indian Rupee (\u20b9)",
+    snapshotTaxAuthority: "Income Tax Department",
+    snapshotTopSectors: "Technology, Engineering, Financial Services",
+    snapshotTopRegion: "Karnataka",
+    snapshotTopProfession: "Software Engineer",
+    snapshotGlobalPosition: "One of the world's largest technology labor markets",
+    featuredInsights: [
+      { title: "Technology Salary Benchmarks", desc: "India is one of the world's largest technology talent markets. Software engineers, data scientists and IT professionals earn competitive salaries in cities like Bangalore, Hyderabad and Pune.", href: "/in/salary/software-engineer" },
+      { title: "Highest Paying Cities and States", desc: "Salary levels vary significantly across India. Karnataka, Maharashtra and Delhi NCR generally report the highest compensation levels.", href: "/in/salary" },
+      { title: "Understanding the Indian Tax System", desc: "India's income tax system offers both Old and New Tax regimes. Understanding the differences helps optimize tax liability.", href: "/in/tools/tax-calculator" },
+      { title: "Cost of Living Across Major Urban Centers", desc: "Living costs vary between Bangalore, Mumbai, Delhi, Hyderabad, Pune and Chennai. Compare affordability across Indian cities.", href: "/in/guides" },
+    ],
+    professionGroups: [
+      { category: "Technology", items: [
+        { label: "Software Engineer Salary", href: "/in/salary/software-engineer" },
+        { label: "Data Scientist Salary", href: "/in/salary/data-scientist" },
+      ]},
+      { category: "Healthcare", items: [
+        { label: "Doctor Salary", href: "/in/salary/doctor" },
+        { label: "Registered Nurse Salary", href: "/in/salary/registered-nurse" },
+      ]},
+      { category: "Finance", items: [
+        { label: "Accountant Salary", href: "/in/salary/accountant" },
+      ]},
+      { category: "Engineering", items: [
+        { label: "Mechanical Engineer Salary", href: "/in/salary/mechanical-engineer" },
+      ]},
+    ],
+    relocationText: "India offers one of the world's largest and fastest-growing technology labor markets. Compare opportunities in India with Singapore, Australia, Canada, the United Kingdom and the United States.",
+    faqQs: [
+      { q: "What is the average salary in India?", a: "Average salaries vary significantly by profession, experience and city. Technology and financial services sectors generally offer higher compensation." },
+      { q: "Which professions earn the highest salaries?", a: "Software engineers, data scientists and finance professionals are among the highest-paid occupations." },
+      { q: "Which regions offer the highest salaries?", a: "Karnataka (Bangalore), Maharashtra (Mumbai), Delhi NCR and Hyderabad are among the highest-paying regions." },
+      { q: "How much income tax do workers pay?", a: "India offers Old and New Tax regimes with progressive slabs. Deductions and exemptions can reduce tax liability." },
+      { q: "How does India compare internationally?", a: "India offers competitive compensation in technology and business services, with significant cost-of-living advantages." },
+      { q: "What sources does Olikit use?", a: "Olikit uses Income Tax Department publications, labor ministry data and official government resources." },
+      { q: "How often is the information updated?", a: "Salary benchmarks, tax information and methodologies are reviewed regularly and updated when significant changes occur." },
+    ],
+  },
+  sg: {
+    heroH1: "Singapore Salary, Tax and Cost-of-Living Intelligence",
+    heroDesc: "Research salaries, taxes and purchasing power in Singapore using transparent methodologies and public data sources. Olikit provides compensation benchmarks, tax analysis and affordability research for professionals in Singapore's competitive job market.",
+    snapshotCurrency: "Singapore Dollar (S$)",
+    snapshotTaxAuthority: "Inland Revenue Authority of Singapore (IRAS)",
+    snapshotTopSectors: "Financial Services, Technology, Logistics",
+    snapshotTopRegion: "Financial Services",
+    snapshotTopProfession: "Software Engineer",
+    snapshotGlobalPosition: "Leading international financial and business hub",
+    featuredInsights: [
+      { title: "Financial Services Compensation", desc: "Singapore is a global financial hub with competitive compensation in banking, asset management, fintech and insurance.", href: "/sg/salary/accountant" },
+      { title: "Technology Salary Trends", desc: "Singapore's technology sector continues to grow, with strong demand for software engineers, data scientists and cybersecurity professionals.", href: "/sg/salary/software-engineer" },
+      { title: "Low-Tax Environment", desc: "Singapore is known for its competitive tax regime. Individual income tax rates are among the lowest in developed economies.", href: "/sg/tools/tax-calculator" },
+      { title: "Purchasing Power Analysis", desc: "While salaries in Singapore are competitive, housing and living costs are among the highest in Asia. Compare purchasing power across sectors.", href: "/sg/guides" },
+    ],
+    professionGroups: [
+      { category: "Technology", items: [
+        { label: "Software Engineer Salary", href: "/sg/salary/software-engineer" },
+        { label: "Data Scientist Salary", href: "/sg/salary/data-scientist" },
+      ]},
+      { category: "Healthcare", items: [
+        { label: "Doctor Salary", href: "/sg/salary/doctor" },
+        { label: "Registered Nurse Salary", href: "/sg/salary/registered-nurse" },
+      ]},
+      { category: "Finance", items: [
+        { label: "Accountant Salary", href: "/sg/salary/accountant" },
+      ]},
+      { category: "Engineering", items: [
+        { label: "Mechanical Engineer Salary", href: "/sg/salary/mechanical-engineer" },
+      ]},
+    ],
+    relocationText: "Singapore remains a premier destination for professionals in finance, technology and business services. Compare Singapore salaries and purchasing power against the United States, United Kingdom, Australia and Canada.",
+    faqQs: [
+      { q: "What is the average salary in Singapore?", a: "Average salaries vary by sector. Financial services and technology generally offer the highest compensation." },
+      { q: "Which professions earn the highest salaries?", a: "Finance professionals, software engineers and senior technology roles are among the highest-paid occupations." },
+      { q: "Which sectors offer the highest salaries?", a: "Financial services, technology and logistics are the highest-paying sectors in Singapore." },
+      { q: "How much income tax do workers pay?", a: "Singapore has a progressive income tax system with one of the lowest top marginal rates among developed economies." },
+      { q: "How does Singapore compare internationally?", a: "Singapore offers competitive salaries with a low-tax environment, though housing costs are among the highest globally." },
+      { q: "What sources does Olikit use?", a: "Olikit uses IRAS publications, Ministry of Manpower data and official government resources." },
+      { q: "How often is the information updated?", a: "Salary benchmarks, tax information and methodologies are reviewed regularly and updated when significant changes occur." },
+    ],
+  },
+}
+
+const LAST_UPDATED = getLastUpdated()
+
+function SnapshotCard({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-md bg-zinc-50 p-3">
+      <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400">{label}</p>
+      <p className="mt-0.5 text-sm font-medium text-zinc-950">{value}</p>
+    </div>
+  )
+}
+
+function InsightCard({ title, desc, href }: { title: string; desc: string; href: string }) {
+  return (
+    <a href={href} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
+      <h3 className="mb-2 text-lg font-semibold text-zinc-950">{title}</h3>
+      <p className="text-sm leading-6 text-zinc-600">{desc}</p>
+    </a>
+  )
+}
+
+function ProfessionGroup({ category, items }: { category: string; items: { label: string; href: string }[] }) {
+  return (
+    <div>
+      <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-zinc-400">{category}</h4>
+      <ul className="space-y-1.5">
+        {items.map((item) => (
+          <li key={item.label}>
+            <a href={item.href} className="text-sm text-zinc-600 transition-colors hover:text-zinc-950">{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale: locale.slug }))
@@ -33,102 +393,144 @@ export default async function LocalePage({ params }: Props) {
   const slug = locale.slug
   const name = locale.name
   const states = locale.states
-  const lastUpdated = getLastUpdated()
   const latestUpdates = getLatestUpdates(3)
   const websiteJsonLd = buildLocalBusinessJsonLd(locale)
   const orgJsonLd = buildOrganizationJsonLd(locale)
+  const content = COUNTRY_CONTENT[slug]
+  const countries = getAllCountries()
   const usStates = states?.filter(s => stateDataSets.some(d => d.stateSlug === s.slug)) || []
 
-  const rankingData = [
-    { label: "Highest-Paying States", href: `/${slug}/best-states-for-salary#best-states-for-salary`, emoji: "" },
-    { label: "Most Affordable States", href: `/${slug}/best-states-for-cost-of-living`, emoji: "" },
-    { label: "Best States for Retirement", href: `/${slug}/best-states-for-retirement`, emoji: "" },
-    { label: "Most Affordable Housing", href: `/${slug}/best-states-for-home-affordability`, emoji: "" },
-  ]
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: content.faqQs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  }
 
   return (
     <div className="space-y-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* 1. HERO */}
       <section className="rounded-lg border border-zinc-200 bg-white px-5 py-10 shadow-sm sm:px-8 sm:py-12">
         <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">
-          Free calculators for {name}
+          {name} &mdash; Financial Intelligence
         </p>
-        <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
-          Smart financial decisions start here — free calculators, salary data, and cost of living tools built for {name}
+        <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
+          {content.heroH1}
         </h1>
-        <p className="mt-4 max-w-2xl text-lg leading-8 text-zinc-600">
-          {locale.defaultDescription} Explore salary data by state, compare cost of living, and use our free calculators to plan your financial future.
+        <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">
+          {content.heroDesc}
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <a href={`/${slug}/tools/salary-calculator`} className="rounded-md bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800">Salary Calculator</a>
-          <a href={`/${slug}/tools/mortgage-calculator`} className="rounded-md bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800">Mortgage Calculator</a>
           <a href={`/${slug}/tools/tax-calculator`} className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Tax Calculator</a>
-          <a href={`/${slug}/tools/investment-calculator`} className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Investment Calculator</a>
+          <a href={`/${slug}/tools/mortgage-calculator`} className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Mortgage Calculator</a>
+          <a href={`/${slug}/salary`} className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Salary Research</a>
         </div>
       </section>
 
-      {/* 2. TRUST BAR */}
-      <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 rounded-lg border border-zinc-200 bg-white px-5 py-4 shadow-sm text-sm">
-        <span className="flex items-center gap-1.5 font-medium text-zinc-700">
-          <svg className="h-4 w-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-          Official Gov Sources
-        </span>
-        <span className="flex items-center gap-1.5 font-medium text-zinc-700">
-          <svg className="h-4 w-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-          7 Countries
-        </span>
-        <span className="flex items-center gap-1.5 font-medium text-zinc-700">
-          <svg className="h-4 w-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-          464 Pages
-        </span>
-        <span className="flex items-center gap-1.5 font-medium text-zinc-700">
-          <svg className="h-4 w-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-          Free Forever
-        </span>
-        <span className="flex items-center gap-1.5 font-medium text-zinc-700">
-          <svg className="h-4 w-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-          Updated {lastUpdated}
-        </span>
-      </div>
-
-      {/* 3. SALARY HUB */}
+      {/* 2. COUNTRY SNAPSHOT */}
       <section>
-        <div className="mb-4 flex items-end justify-between gap-4">
-          <div>
-            <h2 className="text-2xl font-semibold text-zinc-950">Salary Hub</h2>
-            <p className="mt-1 text-sm text-zinc-600">Comprehensive salary resources — calculators, average salaries by state, and guides</p>
-          </div>
-          <a href={`/${slug}/salary`} className="shrink-0 text-sm font-medium text-blue-600 hover:underline">View All</a>
+        <h2 className="mb-4 text-2xl font-semibold text-zinc-950">{name} Financial Snapshot</h2>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <SnapshotCard label="Currency" value={content.snapshotCurrency} />
+          <SnapshotCard label="Tax Authority" value={content.snapshotTaxAuthority} />
+          <SnapshotCard label="Major Salary Sectors" value={content.snapshotTopSectors} />
+          <SnapshotCard label="Highest Paying Region" value={content.snapshotTopRegion} />
+          <SnapshotCard label="Most Researched Profession" value={content.snapshotTopProfession} />
+          <SnapshotCard label="Global Position" value={content.snapshotGlobalPosition} />
         </div>
+      </section>
+
+      {/* 3. FREQUENTLY REFERENCED METRICS */}
+      <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-6 shadow-sm sm:px-8">
+        <h2 className="mb-3 text-lg font-semibold text-zinc-950">Frequently Referenced Metrics</h2>
+        <div className="flex flex-wrap gap-2">
+          <a href={`/${slug}/salary`} className="rounded-md bg-white px-3 py-1.5 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 transition hover:bg-zinc-50 hover:text-zinc-950">Average Salary in {name}</a>
+          <a href={`/${slug}/salary`} className="rounded-md bg-white px-3 py-1.5 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 transition hover:bg-zinc-50 hover:text-zinc-950">Median Salary in {name}</a>
+          <a href={`/${slug}/salary`} className="rounded-md bg-white px-3 py-1.5 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 transition hover:bg-zinc-50 hover:text-zinc-950">Highest Paying Profession</a>
+          <a href={`/${slug}/best-states-for-salary`} className="rounded-md bg-white px-3 py-1.5 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 transition hover:bg-zinc-50 hover:text-zinc-950">Highest Paying Region</a>
+          <a href={`/${slug}/tools/tax-calculator`} className="rounded-md bg-white px-3 py-1.5 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 transition hover:bg-zinc-50 hover:text-zinc-950">Effective Tax Range</a>
+        </div>
+      </section>
+
+      {/* 4. FEATURED INSIGHTS */}
+      <section>
+        <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Featured Insights</h2>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {content.featuredInsights.map((insight) => (
+            <InsightCard key={insight.title} {...insight} />
+          ))}
+        </div>
+      </section>
+
+      {/* 5. POPULAR PROFESSION SALARIES */}
+      <section className="rounded-lg border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-8">
+        <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Popular Profession Salaries</h2>
+        <p className="mb-6 text-sm text-zinc-600">Explore salary benchmarks by profession in {name}.</p>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {content.professionGroups.map((group) => (
+            <ProfessionGroup key={group.category} {...group} />
+          ))}
+        </div>
+      </section>
+
+      {/* 6. COUNTRY RESEARCH & RANKINGS */}
+      <section>
+        <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Research &amp; Rankings</h2>
+        <p className="mb-4 text-sm text-zinc-600">Explore in-depth research covering compensation trends, tax burdens and affordability across {name}.</p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <a href={`/${slug}/tools/salary-calculator`} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
-            <p className="mb-1 text-xs font-semibold uppercase text-zinc-500">Calculator</p>
-            <h3 className="mb-2 text-lg font-semibold text-zinc-950">Salary Calculator</h3>
-            <p className="text-sm leading-6 text-zinc-600">Calculate take-home pay after taxes and deductions in {name}.</p>
+          <a href={`/${slug}/rankings`} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
+            <h3 className="text-lg font-semibold text-zinc-950">Highest Paying Jobs</h3>
+            <p className="mt-1 text-sm text-zinc-600">Profession rankings based on salary data.</p>
           </a>
-          <a href={`/${slug}/salary`} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
-            <p className="mb-1 text-xs font-semibold uppercase text-zinc-500">Resource</p>
-            <h3 className="mb-2 text-lg font-semibold text-zinc-950">Salary Hub</h3>
-            <p className="text-sm leading-6 text-zinc-600">Guides, average salary data, FAQs, and state-by-state salary analysis.</p>
+          <a href={`/${slug}/best-states-for-salary`} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
+            <h3 className="text-lg font-semibold text-zinc-950">Highest Paying Regions</h3>
+            <p className="mt-1 text-sm text-zinc-600">Regional salary rankings and comparisons.</p>
           </a>
-          {usStates.slice(0, 4).map((s) => (
-            <a key={s.slug} href={`/${slug}/average-salary/${s.slug}`} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
-              <p className="mb-1 text-xs font-semibold uppercase text-zinc-500">Average Salary</p>
-              <h3 className="mb-2 text-lg font-semibold text-zinc-950">{s.name}</h3>
-              <p className="text-sm leading-6 text-zinc-600">Average salary: ${stateDataSets.find(d => d.stateSlug === s.slug)?.dataPoints.averageSalary.toLocaleString()} — Cost of living: {stateDataSets.find(d => d.stateSlug === s.slug)?.dataPoints.costOfLivingIndex}</p>
+          <a href="/rankings" className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
+            <h3 className="text-lg font-semibold text-zinc-950">Salary Rankings</h3>
+            <p className="mt-1 text-sm text-zinc-600">Global salary rankings by country.</p>
+          </a>
+          <a href={`/${slug}/tools/tax-calculator`} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
+            <h3 className="text-lg font-semibold text-zinc-950">Tax Burden Rankings</h3>
+            <p className="mt-1 text-sm text-zinc-600">Compare tax systems across countries.</p>
+          </a>
+          <a href={`/${slug}/guides`} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
+            <h3 className="text-lg font-semibold text-zinc-950">Cost-of-Living Rankings</h3>
+            <p className="mt-1 text-sm text-zinc-600">Living cost comparisons and analysis.</p>
+          </a>
+          <a href="/compare" className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
+            <h3 className="text-lg font-semibold text-zinc-950">Purchasing Power Rankings</h3>
+            <p className="mt-1 text-sm text-zinc-600">Cross-country purchasing power analysis.</p>
+          </a>
+        </div>
+      </section>
+
+      {/* 7. RELOCATION INTELLIGENCE */}
+      <section className="rounded-lg border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-8">
+        <h2 className="mb-3 text-lg font-semibold text-zinc-950">Relocation Intelligence</h2>
+        <p className="mb-4 text-sm leading-7 text-zinc-600">{content.relocationText}</p>
+        <div className="flex flex-wrap gap-2">
+          {countries.filter((c) => c.slug !== slug).map((c) => (
+            <a key={c.slug} href={`/${slug}/comparisons/salary/${slug}-vs-${c.slug}`} className="rounded-md bg-zinc-100 px-3 py-1.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200 hover:text-zinc-950">
+              {c.flag} {name} vs {c.name}
             </a>
           ))}
         </div>
       </section>
 
-      {/* 4. POPULAR CALCULATORS */}
+      {/* 8. POPULAR CALCULATORS */}
       <section>
         <div className="mb-4">
           <h2 className="text-2xl font-semibold text-zinc-950">Popular Calculators</h2>
-          <p className="mt-1 text-sm text-zinc-600">High-value finance calculators for {name}</p>
+          <p className="mt-1 text-sm text-zinc-600">Financial tools for {name}</p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {tools.map((tool) => (
@@ -141,61 +543,22 @@ export default async function LocalePage({ params }: Props) {
         </div>
       </section>
 
-      {/* 5. COUNTRY HUB */}
-      <section>
-        <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Browse by Country</h2>
-        <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {locales.filter(l => ["us","uk","au","ca","in","nz","sg"].includes(l.slug)).map((l) => (
-            <a key={l.slug} href={`/${l.slug}`} className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
-              <h3 className="font-semibold text-zinc-950">{l.name}</h3>
-              <p className="text-xs text-zinc-500 mt-1">{l.currency.symbol}{l.currency.code} &middot; {l.states?.length || 0} regions</p>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      {/* 6. COST OF LIVING HUB */}
+      {/* 9. REGIONS / STATES */}
       {usStates.length > 0 && (
         <section>
           <div className="mb-4 flex items-end justify-between gap-4">
             <div>
-              <h2 className="text-2xl font-semibold text-zinc-950">Cost of Living Hub</h2>
-              <p className="mt-1 text-sm text-zinc-600">Compare cost of living by state with full category breakdowns</p>
+              <h2 className="text-2xl font-semibold text-zinc-950">States &amp; Regions</h2>
+              <p className="mt-1 text-sm text-zinc-600">Salary and cost-of-living insights by state</p>
             </div>
-            <a href={`/${slug}/cost-of-living/${usStates[0].slug}`} className="shrink-0 text-sm font-medium text-blue-600 hover:underline">Explore</a>
+            <a href={`/${slug}/states`} className="shrink-0 text-sm font-medium text-blue-600 hover:underline">All States</a>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {usStates.map((s) => {
-              const col = costOfLivingData[s.slug]
-              if (!col) return null
-              return (
-                <a key={s.slug} href={`/${slug}/cost-of-living/${s.slug}`} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
-                  <h3 className="mb-2 text-lg font-semibold text-zinc-950">{s.name}</h3>
-                  <p className="text-sm text-zinc-600">Overall: {col.overall} &middot; Housing: {col.housing} &middot; Utilities: {col.utilities} &middot; Food: {col.food}</p>
-                  <p className="text-xs text-zinc-500 mt-1">(US avg = 100)</p>
-                </a>
-              )
-            })}
-          </div>
-        </section>
-      )}
-
-      {/* 7. AVERAGE SALARY HUB */}
-      {usStates.length > 0 && (
-        <section>
-          <div className="mb-4 flex items-end justify-between gap-4">
-            <div>
-              <h2 className="text-2xl font-semibold text-zinc-950">Average Salary Hub</h2>
-              <p className="mt-1 text-sm text-zinc-600">State-by-state average salary data with cost of living context</p>
-            </div>
-            <a href={`/${slug}/best-states-for-salary`} className="shrink-0 text-sm font-medium text-blue-600 hover:underline">State Rankings</a>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {usStates.map((s) => {
+            {usStates.slice(0, 9).map((s) => {
               const d = stateDataSets.find(d => d.stateSlug === s.slug)
               if (!d) return null
               return (
-                <a key={s.slug} href={`/${slug}/average-salary/${s.slug}`} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
+                <a key={s.slug} href={`/${slug}/state/${s.slug}`} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
                   <h3 className="mb-2 text-lg font-semibold text-zinc-950">{s.name}</h3>
                   <p className="text-sm text-zinc-600">Avg salary: <strong>${d.dataPoints.averageSalary.toLocaleString()}</strong></p>
                   <p className="text-xs text-zinc-500">Median income: ${d.dataPoints.medianHouseholdIncome.toLocaleString()} &middot; COL index: {d.dataPoints.costOfLivingIndex}</p>
@@ -206,70 +569,12 @@ export default async function LocalePage({ params }: Props) {
         </section>
       )}
 
-      {/* 8. FINANCIAL DATA LIBRARY */}
+      {/* 10. GUIDES */}
       <section>
         <div className="mb-4 flex items-end justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-semibold text-zinc-950">Financial Data Library</h2>
-            <p className="mt-1 text-sm text-zinc-600">Verified financial data from official government sources</p>
-          </div>
-          <a href={`/${slug}/financial-data`} className="shrink-0 text-sm font-medium text-blue-600 hover:underline">View All Data</a>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            { title: "Average Salary Data", desc: "BLS state-level salary data for all 50 states", href: `/${slug}/financial-data` },
-            { title: "Cost of Living Data", desc: "BEA Regional Price Parities with category breakdowns", href: `/${slug}/financial-data` },
-            { title: "Tax Data", desc: "State income tax rates, property tax rates, and structures", href: `/${slug}/financial-data` },
-            { title: "Mortgage Data", desc: "Median home values and affordability metrics by state", href: `/${slug}/financial-data` },
-            { title: "Minimum Wage Data", desc: "State minimum wage rates and federal minimum wage states", href: `/${slug}/financial-data` },
-            { title: "Property Tax Data", desc: "Effective property tax rates by state", href: `/${slug}/financial-data` },
-          ].map((item) => (
-            <a key={item.title} href={item.href} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
-              <h3 className="mb-2 text-lg font-semibold text-zinc-950">{item.title}</h3>
-              <p className="text-sm leading-6 text-zinc-600">{item.desc}</p>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      {/* 9. STATE RANKINGS */}
-      <section>
-        <div className="mb-4 flex items-end justify-between gap-4">
-          <div>
-            <h2 className="text-2xl font-semibold text-zinc-950">State Rankings</h2>
-            <p className="mt-1 text-sm text-zinc-600">Comprehensive state rankings for financial decision-making</p>
-          </div>
-          <a href={`/${slug}/best-states-for-salary`} className="shrink-0 text-sm font-medium text-blue-600 hover:underline">All Rankings</a>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2">
-          {rankingData.map((r) => (
-            <a key={r.label} href={r.href} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
-              <h3 className="text-lg font-semibold text-zinc-950">{r.label}</h3>
-              <p className="mt-1 text-sm text-zinc-600">Rankings based on official government data</p>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      {/* 10. COMPARE COUNTRIES */}
-      <section>
-        <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Compare Financial Metrics Across Countries</h2>
-        <p className="mb-4 text-sm text-zinc-600">See how salaries, taxes, and costs differ between countries using our comparison tools.</p>
-        <div className="flex flex-wrap gap-2">
-          {tools.slice(0, 4).map((tool) => (
-            <a key={tool.id} href={`/${slug}/tools/${tool.slug}/compare`} className="rounded-md bg-white px-4 py-2 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 transition hover:bg-zinc-50 hover:text-zinc-950">
-              {tool.name} &mdash; Compare
-            </a>
-          ))}
-        </div>
-      </section>
-
-      {/* 11. FINANCIAL GUIDES */}
-      <section>
-        <div className="mb-4 flex items-end justify-between gap-4">
-          <div>
-            <h2 className="text-2xl font-semibold text-zinc-950">Financial Guides for {name}</h2>
-            <p className="mt-1 text-sm text-zinc-600">Comprehensive guides to help you make better financial decisions</p>
+            <h2 className="text-2xl font-semibold text-zinc-950">Financial Guides</h2>
+            <p className="mt-1 text-sm text-zinc-600">Comprehensive guides for {name}</p>
           </div>
           <a href={`/${slug}/guides`} className="shrink-0 text-sm font-medium text-blue-600 hover:underline">All Guides</a>
         </div>
@@ -284,64 +589,21 @@ export default async function LocalePage({ params }: Props) {
         </div>
       </section>
 
-      {/* 12. FINANCIAL GLOSSARY */}
-      <section>
-        <div className="mb-4 flex items-end justify-between gap-4">
-          <div>
-            <h2 className="text-2xl font-semibold text-zinc-950">Financial Glossary</h2>
-            <p className="mt-1 text-sm text-zinc-600">Clear definitions of essential financial terms with real examples</p>
-          </div>
-          <a href={`/${slug}/glossary`} className="shrink-0 text-sm font-medium text-blue-600 hover:underline">All Terms</a>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {glossaryEntries.slice(0, 6).map((entry) => (
-            <a key={entry.slug} href={`/${slug}/glossary/${entry.slug}`} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
-              <p className="mb-2 text-xs font-semibold uppercase text-zinc-500">{entry.category}</p>
-              <h3 className="mb-2 text-lg font-semibold text-zinc-950">{entry.term}</h3>
-              <p className="text-sm leading-6 text-zinc-600">{entry.definition.substring(0, 120)}...</p>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      {/* 13. LATEST UPDATES */}
-      <section>
-        <div className="mb-4 flex items-end justify-between gap-4">
-          <div>
-            <h2 className="text-2xl font-semibold text-zinc-950">Latest Updates</h2>
-            <p className="mt-1 text-sm text-zinc-600">Recent changes to data, tools, and content</p>
-          </div>
-          <a href={`/${slug}/updates`} className="shrink-0 text-sm font-medium text-blue-600 hover:underline">All Updates</a>
-        </div>
-        <div className="space-y-3">
-          {latestUpdates.map((update, i) => (
-            <div key={i} className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
-              <div className="mb-1 flex items-center gap-2 text-xs text-zinc-500">
-                <time>{update.date}</time>
-                <span className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs font-medium text-zinc-700">{update.category}</span>
-              </div>
-              <p className="text-sm font-medium text-zinc-950">{update.title}</p>
-              <p className="mt-1 text-xs text-zinc-600">{update.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 14. METHODOLOGY & SOURCES */}
+      {/* 11. GOVERNMENT SOURCES */}
       <section className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm">
-        <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Methodology &amp; Official Sources</h2>
+        <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Government Sources</h2>
         <p className="mb-4 text-sm text-zinc-600 leading-relaxed">
-          Olikit uses data exclusively from official government publications. Tax brackets, contribution rates, and financial thresholds are sourced directly from national revenue authorities for each of our 7 supported countries. Every calculator is tested against published government examples to ensure accuracy.
+          Olikit uses publicly available information from government agencies and official publications. Salary, tax and economic information is derived from official public sources whenever possible.
         </p>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { name: "IRS", desc: "US tax brackets and regulations" },
+            { name: "IRS", desc: "US tax brackets and labor data" },
             { name: "HMRC", desc: "UK tax rates and allowances" },
-            { name: "ATO", desc: "Australian tax and super rates" },
-            { name: "CRA", desc: "Canadian tax brackets and CPP/EI" },
+            { name: "ATO", desc: "Australian tax and superannuation" },
+            { name: "CRA", desc: "Canadian tax brackets and benefits" },
             { name: "IRD", desc: "New Zealand tax rates" },
-            { name: "Income Tax Dept", desc: "India tax slabs and deductions" },
-            { name: "IRAS", desc: "Singapore tax rates" },
+            { name: "Income Tax Dept", desc: "India tax slabs and rules" },
+            { name: "IRAS", desc: "Singapore individual tax rates" },
             { name: "CPF Board", desc: "Singapore CPF contributions" },
           ].map((source) => (
             <div key={source.name} className="rounded-md bg-zinc-50 p-3">
@@ -350,23 +612,40 @@ export default async function LocalePage({ params }: Props) {
             </div>
           ))}
         </div>
-        <div className="mt-4 flex flex-wrap gap-3">
+      </section>
+
+      {/* 12. WHY TRUST OLIKIT */}
+      <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-6 shadow-sm sm:px-8">
+        <h2 className="mb-6 text-2xl font-semibold text-zinc-950">Why Trust Olikit</h2>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <h3 className="mb-1.5 text-sm font-semibold text-zinc-950">Government-Sourced Data</h3>
+            <p className="text-sm leading-6 text-zinc-600">Salary, tax and labor-market information is derived from official publications and public datasets.</p>
+          </div>
+          <div>
+            <h3 className="mb-1.5 text-sm font-semibold text-zinc-950">Transparent Methodology</h3>
+            <p className="text-sm leading-6 text-zinc-600">Calculation assumptions, methodologies and update processes are publicly documented.</p>
+          </div>
+          <div>
+            <h3 className="mb-1.5 text-sm font-semibold text-zinc-950">Independent Research</h3>
+            <p className="text-sm leading-6 text-zinc-600">Research and rankings are created independently using transparent criteria.</p>
+          </div>
+          <div>
+            <h3 className="mb-1.5 text-sm font-semibold text-zinc-950">Regular Updates</h3>
+            <p className="text-sm leading-6 text-zinc-600">Salary benchmarks, tax rates and methodologies are reviewed and updated as new information becomes available.</p>
+          </div>
+        </div>
+        <div className="mt-6 flex flex-wrap gap-3">
           <Link href="/about" className="rounded-md bg-zinc-950 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800">About Our Methodology</Link>
-          <Link href={`/${slug}/financial-data`} className="rounded-md bg-white px-4 py-2 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 hover:bg-zinc-50">Financial Data Library</Link>
+          <Link href="/methodology" className="rounded-md bg-white px-4 py-2 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 hover:bg-zinc-50">View Methodology</Link>
         </div>
       </section>
 
-      {/* 15. FAQ */}
+      {/* 13. COUNTRY FAQ */}
       <section className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm">
-        <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Frequently Asked Questions</h2>
+        <h2 className="mb-6 text-2xl font-semibold text-zinc-950">Frequently Asked Questions</h2>
         <div className="space-y-3">
-          {[
-            { q: "What calculators does Olikit offer?", a: "Olikit offers free salary, tax, mortgage, investment, retirement, business loan, and profit margin calculators. Each calculator is fully localized for the United States, United Kingdom, Australia, Canada, India, New Zealand, and Singapore." },
-            { q: "Are Olikit calculators really free?", a: "Yes, all calculators are completely free to use. We do not require accounts, email sign-ups, or personal information. Olikit is ad-supported to keep all tools free." },
-            { q: "How often is financial data updated?", a: "Financial data is reviewed and updated at least annually following each country's budget cycle. Emergency updates are published within 48 hours of any unannounced rate changes." },
-            { q: "Where does Olikit get its data?", a: "All data is sourced from official government publications including IRS, HMRC, ATO, CRA, IRD, Income Tax Department India, IRAS, and CPF Board. Every tax rate and threshold is traceable to its original source." },
-            { q: "Can I compare salary data across states?", a: "Yes. We provide average salary data, cost of living comparisons, and salary vs. cost of living analysis for 10 US states. Our state rankings page compares all states by salary, cost of living, retirement, and home affordability." },
-          ].map((faq, i) => (
+          {content.faqQs.map((faq, i) => (
             <details key={i} className="text-sm">
               <summary className="cursor-pointer font-medium text-zinc-700 hover:text-zinc-900">{faq.q}</summary>
               <p className="mt-2 text-zinc-500">{faq.a}</p>
@@ -374,8 +653,6 @@ export default async function LocalePage({ params }: Props) {
           ))}
         </div>
       </section>
-
-      {/* 16. FOOTER — handled by locale layout */}
     </div>
   )
 }

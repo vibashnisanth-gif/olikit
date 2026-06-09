@@ -63,7 +63,7 @@ export const updates: UpdateEntry[] = [
     date: "May 2026",
     title: "About Page Expanded with Trust Content",
     category: "guide",
-    description: "Expanded the About page with detailed methodology, data sources, review process, update frequency, and trust information. Now references official government sources for all 7 supported countries.",
+    description: "Expanded the About page with detailed methodology, data sources, review process, update frequency, and trust information. Now references official government sources across major economies.",
     source: "Olikit Content Team",
     relatedPages: [
       { label: "About Olikit", href: "/about" },
