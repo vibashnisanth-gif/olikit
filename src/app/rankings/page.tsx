@@ -1,8 +1,17 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
-import { getAllCountries } from "@/lib/content/country-registry"
+import { getAllCountries, toUSD } from "@/lib/content/country-registry"
 import { professions } from "@/lib/content/professions-data"
+import { getLocale } from "@/lib/seo/locales"
 import { Shell } from "@/components/shell"
+
+function getCurrencyCode(slug: string): string {
+  return getLocale(slug)?.currency.code ?? "USD"
+}
+
+function toUSDForCountry(amount: number, slug: string): number {
+  return toUSD(amount, getCurrencyCode(slug))
+}
 
 export const metadata: Metadata = {
   title: "Global Rankings — Salaries, Taxes & Financial Data",
@@ -32,6 +41,7 @@ export default function RankingsPage() {
     const salaries = professions
       .map((p) => p.salaries[c.slug]?.average)
       .filter((s): s is number => typeof s === "number")
+      .map((s) => toUSDForCountry(s, c.slug))
     const avg = Math.round(salaries.reduce((a, b) => a + b, 0) / salaries.length)
     countryAvgSalaries.push({ slug: c.slug, name: c.name, flag: c.flag, avg })
   }
@@ -41,7 +51,8 @@ export default function RankingsPage() {
   const topSoftwareSalaries = countries
     .map((c) => {
       const s = professions.find((p) => p.id === "software-engineer")
-      return { slug: c.slug, name: c.name, flag: c.flag, salary: s?.salaries[c.slug]?.average ?? 0 }
+      const rawSalary = s?.salaries[c.slug]?.average ?? 0
+      return { slug: c.slug, name: c.name, flag: c.flag, salary: toUSDForCountry(rawSalary, c.slug) }
     })
     .sort((a, b) => b.salary - a.salary)
     .slice(0, 5)
@@ -49,7 +60,8 @@ export default function RankingsPage() {
   const topDoctorSalaries = countries
     .map((c) => {
       const s = professions.find((p) => p.id === "doctor")
-      return { slug: c.slug, name: c.name, flag: c.flag, salary: s?.salaries[c.slug]?.average ?? 0 }
+      const rawSalary = s?.salaries[c.slug]?.average ?? 0
+      return { slug: c.slug, name: c.name, flag: c.flag, salary: toUSDForCountry(rawSalary, c.slug) }
     })
     .sort((a, b) => b.salary - a.salary)
     .slice(0, 5)

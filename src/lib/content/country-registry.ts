@@ -146,3 +146,19 @@ export const COUNTRY_CURRENCIES: Record<string, { code: string; symbol: string }
   Object.fromEntries(
     registry.map((c) => [c.slug, { code: c.currencyCode, symbol: c.currencySymbol }])
   )
+
+export const USD_EXCHANGE_RATES: Record<string, number> = {
+  usd: 1,
+  gbp: 1.27,
+  aud: 0.67,
+  cad: 0.73,
+  nzd: 0.60,
+  inr: 0.012,
+  sgd: 0.74,
+}
+
+export function toUSD(amount: number, currencyCode: string): number {
+  const rate = USD_EXCHANGE_RATES[currencyCode.toLowerCase()]
+  if (!rate) return amount
+  return Math.round(amount * rate)
+}

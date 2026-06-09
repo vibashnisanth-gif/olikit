@@ -3,6 +3,7 @@ import { getLocale, getSubRegion } from "@/lib/seo/locales"
 import { getStateDataBySlug } from "./state-data"
 import { costOfLivingData } from "./state-expansion"
 import { SITE_URL } from "@/lib/seo/constants"
+import { toUSD } from "./country-registry"
 
 export interface ComparisonPageData {
   slug: string
@@ -60,6 +61,11 @@ function getLocaleName(slug: string): string {
 function getCurrencySymbolForLocale(slug: string): string {
   const l = getLocale(slug)
   return l?.currency.symbol ?? "$"
+}
+
+function getCurrencyCodeForLocale(slug: string): string {
+  const l = getLocale(slug)
+  return l?.currency.code ?? "USD"
 }
 
 function getNationalAvgForLocale(slug: string): number {
@@ -125,6 +131,11 @@ export function generateComparisonPage(
   if (dataA) salaryA = dataA.dataPoints.averageSalary
   if (dataB) salaryB = dataB.dataPoints.averageSalary
 
+  const currencyCodeA = getCurrencyCodeForLocale(pairA)
+  const currencyCodeB = getCurrencyCodeForLocale(pairB)
+  const salaryAUsd = toUSD(salaryA, currencyCodeA)
+  const salaryBUsd = toUSD(salaryB, currencyCodeB)
+
   let colIndexA = 100
   let colIndexB = 100
   if (colA) colIndexA = colA.overall
@@ -132,16 +143,16 @@ export function generateComparisonPage(
   if (!colA && pairA === "sg") colIndexA = 120
   if (!colB && pairB === "sg") colIndexB = 120
 
-  const salaryDiff = salaryA > salaryB
-    ? `${nameA} salaries are ${Math.round((salaryA / salaryB - 1) * 100)}% higher`
-    : `${nameB} salaries are ${Math.round((salaryB / salaryA - 1) * 100)}% higher`
+  const salaryDiff = salaryAUsd > salaryBUsd
+    ? `${nameA} salaries are ${Math.round((salaryAUsd / salaryBUsd - 1) * 100)}% higher`
+    : `${nameB} salaries are ${Math.round((salaryBUsd / salaryAUsd - 1) * 100)}% higher`
 
   const colDiff = colIndexA > colIndexB
     ? `${nameA} is ${Math.round((colIndexA / colIndexB - 1) * 100)}% more expensive`
     : `${nameB} is ${Math.round((colIndexB / colIndexA - 1) * 100)}% more expensive`
 
-  const purchasingPowerA = Math.round(salaryA / (colIndexA / 100))
-  const purchasingPowerB = Math.round(salaryB / (colIndexB / 100))
+  const purchasingPowerA = Math.round(salaryAUsd / (colIndexA / 100))
+  const purchasingPowerB = Math.round(salaryBUsd / (colIndexB / 100))
   const ppDiff = purchasingPowerA > purchasingPowerB
     ? `${nameA} has ${Math.round((purchasingPowerA / purchasingPowerB - 1) * 100)}% higher purchasing power`
     : `${nameB} has ${Math.round((purchasingPowerB / purchasingPowerA - 1) * 100)}% higher purchasing power`
@@ -156,7 +167,7 @@ export function generateComparisonPage(
   if (type === "salary") intro = `Compare average salaries, take-home pay, and compensation between ${nameA} and ${nameB}. The average salary in ${nameA} is ${symbolA}${avgA.toLocaleString()}, while in ${nameB} it is ${symbolB}${avgB.toLocaleString()}. ${salaryDiff}.`
   if (type === "cost-of-living") intro = `Compare the cost of living between ${nameA} and ${nameB}. ${colDiff}. Understand how housing, utilities, food, transportation, and healthcare costs differ.`
   if (type === "tax") intro = `Compare tax systems between ${nameA} and ${nameB}. ${nameA} has a top rate of ${taxA}, while ${nameB} has a top rate of ${taxB}. See how tax brackets, rates, and deductions differ.`
-  if (type === "purchasing-power") intro = `Compare purchasing power between ${nameA} and ${nameB}. A salary of ${symbolA}${salaryA.toLocaleString()} in ${nameA} has the purchasing power of ${symbolA}${purchasingPowerA.toLocaleString()} (adjusted for cost of living). ${ppDiff}.`
+  if (type === "purchasing-power") intro = `Compare purchasing power between ${nameA} and ${nameB}. A salary of ${symbolA}${salaryA.toLocaleString()} in ${nameA} has the purchasing power of $${purchasingPowerA.toLocaleString()} USD (adjusted for cost of living). ${ppDiff}.`
 
   const keyTakeaways = [
     `${typeLabel} comparison: ${nameA} vs ${nameB}`,
@@ -169,12 +180,12 @@ export function generateComparisonPage(
   const comparisonTableRows: { label: string; valueA: string; valueB: string }[] = [
     { label: "Average Salary", valueA: `${symbolA}${salaryA.toLocaleString()}`, valueB: `${symbolB}${salaryB.toLocaleString()}` },
     { label: "Cost of Living Index", valueA: `${colIndexA}`, valueB: `${colIndexB}` },
-    { label: "Purchasing Power (adj.)", valueA: `${symbolA}${purchasingPowerA.toLocaleString()}`, valueB: `${symbolB}${purchasingPowerB.toLocaleString()}` },
+    { label: "Purchasing Power (adj.)", valueA: `$${purchasingPowerA.toLocaleString()} USD`, valueB: `$${purchasingPowerB.toLocaleString()} USD` },
     { label: "Top Tax Rate", valueA: taxA, valueB: taxB },
   ]
 
   const winnerSummary = type === "salary"
-    ? `${salaryA > salaryB ? nameA : nameB} offers higher average salaries. However, when adjusted for cost of living, ${purchasingPowerA > purchasingPowerB ? nameA : nameB} provides better purchasing power.`
+    ? `${salaryAUsd > salaryBUsd ? nameA : nameB} offers higher average salaries. However, when adjusted for cost of living, ${purchasingPowerA > purchasingPowerB ? nameA : nameB} provides better purchasing power.`
     : type === "cost-of-living"
     ? `${colIndexA < colIndexB ? nameA : nameB} has a lower cost of living, making it more affordable for residents.`
     : type === "tax"
@@ -184,7 +195,7 @@ export function generateComparisonPage(
   const faqs = [
     { question: `How do salaries compare between ${nameA} and ${nameB}?`, answer: `The average salary in ${nameA} is ${symbolA}${salaryA.toLocaleString()}, while in ${nameB} it is ${symbolB}${salaryB.toLocaleString()}. ${salaryDiff}.` },
     { question: `Which location has a higher cost of living?`, answer: `${colDiff}. Cost of living indices are ${colIndexA} for ${nameA} and ${colIndexB} for ${nameB} (national average = 100).` },
-    { question: `How does purchasing power compare?`, answer: `After adjusting for cost of living, ${ppDiff}. The effective purchasing power is ${symbolA}${purchasingPowerA.toLocaleString()} in ${nameA} and ${symbolB}${purchasingPowerB.toLocaleString()} in ${nameB}.` },
+    { question: `How does purchasing power compare?`, answer: `After adjusting for cost of living, ${ppDiff}. The effective purchasing power is $${purchasingPowerA.toLocaleString()} USD in ${nameA} and $${purchasingPowerB.toLocaleString()} USD in ${nameB}.` },
     { question: `What are the tax differences?`, answer: `${nameA} has a top tax rate of ${taxA}. ${nameB} has a top tax rate of ${taxB}. Actual tax burden depends on income level, filing status, and applicable deductions.` },
     { question: `Which location is better for my career?`, answer: `The better choice depends on your profession, salary expectations, lifestyle preferences, and long-term goals. Consider salary, cost of living, tax burden, quality of life, and career opportunities in both locations.` },
   ]
