@@ -17,7 +17,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const tierATools = getToolsBySlugs(tierAToolSlugs)
   const stateSeoTools = getToolsBySlugs(stateSeoToolSlugs)
 
-  const staticPages = ["about", "contact", "privacy-policy", "terms", "disclaimer"]
+  const staticPages = [
+    "about", "contact", "privacy-policy", "terms", "disclaimer",
+    "compare", "countries", "data-sources", "editorial-policy", "methodology",
+    "professions", "professions/software-engineer", "rankings", "research",
+    "software-engineer-salary-us", "software-engineer-salary-uk",
+    "software-engineer-salary-australia", "software-engineer-salary-canada",
+    "software-engineer-salary-new-zealand", "software-engineer-salary-singapore",
+    "software-engineer-salary-india",
+    "software-engineer-vs-data-scientist", "software-engineer-vs-product-manager",
+    "software-engineer-vs-cybersecurity-analyst",
+    "comparisons",
+    "comparisons/software-engineer-us-vs-canada",
+    "comparisons/software-engineer-us-vs-australia",
+    "comparisons/software-engineer-uk-vs-australia",
+    "comparisons/software-engineer-india-vs-singapore",
+    "rankings/highest-paying-countries-software-engineers",
+    "rankings/highest-paying-cities-software-engineers",
+    "rankings/best-countries-for-software-engineers",
+    "research/software-engineer-salary-index-2026",
+  ]
 
   entries.push({
     url: SITE_URL,
@@ -41,6 +60,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "daily",
       priority: 1.0,
+    })
+
+    entries.push({
+      url: `${SITE_URL}/${locale.slug}/tools`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    })
+
+    entries.push({
+      url: `${SITE_URL}/${locale.slug}/guides`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
     })
 
     for (const tool of tools) {
@@ -163,6 +196,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 0.6,
     })
+
+    entries.push({
+      url: `${SITE_URL}/${locale.slug}/rankings`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    })
+
+    entries.push({
+      url: `${SITE_URL}/${locale.slug}/comparisons`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    })
+
+    entries.push({
+      url: `${SITE_URL}/${locale.slug}/guides/best`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    })
+
+    if (locale.states) {
+      entries.push({
+        url: `${SITE_URL}/${locale.slug}/states`,
+        lastModified: now,
+        changeFrequency: "weekly",
+        priority: 0.7,
+      })
+    }
 
     for (const pair of comparisonPairs) {
       const slugA = pair.regionA ?? pair.pairA
