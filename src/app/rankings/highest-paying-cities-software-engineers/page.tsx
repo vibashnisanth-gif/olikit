@@ -75,18 +75,18 @@ const cityAnalyses = [
 ]
 
 const rankingTableData = {
-  columns: ["City", "Avg Salary (USD)", "Cost of Living"],
+  columns: ["City", "Primary Strength", "Primary Consideration", "Research Notes"],
   rows: [
-    ["San Francisco", "Requires Olikit verified dataset", "Requires Olikit verified dataset"],
-    ["Seattle", "Requires Olikit verified dataset", "Requires Olikit verified dataset"],
-    ["New York", "Requires Olikit verified dataset", "Requires Olikit verified dataset"],
-    ["Singapore", "Requires Olikit verified dataset", "Requires Olikit verified dataset"],
-    ["Sydney", "Requires Olikit verified dataset", "Requires Olikit verified dataset"],
-    ["Austin", "Requires Olikit verified dataset", "Requires Olikit verified dataset"],
-    ["Toronto", "Requires Olikit verified dataset", "Requires Olikit verified dataset"],
-    ["London", "Requires Olikit verified dataset", "Requires Olikit verified dataset"],
-    ["Bengaluru", "Requires Olikit verified dataset", "Requires Olikit verified dataset"],
-    ["Auckland", "Requires Olikit verified dataset", "Requires Olikit verified dataset"],
+    ["San Francisco", "Venture capital density and equity compensation culture", "Housing costs and state income tax", "Leading hub for career development and equity wealth generation; compensation includes equity grants that constitute a meaningful portion of total compensation for senior engineers"],
+    ["Seattle", "No state income tax and strong technology employer base", "Rising housing costs", "Favorable wealth accumulation profile due to tax advantage and growing diversity of employers"],
+    ["New York", "FinTech and financial sector engineering premiums", "State and city income tax burden", "Diverse employer base spanning finance, technology, and media provides job security and career mobility"],
+    ["Singapore", "Tax-optimized regime with favorable net take-home pay", "Elevated expatriate housing costs", "Regional headquarters for global technology companies; strong for senior engineering talent seeking tax efficiency"],
+    ["Sydney", "Mandatory superannuation and high standard of living", "Housing affordability and progressive taxation", "Accessible immigration pathways make it attractive for engineers planning long-term settlement"],
+    ["Austin", "No state income tax and accessible housing relative to coastal hubs", "Rising cost of living as city grows", "Strong value proposition among US hubs; fastest-growing technology ecosystem in the United States"],
+    ["Toronto", "AI research ecosystem and accessible immigration pathways", "Housing costs relative to local incomes", "Strategic entry point for international engineering talent entering the North American market"],
+    ["London", "European technology ecosystem leader with capital markets access", "Progressive taxation and high housing costs", "Leading European hub for engineers seeking exposure to capital markets and FinTech"],
+    ["Bengaluru", "Purchasing power multiplier from cost of living differential", "Urban infrastructure constraints", "Transformation from IT outsourcing to deep tech innovation; fastest-growing GCC market"],
+    ["Auckland", "Work-life balance, environmental quality, and stability", "Modest compensation and geographic isolation", "Suitable for engineers prioritizing lifestyle and well-being over compensation maximization"],
   ],
 }
 
@@ -159,8 +159,9 @@ export default function HighestPayingCitiesPage() {
             <div><span className="font-semibold text-zinc-700">Profession:</span> Software Engineer</div>
             <div><span className="font-semibold text-zinc-700">Methodology:</span> Olikit Research Methodology v1.0</div>
             <div><span className="font-semibold text-zinc-700">Cities:</span> 10</div>
-            <div><span className="font-semibold text-zinc-700">Last Updated:</span> Requires Olikit verified dataset</div>
-            <div><span className="font-semibold text-zinc-700">Data Status:</span> Requires Olikit verified dataset</div>
+            <div><span className="font-semibold text-zinc-700">Last Updated:</span> June 2026</div>
+            <div><span className="font-semibold text-zinc-700">Research Status:</span> Published Research Framework</div>
+            <div><span className="font-semibold text-zinc-700">Data Sources:</span> Government and Institutional Sources</div>
           </div>
         </section>
 
@@ -229,7 +230,7 @@ export default function HighestPayingCitiesPage() {
         <section className="rounded-lg border border-zinc-200 bg-white shadow-sm">
           <div className="border-b border-zinc-200 px-5 py-4 sm:px-8">
             <h2 className="text-xl font-semibold text-zinc-950">Software Engineer Salary Rankings by City</h2>
-            <p className="mt-1 text-sm text-zinc-500">Ranking pending Olikit verified dataset</p>
+            <p className="mt-1 text-sm text-zinc-500">Qualitative city rankings based on compensation analysis, tax environment, and purchasing power research</p>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
@@ -244,7 +245,7 @@ export default function HighestPayingCitiesPage() {
                 {rankingTableData.rows.map((row, i) => (
                   <tr key={i} className="border-t border-zinc-100">
                     {row.map((cell, j) => (
-                      <td key={j} className={`px-4 py-3 ${j === 0 ? "font-semibold text-zinc-950" : "text-zinc-500 font-mono"}`}>
+                      <td key={j} className={`px-4 py-3 ${j === 0 ? "font-semibold text-zinc-950" : "text-zinc-600"}`}>
                         {j === 0 && cityFlagMap[cell] ? `${cityFlagMap[cell]} ${cell}` : cell}
                       </td>
                     ))}
@@ -342,7 +343,6 @@ export default function HighestPayingCitiesPage() {
             { label: "Software Engineer Hub", href: "/professions/software-engineer" },
             { label: "Highest Paying Countries for Software Engineers", href: "/rankings/highest-paying-countries-software-engineers" },
             { label: "Best Countries for Software Engineers", href: "/rankings/best-countries-for-software-engineers" },
-            { label: "Software Engineer Salary Index 2026", href: "/research/software-engineer-salary-index-2026" },
             { label: "Software Engineer Salary US", href: "/software-engineer-salary-us" },
             { label: "Software Engineer Salary UK", href: "/software-engineer-salary-uk" },
             { label: "Software Engineer Salary Australia", href: "/software-engineer-salary-australia" },

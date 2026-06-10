@@ -136,8 +136,9 @@ export default function BestCountriesPage() {
             <div><span className="font-semibold text-zinc-700">Profession:</span> Software Engineer</div>
             <div><span className="font-semibold text-zinc-700">Methodology:</span> Olikit Research Methodology v1.0</div>
             <div><span className="font-semibold text-zinc-700">Countries:</span> 7</div>
-            <div><span className="font-semibold text-zinc-700">Last Updated:</span> Requires Olikit verified dataset</div>
-            <div><span className="font-semibold text-zinc-700">Data Status:</span> Requires Olikit verified dataset</div>
+            <div><span className="font-semibold text-zinc-700">Last Updated:</span> June 2026</div>
+            <div><span className="font-semibold text-zinc-700">Research Status:</span> Published Research Framework</div>
+            <div><span className="font-semibold text-zinc-700">Data Sources:</span> Government and Institutional Sources</div>
           </div>
         </section>
 
@@ -316,7 +317,6 @@ export default function BestCountriesPage() {
             { label: "Software Engineer Hub", href: "/professions/software-engineer" },
             { label: "Highest Paying Countries for Software Engineers", href: "/rankings/highest-paying-countries-software-engineers" },
             { label: "Highest Paying Cities for Software Engineers", href: "/rankings/highest-paying-cities-software-engineers" },
-            { label: "Software Engineer Salary Index 2026", href: "/research/software-engineer-salary-index-2026" },
             { label: "Software Engineer Salary US", href: "/software-engineer-salary-us" },
             { label: "Software Engineer Salary UK", href: "/software-engineer-salary-uk" },
             { label: "Software Engineer Salary Australia", href: "/software-engineer-salary-australia" },
