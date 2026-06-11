@@ -9,7 +9,7 @@ type DataBlockProps = {
 
 export function DataBlock({ value, label, rank, highlight, footnote, className = "" }: DataBlockProps) {
   return (
-    <div className={`rounded-xl border border-border-light bg-surface-primary p-5 shadow-sm ${className}`}>
+    <div className={`rounded-xl border border-border-light bg-surface-primary p-5 shadow-sm transition-all duration-150 hover:border-border-medium hover:shadow-md ${className}`}>
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="text-3xl font-bold tracking-tight text-text-primary">{value}</p>
@@ -17,7 +17,7 @@ export function DataBlock({ value, label, rank, highlight, footnote, className =
           {footnote && <p className="mt-1.5 text-xs text-text-muted">{footnote}</p>}
         </div>
         {rank && (
-          <span className="shrink-0 rounded-md bg-accent-bg px-2 py-1 text-xs font-semibold text-text-secondary border border-border-light">
+          <span className="shrink-0 rounded-md bg-surface-muted px-2 py-1 text-xs font-semibold text-text-secondary border border-border-light">
             #{rank}
           </span>
         )}
@@ -35,7 +35,7 @@ type MetricRowProps = {
 
 export function MetricRow({ label, value, rank, highlight }: MetricRowProps) {
   return (
-    <div className="flex items-center justify-between gap-3 py-2.5 border-b border-border-light last:border-0">
+    <div className="flex items-center justify-between gap-3 py-2.5 border-b border-border-light last:border-0 transition-colors duration-150 hover:bg-surface-muted/50">
       <div className="flex items-center gap-2 min-w-0">
         {highlight === "up" && (
           <span className="shrink-0 text-emerald-600 text-xs font-semibold">&uarr;</span>
@@ -64,7 +64,7 @@ type ComparisonHighlightProps = {
 
 export function ComparisonHighlight({ winner, winnerValue, loser, loserValue, advantage, className = "" }: ComparisonHighlightProps) {
   return (
-    <div className={`rounded-xl border border-border-light bg-surface-primary p-5 shadow-sm ${className}`}>
+    <div className={`rounded-xl border border-border-light bg-surface-primary p-5 shadow-sm transition-all duration-150 hover:border-border-medium hover:shadow-md ${className}`}>
       <div className="flex items-center justify-between gap-4">
         <div className="text-center flex-1">
           <p className="text-xs font-semibold uppercase tracking-wider text-text-muted">{winner}</p>

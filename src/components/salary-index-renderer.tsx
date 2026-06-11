@@ -9,6 +9,7 @@ import { FAQSection } from "@/components/faq-section"
 import { SourcesSection } from "@/components/sources-section"
 import { RelatedPagesSection } from "@/components/related-pages-section"
 import { Card } from "@/components/ui/card"
+import { FadeInSection } from "@/components/ui/fade-in-section"
 
 function ProseSection({ title, paragraphs }: { title: string; paragraphs: string[] }) {
   return (
@@ -162,68 +163,106 @@ interface SalaryIndexRendererProps {
 export function SalaryIndexRenderer({ content }: SalaryIndexRendererProps) {
   return (
     <div className="space-y-12">
-      <HeroSection
-        badge={content.hero.badge}
-        title={content.hero.title}
-        description={content.hero.description}
-      />
+      <FadeInSection>
+        <HeroSection
+          badge={content.hero.badge}
+          title={content.hero.title}
+          description={content.hero.description}
+        />
+      </FadeInSection>
 
-      <ExecutiveSummaryRenderer data={content.executiveSummary} />
+      <FadeInSection>
+        <ExecutiveSummaryRenderer data={content.executiveSummary} />
+      </FadeInSection>
 
-      <ResearchMetadataBlock data={content.researchMetadata} />
+      <FadeInSection>
+        <ResearchMetadataBlock data={content.researchMetadata} />
+      </FadeInSection>
 
-      <QuickAnswersSection items={content.quickAnswers} />
+      <FadeInSection>
+        <QuickAnswersSection items={content.quickAnswers} />
+      </FadeInSection>
 
-      <ProseSection
-        title={content.globalMarketOverview.title}
-        paragraphs={content.globalMarketOverview.paragraphs}
-      />
+      <FadeInSection>
+        <ProseSection
+          title={content.globalMarketOverview.title}
+          paragraphs={content.globalMarketOverview.paragraphs}
+        />
+      </FadeInSection>
 
-      <ProseSection
-        title={content.compensationLandscape.title}
-        paragraphs={content.compensationLandscape.paragraphs}
-      />
+      <FadeInSection>
+        <ProseSection
+          title={content.compensationLandscape.title}
+          paragraphs={content.compensationLandscape.paragraphs}
+        />
+      </FadeInSection>
 
-      <ProseSection
-        title={content.taxAndNetIncomeAnalysis.title}
-        paragraphs={content.taxAndNetIncomeAnalysis.paragraphs}
-      />
+      <FadeInSection>
+        <ProseSection
+          title={content.taxAndNetIncomeAnalysis.title}
+          paragraphs={content.taxAndNetIncomeAnalysis.paragraphs}
+        />
+      </FadeInSection>
 
-      <ProseSection
-        title={content.purchasingPowerAnalysis.title}
-        paragraphs={content.purchasingPowerAnalysis.paragraphs}
-      />
+      <FadeInSection>
+        <ProseSection
+          title={content.purchasingPowerAnalysis.title}
+          paragraphs={content.purchasingPowerAnalysis.paragraphs}
+        />
+      </FadeInSection>
 
-      <ProseSection
-        title={content.costOfLivingAnalysis.title}
-        paragraphs={content.costOfLivingAnalysis.paragraphs}
-      />
+      <FadeInSection>
+        <ProseSection
+          title={content.costOfLivingAnalysis.title}
+          paragraphs={content.costOfLivingAnalysis.paragraphs}
+        />
+      </FadeInSection>
 
-      <CountryProfileSection
-        title="Country Intelligence"
-        countries={content.countryIntelligence}
-      />
+      <FadeInSection>
+        <CountryProfileSection
+          title="Country Intelligence"
+          countries={content.countryIntelligence}
+        />
+      </FadeInSection>
 
-      <RelocationIntelligenceGrid items={content.relocationIntelligence} />
+      <FadeInSection>
+        <RelocationIntelligenceGrid items={content.relocationIntelligence} />
+      </FadeInSection>
 
-      <ProseSection
-        title={content.technologyEcosystemAnalysis.title}
-        paragraphs={content.technologyEcosystemAnalysis.paragraphs}
-      />
+      <FadeInSection>
+        <ProseSection
+          title={content.technologyEcosystemAnalysis.title}
+          paragraphs={content.technologyEcosystemAnalysis.paragraphs}
+        />
+      </FadeInSection>
 
-      <KeyFindingsRenderer items={content.keyFindings} />
+      <FadeInSection>
+        <KeyFindingsRenderer items={content.keyFindings} />
+      </FadeInSection>
 
-      <MethodologyRenderer data={content.methodology} />
+      <FadeInSection>
+        <MethodologyRenderer data={content.methodology} />
+      </FadeInSection>
 
-      <ResearchLimitationsSection data={content.researchLimitations} />
+      <FadeInSection>
+        <ResearchLimitationsSection data={content.researchLimitations} />
+      </FadeInSection>
 
-      <DataInterpretationSection data={content.dataInterpretationGuidance} />
+      <FadeInSection>
+        <DataInterpretationSection data={content.dataInterpretationGuidance} />
+      </FadeInSection>
 
-      <FAQSection faqs={content.faq} />
+      <FadeInSection>
+        <FAQSection faqs={content.faq} />
+      </FadeInSection>
 
-      <SourcesSection sources={content.sources} />
+      <FadeInSection>
+        <SourcesSection sources={content.sources} />
+      </FadeInSection>
 
-      <RelatedPagesSection pages={content.relatedPages} />
+      <FadeInSection>
+        <RelatedPagesSection pages={content.relatedPages} />
+      </FadeInSection>
     </div>
   )
 }

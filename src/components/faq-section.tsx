@@ -23,7 +23,7 @@ export function FAQSection({ title = "Frequently Asked Questions", faqs }: Props
           <div key={i}>
             <button
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
-              className="flex w-full items-center justify-between gap-4 px-6 py-4 text-left text-base font-semibold text-text-primary transition-colors hover:bg-surface-muted sm:px-6 sm:py-5"
+              className="flex w-full items-center justify-between gap-4 px-6 py-4 text-left text-base font-semibold text-text-primary transition-colors duration-150 hover:bg-surface-muted sm:px-6 sm:py-5"
               aria-expanded={openIndex === i}
             >
               <span>{faq.question}</span>
@@ -39,11 +39,17 @@ export function FAQSection({ title = "Frequently Asked Questions", faqs }: Props
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            {openIndex === i && (
-              <div className="px-6 pb-5 sm:px-6">
-                <p className="text-sm leading-6 text-text-secondary">{faq.answer}</p>
+            <div
+              className={`grid transition-all duration-200 ease-out ${
+                openIndex === i ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+              }`}
+            >
+              <div className="overflow-hidden">
+                <div className="px-6 pb-5 sm:px-6">
+                  <p className="text-sm leading-6 text-text-secondary">{faq.answer}</p>
+                </div>
               </div>
-            )}
+            </div>
           </div>
         ))}
       </div>

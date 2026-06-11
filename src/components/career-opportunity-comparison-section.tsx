@@ -22,7 +22,7 @@ export function CareerOpportunityComparisonSection({ title = "Career Opportunity
           </thead>
           <tbody>
             {rows.map((r, i) => (
-              <tr key={i} className="border-t border-border-light">
+              <tr key={i} className="border-t border-border-light transition-colors duration-150 hover:bg-surface-muted/50">
                 <td className="px-4 py-3 font-medium text-text-primary">{r.category}</td>
                 <td className="px-4 py-3 text-right text-text-primary tabular-nums">{r.countryA}</td>
                 <td className="px-4 py-3 text-right text-text-primary tabular-nums">{r.countryB}</td>
