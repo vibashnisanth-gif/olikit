@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
+import { Button } from "./ui/button"
 
 const CONSENT_KEY = "olikit_consent"
 
@@ -37,32 +38,22 @@ export function CookieConsent() {
   if (consent !== null) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-zinc-200 bg-white p-4 shadow-lg">
+    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border-light bg-white p-4 shadow-lg">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 sm:flex-row sm:justify-between">
-        <p className="text-sm text-zinc-600">
+        <p className="text-sm text-text-secondary">
           We use cookies and similar technologies to improve your experience,
           analyze traffic, and serve personalized ads. See our{" "}
           <Link
             href="/privacy-policy"
-            className="underline hover:text-zinc-950"
+            className="underline hover:text-text-primary"
           >
             Privacy Policy
           </Link>
           .
         </p>
         <div className="flex shrink-0 gap-3">
-          <button
-            onClick={reject}
-            className="rounded-md border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-50"
-          >
-            Reject All
-          </button>
-          <button
-            onClick={accept}
-            className="rounded-md bg-zinc-950 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800"
-          >
-            Accept All
-          </button>
+          <Button onClick={reject} variant="secondary" size="md">Reject All</Button>
+          <Button onClick={accept} variant="primary" size="md">Accept All</Button>
         </div>
       </div>
     </div>

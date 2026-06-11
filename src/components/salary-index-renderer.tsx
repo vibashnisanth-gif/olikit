@@ -8,13 +8,14 @@ import { CountryProfileSection } from "@/components/country-profile-section"
 import { FAQSection } from "@/components/faq-section"
 import { SourcesSection } from "@/components/sources-section"
 import { RelatedPagesSection } from "@/components/related-pages-section"
+import { Card } from "@/components/ui/card"
 
 function ProseSection({ title, paragraphs }: { title: string; paragraphs: string[] }) {
   return (
-    <section className="rounded-lg border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-8">
-      <h2 className="mb-4 text-2xl font-semibold text-zinc-950">{title}</h2>
+    <section className="rounded-xl border border-border-light bg-surface-primary px-6 py-6 shadow-sm sm:px-8">
+      <h2 className="mb-4 text-2xl font-semibold tracking-tight text-text-primary">{title}</h2>
       {paragraphs.map((p, i) => (
-        <p key={i} className="mb-3 text-sm leading-7 text-zinc-600 last:mb-0">{p}</p>
+        <p key={i} className="mb-3 text-sm leading-7 text-text-secondary last:mb-0">{p}</p>
       ))}
     </section>
   )
@@ -22,14 +23,14 @@ function ProseSection({ title, paragraphs }: { title: string; paragraphs: string
 
 function ResearchMetadataBlock({ data }: { data: SalaryIndexContent["researchMetadata"] }) {
   return (
-    <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-4 text-xs text-zinc-500 sm:px-8">
+    <section className="rounded-xl border border-border-light bg-surface-secondary px-6 py-4 text-xs text-text-muted sm:px-8">
       <div className="grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-4">
-        <div><span className="font-semibold text-zinc-700">Coverage Year:</span> {data.coverageYear}</div>
-        <div><span className="font-semibold text-zinc-700">Profession:</span> {data.profession}</div>
-        <div><span className="font-semibold text-zinc-700">Methodology:</span> {data.methodologyVersion}</div>
-        <div><span className="font-semibold text-zinc-700">Countries:</span> {data.countriesCount}</div>
-        <div><span className="font-semibold text-zinc-700">Last Updated:</span> {data.lastUpdated}</div>
-        <div><span className="font-semibold text-zinc-700">Data Status:</span> {data.dataStatus}</div>
+        <div><span className="font-semibold text-text-secondary">Coverage Year:</span> {data.coverageYear}</div>
+        <div><span className="font-semibold text-text-secondary">Profession:</span> {data.profession}</div>
+        <div><span className="font-semibold text-text-secondary">Methodology:</span> {data.methodologyVersion}</div>
+        <div><span className="font-semibold text-text-secondary">Countries:</span> {data.countriesCount}</div>
+        <div><span className="font-semibold text-text-secondary">Last Updated:</span> {data.lastUpdated}</div>
+        <div><span className="font-semibold text-text-secondary">Data Status:</span> {data.dataStatus}</div>
       </div>
     </section>
   )
@@ -37,15 +38,15 @@ function ResearchMetadataBlock({ data }: { data: SalaryIndexContent["researchMet
 
 function QuickAnswersSection({ items }: { items: SalaryIndexContent["quickAnswers"] }) {
   return (
-    <section className="rounded-lg border border-zinc-200 bg-white shadow-sm">
-      <div className="border-b border-zinc-200 px-5 py-4 sm:px-8">
-        <h2 className="text-xl font-semibold text-zinc-950">Quick Answers</h2>
+    <section className="rounded-xl border border-border-light bg-surface-primary shadow-sm">
+      <div className="border-b border-border-light px-6 py-4 sm:px-8">
+        <h2 className="text-xl font-semibold tracking-tight text-text-primary">Quick Answers</h2>
       </div>
-      <div className="divide-y divide-zinc-100">
+      <div className="divide-y divide-border-light">
         {items.map((qa, i) => (
-          <div key={i} className="px-5 py-4 sm:px-8">
-            <h3 className="mb-1.5 text-sm font-semibold text-zinc-950">{qa.question}</h3>
-            <p className="text-sm leading-7 text-zinc-600">{qa.answer}</p>
+          <div key={i} className="px-6 py-4 sm:px-8">
+            <h3 className="mb-1.5 text-sm font-semibold text-text-primary">{qa.question}</h3>
+            <p className="text-sm leading-7 text-text-secondary">{qa.answer}</p>
           </div>
         ))}
       </div>
@@ -56,15 +57,15 @@ function QuickAnswersSection({ items }: { items: SalaryIndexContent["quickAnswer
 function ExecutiveSummaryRenderer({ data }: { data: SalaryIndexContent["executiveSummary"] }) {
   const paragraphs = data.paragraphs
   return (
-    <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-6 shadow-sm sm:px-8">
-      <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Executive Summary</h2>
+    <section className="rounded-xl border border-border-light bg-surface-secondary px-6 py-6 shadow-sm sm:px-8">
+      <h2 className="mb-4 text-2xl font-semibold tracking-tight text-text-primary">Executive Summary</h2>
       {paragraphs.map((p, i) => (
-        <p key={i} className="mb-3 text-sm leading-7 text-zinc-600 last:mb-0">{p}</p>
+        <p key={i} className="mb-3 text-sm leading-7 text-text-secondary last:mb-0">{p}</p>
       ))}
       {data.insights && data.insights.length > 0 && (
-        <div className="mt-5 space-y-3 rounded-md border border-emerald-200 bg-emerald-50 p-4">
+        <div className="mt-5 space-y-3 rounded-xl border border-emerald-200 bg-emerald-50 p-4">
           <p className="text-xs font-semibold uppercase tracking-wider text-emerald-800">Key Quotable Insights</p>
-          <ul className="list-disc space-y-2 pl-5 text-sm leading-7 text-zinc-700">
+          <ul className="list-disc space-y-2 pl-5 text-sm leading-7 text-text-secondary">
             {data.insights.map((insight, i) => (
               <li key={i}>{insight}</li>
             ))}
@@ -74,9 +75,9 @@ function ExecutiveSummaryRenderer({ data }: { data: SalaryIndexContent["executiv
       {data.metrics && data.metrics.length > 0 && (
         <div className="mt-5 grid gap-4 sm:grid-cols-3">
           {data.metrics.map((m, i) => (
-            <div key={i} className="rounded-md border border-zinc-200 bg-white p-4 text-center">
-              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">{m.label}</p>
-              <p className="mt-1 text-2xl font-bold text-zinc-950">{m.value}</p>
+            <div key={i} className="rounded-xl border border-border-light bg-surface-primary p-4 text-center shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-wider text-text-muted">{m.label}</p>
+              <p className="mt-1 text-2xl font-bold text-text-primary">{m.value}</p>
             </div>
           ))}
         </div>
@@ -87,13 +88,13 @@ function ExecutiveSummaryRenderer({ data }: { data: SalaryIndexContent["executiv
 
 function RelocationIntelligenceGrid({ items }: { items: SalaryIndexContent["relocationIntelligence"] }) {
   return (
-    <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-6 shadow-sm sm:px-8">
-      <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Relocation Intelligence</h2>
+    <section className="rounded-xl border border-border-light bg-surface-tertiary px-6 py-6 shadow-sm sm:px-8">
+      <h2 className="mb-4 text-2xl font-semibold tracking-tight text-text-primary">Relocation Intelligence</h2>
       <div className="grid gap-4 sm:grid-cols-2">
         {items.map((item, i) => (
-          <div key={i} className="rounded-md border border-zinc-200 bg-white p-4">
-            <h3 className="mb-1.5 text-sm font-semibold text-zinc-950">{item.heading}</h3>
-            <p className="text-xs leading-6 text-zinc-600">{item.content}</p>
+          <div key={i} className="rounded-xl border border-border-light bg-surface-primary p-4 shadow-sm">
+            <h3 className="mb-1.5 text-sm font-semibold text-text-primary">{item.heading}</h3>
+            <p className="text-xs leading-6 text-text-secondary">{item.content}</p>
           </div>
         ))}
       </div>
@@ -104,14 +105,14 @@ function RelocationIntelligenceGrid({ items }: { items: SalaryIndexContent["relo
 function KeyFindingsRenderer({ items }: { items: SalaryIndexContent["keyFindings"] }) {
   return (
     <section>
-      <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Key Findings</h2>
-      <div className="grid gap-4 sm:grid-cols-2">
+      <h2 className="mb-5 text-2xl font-semibold tracking-tight text-text-primary">Key Findings</h2>
+      <div className="grid gap-5 sm:grid-cols-2">
         {items.map((f, i) => (
-          <div key={i} className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm">
-            {f.metric && <p className="text-3xl font-bold text-emerald-700">{f.metric}</p>}
-            <h3 className="mb-2 text-sm font-semibold text-zinc-950">{f.title}</h3>
-            <p className="text-sm leading-6 text-zinc-600">{f.description}</p>
-          </div>
+          <Card key={i} hover>
+            {f.metric && <p className="text-3xl font-bold text-emerald-700 mb-2">{f.metric}</p>}
+            <h3 className="mb-2 text-sm font-semibold text-text-primary">{f.title}</h3>
+            <p className="text-sm leading-6 text-text-secondary">{f.description}</p>
+          </Card>
         ))}
       </div>
     </section>
@@ -134,10 +135,10 @@ function MethodologyRenderer({ data }: { data: SalaryIndexContent["methodology"]
 
 function ResearchLimitationsSection({ data }: { data: SalaryIndexContent["researchLimitations"] }) {
   return (
-    <section className="rounded-lg border border-amber-200 bg-amber-50 px-5 py-6 shadow-sm sm:px-8">
-      <h2 className="mb-4 text-2xl font-semibold text-zinc-950">{data.title}</h2>
+    <section className="rounded-xl border border-amber-200 bg-amber-50 px-6 py-6 shadow-sm sm:px-8">
+      <h2 className="mb-4 text-2xl font-semibold tracking-tight text-text-primary">{data.title}</h2>
       {data.paragraphs.map((p, i) => (
-        <p key={i} className="mb-3 text-sm leading-7 text-zinc-700 last:mb-0">{p}</p>
+        <p key={i} className="mb-3 text-sm leading-7 text-text-secondary last:mb-0">{p}</p>
       ))}
     </section>
   )
@@ -145,10 +146,10 @@ function ResearchLimitationsSection({ data }: { data: SalaryIndexContent["resear
 
 function DataInterpretationSection({ data }: { data: SalaryIndexContent["dataInterpretationGuidance"] }) {
   return (
-    <section className="rounded-lg border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-8">
-      <h2 className="mb-4 text-2xl font-semibold text-zinc-950">{data.title}</h2>
+    <section className="rounded-xl border border-border-light bg-surface-primary px-6 py-6 shadow-sm sm:px-8">
+      <h2 className="mb-4 text-2xl font-semibold tracking-tight text-text-primary">{data.title}</h2>
       {data.paragraphs.map((p, i) => (
-        <p key={i} className="mb-3 text-sm leading-7 text-zinc-600 last:mb-0">{p}</p>
+        <p key={i} className="mb-3 text-sm leading-7 text-text-secondary last:mb-0">{p}</p>
       ))}
     </section>
   )

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #18181b;
+  --background: #ffffff;
+  --foreground: #111827;
 }
 
 @theme inline {
@@ -10,6 +10,28 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-surface-primary: #ffffff;
+  --color-surface-secondary: #f8fbff;
+  --color-surface-tertiary: #f6fbf8;
+  --color-surface-muted: #fafafa;
+
+  --color-border-light: #e5e7eb;
+  --color-border-medium: #d1d5db;
+  --color-border-strong: #9ca3af;
+
+  --color-text-primary: #111827;
+  --color-text-secondary: #4b5563;
+  --color-text-muted: #6b7280;
+
+  --color-profession-tech-bg: #eaf8f1;
+  --color-profession-tech-border: #cdeedc;
+  --color-profession-healthcare-bg: #fff1e8;
+  --color-profession-healthcare-border: #ffd8c2;
+  --color-profession-finance-bg: #fff8e1;
+  --color-profession-finance-border: #ffe8a3;
+  --color-profession-research-bg: #f3eeff;
+  --color-profession-research-border: #ddd1ff;
 }
 
 body {
