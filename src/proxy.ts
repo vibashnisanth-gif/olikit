@@ -73,6 +73,7 @@ export function proxy(request: NextRequest) {
     "/data-sources",
     "/editorial-policy",
     "/search",
+    "/software-engineer",
   ]
   if (pathname === "/" || skipPatterns.some((p) => pathname.startsWith(p))) {
     return NextResponse.next()
