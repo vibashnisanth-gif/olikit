@@ -16,6 +16,31 @@ const nextConfig = {
         destination: "/:locale/tools/salary-calculator/compare",
         permanent: true,
       },
+      {
+        source: "/comparisons/software-engineer-us-vs-canada",
+        destination: "/software-engineer-us-vs-canada",
+        permanent: true,
+      },
+      {
+        source: "/comparisons/software-engineer-us-vs-australia",
+        destination: "/software-engineer-us-vs-australia",
+        permanent: true,
+      },
+      {
+        source: "/comparisons/software-engineer-uk-vs-australia",
+        destination: "/software-engineer-uk-vs-australia",
+        permanent: true,
+      },
+      {
+        source: "/comparisons/software-engineer-india-vs-singapore",
+        destination: "/software-engineer-india-vs-singapore",
+        permanent: true,
+      },
+      {
+        source: "/comparisons/software-engineer-us-vs-uk",
+        destination: "/software-engineer-us-vs-uk",
+        permanent: true,
+      },
     ]
   },
   async headers() {

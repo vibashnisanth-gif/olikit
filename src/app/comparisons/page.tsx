@@ -16,10 +16,11 @@ export const metadata: Metadata = {
 }
 
 const comparisons = [
-  { flagA: "\u{1F1FA}\u{1F1F8}", nameA: "United States", flagB: "\u{1F1E8}\u{1F1E6}", nameB: "Canada", href: "/comparisons/software-engineer-us-vs-canada" },
-  { flagA: "\u{1F1FA}\u{1F1F8}", nameA: "United States", flagB: "\u{1F1E6}\u{1F1FA}", nameB: "Australia", href: "/comparisons/software-engineer-us-vs-australia" },
-  { flagA: "\u{1F1EC}\u{1F1E7}", nameA: "United Kingdom", flagB: "\u{1F1E6}\u{1F1FA}", nameB: "Australia", href: "/comparisons/software-engineer-uk-vs-australia" },
-  { flagA: "\u{1F1EE}\u{1F1F3}", nameA: "India", flagB: "\u{1F1F8}\u{1F1EC}", nameB: "Singapore", href: "/comparisons/software-engineer-india-vs-singapore" },
+  { flagA: "\u{1F1FA}\u{1F1F8}", nameA: "United States", flagB: "\u{1F1E8}\u{1F1E6}", nameB: "Canada", href: "/software-engineer-us-vs-canada" },
+  { flagA: "\u{1F1FA}\u{1F1F8}", nameA: "United States", flagB: "\u{1F1E6}\u{1F1FA}", nameB: "Australia", href: "/software-engineer-us-vs-australia" },
+  { flagA: "\u{1F1EC}\u{1F1E7}", nameA: "United Kingdom", flagB: "\u{1F1E6}\u{1F1FA}", nameB: "Australia", href: "/software-engineer-uk-vs-australia" },
+  { flagA: "\u{1F1EE}\u{1F1F3}", nameA: "India", flagB: "\u{1F1F8}\u{1F1EC}", nameB: "Singapore", href: "/software-engineer-india-vs-singapore" },
+  { flagA: "\u{1F1FA}\u{1F1F8}", nameA: "United States", flagB: "\u{1F1EC}\u{1F1E7}", nameB: "United Kingdom", href: "/software-engineer-us-vs-uk" },
 ]
 
 export default function ComparisonsHubPage() {

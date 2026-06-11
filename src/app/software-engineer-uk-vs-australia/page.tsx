@@ -20,7 +20,7 @@ import { RelatedPagesSection } from "@/components/related-pages-section"
 const COUNTRY_A = { flag: "\u{1F1EC}\u{1F1E7}", name: "United Kingdom", slug: "uk" }
 const COUNTRY_B = { flag: "\u{1F1E6}\u{1F1FA}", name: "Australia", slug: "au" }
 
-const pagePath = "/comparisons/software-engineer-uk-vs-australia"
+const pagePath = "/software-engineer-uk-vs-australia"
 
 export const metadata: Metadata = {
   title: "Software Engineer UK vs Australia: Salary & Career Comparison (2026)",
@@ -45,7 +45,6 @@ export default function UKvsAustraliaPage() {
 
   const breadcrumbSchema = buildBreadcrumbJsonLd([
     { label: "Home", url: SITE_URL },
-    { label: "Comparisons", url: `${SITE_URL}/comparisons` },
     { label: "Software Engineer UK vs Australia", url: `${SITE_URL}${pagePath}` },
   ])
 
@@ -191,8 +190,8 @@ export default function UKvsAustraliaPage() {
             { label: "Software Engineer Salary Australia", href: "/software-engineer-salary-australia" },
             { label: "Software Engineer Salary Index 2026", href: "/research/software-engineer-salary-index-2026" },
             { label: "Highest Paying Countries", href: "/rankings/highest-paying-countries-software-engineers" },
-            { label: "Software Engineer US vs UK", href: "/comparisons/software-engineer-us-vs-uk" },
-            { label: "Software Engineer India vs Singapore", href: "/comparisons/software-engineer-india-vs-singapore" },
+            { label: "Software Engineer US vs UK", href: "/software-engineer-us-vs-uk" },
+            { label: "Software Engineer India vs Singapore", href: "/software-engineer-india-vs-singapore" },
           ]}
         />
       </div>
