@@ -8,8 +8,8 @@ import { Shell } from "@/components/shell"
 const se = getProfession("software-engineer")!
 
 const COUNTRY_ROUTES: Record<string, string> = {
-  us: "united-states",
-  uk: "united-kingdom",
+  us: "us",
+  uk: "uk",
   au: "australia",
   ca: "canada",
   nz: "new-zealand",
