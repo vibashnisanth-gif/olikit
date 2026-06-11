@@ -3,6 +3,7 @@ import { SITE_URL } from "@/lib/seo/constants"
 import { Shell } from "@/components/shell"
 import { FAQSection } from "@/components/faq-section"
 import { RelatedPagesSection } from "@/components/related-pages-section"
+import { buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
 
 const pagePath = "/rankings/highest-paying-cities-software-engineers"
 
@@ -147,9 +148,16 @@ export default function HighestPayingCitiesPage() {
     mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${pagePath}` },
   }
 
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { label: "Home", url: SITE_URL },
+    { label: "Rankings", url: `${SITE_URL}/rankings` },
+    { label: "Highest Paying Cities for Software Engineers", url: `${SITE_URL}${pagePath}` },
+  ])
+
   return (
     <Shell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <div className="space-y-12">
 
         {/* Research Metadata Block */}
@@ -341,6 +349,7 @@ export default function HighestPayingCitiesPage() {
         <RelatedPagesSection
           pages={[
             { label: "Software Engineer Hub", href: "/professions/software-engineer" },
+            { label: "Software Engineer Salary Index 2026", href: "/research/software-engineer-salary-index-2026" },
             { label: "Highest Paying Countries for Software Engineers", href: "/rankings/highest-paying-countries-software-engineers" },
             { label: "Best Countries for Software Engineers", href: "/rankings/best-countries-for-software-engineers" },
             { label: "Software Engineer Salary US", href: "/software-engineer-salary-us" },

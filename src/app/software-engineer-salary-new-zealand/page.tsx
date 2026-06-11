@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
+import { buildArticleJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
 import { Shell } from "@/components/shell"
 
 const COUNTRY = { slug: "nz", name: "New Zealand", flag: "\u{1F1F3}\u{1F1FF}", currency: "NZ$", taxAuthority: "Inland Revenue (IRD)" }
@@ -13,8 +14,23 @@ export const metadata: Metadata = {
 }
 
 export default function SoftwareEngineerNZ() {
+  const articleSchema = buildArticleJsonLd(
+    "Software Engineer Salary in New Zealand (2026)",
+    "Research software engineer salaries in New Zealand. Compare compensation across experience levels, understand taxes and evaluate purchasing power.",
+    `/software-engineer-salary-new-zealand`,
+    { code: "en", name: "English", slug: "en" } as any,
+  )
+
+  const breadcrumbSchema = buildBreadcrumbJsonLd([
+    { label: "Home", url: SITE_URL },
+    { label: "Salaries", url: `${SITE_URL}/salaries` },
+    { label: "Software Engineer Salary New Zealand", url: `${SITE_URL}/software-engineer-salary-new-zealand` },
+  ])
+
   return (
     <Shell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
           <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">{COUNTRY.flag} {COUNTRY.name} &mdash; Salary Intelligence</p>

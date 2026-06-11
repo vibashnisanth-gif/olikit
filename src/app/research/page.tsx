@@ -21,6 +21,14 @@ export default function ResearchPage() {
 
   const reports = [
     {
+      title: "Software Engineer Salary Index 2026",
+      description: "Flagship research report analyzing software engineer salaries across 7 major economies. Includes salary rankings, purchasing power analysis, and detailed country profiles.",
+      icon: "📈",
+      href: "/research/software-engineer-salary-index-2026",
+      date: "2026",
+      category: "Compensation",
+    },
+    {
       title: "Global Salary Report",
       description: "Comprehensive analysis of salary benchmarks across major economies. Software engineer, doctor, teacher, nurse, and accountant salary comparisons with currency-adjusted data.",
       icon: "💰",

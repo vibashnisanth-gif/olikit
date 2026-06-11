@@ -32,6 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "comparisons/software-engineer-us-vs-australia",
     "comparisons/software-engineer-uk-vs-australia",
     "comparisons/software-engineer-india-vs-singapore",
+    "comparisons/software-engineer-us-vs-uk",
     "rankings/highest-paying-countries-software-engineers",
     "rankings/highest-paying-cities-software-engineers",
     "rankings/best-countries-for-software-engineers",

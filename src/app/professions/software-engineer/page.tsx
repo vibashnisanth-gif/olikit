@@ -3,6 +3,7 @@ import { locales } from "@/lib/seo/locales"
 import { getProfession } from "@/lib/content/professions-data"
 import { COUNTRY_FLAGS, COUNTRY_NAMES } from "@/lib/content/country-registry"
 import { SITE_URL } from "@/lib/seo/constants"
+import { buildArticleJsonLd, buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/seo/json-ld"
 import { Shell } from "@/components/shell"
 
 const se = getProfession("software-engineer")!
@@ -111,8 +112,30 @@ const relatedProfessions = [
 ]
 
 export default function SoftwareEngineerHub() {
+  const articleSchema = buildArticleJsonLd(
+    "Software Engineer Salary, Career Growth and Compensation Intelligence",
+    "Research software engineer salaries, compare compensation across countries, evaluate career progression and understand how taxes and cost of living affect take-home earnings.",
+    "/professions/software-engineer",
+    { code: "en", name: "English", slug: "en" } as any,
+  )
+
+  const breadcrumbSchema = buildBreadcrumbJsonLd([
+    { label: "Home", url: SITE_URL },
+    { label: "Software Engineer", url: `${SITE_URL}/professions/software-engineer` },
+  ])
+
+  const faqSchema = buildFaqJsonLd([
+    { question: "What is a software engineer?", answer: "A software engineer designs, develops, tests and maintains software systems used by businesses, governments and consumers." },
+    { question: "Is software engineering still a good career?", answer: "Software engineering remains one of the strongest professional careers globally due to high demand, strong salary growth, remote work opportunities and continued digital transformation." },
+    { question: "Which country pays software engineers the most?", answer: "The United States frequently reports some of the highest software engineering salaries, although taxes, healthcare costs and living expenses should also be considered." },
+    { question: "Which city pays software engineers the most?", answer: "Major technology hubs such as San Francisco, Seattle, New York, Singapore, Sydney and Toronto frequently report strong compensation levels for experienced software engineers." },
+  ])
+
   return (
     <Shell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <div className="space-y-16">
         {/* HERO */}
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
@@ -343,19 +366,19 @@ export default function SoftwareEngineerHub() {
         <section>
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Featured Research</h2>
           <div className="grid gap-4 sm:grid-cols-2">
-            <a href="/rankings" className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
+            <a href="/rankings/best-countries-for-software-engineers" className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
               <h3 className="mb-2 text-lg font-semibold text-zinc-950">Best Countries for Software Engineers</h3>
               <p className="text-sm leading-6 text-zinc-600">Compare compensation, taxes, cost of living and purchasing power across major technology markets.</p>
             </a>
-            <a href="/rankings" className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
+            <a href="/rankings/highest-paying-cities-software-engineers" className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
               <h3 className="mb-2 text-lg font-semibold text-zinc-950">Highest Paying Cities for Software Engineers</h3>
               <p className="text-sm leading-6 text-zinc-600">Explore city-level compensation trends across leading technology hubs.</p>
             </a>
-            <a href="/research" className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
+            <a href="/research/software-engineer-salary-index-2026" className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
               <h3 className="mb-2 text-lg font-semibold text-zinc-950">Software Engineer Salary Index 2026</h3>
               <p className="text-sm leading-6 text-zinc-600">Comprehensive global salary analysis covering software engineering compensation trends and international comparisons.</p>
             </a>
-            <a href="/research" className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
+            <a href="/research/software-engineer-salary-index-2026" className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
               <h3 className="mb-2 text-lg font-semibold text-zinc-950">Remote Software Engineer Salary Report</h3>
               <p className="text-sm leading-6 text-zinc-600">Research how remote work is influencing compensation and career opportunities globally.</p>
             </a>

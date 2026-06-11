@@ -2,15 +2,23 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { SITE_URL } from "@/lib/seo/constants"
 import { getDateModified } from "@/lib/seo/freshness"
+import { locales } from "@/lib/seo/locales"
 import { professions, getProfession } from "@/lib/content/professions-data"
 import { getAllCountries } from "@/lib/content/country-registry"
 import { Shell } from "@/components/shell"
+
+const hreflangTags: Record<string, string> = {
+  "x-default": SITE_URL,
+}
+for (const loc of locales) {
+  hreflangTags[loc.code] = `${SITE_URL}/${loc.slug}`
+}
 
 export const metadata: Metadata = {
   title: "Compare Salaries, Taxes and Cost of Living Across Major Economies",
   description:
     "Discover how much you can earn, keep after tax and afford in different countries using salary calculators, tax tools, compensation benchmarks and government-sourced financial data.",
-  alternates: { canonical: SITE_URL },
+  alternates: { canonical: SITE_URL, languages: hreflangTags },
   openGraph: {
     title: "Compare Salaries, Taxes and Cost of Living Across Major Economies",
     description:
@@ -19,6 +27,10 @@ export const metadata: Metadata = {
     siteName: "Olikit",
     locale: "en-US",
     type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 
