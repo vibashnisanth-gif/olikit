@@ -100,12 +100,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: "weekly",
         priority: tierATools.some((tierTool) => tierTool.slug === tool.slug) ? 0.9 : 0.7,
       })
-      entries.push({
-        url: `${SITE_URL}/${locale.slug}/tools/${tool.slug}/compare`,
-        lastModified: now,
-        changeFrequency: "weekly",
-        priority: 0.5,
-      })
     }
 
     for (const guide of guides) {
@@ -132,13 +126,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
       })
     }
-
-    entries.push({
-      url: `${SITE_URL}/${locale.slug}/financial-data`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    })
 
     entries.push({
       url: `${SITE_URL}/${locale.slug}/best-states-for-salary`,
@@ -168,13 +155,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     })
 
-    entries.push({
-      url: `${SITE_URL}/${locale.slug}/glossary`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.7,
-    })
-
     for (const entry of glossaryEntries) {
       entries.push({
         url: `${SITE_URL}/${locale.slug}/glossary/${entry.slug}`,
@@ -199,20 +179,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
       })
     }
-
-    entries.push({
-      url: `${SITE_URL}/${locale.slug}/updates`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.5,
-    })
-
-    entries.push({
-      url: `${SITE_URL}/${locale.slug}/search`,
-      lastModified: now,
-      changeFrequency: "daily",
-      priority: 0.6,
-    })
 
     entries.push({
       url: `${SITE_URL}/${locale.slug}/rankings`,
