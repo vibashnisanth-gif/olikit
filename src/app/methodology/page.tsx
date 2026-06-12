@@ -20,6 +20,13 @@ export default function MethodologyPage() {
       </section>
 
       <section>
+        <h2 className="text-xl font-semibold text-zinc-950 mb-3">Scoring Systems</h2>
+        <p className="text-sm leading-7 text-zinc-600">
+          Olikit uses five proprietary scoring systems to evaluate compensation, purchasing power, relocation feasibility, career opportunities, and net earning potential. These scores power our country comparisons, rankings, and global research reports. <a href="/methodology/olikit-scoring-system" className="text-emerald-700 hover:text-emerald-600 font-medium">View the full scoring methodology →</a>
+        </p>
+      </section>
+
+      <section>
         <h2 className="text-xl font-semibold text-zinc-950 mb-3">Tax Calculations</h2>
         <p className="text-sm leading-7 text-zinc-600">
           Income tax calculations use official tax brackets, rates, and thresholds published by each country's tax authority. For the United States, we use IRS federal tax brackets plus state-specific brackets where applicable. For the United Kingdom, we use HMRC tax bands including personal allowance, basic rate, higher rate, and additional rate. Australian calculations use ATO tax rates including the Medicare levy. Canadian calculations use CRA federal and provincial tax brackets. New Zealand uses IRD tax bands. India uses Indian Income Tax Department slabs with cess. Singapore uses IRAS progressive tax rates.

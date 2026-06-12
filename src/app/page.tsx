@@ -6,6 +6,13 @@ import { locales } from "@/lib/seo/locales"
 import { professions, getProfession } from "@/lib/content/professions-data"
 import { getAllCountries } from "@/lib/content/country-registry"
 import { Shell } from "@/components/shell"
+import { FadeInSection } from "@/components/ui/fade-in-section"
+import { Card } from "@/components/ui/card"
+import { DataBlock, MetricRow } from "@/components/ui/data-block"
+import { CurrencySalary, CurrencyEquivalents } from "@/components/ui/currency-salary"
+import { formatSalary, convertSalary } from "@/lib/currency"
+import type { CurrencyCode } from "@/lib/currency"
+import { COUNTRY_FLAGS, COUNTRY_CURRENCIES } from "@/lib/content/country-registry"
 
 const hreflangTags: Record<string, string> = {
   "x-default": SITE_URL,
@@ -191,25 +198,22 @@ const webSiteJsonLd = {
   },
 }
 
-const CURRENCY_SYMBOLS: Record<string, string> = {
-  us: "$", uk: "£", au: "A$", ca: "C$", nz: "NZ$", in: "₹", sg: "S$",
-}
-
-const COUNTRY_FLAGS_MAP: Record<string, string> = {
-  us: "🇺🇸", uk: "🇬🇧", au: "🇦🇺", ca: "🇨🇦", nz: "🇳🇿", in: "🇮🇳", sg: "🇸🇬",
-}
-
-function formatSalary(amount: number, countrySlug: string): string {
-  const symbol = CURRENCY_SYMBOLS[countrySlug] || "$"
-  if (countrySlug === "in") {
-    return `${symbol}${(amount / 100000).toFixed(1)}L`
-  }
-  return `${symbol}${amount.toLocaleString()}`
-}
-
 const seProf = getProfession("software-engineer")!
 const docProf = getProfession("doctor")!
 const rnProf = getProfession("registered-nurse")!
+
+function slugToCurrency(slug: string): CurrencyCode {
+  const map: Record<string, CurrencyCode> = {
+    us: "USD", uk: "GBP", au: "AUD", ca: "CAD", nz: "NZD", in: "INR", sg: "SGD",
+  }
+  return map[slug] ?? "USD"
+}
+
+function equivalentCurrencies(slugs: string[]): CurrencyCode[] {
+  const codes = slugs.map(slugToCurrency).filter((c, i, a) => a.indexOf(c) === i)
+  const extras: CurrencyCode[] = ["EUR"]
+  return [...codes, ...extras.filter((c) => !codes.includes(c))]
+}
 
 interface SalaryRow {
   flag: string
@@ -217,18 +221,30 @@ interface SalaryRow {
   slug: string
   salary: number
   formatted: string
+  currencyCode: CurrencyCode
+  equivalents: { code: CurrencyCode; formatted: string }[]
   pct: number
 }
 
 function buildRows(prof: typeof seProf, slugs: string[]): SalaryRow[] {
-  const rows = slugs.map((s) => ({
-    flag: COUNTRY_FLAGS_MAP[s] || "",
-    country: s === "us" ? "United States" : s === "uk" ? "United Kingdom" : s === "au" ? "Australia" : s === "ca" ? "Canada" : s === "nz" ? "New Zealand" : s === "in" ? "India" : s === "sg" ? "Singapore" : s,
-    slug: s,
-    salary: prof.salaries[s]?.average || 0,
-    formatted: formatSalary(prof.salaries[s]?.average || 0, s),
-    pct: 0,
-  }))
+  const eqCurrencies = equivalentCurrencies(slugs)
+  const rows = slugs.map((s) => {
+    const curr = slugToCurrency(s)
+    const amount = prof.salaries[s]?.average || 0
+    return {
+      flag: COUNTRY_FLAGS[s] || "",
+      country: s === "us" ? "United States" : s === "uk" ? "United Kingdom" : s === "au" ? "Australia" : s === "ca" ? "Canada" : s === "nz" ? "New Zealand" : s === "in" ? "India" : s === "sg" ? "Singapore" : s,
+      slug: s,
+      salary: amount,
+      formatted: formatSalary(amount, curr),
+      currencyCode: curr,
+      equivalents: eqCurrencies.filter((c) => c !== curr).map((code) => ({
+        code,
+        formatted: formatSalary(Math.round(convertSalary(amount, curr, code)), code),
+      })),
+      pct: 0,
+    }
+  })
   const max = Math.max(...rows.map((r) => r.salary), 1)
   return rows.map((r) => ({ ...r, pct: Math.round((r.salary / max) * 100) }))
 }
@@ -345,84 +361,126 @@ export default function GlobalHomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* SECTION 1 — HERO */}
-      <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
-        <span className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-600">
-          <span className="text-sm">🌍</span>
-          SALARY, TAX & COST-OF-LIVING PLATFORM
-        </span>
-        <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl lg:text-5xl leading-tight">
-          Compare Salaries, Taxes and Cost of Living Across Major Economies
-        </h1>
-        <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-500 sm:text-lg">
-          Discover how much you can earn, keep after tax and afford in different countries using salary calculators, tax tools, compensation benchmarks and government-sourced financial data.
-        </p>
+      <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-8 sm:py-10 lg:px-10">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-start">
 
-        {/* FRESHNESS + TRUST STRIP */}
-        <p className="mt-4 max-w-[700px] text-xs text-zinc-400">
-          Updated June 2026 &bull; Government Tax Data &bull; Official Labour Statistics &bull; Transparent Methodology
-        </p>
+          {/* LEFT COLUMN — HEADLINE, CTAs, TRUST METRICS */}
+          <div className="space-y-6">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-600">
+              SALARY INTELLIGENCE PLATFORM
+            </span>
 
-        {/* SEE HOW FAR YOUR SALARY GOES */}
-        <p className="mt-6 max-w-[700px] text-lg font-semibold leading-7 text-zinc-700">
-          See Where Your Salary Goes Further
-        </p>
-        <p className="mt-1 max-w-[700px] text-base leading-7 text-zinc-500">
-          See where your income goes further, how much tax you&apos;ll pay, and how living costs affect your real purchasing power.
-        </p>
+            <h1 className="text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl lg:text-5xl leading-tight">
+              Compare Salaries,<br />
+              Taxes &amp; Cost of Living<br />
+              Across the World
+            </h1>
 
-        <div className="mt-6 flex flex-wrap gap-3">
-          <a
-            href="/compare"
-            className="inline-flex items-center gap-2 rounded-lg bg-zinc-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-zinc-800 shadow-sm"
-          >
-            Compare Countries
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
-          <a
-            href="/professions"
-            className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-6 py-3 text-sm font-medium text-zinc-700 transition hover:bg-zinc-50 hover:border-zinc-300"
-          >
-            Explore Salary Data
-          </a>
-          <a
-            href="/us/tools/salary-calculator"
-            className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-6 py-3 text-sm font-medium text-zinc-700 transition hover:bg-zinc-50 hover:border-zinc-300"
-          >
-            Calculate Take-Home Pay
-          </a>
-        </div>
+            <p className="text-base leading-7 text-zinc-500 sm:text-lg max-w-xl">
+              See where your income goes further — compare salaries, taxes, purchasing power and living costs across major economies using government-sourced data.
+            </p>
 
-        {/* TRUSTED BY */}
-        <p className="mt-5 text-xs text-zinc-400">
-          Trusted by professionals evaluating international career opportunities
-        </p>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="/compare"
+                className="btn-primary inline-flex items-center gap-2 rounded-lg bg-zinc-950 px-6 py-3 text-sm font-medium text-white shadow-sm"
+              >
+                Compare Countries
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+              <a
+                href="/professions"
+                className="btn-secondary inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-6 py-3 text-sm font-medium text-zinc-700"
+              >
+                Explore Salary Data
+              </a>
+            </div>
 
-        {/* TRUST MICRO-SIGNALS */}
-        <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-1.5 text-xs text-zinc-500">
-          <span className="inline-flex items-center gap-1.5">
-            <svg className="h-3 w-3 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
-            Government Tax Data
-          </span>
-          <span className="inline-flex items-center gap-1.5">
-            <svg className="h-3 w-3 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
-            Transparent Methodology
-          </span>
-          <span className="inline-flex items-center gap-1.5">
-            <svg className="h-3 w-3 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
-            Independent Research
-          </span>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+              <div>
+                <p className="text-lg font-bold text-zinc-950 tabular-nums">500+</p>
+                <p className="text-xs text-zinc-500">Salary Datasets</p>
+              </div>
+              <div>
+                <p className="text-lg font-bold text-zinc-950 tabular-nums">20+</p>
+                <p className="text-xs text-zinc-500">Countries</p>
+              </div>
+              <div>
+                <p className="text-lg font-bold text-zinc-950 tabular-nums">2026</p>
+                <p className="text-xs text-zinc-500">Updated</p>
+              </div>
+              <div>
+                <p className="text-lg font-bold text-zinc-950 tabular-nums">Professionals</p>
+                <p className="text-xs text-zinc-500">Trusted by</p>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN — DASHBOARD CARDS */}
+          <div className="grid grid-cols-2 gap-3">
+            {/* Card 1: Global Salary Snapshot */}
+            <Card className="col-span-2">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-zinc-500">
+                Global Salary Snapshot
+              </p>
+              <MetricRow label="United States" value="$120,000" />
+              <MetricRow label="Australia" value="A$110,000" />
+              <MetricRow label="United Kingdom" value="£55,000" />
+            </Card>
+
+            {/* Card 2: Tax Impact */}
+            <DataBlock
+              value="Up to 47%"
+              label="Top Marginal Tax Rate"
+              footnote="Varies by country and income level"
+              className="col-span-1"
+            />
+
+            {/* Card 3: Cost of Living */}
+            <DataBlock
+              value="32%"
+              label="Avg. Cost of Living"
+              footnote="Housing, food, transport, utilities"
+              className="col-span-1"
+            />
+
+            {/* Card 4: Olikit Global Salary Index */}
+            <Card className="col-span-2">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-zinc-500">
+                Olikit Global Salary Index
+              </p>
+              <div className="divide-y divide-zinc-100">
+                {[
+                  { rank: "#1", country: "Switzerland", salary: "CHF 95,000" },
+                  { rank: "#2", country: "Singapore", salary: "SGD 90,000" },
+                  { rank: "#3", country: "United States", salary: "$128,000" },
+                  { rank: "#4", country: "Australia", salary: "A$110,000" },
+                  { rank: "#5", country: "Canada", salary: "CA$88,000" },
+                ].map((entry) => (
+                  <div
+                    key={entry.country}
+                    className="flex items-center justify-between py-2 first:pt-0 last:pb-0"
+                  >
+                    <span className="flex items-center gap-2 text-sm">
+                      <span className="font-bold text-zinc-950">{entry.rank}</span>
+                      <span className="text-zinc-700">{entry.country}</span>
+                    </span>
+                    <span className="text-sm font-semibold text-zinc-600 tabular-nums">
+                      {entry.salary}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          </div>
+
         </div>
       </section>
 
       {/* SECTION 2 — TRUST STRIP */}
+      <FadeInSection>
       <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-6 py-3">
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-600">
           <span>Government Tax Data</span>
@@ -434,129 +492,255 @@ export default function GlobalHomePage() {
           <span>Cost-of-Living Analysis</span>
         </div>
       </section>
+      </FadeInSection>
 
       {/* SECTION 3 — GLOBAL SALARY SNAPSHOT */}
-      <section>
-        <h2 className="mb-6 text-xl font-semibold text-zinc-950 sm:text-2xl">
-          Global Salary Snapshot
-        </h2>
-        <p className="mb-6 text-sm leading-6 text-zinc-600 max-w-2xl">
-          Real salary data from the Olikit platform across major economies.
-        </p>
-        <div className="grid gap-6 lg:gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {professionSnapshots.map((prof) => {
-            return (
-              <div
-                key={prof.name}
-                className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm flex flex-col"
-              >
-                <h3 className="mb-4 text-lg font-semibold text-zinc-950">{prof.name}</h3>
-                <div className="space-y-4 flex-1">
-                  {prof.rows.map((row) => (
-                    <div key={row.country}>
-                      <div className="flex items-center justify-between mb-1.5">
-                        <span className="flex items-center gap-1.5 text-sm text-zinc-600">
-                          <span>{row.flag}</span>
-                          <span>{row.country}</span>
-                        </span>
-                        <span className="text-base font-bold text-zinc-950">{row.formatted}</span>
-                      </div>
-                      <div className="h-3 w-full rounded-full bg-zinc-100 overflow-hidden">
-                        <div
-                          className="h-full rounded-full bg-emerald-500"
-                          style={{ width: `${row.pct}%` }}
+      <FadeInSection>
+        <section>
+          <div className="mb-8">
+            <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-200">
+              REAL-TIME COMPENSATION DATA
+            </span>
+            <h2 className="text-xl font-semibold text-zinc-950 sm:text-2xl">
+              Global Salary Snapshot
+            </h2>
+            <p className="mt-2 text-sm leading-6 text-zinc-600 max-w-2xl">
+              Real salary data from the Olikit platform across major economies. Rankings reflect average total compensation.
+            </p>
+          </div>
+          <div className="grid gap-6 lg:gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {professionSnapshots.map((prof) => {
+              const topSalary = Math.max(...prof.rows.map((r) => r.salary))
+              return (
+                <div
+                  key={prof.name}
+                  className="card-hover rounded-xl border border-zinc-200 bg-white p-6 shadow-sm flex flex-col"
+                >
+                  <div className="flex items-center justify-between mb-5">
+                    <h3 className="text-lg font-semibold text-zinc-950">{prof.name}</h3>
+                    <a href={`/${prof.rows[0]?.slug}/salary/${prof.name.toLowerCase().replace(/\s+/g, "-")}`} className="text-xs font-medium text-emerald-600 hover:text-emerald-700 transition-colors">Details &rarr;</a>
+                  </div>
+                  <div className="space-y-4 flex-1">
+                    {prof.rows.map((row, idx) => (
+                      <div key={row.country}>
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="flex items-center gap-2">
+                            <span className="text-base">{row.flag}</span>
+                            <span className="flex items-center gap-1.5">
+                              <span className="text-sm font-medium text-zinc-700">{row.country}</span>
+                              <span className="text-[10px] font-semibold text-zinc-400">#{idx + 1}</span>
+                            </span>
+                          </span>
+                          <span className="text-base font-bold text-zinc-950">
+                            <CurrencySalary amount={row.salary} sourceCurrency={row.currencyCode} showCode />
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="h-2 w-full rounded-full bg-zinc-100 overflow-hidden flex-1">
+                            <div
+                              className="h-full rounded-full bg-emerald-500"
+                              style={{ width: `${(row.salary / topSalary) * 100}%` }}
+                            />
+                          </div>
+                          <span className="text-[10px] font-medium text-emerald-600 w-8 text-right tabular-nums">
+                            {row.pct >= 90 ? "Top 10%" : row.pct >= 75 ? "Top 25%" : row.pct >= 50 ? "Top 50%" : ""}
+                          </span>
+                        </div>
+                        <CurrencyEquivalents
+                          amount={row.salary}
+                          sourceCurrency={row.currencyCode}
+                          targetCurrencies={row.equivalents}
                         />
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )
-          })}
-        </div>
-        <div className="mt-6">
-          <a
-            href="/rankings"
-            className="inline-flex items-center gap-1 text-sm font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
-          >
-            View Full Salary Rankings &rarr;
-          </a>
-        </div>
-      </section>
-
-      {/* SECTION 4+5 — FEATURED INSIGHTS & RESEARCH (MERGED) */}
-      <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10">
-        <h2 className="mb-6 text-xl font-semibold text-zinc-950 sm:text-2xl">
-          Featured Insights &amp; Research
-        </h2>
-        <div className="grid gap-6 lg:gap-4 lg:grid-cols-5">
-          <div className="lg:col-span-2 rounded-lg border border-zinc-200 bg-zinc-50 p-5">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-700">
-              Featured Research
-            </p>
-            <h3 className="text-lg font-semibold text-zinc-950">
-              Olikit Global Salary Index 2026
-            </h3>
-            <p className="mt-2 text-sm leading-6 text-zinc-600">
-              Compare salaries, taxes, purchasing power and cost-of-living outcomes across major economies using government-sourced data.
-            </p>
-            <div className="mt-3 space-y-1.5">
-              <div className="flex items-center gap-2 text-sm text-zinc-600">
-                <svg className="h-4 w-4 shrink-0 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                Highest Paying Countries
-              </div>
-              <div className="flex items-center gap-2 text-sm text-zinc-600">
-                <svg className="h-4 w-4 shrink-0 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                Tax Adjusted Rankings
-              </div>
-              <div className="flex items-center gap-2 text-sm text-zinc-600">
-                <svg className="h-4 w-4 shrink-0 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                Profession Benchmarks
-              </div>
-              <div className="flex items-center gap-2 text-sm text-zinc-600">
-                <svg className="h-4 w-4 shrink-0 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                Cost of Living Comparisons
-              </div>
-            </div>
+              )
+            })}
+          </div>
+          <div className="mt-6">
             <a
-              href="/research"
-              className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
+              href="/rankings"
+              className="btn-primary inline-flex items-center gap-2 rounded-lg bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white shadow-sm"
             >
-              Read Global Salary Index &rarr;
+              View Full Salary Rankings
+              <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
             </a>
           </div>
-          <div className="lg:col-span-3 grid gap-6 lg:gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredInsights.map((insight) => (
-              <div
-                key={insight.title}
-                className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm flex flex-col"
+        </section>
+      </FadeInSection>
+
+      {/* GLOBAL SALARY INDEX */}
+      <FadeInSection>
+        <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10">
+          <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-600">
+            GLOBAL SALARY INDEX 2026
+          </span>
+          <h2 className="text-xl font-semibold text-zinc-950 sm:text-2xl">
+            Top Countries by Salary Intelligence Ranking
+          </h2>
+          <p className="mt-2 text-sm leading-6 text-zinc-600 max-w-2xl">
+            Overall ranking based on average compensation across all tracked professions, adjusted for purchasing power.
+          </p>
+          <div className="mt-6 grid gap-3">
+            {[
+              { rank: 1, country: "United States", flag: "🇺🇸", amount: 128000, curr: "USD" as const, pct: "100%", slug: "us", badge: "Highest Average" },
+              { rank: 2, country: "Australia", flag: "🇦🇺", amount: 110000, curr: "AUD" as const, pct: "86%", slug: "au", badge: "Strong Purchasing Power" },
+              { rank: 3, country: "Singapore", flag: "🇸🇬", amount: 78000, curr: "SGD" as const, pct: "61%", slug: "sg", badge: "Low Tax Jurisdiction" },
+              { rank: 4, country: "Canada", flag: "🇨🇦", amount: 88000, curr: "CAD" as const, pct: "69%", slug: "ca", badge: "Growing Tech Sector" },
+              { rank: 5, country: "New Zealand", flag: "🇳🇿", amount: 100000, curr: "NZD" as const, pct: "78%", slug: "nz", badge: "Strong Healthcare Pay" },
+              { rank: 6, country: "United Kingdom", flag: "🇬🇧", amount: 58000, curr: "GBP" as const, pct: "45%", slug: "uk", badge: "Financial Hub Premium" },
+              { rank: 7, country: "India", flag: "🇮🇳", amount: 1200000, curr: "INR" as const, pct: "—", slug: "in", badge: "Fastest Growing Digital Economy" },
+            ].map((c) => (
+              <Link
+                key={c.slug}
+                href={`/${c.slug}`}
+                className="card-hover group flex items-center gap-4 rounded-lg border border-zinc-100 bg-zinc-50/50 px-4 py-3 sm:px-5 sm:py-3.5"
               >
-                <h3 className="font-semibold text-zinc-950">{insight.title}</h3>
-                <p className="mt-1.5 text-sm leading-6 text-zinc-600 flex-1">{insight.summary}</p>
-                <a
-                  href={insight.href}
-                  className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
-                >
-                  {insight.cta}
-                  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </div>
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-900 text-xs font-bold text-white tabular-nums shrink-0">
+                  {c.rank}
+                </span>
+                <span className="text-xl shrink-0">{c.flag}</span>
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-semibold text-zinc-900">{c.country}</span>
+                    <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-700 ring-1 ring-emerald-200">{c.badge}</span>
+                  </div>
+                  <div className="mt-0.5 flex items-center gap-x-3 gap-y-0.5 flex-wrap">
+                    <CurrencySalary amount={c.amount} sourceCurrency={c.curr} className="text-xs text-zinc-500" showCode />
+                    {c.pct !== "—" && (
+                      <div className="h-1.5 w-16 rounded-full bg-zinc-200 overflow-hidden">
+                        <div className="h-full rounded-full bg-emerald-500" style={{ width: c.pct }} />
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <svg className="h-4 w-4 shrink-0 text-zinc-300 group-hover:text-zinc-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
             ))}
           </div>
-        </div>
-      </section>
+          <div className="mt-6">
+            <Link
+              href="/rankings"
+              className="btn-primary inline-flex items-center gap-2 rounded-lg bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white shadow-sm"
+            >
+              Explore Full Rankings
+              <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </section>
+      </FadeInSection>
+
+      {/* SECTION 4+5 — RESEARCH CENTER */}
+      <FadeInSection>
+        <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <span className="mb-1 inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-600">
+                RESEARCH & ANALYSIS
+              </span>
+              <h2 className="text-xl font-semibold text-zinc-950 sm:text-2xl">
+                Latest Research &amp; Rankings
+              </h2>
+            </div>
+            <Link
+              href="/research"
+              className="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-zinc-500 hover:text-zinc-800 transition-colors"
+            >
+              View All Research
+              <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+          <div className="grid gap-6 lg:gap-4 lg:grid-cols-5">
+            <div className="lg:col-span-2 rounded-xl border border-emerald-200 bg-emerald-50/50 p-5 sm:p-6">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-emerald-700">
+                Featured Research
+              </p>
+              <h3 className="text-lg font-semibold text-zinc-950">
+                Olikit Global Salary Index 2026
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-zinc-600">
+                Comprehensive analysis comparing salaries, taxes, purchasing power and cost-of-living across 7 major economies using government-sourced data.
+              </p>
+              <div className="mt-4 space-y-2">
+                {[
+                  "Highest Paying Countries for Software Engineers",
+                  "Tax-Adjusted Salary Rankings",
+                  "Profession Compensation Benchmarks",
+                  "Cost of Living & Purchasing Power Analysis",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-2.5 text-sm text-zinc-600">
+                    <svg className="h-4 w-4 shrink-0 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {item}
+                  </div>
+                ))}
+              </div>
+              <Link
+                href="/research"
+                className="btn-primary mt-4 inline-flex items-center gap-2 rounded-lg bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white shadow-sm"
+              >
+                Read Full Report
+                <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
+            <div className="lg:col-span-3 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                { title: "Best Countries for Software Engineers", href: "/rankings/best-countries-for-software-engineers", desc: "Top destinations ranked by compensation, taxes and quality of life for software engineers." },
+                { title: "Highest Paying Countries", href: "/rankings/highest-paying-countries-software-engineers", desc: "Countries offering the highest absolute compensation across all experience levels." },
+                { title: "Highest Paying Cities", href: "/rankings/highest-paying-cities-software-engineers", desc: "Metropolitan areas with the best salary-to-cost-of-living ratios globally." },
+                { title: "Salary After Tax Rankings", href: "/compare", desc: "Net take-home pay comparison across countries after income tax and social contributions." },
+                { title: "Cost of Living Analysis", href: "/research", desc: "Comprehensive breakdown of housing, transportation, healthcare and goods costs." },
+                { title: "Tax System Comparisons", href: "/compare", desc: "Side-by-side comparison of tax brackets, rates and thresholds across jurisdictions." },
+              ].map((item) => (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className="card-hover group rounded-lg border border-zinc-200 bg-white p-4 shadow-sm flex flex-col"
+                >
+                  <h3 className="text-sm font-semibold text-zinc-950 group-hover:text-zinc-700 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="mt-1 text-xs leading-5 text-zinc-500 flex-1">
+                    {item.desc}
+                  </p>
+                  <span className="mt-2 inline-flex items-center gap-0.5 text-xs font-medium text-emerald-600 group-hover:text-emerald-700 transition-colors">
+                    Read more
+                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="mt-6 sm:hidden">
+            <Link
+              href="/research"
+              className="btn-secondary inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-5 py-2.5 text-sm font-medium text-zinc-700 w-full justify-center"
+            >
+              View All Research
+              <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </section>
+      </FadeInSection>
 
       {/* SECTION 6 — FINANCIAL INTELLIGENCE FOR REAL-WORLD DECISIONS */}
+      <FadeInSection>
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-2xl font-bold tracking-tight text-zinc-950 sm:text-3xl">
@@ -572,8 +756,10 @@ export default function GlobalHomePage() {
           </div>
         </div>
       </section>
+      </FadeInSection>
 
       {/* SECTION 7 — WHY PEOPLE USE OLIKIT */}
+      <FadeInSection>
       <section>
         <h2 className="mb-6 text-xl font-semibold text-zinc-950 sm:text-2xl text-center">
           Why People Use Olikit
@@ -587,15 +773,17 @@ export default function GlobalHomePage() {
             { title: "Understand Taxes", desc: "Estimate take-home pay using country-specific tax rules and thresholds." },
             { title: "Make Better Decisions", desc: "Use public data and transparent methodologies instead of guesswork." },
           ].map((card) => (
-            <div key={card.title} className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm flex flex-col">
+            <div key={card.title} className="card-hover rounded-lg border border-zinc-200 bg-white p-5 shadow-sm flex flex-col">
               <h3 className="font-semibold text-zinc-950">{card.title}</h3>
               <p className="mt-1.5 text-sm leading-6 text-zinc-600 flex-1">{card.desc}</p>
             </div>
           ))}
         </div>
       </section>
+      </FadeInSection>
 
       {/* SECTION 8 — HIGHEST PAYING PROFESSIONS */}
+      <FadeInSection>
       <section>
         <h2 className="mb-6 text-xl font-semibold text-zinc-950 sm:text-2xl">
           Highest Paying Professions
@@ -604,7 +792,7 @@ export default function GlobalHomePage() {
           {highestPayingProfessions.map((prof) => (
             <div
               key={prof.name}
-              className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm flex flex-col"
+              className="card-hover rounded-lg border border-zinc-200 bg-white p-5 shadow-sm flex flex-col"
             >
               <h3 className="font-semibold text-zinc-950">{prof.name}</h3>
               <p className="mt-1.5 text-sm leading-6 text-zinc-600 flex-1">{prof.summary}</p>
@@ -618,8 +806,10 @@ export default function GlobalHomePage() {
           ))}
         </div>
       </section>
+      </FadeInSection>
 
       {/* SECTION 9 — EXPLORE BY COUNTRY */}
+      <FadeInSection>
       <section>
         <h2 className="mb-1 text-xl font-semibold text-zinc-950 sm:text-2xl">
           Localized Financial Intelligence
@@ -632,7 +822,7 @@ export default function GlobalHomePage() {
             <a
               key={c.slug}
               href={`/${c.slug}`}
-              className="group rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300 flex flex-col"
+              className="card-hover group rounded-lg border border-zinc-200 bg-white p-5 shadow-sm flex flex-col"
             >
               <div className="flex items-start gap-4">
                 <span className="text-3xl shrink-0">{c.flag}</span>
@@ -658,8 +848,10 @@ export default function GlobalHomePage() {
           ))}
         </div>
       </section>
+      </FadeInSection>
 
       {/* SECTION 10 — WHY TRUST OLIKIT */}
+      <FadeInSection>
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10">
         <div className="mx-auto max-w-3xl text-center mb-6">
           <h2 className="text-xl font-semibold text-zinc-950 sm:text-2xl">
@@ -675,7 +867,7 @@ export default function GlobalHomePage() {
             { title: "Regular Updates", desc: "Tax and salary datasets are reviewed whenever significant updates become available." },
             { title: "Public Verification", desc: "Users can verify major datasets through publicly available government and statistical sources." },
           ].map((card) => (
-            <div key={card.title} className="rounded-lg border border-zinc-200 bg-zinc-50 p-5 flex flex-col">
+            <div key={card.title} className="card-hover rounded-lg border border-zinc-200 bg-zinc-50 p-5 flex flex-col">
               <h3 className="font-semibold text-zinc-950">{card.title}</h3>
               <p className="mt-1.5 text-sm leading-6 text-zinc-600 flex-1">{card.desc}</p>
             </div>
@@ -699,8 +891,10 @@ export default function GlobalHomePage() {
           </div>
         </div>
       </section>
+      </FadeInSection>
 
       {/* SECTION 11 — GLOBAL COMPARISONS */}
+      <FadeInSection>
       <section className="rounded-xl border border-zinc-200 bg-zinc-50 px-6 py-8 sm:px-10 sm:py-10">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-xl font-semibold text-zinc-950 sm:text-2xl">
@@ -733,8 +927,10 @@ export default function GlobalHomePage() {
           </div>
         </div>
       </section>
+      </FadeInSection>
 
       {/* SECTION 12 — BEYOND CALCULATORS */}
+      <FadeInSection>
       <section>
         <h2 className="mb-6 text-xl font-semibold text-zinc-950 sm:text-2xl">
           Beyond Calculators
@@ -745,7 +941,7 @@ export default function GlobalHomePage() {
         <div className="grid gap-6 lg:gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <a
             href="/rankings"
-            className="group rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300 flex flex-col"
+            className="card-hover group rounded-lg border border-zinc-200 bg-white p-5 shadow-sm flex flex-col"
           >
             <p className="mb-2 text-lg">🏆</p>
             <h3 className="font-semibold text-zinc-950 group-hover:text-zinc-700 transition-colors">Salary Rankings</h3>
@@ -755,7 +951,7 @@ export default function GlobalHomePage() {
           </a>
           <a
             href="/compare"
-            className="group rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300 flex flex-col"
+            className="card-hover group rounded-lg border border-zinc-200 bg-white p-5 shadow-sm flex flex-col"
           >
             <p className="mb-2 text-lg">📊</p>
             <h3 className="font-semibold text-zinc-950 group-hover:text-zinc-700 transition-colors">Tax Comparisons</h3>
@@ -765,7 +961,7 @@ export default function GlobalHomePage() {
           </a>
           <a
             href="/research"
-            className="group rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300 flex flex-col"
+            className="card-hover group rounded-lg border border-zinc-200 bg-white p-5 shadow-sm flex flex-col"
           >
             <p className="mb-2 text-lg">🏠</p>
             <h3 className="font-semibold text-zinc-950 group-hover:text-zinc-700 transition-colors">Cost-of-Living Research</h3>
@@ -775,7 +971,7 @@ export default function GlobalHomePage() {
           </a>
           <a
             href="/professions"
-            className="group rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300 flex flex-col"
+            className="card-hover group rounded-lg border border-zinc-200 bg-white p-5 shadow-sm flex flex-col"
           >
             <p className="mb-2 text-lg">💼</p>
             <h3 className="font-semibold text-zinc-950 group-hover:text-zinc-700 transition-colors">Compensation Intelligence</h3>
@@ -785,8 +981,10 @@ export default function GlobalHomePage() {
           </a>
         </div>
       </section>
+      </FadeInSection>
 
       {/* SECTION 13 — EXPLORE SALARIES BY PROFESSION */}
+      <FadeInSection>
       <section>
         <h2 className="mb-6 text-xl font-semibold text-zinc-950 sm:text-2xl">
           Explore Salaries by Profession
@@ -796,7 +994,7 @@ export default function GlobalHomePage() {
             <a
               key={prof.name}
               href="/professions"
-              className="group rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300 flex flex-col"
+              className="card-hover group rounded-lg border border-zinc-200 bg-white p-5 shadow-sm flex flex-col"
             >
               <h3 className="font-semibold text-zinc-950 group-hover:text-zinc-700 transition-colors">
                 {prof.name}
@@ -827,8 +1025,10 @@ export default function GlobalHomePage() {
           </a>
         </div>
       </section>
+      </FadeInSection>
 
       {/* SECTION 14 — DATA SOURCES */}
+      <FadeInSection>
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-xl font-semibold text-zinc-950 sm:text-2xl">
@@ -857,15 +1057,17 @@ export default function GlobalHomePage() {
             { name: "Inland Revenue Authority of Singapore (IRAS)", country: "Singapore" },
             { name: "Singapore Department of Statistics (SingStat)", country: "Singapore" },
           ].map((source) => (
-            <div key={source.name} className="rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-3">
+            <div key={source.name} className="card-hover rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-3">
               <p className="text-sm font-medium text-zinc-950">{source.name}</p>
               <p className="text-xs text-zinc-500">{source.country}</p>
             </div>
           ))}
         </div>
       </section>
+      </FadeInSection>
 
       {/* SECTION 15 — TRUSTED FINANCIAL INTELLIGENCE */}
+      <FadeInSection>
       <section className="rounded-xl border border-zinc-200 bg-zinc-50 px-6 py-8 sm:px-10 sm:py-10">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-xl font-semibold text-zinc-950 sm:text-2xl">
@@ -901,6 +1103,7 @@ export default function GlobalHomePage() {
           </div>
         </div>
       </section>
+      </FadeInSection>
 
       {/* LAST UPDATED TRUST LINE */}
       <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-zinc-500">
@@ -916,6 +1119,7 @@ export default function GlobalHomePage() {
       </div>
 
       {/* SECTION 16+17 — POPULAR RESEARCH & RANKINGS (MERGED) */}
+      <FadeInSection>
       <section>
         <h2 className="mb-6 text-xl font-semibold text-zinc-950 sm:text-2xl">
           Popular Research &amp; Rankings
@@ -925,7 +1129,7 @@ export default function GlobalHomePage() {
             <a
               key={link.label}
               href={link.href}
-              className="group rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300"
+              className="card-hover group rounded-lg border border-zinc-200 bg-white p-5 shadow-sm"
             >
               <h3 className="font-semibold text-zinc-950 group-hover:text-zinc-700 transition-colors">
                 {link.label}
@@ -934,13 +1138,18 @@ export default function GlobalHomePage() {
           ))}
         </div>
       </section>
+      </FadeInSection>
 
       {/* SECTION 18 — FAQS */}
+      <FadeInSection>
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10">
-        <h2 className="mb-6 text-xl font-semibold text-zinc-950 sm:text-2xl">
+        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-600">
+          FAQ
+        </span>
+        <h2 className="text-xl font-semibold text-zinc-950 sm:text-2xl">
           Frequently Asked Questions
         </h2>
-        <div className="divide-y divide-zinc-100 rounded-lg border border-zinc-200">
+        <div className="mt-6 divide-y divide-zinc-100 rounded-lg border border-zinc-200">
           {[
             { q: "What is Olikit?", a: "Olikit is a global salary, tax and cost-of-living intelligence platform that helps professionals compare financial outcomes across countries using publicly available data and transparent methodologies." },
             { q: "How are salaries calculated?", a: "Salary estimates are derived from labor statistics, compensation surveys and publicly available employment data, then normalized for comparison across countries." },
@@ -954,15 +1163,24 @@ export default function GlobalHomePage() {
             { q: "Why do salaries differ between countries?", a: "Salary differences reflect variations in labour productivity, industry composition, cost of living, collective bargaining frameworks, minimum wage regulations, supply and demand for skills, and tax systems across countries." },
             { q: "How should salary comparisons be interpreted?", a: "Salary comparisons should account for tax rates, cost of living, purchasing power, currency fluctuations, benefits and retirement contributions to provide a meaningful picture of financial outcomes." },
           ].map((faq, i) => (
-            <div key={i} className="border-b border-zinc-100 last:border-b-0 px-5 py-4 sm:px-6 sm:py-5">
-              <h3 className="text-base font-semibold text-zinc-950">{faq.q}</h3>
-              <p className="mt-1 text-sm leading-6 text-zinc-500">{faq.a}</p>
-            </div>
+            <details key={i} className="group faq-accordion px-5 py-4 sm:px-6 sm:py-5">
+              <summary className="flex cursor-pointer items-center justify-between gap-4 select-none">
+                <h3 className="text-base font-semibold text-zinc-950">{faq.q}</h3>
+                <svg className="faq-chevron h-5 w-5 shrink-0 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="faq-content mt-2">
+                <p className="text-sm leading-6 text-zinc-500">{faq.a}</p>
+              </div>
+            </details>
           ))}
         </div>
       </section>
+      </FadeInSection>
 
       {/* SECTION 19 — FINAL CTA */}
+      <FadeInSection>
       <section className="rounded-xl border border-zinc-200 bg-zinc-50 px-6 py-8 sm:px-10 sm:py-10 text-center">
         <div className="mx-auto max-w-2xl">
           <h2 className="text-xl font-semibold text-zinc-950 sm:text-2xl">
@@ -974,7 +1192,7 @@ export default function GlobalHomePage() {
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
               href="/compare"
-              className="inline-flex items-center gap-2 rounded-lg bg-zinc-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-zinc-800 shadow-sm"
+              className="btn-primary inline-flex items-center gap-2 rounded-lg bg-zinc-950 px-6 py-3 text-sm font-medium text-white shadow-sm"
             >
               Compare Countries
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -983,13 +1201,14 @@ export default function GlobalHomePage() {
             </a>
             <a
               href="/research"
-              className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-6 py-3 text-sm font-medium text-zinc-700 transition hover:bg-zinc-50 hover:border-zinc-300"
+              className="btn-secondary inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-6 py-3 text-sm font-medium text-zinc-700"
             >
               Explore Financial Intelligence
             </a>
           </div>
         </div>
       </section>
+      </FadeInSection>
     </div>
     </Shell>
   )

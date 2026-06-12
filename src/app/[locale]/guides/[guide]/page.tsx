@@ -9,6 +9,7 @@ import { buildBreadcrumbs } from "@/lib/linking/internal-links"
 import { buildFaqJsonLd, buildHowToJsonLd, buildBreadcrumbJsonLd, buildSpeakableJsonLd, buildWebPageJsonLd, buildArticleJsonLd } from "@/lib/seo/json-ld"
 import { SourceFooter } from "@/components/source-footer"
 import { LastUpdated } from "@/components/last-updated"
+import { TakeHomeComparison } from "@/components/takehome-comparison"
 
 type Props = {
   params: Promise<{ locale: string; guide: string }>
@@ -90,6 +91,10 @@ export default async function GuidePage({ params }: Props) {
             {content.directAnswer.answer}
           </p>
         </div>
+      )}
+
+      {guide.slug === "salary-after-tax-by-country" && (
+        <TakeHomeComparison localeSlug={locale.slug} />
       )}
 
       {content.toolLinks.length > 0 && (

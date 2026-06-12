@@ -1,23 +1,9 @@
 import type { Metadata } from "next"
 import { locales } from "@/lib/seo/locales"
 import { professions, getProfession } from "@/lib/content/professions-data"
+import { COUNTRY_FLAGS } from "@/lib/content/country-registry"
 import { Shell } from "@/components/shell"
-
-const CURRENCY_SYMBOLS: Record<string, string> = {
-  us: "$", uk: "£", au: "A$", ca: "C$", nz: "NZ$", in: "₹", sg: "S$",
-}
-
-const COUNTRY_FLAGS: Record<string, string> = {
-  us: "🇺🇸", uk: "🇬🇧", au: "🇦🇺", ca: "🇨🇦", nz: "🇳🇿", in: "🇮🇳", sg: "🇸🇬",
-}
-
-function formatSalary(amount: number, countrySlug: string): string {
-  const symbol = CURRENCY_SYMBOLS[countrySlug] || "$"
-  if (countrySlug === "in") {
-    return `${symbol}${(amount / 100000).toFixed(1)}L`
-  }
-  return `${symbol}${amount.toLocaleString()}`
-}
+import { formatSalaryBySlug } from "@/lib/currency"
 
 export const metadata: Metadata = {
   title: "Browse Professions by Salary",
@@ -85,8 +71,8 @@ export default function ProfessionsPage() {
                     </a>
                   </td>
                   <td className="px-4 py-3 text-zinc-500 capitalize">{prof.id}</td>
-                  <td className="px-4 py-3 text-right font-medium text-zinc-950">
-                    {formatSalary(prof.salaries.us.average, "us")}
+                  <td className="px-4 py-3 text-right font-medium text-zinc-950 tabular-nums">
+                    {formatSalaryBySlug(prof.salaries.us.average, "us", { showCode: true })}
                   </td>
                 </tr>
               ))}
@@ -111,7 +97,7 @@ export default function ProfessionsPage() {
                       href={`/${loc.slug}/salary/${prof.slug}`}
                       className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-700 hover:bg-zinc-200 hover:text-zinc-950 transition-colors"
                     >
-                      {COUNTRY_FLAGS[loc.slug]} {loc.name}: {formatSalary(salary.average, loc.slug)}
+                      {COUNTRY_FLAGS[loc.slug]} {loc.name}: {formatSalaryBySlug(salary.average, loc.slug, { showCode: true })}
                     </a>
                   ) : null
                 })}

@@ -5,6 +5,7 @@ import { COUNTRY_FLAGS, COUNTRY_NAMES } from "@/lib/content/country-registry"
 import { SITE_URL } from "@/lib/seo/constants"
 import { buildArticleJsonLd, buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/seo/json-ld"
 import { Shell } from "@/components/shell"
+import { formatSalary as fmtSalary, formatSalaryFull as fmtSalaryFull, slugToCurrency } from "@/lib/currency"
 
 const se = getProfession("software-engineer")!
 
@@ -19,24 +20,11 @@ const COUNTRY_ROUTES: Record<string, string> = {
 }
 
 function formatSalary(value: number, countrySlug: string): string {
-  const loc = locales.find((l) => l.slug === countrySlug)
-  const sym = loc?.currency.symbol || "$"
-  if (countrySlug === "in") {
-    return `${sym}${(value / 100000).toFixed(1)}L`
-  }
-  if (value >= 1000) {
-    return `${sym}${(value / 1000).toFixed(value >= 10000 ? 0 : 1)}k`
-  }
-  return `${sym}${value.toLocaleString()}`
+  return fmtSalary(value, slugToCurrency(countrySlug), { compact: value >= 100000 })
 }
 
 function formatSalaryFull(value: number, countrySlug: string): string {
-  const loc = locales.find((l) => l.slug === countrySlug)
-  const sym = loc?.currency.symbol || "$"
-  if (countrySlug === "in") {
-    return `${sym}${(value / 100000).toFixed(1)}L`
-  }
-  return `${sym}${value.toLocaleString()}`
+  return fmtSalary(value, slugToCurrency(countrySlug))
 }
 
 function getSalaryData(countrySlug: string) {

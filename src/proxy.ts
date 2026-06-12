@@ -74,6 +74,9 @@ export function proxy(request: NextRequest) {
     "/editorial-policy",
     "/search",
     "/software-engineer",
+    "/data-scientist",
+    "/comparisons",
+    "/ads.txt",
   ]
   if (pathname === "/" || skipPatterns.some((p) => pathname.startsWith(p))) {
     return NextResponse.next()
@@ -128,5 +131,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml).*)"],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|ads.txt).*)"],
 }

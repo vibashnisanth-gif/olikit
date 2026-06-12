@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { SiteScripts } from "@/components/site-scripts"
+import { CurrencyProvider } from "@/lib/currency/currency-context"
 import { SITE_URL } from "@/lib/seo/constants"
 import "./globals.css"
 
@@ -25,15 +26,28 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon.067c3d.svg", type: "image/svg+xml" },
     ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180" },
-    ],
+    apple: "/apple-touch-icon.png",
   },
   manifest: "/manifest.json",
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Olikit",
+    title: "Olikit — Global Salary Intelligence",
+    description:
+      "Global salary intelligence, research, and data-driven compensation comparisons across 7 countries. Make informed career and relocation decisions with transparent methodology.",
+    url: SITE_URL,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Olikit — Global Salary Intelligence",
+    description:
+      "Global salary intelligence, research, and data-driven compensation comparisons across 7 countries.",
   },
   other: process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID
     ? {
@@ -53,6 +67,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <CurrencyProvider>
         {children}
         {process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID && (
           <script
@@ -62,6 +77,7 @@ export default function RootLayout({
           />
         )}
         <SiteScripts />
+        </CurrencyProvider>
       </body>
     </html>
   )

@@ -72,3 +72,65 @@ button {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
+
+.card-hover {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.btn-primary {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.btn-primary:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+.btn-primary:active {
+  transform: scale(0.99);
+}
+
+.btn-secondary {
+  transition: transform 200ms ease, border-color 200ms ease, background-color 200ms ease;
+}
+.btn-secondary:hover {
+  transform: scale(1.01);
+  border-color: #9ca3af;
+  background-color: #f9fafb;
+}
+
+tr.row-hover {
+  transition: background-color 150ms ease;
+}
+tr.row-hover:hover {
+  background-color: #f9fafb;
+}
+
+.faq-accordion {
+  transition: max-height 200ms ease, opacity 200ms ease;
+}
+.faq-chevron {
+  transition: transform 200ms ease;
+}
+.faq-chevron.open {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-hover:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .btn-primary:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .btn-secondary:hover {
+    transform: none;
+  }
+  tr.row-hover:hover {
+    background-color: transparent;
+  }
+}
