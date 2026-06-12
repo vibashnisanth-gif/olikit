@@ -114,6 +114,16 @@ export default async function ToolPage({ params }: Props) {
         <CalculatorInteractive toolSlug={tool.slug} localeSlug={locale.slug} />
       </div>
 
+      <div className="flex flex-wrap gap-3 rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
+        <span className="mr-1 self-center text-sm font-semibold text-zinc-600">Also explore:</span>
+        <a href={`/${locale.slug}/salary`} className="rounded-md bg-zinc-950 px-3 py-1.5 text-sm font-medium text-white hover:bg-zinc-800">Salary Hub</a>
+        <a href={`/${locale.slug}/methodology`} className="rounded-md bg-zinc-950 px-3 py-1.5 text-sm font-medium text-white hover:bg-zinc-800">Methodology</a>
+        {professions.slice(0, 3).map(p => (
+          <a key={p.slug} href={`/${locale.slug}/salary/${p.slug}`} className="rounded-md border border-zinc-300 bg-white px-3 py-1.5 text-sm font-medium text-zinc-700 hover:bg-zinc-50">{p.name} Salary</a>
+        ))}
+        <a href={`/${locale.slug}/glossary`} className="rounded-md border border-zinc-300 bg-white px-3 py-1.5 text-sm font-medium text-zinc-700 hover:bg-zinc-50">Financial Glossary</a>
+      </div>
+
       {content.steps && content.steps.length > 0 && (
         <section className="rounded-lg border border-zinc-200 bg-white px-6 py-7 shadow-sm">
           <h2 className="mb-1 text-xl font-semibold text-zinc-950">

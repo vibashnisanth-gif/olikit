@@ -82,6 +82,26 @@ function generateSections(
         heading: "Understanding Your Take-Home Pay",
         body: `Your gross salary minus income tax, social security contributions, and other mandatory deductions equals your net take-home pay. Use this figure for budgeting and financial planning in ${locationName}.`,
       },
+      {
+        heading: "How the Salary Calculation Works",
+        body: `The salary calculator starts with your gross annual income and sequentially subtracts each category of deduction. First, pre-tax deductions such as retirement contributions and health insurance are subtracted to arrive at your taxable income. Then, income tax is calculated using ${locationName} progressive tax brackets for ${locale.taxTerms.incomeTaxYear}. Social security contributions, Medicare taxes, and other mandatory withholdings are applied next. Finally, any post-tax deductions are subtracted to produce your net take-home pay. The calculator also breaks down your pay by pay period showing monthly, bi-weekly, and weekly equivalents.`,
+      },
+      {
+        heading: "Salary Calculation Formula",
+        body: `Net Pay = Gross Salary - (Pre-tax Deductions + Income Tax + Social Security Contributions + Post-tax Deductions). Income tax is calculated using progressive brackets: Tax = Σ(Taxable Income in Bracket × Bracket Rate). For example, in a system with brackets of 10%, 12%, and 22%, only the portion of income falling within each bracket is taxed at that rate, not the entire income.`,
+      },
+      {
+        heading: "Worked Example: Salary Calculation",
+        body: `Consider a professional earning ${currencySymbol}75,000 annually in ${locationName}. First, pre-tax deductions of ${currencySymbol}5,000 (6.7% for retirement and insurance) reduce taxable income to ${currencySymbol}70,000. Using progressive tax brackets, the tax calculation might be: ${currencySymbol}11,600 at 10% = ${currencySymbol}1,160, next ${currencySymbol}35,550 at 12% = ${currencySymbol}4,266, and remaining ${currencySymbol}22,850 at 22% = ${currencySymbol}5,027. Total income tax = ${currencySymbol}10,453. Social security at 6.2% = ${currencySymbol}4,650. Total deductions = ${currencySymbol}20,103. Net take-home pay = ${currencySymbol}75,000 - ${currencySymbol}20,103 = ${currencySymbol}54,897 per year, or approximately ${currencySymbol}4,575 per month.`,
+      },
+      {
+        heading: `Country-Specific Considerations for ${locationName}`,
+        body: `${locationName} has unique tax rules, deduction thresholds, and social security rates that affect salary calculations. Our calculator incorporates ${locale.taxTerms.incomeTaxYear} tax brackets, local tax credits, and region-specific deductions. Some countries offer tax-free thresholds, spousal credits, or child allowances that can significantly reduce your effective tax rate. The calculator also accounts for employer pension contributions where applicable and adjusts for currency-specific formatting and conventions.`,
+      },
+      {
+        heading: "Methodology and Data Sources",
+        body: `Salary data is sourced from official government tax authorities, labour statistics bureaus, and verified payroll data. Tax brackets are updated annually to reflect legislative changes. Social security and Medicare rates come from official government publications. All data is reviewed quarterly and updated when new rates are announced. Our methodology follows standard accounting principles for payroll calculation, ensuring that estimates closely match actual pay stubs for most employees across ${locationName}.`,
+      },
     ],
     "tax-calculator": [
       {
@@ -91,6 +111,26 @@ function generateSections(
       {
         heading: `Tax Brackets and Rates in ${locationName}`,
         body: `${locationName} tax brackets for ${locale.taxTerms.incomeTaxYear} range from basic rate to top marginal rate. Our calculator applies progressive taxation with applicable deductions and credits.`,
+      },
+      {
+        heading: "How Tax Calculation Works",
+        body: `The tax calculator applies ${locationName} progressive tax brackets to your taxable income. First, your gross income is reduced by pre-tax deductions and the applicable standard or itemized deduction to determine taxable income. Each portion of taxable income is then taxed at its corresponding bracket rate. The sum of all bracket calculations equals your total income tax. Tax credits are subtracted dollar-for-dollar from this total, and any withholding or estimated payments already made are deducted to determine your refund or balance due.`,
+      },
+      {
+        heading: "Tax Calculation Formula",
+        body: `Total Tax Liability = Σ(Income in Each Bracket × Bracket Rate) - Tax Credits. Effective Tax Rate = Total Tax Liability / Gross Income × 100. Marginal Tax Rate = The rate applied to your next dollar of income (your highest bracket). Taxable Income = Gross Income - (Standard or Itemized Deductions + Pre-tax Contributions). The calculator automatically determines whether the standard or itemized deduction provides a greater tax benefit based on your inputs.`,
+      },
+      {
+        heading: "Worked Example: Tax Calculation",
+        body: `A single filer in ${locationName} earning ${currencySymbol}75,000 claims the standard deduction of ${currencySymbol}14,600, reducing taxable income to ${currencySymbol}60,400. For 2025-2026 tax brackets: income up to ${currencySymbol}11,600 is taxed at 10% = ${currencySymbol}1,160; income from ${currencySymbol}11,601 to ${currencySymbol}47,150 is taxed at 12% = ${currencySymbol}4,266; income from ${currencySymbol}47,151 to ${currencySymbol}60,400 is taxed at 22% = ${currencySymbol}2,915. Total tax = ${currencySymbol}8,341. The effective tax rate is 11.1% (${currencySymbol}8,341 / ${currencySymbol}75,000), while the marginal rate is 22% — illustrating how progressive brackets produce an effective rate well below the marginal rate.`,
+      },
+      {
+        heading: `Country-Specific Tax Considerations for ${locationName}`,
+        body: `${locationName} has distinct tax rules including different filing statuses, capital gains treatment, and available tax credits. Our calculator accounts for ${locale.taxTerms.incomeTaxYear} rates, state or provincial taxes where applicable, and location-specific deductions such as retirement account contributions and health savings accounts. Some countries offer tax-free allowances, marriage allowances, or child tax credits that significantly affect total liability. The calculator also handles self-employment tax calculations where relevant.`,
+      },
+      {
+        heading: "Tax Methodology and Data Sources",
+        body: `Tax brackets, rates, and deduction amounts are sourced directly from official government tax authority publications. We track legislative changes throughout the year and update our calculator within 30 days of enacted tax law changes. Standard deduction amounts, personal exemptions, and credit values are verified against original source documents from tax authorities. Our calculations follow the official tax computation workflow as published by each country's revenue service, ensuring estimates align with what taxpayers should expect when filing their returns.`,
       },
     ],
     "mortgage-calculator": [
@@ -102,6 +142,26 @@ function generateSections(
         heading: `${locationName} Property Costs`,
         body: `Factor in property taxes, insurance, and ${locale.taxTerms.vatName} at ${locale.taxTerms.vatRate}% where applicable. Our calculator gives you the complete picture of home ownership costs in ${locationName}.`,
       },
+      {
+        heading: "How Mortgage Calculation Works",
+        body: `The mortgage calculator uses the standard amortization formula to compute your monthly payment. The loan amount (property price minus down payment) is divided into equal monthly payments over the loan term. Each payment consists of both principal and interest, with the proportion shifting over time — early payments are primarily interest, while later payments are primarily principal. The calculator generates a full amortization schedule showing the balance, principal paid, and interest paid for each month of the loan term.`,
+      },
+      {
+        heading: "Mortgage Payment Formula",
+        body: `M = P × [r(1+r)^n] / [(1+r)^n - 1], where M = monthly payment, P = loan principal (property price minus down payment), r = monthly interest rate (annual rate divided by 12), and n = total number of monthly payments (loan term in years × 12). Total interest paid = (M × n) - P. The amortization schedule shows that total interest often approaches or exceeds the principal for longer loan terms, making extra principal payments a valuable strategy for reducing total borrowing costs.`,
+      },
+      {
+        heading: "Worked Example: Mortgage Payment",
+        body: `A home priced at ${currencySymbol}400,000 with a 20% down payment (${currencySymbol}80,000) results in a loan principal of ${currencySymbol}320,000. At a 6.5% annual interest rate over a 30-year term: monthly rate r = 0.005417, n = 360 payments. Monthly payment M = ${currencySymbol}320,000 × [0.005417(1.005417)^360] / [(1.005417)^360 - 1] = ${currencySymbol}2,023. Total interest paid over 30 years = approximately ${currencySymbol}408,280 — exceeding the original loan principal. With a 15-year term at the same rate, the monthly payment rises to ${currencySymbol}2,788 but total interest drops to ${currencySymbol}181,840, saving ${currencySymbol}226,440 in interest.`,
+      },
+      {
+        heading: `Country-Specific Mortgage Considerations for ${locationName}`,
+        body: `${locationName} has unique property buying rules including different down payment requirements, mortgage interest deductibility, property tax structures, and closing costs. Our calculator accounts for ${locale.taxTerms.vatName} at ${locale.taxTerms.vatRate}% where applicable, local property tax rates, and region-specific insurance requirements. Some countries require mortgage insurance for down payments below 20%, while others have政府对 first-home buyer grants or stamp duty exemptions that affect total upfront costs.`,
+      },
+      {
+        heading: "Mortgage Methodology and Data Sources",
+        body: `Interest rate data is sourced from central bank publications and major lender rate sheets. Property tax rates come from local government tax authorities. Insurance estimates are based on national averages from insurance industry data. All rates and rules are verified at least quarterly and updated when central banks announce rate changes or when governments modify housing policy. Our amortization calculations follow standard financial mathematics as used by lending institutions worldwide.`,
+      },
     ],
     "investment-calculator": [
       {
@@ -111,6 +171,26 @@ function generateSections(
       {
         heading: "Compound Interest Explained",
         body: `Compound interest is the eighth wonder of the world. Your money grows exponentially as you earn returns on both your principal and accumulated interest. Start investing early in ${locationName} to maximize the power of compounding.`,
+      },
+      {
+        heading: "How Investment Growth Is Calculated",
+        body: `The investment calculator projects future portfolio value using the compound interest formula with regular contributions. Your initial principal grows by the annual return rate, and each subsequent contribution is added and grows for its respective time period. The calculator accounts for the compounding frequency (monthly, quarterly, or annually), showing how more frequent compounding accelerates growth. The results include a year-by-year breakdown showing contributions, interest earned, and ending balance for each year of the investment period.`,
+      },
+      {
+        heading: "Investment Growth Formula",
+        body: `Future Value = P(1 + r/n)^(nt) + PMT × [((1 + r/n)^(nt) - 1) / (r/n)], where P = initial principal, r = annual interest rate (decimal), n = compounding periods per year, t = investment time horizon in years, and PMT = regular contribution per period. This formula combines the growth of the initial lump sum with the accumulated value of regular contributions. For example, a one-time investment of ${currencySymbol}10,000 at 7% annual return compounded monthly over 30 years grows to approximately ${currencySymbol}81,170 from the principal alone.`,
+      },
+      {
+        heading: "Worked Example: Investment Growth",
+        body: `An investor in ${locationName} starts with ${currencySymbol}25,000 and contributes ${currencySymbol}500 monthly at a 7% annual return compounded monthly. After 10 years: total contributions = ${currencySymbol}85,000, total value = approximately ${currencySymbol}126,000, interest earned = ${currencySymbol}41,000. After 20 years: total contributions = ${currencySymbol}145,000, total value = approximately ${currencySymbol}340,000, interest earned = ${currencySymbol}195,000. After 30 years: total contributions = ${currencySymbol}205,000, total value = approximately ${currencySymbol}766,000, interest earned = ${currencySymbol}561,000. This demonstrates how compounding accelerates — more than two-thirds of the final value after 30 years comes from interest, not contributions.`,
+      },
+      {
+        heading: `Country-Specific Investment Considerations for ${locationName}`,
+        body: `${locationName} has specific capital gains tax rules, tax-advantaged account types, and investment regulations. Our calculator accounts for ${locationName} tax treatment of investment gains, including differences between short-term and long-term capital gains rates. Some countries offer tax-free investment accounts, dividend imputation systems, or retirement accounts with tax-deferred growth that significantly affect net returns. The calculator lets you adjust for your specific tax situation to show after-tax investment outcomes.`,
+      },
+      {
+        heading: "Investment Methodology and Data Sources",
+        body: `Historical return data is sourced from major market indices and central bank publications. Tax rates for capital gains come from official government tax authority publications. Our projections use standard financial mathematics and assume reinvestment of all returns. Past performance does not guarantee future results — our calculator is designed for educational and planning purposes. We recommend consulting a qualified financial advisor for personalized investment advice tailored to your ${locationName} circumstances.`,
       },
     ],
     "retirement-calculator": [
@@ -122,6 +202,26 @@ function generateSections(
         heading: `${locationName} Pension and Retirement`,
         body: `Understanding your retirement options in ${locationName} is crucial. Our calculator accounts for state pensions, private superannuation, and tax-advantaged retirement accounts available to residents.`,
       },
+      {
+        heading: "How Retirement Projections Are Calculated",
+        body: `The retirement calculator projects your savings growth from your current age to your target retirement age using compound growth on existing savings plus regular contributions. It then estimates how long those savings will last in retirement based on annual withdrawals and continued investment growth. The calculator factors in inflation to show both nominal and inflation-adjusted (real) values, giving a realistic picture of future purchasing power. State pension or social security benefits are added to your retirement income.`,
+      },
+      {
+        heading: "Retirement Calculation Formula",
+        body: `Savings at Retirement = FV of Current Savings + FV of Regular Contributions, where FV uses the compound interest formula. Annual Retirement Income = (Retirement Savings × Withdrawal Rate) + State Pension. The 4% rule suggests withdrawing 4% of initial retirement savings annually, adjusted for inflation. For example, if you accumulate ${currencySymbol}1,000,000 by retirement, the 4% rule suggests withdrawing ${currencySymbol}40,000 in your first year. The calculator also models how long your savings would last at different withdrawal rates.`,
+      },
+      {
+        heading: "Worked Example: Retirement Planning",
+        body: `A 35-year-old in ${locationName} has ${currencySymbol}50,000 saved and contributes ${currencySymbol}800 monthly. Assuming 6% annual return, retiring at 67 with life expectancy of 85: savings at retirement = approximately ${currencySymbol}1,250,000. Using the 4% rule, annual retirement income from savings = ${currencySymbol}50,000. Adding a state pension of ${currencySymbol}18,000 per year gives total retirement income of ${currencySymbol}68,000 annually. Adjusted for 3% inflation, this has the purchasing power of approximately ${currencySymbol}28,000 in today's dollars — highlighting the importance of saving more or investing for higher returns to maintain lifestyle.`,
+      },
+      {
+        heading: `Country-Specific Retirement Considerations for ${locationName}`,
+        body: `${locationName} has unique pension systems, retirement ages, and tax treatment of retirement accounts. Our calculator incorporates ${locale.taxTerms.incomeTaxYear} tax rules for retirement contributions and withdrawals, including tax-deferred growth and tax-free withdrawal options where applicable. State pension eligibility ages, contribution rates, and benefit levels vary by country. Some countries offer mandatory employer pension contributions or superannuation guarantees that significantly affect retirement savings.`,
+      },
+      {
+        heading: "Retirement Methodology and Data Sources",
+        body: `Life expectancy data comes from World Health Organization and national statistics agencies. State pension amounts and eligibility ages are sourced from official government pension authority publications. Historical investment return assumptions are based on long-term market averages from major indices. Inflation assumptions use central bank target rates and historical averages. Our methodology follows standard retirement planning principles used by financial planners, including Monte Carlo-style sensitivity analysis through adjustable return assumptions.`,
+      },
     ],
     "business-loan-calculator": [
       {
@@ -132,6 +232,26 @@ function generateSections(
         heading: `${locationName} SME Financing`,
         body: `Small and medium enterprises in ${locationName} have various financing options. Our calculator helps you compare different loan structures and find the most cost-effective solution for your business.`,
       },
+      {
+        heading: "How Business Loan Payments Are Calculated",
+        body: `The business loan calculator uses the standard amortization formula to compute equal monthly payments over the loan term. Each payment covers both principal repayment and interest charges. Early payments are weighted toward interest, while later payments primarily reduce the principal. The calculator generates a complete amortization schedule showing the remaining balance, cumulative interest paid, and principal reduction over the life of the loan. This helps business owners understand the true cost of financing and plan cash flow accordingly.`,
+      },
+      {
+        heading: "Business Loan Formula",
+        body: `Monthly Payment = P × [r(1+r)^n] / [(1+r)^n - 1], where P = loan principal, r = monthly interest rate, n = total payments. Total Interest = (Monthly Payment × n) - P. The Annual Percentage Rate (APR) includes both the interest rate and any fees rolled into the loan, giving a more complete picture of total borrowing costs. For business loans, the effective annual rate may differ from the nominal rate due to compounding frequency and fee structures.`,
+      },
+      {
+        heading: "Worked Example: Business Loan",
+        body: `A business in ${locationName} borrows ${currencySymbol}150,000 at 8% annual interest for 5 years (60 months). Monthly payment = ${currencySymbol}3,041. Total payments over 5 years = ${currencySymbol}182,460. Total interest cost = ${currencySymbol}32,460. The business effectively pays 21.6% of the original principal in interest. A 3-year term at the same rate would have higher monthly payments of ${currencySymbol}4,700 but total interest of only ${currencySymbol}19,200, saving ${currencySymbol}13,260 in financing costs.`,
+      },
+      {
+        heading: `Country-Specific Business Loan Considerations for ${locationName}`,
+        body: `${locationName} has unique business lending practices, interest rate environments, and SME support programmes. Our calculator accounts for ${locationName} typical loan terms, interest rate ranges, and fee structures. Government-backed small business loan schemes in some countries offer reduced rates or guaranteed portions that affect effective borrowing costs. The calculator also factors in tax deductibility of business loan interest, which reduces the after-tax cost of borrowing for most businesses.`,
+      },
+      {
+        heading: "Business Loan Methodology and Data Sources",
+        body: `Interest rate data is sourced from central bank base rates and commercial lender rate sheets for small business loans. Fee structures are based on typical SME lending practices in ${locationName}. Our amortization calculations follow standard financial mathematics consistent with lending industry practices. All rates are reviewed quarterly and updated when central banks adjust monetary policy or when new government SME lending programmes are announced.`,
+      },
     ],
     "profit-margin-calculator": [
       {
@@ -141,6 +261,26 @@ function generateSections(
       {
         heading: "Pricing Strategy",
         body: `Understanding your profit margins is key to sustainable business growth in ${locationName}. Our calculator helps you determine optimal pricing by analyzing costs, desired margins, and market rates.`,
+      },
+      {
+        heading: "How Profit Margin Is Calculated",
+        body: `The profit margin calculator computes three key metrics from your revenue and cost inputs. Gross profit = Revenue - Cost of Goods Sold. Gross profit margin = (Gross Profit / Revenue) × 100. Markup percentage = (Gross Profit / Cost) × 100. The calculator also shows the relationship between margin and markup — a 25% margin equals a 33.3% markup, and understanding this distinction is critical for accurate pricing. The break-even analysis shows the minimum revenue needed to cover all costs.`,
+      },
+      {
+        heading: "Profit Margin Formulas",
+        body: `Gross Profit Margin (%) = (Revenue - Cost of Goods Sold) / Revenue × 100. Markup (%) = (Revenue - Cost of Goods Sold) / Cost of Goods Sold × 100. Break-Even Point = Fixed Costs / (Unit Price - Variable Cost per Unit). Net Profit Margin = (Total Revenue - All Expenses) / Total Revenue × 100. The relationship between margin and markup is: Margin = Markup / (1 + Markup), and Markup = Margin / (1 - Margin).`,
+      },
+      {
+        heading: "Worked Example: Profit Margin",
+        body: `A ${locationName} business sells a product for ${currencySymbol}100 with production costs of ${currencySymbol}60. Gross profit = ${currencySymbol}40. Gross profit margin = (40/100) × 100 = 40%. Markup = (40/60) × 100 = 66.7%. If fixed costs are ${currencySymbol}10,000 per month, the break-even point = 10,000 / (100 - 60) = 250 units per month. At 300 units sold, total profit = (300 × ${currencySymbol}40) - ${currencySymbol}10,000 = ${currencySymbol}2,000. This example shows how margin analysis directly translates into business profitability decisions.`,
+      },
+      {
+        heading: `Country-Specific Profit Margin Considerations for ${locationName}`,
+        body: `${locationName} has specific tax treatments for business income, VAT/GST obligations, and industry-specific margin norms. Our calculator accounts for ${locale.taxTerms.vatName} at ${locale.taxTerms.vatRate}% where applicable, which affects pricing strategy and true revenue. Different industries in ${locationName} have varying typical margin ranges — retail businesses often operate at 30-50% margins, while service businesses may achieve 60-80% margins on labour costs.`,
+      },
+      {
+        heading: "Profit Margin Methodology and Data Sources",
+        body: `Industry margin benchmarks are sourced from published financial reports, industry association data, and government business statistics. Our calculations follow standard accounting definitions for gross profit, operating profit, and net profit as defined by Generally Accepted Accounting Principles (GAAP). VAT and sales tax rates are sourced from government tax authorities. Margin benchmarks are reviewed annually against the latest industry data to ensure relevance for ${locationName} businesses.`,
       },
     ],
   }
@@ -172,6 +312,7 @@ function generateFaqs(
   subRegion?: SubRegion
 ): { question: string; answer: string }[] {
   const locationName = subRegion ? `${subRegion.name}, ${locale.name}` : locale.name
+  const currencySymbol = locale.currency.symbol
 
   const faqMap: Record<string, { question: string; answer: string }[]> = {
     "salary-calculator": [
@@ -203,6 +344,22 @@ function generateFaqs(
         question: `How does overtime affect my take-home pay in ${locationName}?`,
         answer: `Overtime pay is typically calculated at a higher rate than your standard hourly wage. Additional earnings push you into higher tax brackets, so your net overtime rate depends on your marginal tax rate.`,
       },
+      {
+        question: `How do I calculate my hourly rate from my annual salary in ${locationName}?`,
+        answer: `Divide your annual salary by the number of working hours per year. A standard calculation uses 40 hours per week × 52 weeks = 2,080 hours. For a ${currencySymbol}75,000 salary: ${currencySymbol}75,000 / 2,080 = approximately ${currencySymbol}36 per hour. Adjust for your actual work hours and paid time off.`,
+      },
+      {
+        question: `What is the tax-free threshold in ${locationName}?`,
+        answer: `The tax-free threshold varies by country and filing status. In many systems, the first portion of income is taxed at 0% or a very low rate. Our calculator automatically applies the correct threshold for ${locationName} based on ${locale.taxTerms.incomeTaxYear} tax rules.`,
+      },
+      {
+        question: `How do employer pension contributions affect my total compensation in ${locationName}?`,
+        answer: `Employer pension contributions are part of your total compensation package even though they do not appear in your take-home pay. In some countries, employers contribute 10-20% of your salary to pension schemes. Our total compensation view includes these amounts to show your full earning picture.`,
+      },
+      {
+        question: `Should I use gross or net salary when comparing job offers in ${locationName}?`,
+        answer: `Compare both gross and net salary when evaluating offers. Gross salary determines your market value and benefits calculations, while net salary shows actual cash in hand. Our calculator converts between both to help you make apples-to-apples comparisons across different offer structures.`,
+      },
     ],
     "tax-calculator": [
       {
@@ -232,6 +389,22 @@ function generateFaqs(
       {
         question: `What tax filing deadlines apply in ${locationName} for ${locale.taxTerms.incomeTaxYear}?`,
         answer: `Tax filing deadlines in ${locationName} vary but typically fall in early to mid-year. Our calculator helps you prepare early by estimating your liability, so you can plan for payments or refunds well before the deadline.`,
+      },
+      {
+        question: `How do capital gains affect my income tax in ${locationName}?`,
+        answer: `Capital gains tax treatment in ${locationName} depends on the holding period and type of asset. Short-term gains (held less than one year) are typically taxed as ordinary income at your marginal rate. Long-term gains may qualify for preferential rates. Our calculator can estimate the tax impact of investment gains when included in total income.`,
+      },
+      {
+        question: `What is the difference between standard and itemized deductions in ${locationName}?`,
+        answer: `The standard deduction is a fixed amount you can subtract from your income regardless of expenses. Itemized deductions require listing eligible expenses like mortgage interest, charitable donations, and medical costs. You should choose the option that gives you the larger deduction. Our calculator automatically compares both for you.`,
+      },
+      {
+        question: `How does self-employment affect my taxes in ${locationName}?`,
+        answer: `Self-employed individuals in ${locationName} typically pay both the employee and employer portions of social security and Medicare taxes, effectively doubling this tax burden. However, self-employment also allows for additional deductions such as home office expenses, business supplies, and health insurance premiums that can reduce overall tax liability.`,
+      },
+      {
+        question: `What tax credits are available for families in ${locationName}?`,
+        answer: `Family tax credits in ${locationName} may include child tax credits, child and dependent care credits, education credits, and earned income tax credits. Each credit has specific income limits and eligibility requirements. Our calculator accounts for common family credits based on your inputs, potentially reducing your tax bill by thousands.`,
       },
     ],
     "mortgage-calculator": [
@@ -263,6 +436,22 @@ function generateFaqs(
         question: `How does my credit score affect mortgage rates in ${locationName}?`,
         answer: `Your credit score directly impacts the interest rate lenders offer you in ${locationName}. A higher score typically qualifies you for lower rates, potentially saving thousands over the loan term. Use our calculator to compare payments at different rate scenarios based on your credit profile.`,
       },
+      {
+        question: `What is private mortgage insurance (PMI) and when do I need it in ${locationName}?`,
+        answer: `PMI protects the lender if you default and is typically required when your down payment is less than 20% of the home price. PMI costs 0.5-1.5% of the loan amount annually, adding ${currencySymbol}100-${currencySymbol}300 to your monthly payment on a typical loan. PMI can be removed once you reach 20% equity in your home.`,
+      },
+      {
+        question: `How do property taxes affect my monthly payment in ${locationName}?`,
+        answer: `Property taxes are typically assessed annually by local government and can range from 0.5% to 2.5% of the home's value depending on location. These taxes are often collected monthly as part of your escrow payment along with your mortgage. Our calculator includes estimated property taxes to give you the full monthly cost picture.`,
+      },
+      {
+        question: `Should I make extra mortgage payments in ${locationName}?`,
+        answer: `Extra principal payments reduce your loan balance faster, saving significant interest over the loan term. Paying an extra ${currencySymbol}100 monthly on a ${currencySymbol}320,000 loan at 6.5% could save over ${currencySymbol}60,000 in interest and shorten your loan by 5-6 years. Our amortization table shows the impact of extra payments.`,
+      },
+      {
+        question: `What closing costs should I expect when buying a home in ${locationName}?`,
+        answer: `Closing costs in ${locationName} typically range from 2-5% of the home price and include appraisal fees, title insurance, loan origination fees, attorney fees, and prepaid property taxes. On a ${currencySymbol}400,000 home, closing costs could be ${currencySymbol}8,000-${currencySymbol}20,000. Factor these into your total upfront cash needed beyond the down payment.`,
+      },
     ],
     "investment-calculator": [
       {
@@ -292,6 +481,22 @@ function generateFaqs(
       {
         question: `What is the best investment strategy for beginners in ${locationName}?`,
         answer: `For beginners in ${locationName}, a diversified portfolio of low-cost index funds with regular contributions is often recommended. Our investment calculator helps you visualize how consistent investing, even with small amounts, builds wealth through compound growth over time.`,
+      },
+      {
+        question: `How does inflation affect my investment returns in ${locationName}?`,
+        answer: `Inflation reduces the real purchasing power of your investment returns. If your portfolio earns 7% annually but inflation is 3%, your real return is approximately 4%. Our calculator shows both nominal and inflation-adjusted values, giving you a realistic picture of future purchasing power. Long-term investors should target returns that exceed inflation by at least 4-5%.`,
+      },
+      {
+        question: `What is dollar-cost averaging and how does it work in ${locationName}?`,
+        answer: `Dollar-cost averaging means investing a fixed amount at regular intervals regardless of market conditions. This strategy buys more shares when prices are low and fewer when prices are high, potentially reducing the average cost per share over time. Our calculator models regular contributions to show how this strategy builds wealth consistently.`,
+      },
+      {
+        question: `How much risk should I take with my investments in ${locationName}?`,
+        answer: `Risk tolerance depends on your time horizon, financial goals, and personal comfort. Generally, longer time horizons allow for more risk (higher equity allocation) because you have time to recover from market downturns. A common rule is to subtract your age from 110 to determine the percentage of your portfolio in stocks. Our calculator lets you test different return scenarios.`,
+      },
+      {
+        question: `What are tax-advantaged investment accounts available in ${locationName}?`,
+        answer: `Tax-advantaged accounts in ${locationName} may include retirement accounts with tax-deferred growth, tax-free savings accounts, and education savings plans. These accounts allow your investments to grow without annual tax drag, significantly compounding returns over time. Our calculator can model the impact of tax-advantaged vs. taxable investing.`,
       },
     ],
     "retirement-calculator": [
@@ -323,6 +528,22 @@ function generateFaqs(
         question: `How does inflation affect my retirement savings in ${locationName}?`,
         answer: `Inflation erodes purchasing power over time, making it a critical factor in retirement planning for ${locationName}. Our retirement calculator accounts for inflation, showing your projected savings in both nominal and today's dollars, so you can plan for a comfortable retirement.`,
       },
+      {
+        question: `What is the difference between traditional and Roth retirement accounts in ${locationName}?`,
+        answer: `Traditional retirement accounts offer tax-deferred growth — you contribute pre-tax dollars and pay taxes on withdrawals. Roth accounts use after-tax contributions but withdrawals are tax-free. The choice depends on whether you expect to be in a higher or lower tax bracket in retirement. Our calculator can model both scenarios.`,
+      },
+      {
+        question: `How much should I save for healthcare in retirement in ${locationName}?`,
+        answer: `Healthcare costs in retirement can be substantial. Estimates suggest a retired couple may need ${currencySymbol}300,000 or more for healthcare expenses not covered by insurance. Factor these costs into your retirement target using our calculator by adjusting your desired retirement income upward by 10-15% for healthcare.`,
+      },
+      {
+        question: `What is the safest withdrawal rate in ${locationName}?`,
+        answer: `While the 4% rule is a common starting point, a more conservative 3-3.5% withdrawal rate may be appropriate in ${locationName} given current low bond yields and potentially higher inflation. Our calculator lets you test different withdrawal rates to find one that provides confidence your savings will last throughout retirement.`,
+      },
+      {
+        question: `When should I start claiming my state pension in ${locationName}?`,
+        answer: `State pension claiming age varies by country and your birth year. Delaying your claim typically increases your monthly benefit. In many systems, claiming before full retirement age results in permanently reduced benefits, while delaying past full retirement age increases them. Our calculator models different claiming strategies to optimize your lifetime retirement income.`,
+      },
     ],
     "business-loan-calculator": [
       {
@@ -333,6 +554,22 @@ function generateFaqs(
         question: `How is the total cost of a business loan calculated?`,
         answer: `Total cost includes principal, interest over the loan term, and any fees. Our calculator provides a complete amortization schedule so you can see the full picture.`,
       },
+      {
+        question: `What is the difference between secured and unsecured business loans in ${locationName}?`,
+        answer: `Secured business loans require collateral (property, equipment, or inventory) and typically offer lower interest rates and longer terms. Unsecured loans do not require collateral but have higher rates and shorter terms. Your choice affects both monthly payments and total interest costs, which our calculator can help compare.`,
+      },
+      {
+        question: `How does loan term length affect total business loan costs in ${locationName}?`,
+        answer: `Longer loan terms reduce monthly payments but increase total interest paid. For example, a ${currencySymbol}150,000 loan at 8% over 3 years costs ${currencySymbol}19,200 in interest, while the same loan over 7 years costs ${currencySymbol}46,000 in interest — more than double. Use our calculator to find the optimal balance between affordable payments and total cost.`,
+      },
+      {
+        question: `What business loan fees should I expect in ${locationName}?`,
+        answer: `Common business loan fees include origination fees (0.5-2% of loan amount), processing fees, early repayment penalties, and annual fees. Some lenders also charge commitment fees for undrawn credit lines. Our calculator can incorporate these fees to show the true cost of borrowing.`,
+      },
+      {
+        question: `How does my business credit score affect loan rates in ${locationName}?`,
+        answer: `Business credit scores typically range from 0-100, with higher scores qualifying for better rates. A strong score (75+) may secure rates 2-4% lower than a weak score (below 50). Improving your business credit score before applying can save thousands in interest over the loan term.`,
+      },
     ],
     "profit-margin-calculator": [
       {
@@ -342,6 +579,22 @@ function generateFaqs(
       {
         question: `How do I calculate markup from margin?`,
         answer: `Markup and margin are different concepts. Our calculator handles both calculations automatically. Markup is the percentage added to cost, while margin is the percentage of revenue that is profit.`,
+      },
+      {
+        question: `What is the difference between gross margin and net margin in ${locationName}?`,
+        answer: `Gross margin considers only the direct cost of goods sold, while net margin includes all operating expenses, taxes, and interest. A healthy gross margin (40-60%) does not guarantee a good net margin (10-20%) if operating costs are high. Both metrics are essential for understanding business profitability.`,
+      },
+      {
+        question: `How does VAT/GST affect profit margins in ${locationName}?`,
+        answer: `${locale.taxTerms.vatName} at ${locale.taxTerms.vatRate}% in ${locationName} is typically collected on behalf of the government and does not directly affect profit margins if handled correctly. However, businesses must account for VAT/GST in their pricing strategy, as it affects the final price customers pay and can influence demand.`,
+      },
+      {
+        question: `What is a break-even point and why does it matter for ${locationName} businesses?`,
+        answer: `The break-even point is the sales volume at which total revenue equals total costs — no profit, no loss. Knowing your break-even helps determine minimum pricing, sales targets, and the feasibility of your business model. A lower break-even point means less risk and greater financial flexibility.`,
+      },
+      {
+        question: `How can I improve my profit margins in ${locationName}?`,
+        answer: `Strategies to improve margins include reducing supplier costs through bulk purchasing, increasing prices (if market-competitive), improving operational efficiency, upselling higher-margin products, and reducing waste. Even a 1% margin improvement can significantly impact bottom-line profit for established businesses.`,
       },
     ],
   }

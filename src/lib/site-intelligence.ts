@@ -38,8 +38,8 @@ export function getSiteIntelligence(): SiteIntelligence {
   let totalComparePages = 0
   let totalGuideHubPages = 0
   let totalHubPages = 0
-  let totalProfessionPages = 0
-  let totalComparisonPages = 0
+  const totalProfessionPages = 0
+  const totalComparisonPages = 0
 
   const countries: SiteIntelligence["countries"] = []
 
