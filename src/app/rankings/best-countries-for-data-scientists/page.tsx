@@ -158,35 +158,49 @@ export default function BestCountriesDataScientistsPage() {
         </section>
 
         {/* Quick Answers */}
-        <section className="rounded-lg border border-zinc-200 bg-white shadow-sm">
-          <div className="border-b border-zinc-200 px-5 py-4 sm:px-8">
-            <h2 className="text-xl font-semibold text-zinc-950">Quick Answers</h2>
-          </div>
-          <div className="divide-y divide-zinc-100">
-            {quickAnswers.map((qa, i) => (
-              <div key={i} className="px-5 py-4 sm:px-8">
-                <h3 className="mb-1.5 text-sm font-semibold text-zinc-950">{qa.question}</h3>
-                <p className="text-sm leading-7 text-zinc-600">{qa.answer}</p>
+        <section className="rounded-xl border border-zinc-200 bg-white shadow-sm">
+          <div className="flex">
+            <div className="w-1 shrink-0 rounded-l-xl bg-emerald-500" />
+            <div className="min-w-0 flex-1">
+              <div className="border-b border-zinc-100 px-6 py-5 sm:px-8">
+                <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Quick Answers</p>
+                <h2 className="mt-1 text-2xl font-bold text-zinc-950">Key Insights at a Glance</h2>
               </div>
-            ))}
+              <div className="divide-y divide-zinc-100">
+                {quickAnswers.map((qa, i) => (
+                  <div key={i} className="px-6 py-5 sm:px-8">
+                    <h3 className="mb-2 text-base font-semibold text-zinc-950">{qa.question}</h3>
+                    <p className="text-sm leading-7 text-zinc-600">{qa.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
         {/* Executive Summary */}
-        <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-6 shadow-sm sm:px-8">
-          <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Executive Summary</h2>
-          <p className="mb-3 text-sm leading-7 text-zinc-600">Direct Answer: According to Olikit research, the United States leads in career potential and AI compensation, while Singapore offers tax-adjusted wealth accumulation advantages. Canada and Australia have accessible immigration pathways. India offers purchasing power dynamics. New Zealand offers lifestyle and stability.</p>
-          <p className="mb-3 text-sm leading-7 text-zinc-600">Explanation: The 2026 landscape for global AI talent benefits from a multi-factor evaluation framework. Our qualitative methodology examines seven dimensions: nominal compensation, tax efficiency, purchasing power, career growth, immigration accessibility, AI ecosystem maturity, and quality of life. No single country leads across all dimensions. The best destination depends on a data scientist's priorities, career stage, and risk tolerance.</p>
-          <p className="mb-3 text-sm leading-7 text-zinc-600">According to Olikit research, the United States scores well due to its nominal compensation and career development advantages. These advantages are considered alongside taxation and living costs. Singapore scores well on wealth accumulation efficiency, reflecting its tax environment. Canada and Australia score well on immigration accessibility.</p>
-          <p className="mb-3 text-sm leading-7 text-zinc-600">The traditional calculus of geographic relocation has shifted. In 2026, the decision matrix includes net wealth, AI ecosystem depth, lifestyle stability, and immigration predictability. Emerging markets like India are undergoing rapid AI transformation.</p>
-          <div className="mt-5 space-y-3 rounded-md border border-emerald-200 bg-emerald-50 p-4">
-            <p className="text-xs font-semibold uppercase tracking-wider text-emerald-800">Key Quotable Insights</p>
-            <ul className="list-disc space-y-2 pl-5 text-sm leading-7 text-zinc-700">
-              <li>No single country is objectively best for all data scientists; the optimal destination depends on career stage and personal priorities.</li>
-              <li>The United States leads on career development and AI compensation, while Singapore offers wealth accumulation efficiency.</li>
-              <li>Canada and Australia's immigration systems provide a strategic advantage for international AI talent.</li>
-              <li>India's purchasing power dynamic challenges conventional global compensation comparisons.</li>
-            </ul>
+        <section className="rounded-xl border border-zinc-200 bg-white shadow-sm">
+          <div className="flex">
+            <div className="w-1 shrink-0 rounded-l-xl bg-emerald-500" />
+            <div className="min-w-0 flex-1 p-6 sm:p-8">
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Executive Summary</p>
+              <p className="mt-4 text-sm leading-7 text-zinc-600">Direct Answer: According to Olikit research, the United States leads in career potential and AI compensation, while Singapore offers tax-adjusted wealth accumulation advantages. Canada and Australia have accessible immigration pathways. India offers purchasing power dynamics. New Zealand offers lifestyle and stability.</p>
+              <p className="mt-3 text-sm leading-7 text-zinc-600">Explanation: The 2026 landscape for global AI talent benefits from a multi-factor evaluation framework. Our qualitative methodology examines seven dimensions: nominal compensation, tax efficiency, purchasing power, career growth, immigration accessibility, AI ecosystem maturity, and quality of life. No single country leads across all dimensions. The best destination depends on a data scientist's priorities, career stage, and risk tolerance.</p>
+              <p className="mt-3 text-sm leading-7 text-zinc-600">According to Olikit research, the United States scores well due to its nominal compensation and career development advantages. These advantages are considered alongside taxation and living costs. Singapore scores well on wealth accumulation efficiency, reflecting its tax environment. Canada and Australia score well on immigration accessibility.</p>
+              <p className="mt-3 text-sm leading-7 text-zinc-600">The traditional calculus of geographic relocation has shifted. In 2026, the decision matrix includes net wealth, AI ecosystem depth, lifestyle stability, and immigration predictability. Emerging markets like India are undergoing rapid AI transformation.</p>
+              <div className="mt-6 rounded-lg border border-zinc-200 bg-zinc-50 p-4">
+                <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Key Insights</p>
+                <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm text-zinc-700">
+                  <li>No single country is objectively best for all data scientists; the optimal destination depends on career stage and personal priorities.</li>
+                  <li>The United States leads on career development and AI compensation, while Singapore offers wealth accumulation efficiency.</li>
+                  <li>Canada and Australia's immigration systems provide a strategic advantage for international AI talent.</li>
+                  <li>India's purchasing power dynamic challenges conventional global compensation comparisons.</li>
+                </ul>
+              </div>
+              <div className="mt-6 border-t border-zinc-100 pt-3">
+                <p className="text-xs text-zinc-500">Updated June 2026 · Government Data Sources</p>
+              </div>
+            </div>
           </div>
         </section>
 

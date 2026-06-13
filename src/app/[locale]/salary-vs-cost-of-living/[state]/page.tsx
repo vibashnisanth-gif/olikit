@@ -64,9 +64,14 @@ export default async function SalaryVsColPage({ params }: Props) {
         <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">{content.intro}</p>
       </div>
 
-      <div className="rounded-lg border border-blue-200 bg-blue-50 px-6 py-5 shadow-sm">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-blue-600">Quick Answer</p>
-        <p className="text-sm leading-relaxed text-blue-800">{content.quickAnswer}</p>
+      <div className="rounded-xl border border-zinc-200 bg-white shadow-sm">
+        <div className="flex">
+          <div className="w-1 shrink-0 rounded-l-xl bg-emerald-500" />
+          <div className="min-w-0 flex-1 p-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Quick Answer</p>
+            <p className="mt-2 text-sm leading-7 text-zinc-600">{content.quickAnswer}</p>
+          </div>
+        </div>
       </div>
 
       <KeyTakeaways items={content.keyTakeaways} />

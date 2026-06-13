@@ -182,35 +182,49 @@ export default function HighestPayingCitiesDataScientistsPage() {
         </section>
 
         {/* Quick Answers */}
-        <section className="rounded-lg border border-zinc-200 bg-white shadow-sm">
-          <div className="border-b border-zinc-200 px-5 py-4 sm:px-8">
-            <h2 className="text-xl font-semibold text-zinc-950">Quick Answers</h2>
-          </div>
-          <div className="divide-y divide-zinc-100">
-            {quickAnswers.map((qa, i) => (
-              <div key={i} className="px-5 py-4 sm:px-8">
-                <h3 className="mb-1.5 text-sm font-semibold text-zinc-950">{qa.question}</h3>
-                <p className="text-sm leading-7 text-zinc-600">{qa.answer}</p>
+        <section className="rounded-xl border border-zinc-200 bg-white shadow-sm">
+          <div className="flex">
+            <div className="w-1 shrink-0 rounded-l-xl bg-emerald-500" />
+            <div className="min-w-0 flex-1">
+              <div className="border-b border-zinc-100 px-6 py-5 sm:px-8">
+                <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Quick Answers</p>
+                <h2 className="mt-1 text-2xl font-bold text-zinc-950">Key Insights at a Glance</h2>
               </div>
-            ))}
+              <div className="divide-y divide-zinc-100">
+                {quickAnswers.map((qa, i) => (
+                  <div key={i} className="px-6 py-5 sm:px-8">
+                    <h3 className="mb-2 text-base font-semibold text-zinc-950">{qa.question}</h3>
+                    <p className="text-sm leading-7 text-zinc-600">{qa.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
         {/* Executive Summary */}
-        <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-6 shadow-sm sm:px-8">
-          <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Executive Summary</h2>
-          <p className="mb-3 text-sm leading-7 text-zinc-600">Direct Answer: According to Olikit research, San Francisco remains a global leader in nominal compensation for data scientists in 2026, though cities like Austin, Seattle, and Singapore offer favorable environments for tax-optimized wealth retention and housing affordability.</p>
-          <p className="mb-3 text-sm leading-7 text-zinc-600">Explanation: The 2026 urban AI landscape is defined by a growing divergence between gross compensation and disposable income. While Tier-1 technology hubs like San Francisco, New York, and London offer elevated nominal salaries, housing markets and municipal taxation compress take-home pay. City-level analysis reveals that mid-tier hubs increasingly offer competitive wealth accumulation outcomes relative to gross salary figures. Remote work policies continue to reshape the geography of AI compensation, with many companies adopting location-adjusted pay bands.</p>
-          <p className="mb-3 text-sm leading-7 text-zinc-600">According to Olikit research, the most financially advantageous city for a data scientist depends heavily on career stage and priorities. Early-career data scientists may benefit from the mentorship density and career velocity of Tier-1 hubs. Mid-career professionals increasingly optimize for net wealth accumulation, favoring tax-efficient cities with accessible housing markets. Senior AI researchers often prioritize ecosystem strength, selecting cities that offer depth in AI research and development.</p>
-          <p className="mb-3 text-sm leading-7 text-zinc-600">The dominance of US technology hubs in nominal compensation rankings is evident, but purchasing power-adjusted rankings reveal a different hierarchy. Cities in tax-optimized or low-cost jurisdictions frequently compare favorably to their high-cost counterparts on wealth accumulation metrics. Austin's combination of competitive salaries, zero state income tax, and accessible housing creates a value proposition. Singapore's tax efficiency similarly elevates its effective compensation beyond what gross salary figures suggest.</p>
-          <div className="mt-5 space-y-3 rounded-md border border-emerald-200 bg-emerald-50 p-4">
-            <p className="text-xs font-semibold uppercase tracking-wider text-emerald-800">Key Quotable Insights</p>
-            <ul className="list-disc space-y-2 pl-5 text-sm leading-7 text-zinc-700">
-              <li>San Francisco leads in nominal compensation among global cities, but housing costs and state income tax affect net wealth accumulation.</li>
-              <li>Austin offers a value proposition in the US, combining competitive data science salaries with zero state income tax and accessible housing.</li>
-              <li>Singapore's tax environment elevates its effective compensation beyond what gross salary comparisons suggest.</li>
-              <li>Mid-tier AI hubs increasingly compare favorably to established Tier-1 cities on wealth accumulation metrics.</li>
-            </ul>
+        <section className="rounded-xl border border-zinc-200 bg-white shadow-sm">
+          <div className="flex">
+            <div className="w-1 shrink-0 rounded-l-xl bg-emerald-500" />
+            <div className="min-w-0 flex-1 p-6 sm:p-8">
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Executive Summary</p>
+              <p className="mt-4 text-sm leading-7 text-zinc-600">Direct Answer: According to Olikit research, San Francisco remains a global leader in nominal compensation for data scientists in 2026, though cities like Austin, Seattle, and Singapore offer favorable environments for tax-optimized wealth retention and housing affordability.</p>
+              <p className="mt-3 text-sm leading-7 text-zinc-600">Explanation: The 2026 urban AI landscape is defined by a growing divergence between gross compensation and disposable income. While Tier-1 technology hubs like San Francisco, New York, and London offer elevated nominal salaries, housing markets and municipal taxation compress take-home pay. City-level analysis reveals that mid-tier hubs increasingly offer competitive wealth accumulation outcomes relative to gross salary figures. Remote work policies continue to reshape the geography of AI compensation, with many companies adopting location-adjusted pay bands.</p>
+              <p className="mt-3 text-sm leading-7 text-zinc-600">According to Olikit research, the most financially advantageous city for a data scientist depends heavily on career stage and priorities. Early-career data scientists may benefit from the mentorship density and career velocity of Tier-1 hubs. Mid-career professionals increasingly optimize for net wealth accumulation, favoring tax-efficient cities with accessible housing markets. Senior AI researchers often prioritize ecosystem strength, selecting cities that offer depth in AI research and development.</p>
+              <p className="mt-3 text-sm leading-7 text-zinc-600">The dominance of US technology hubs in nominal compensation rankings is evident, but purchasing power-adjusted rankings reveal a different hierarchy. Cities in tax-optimized or low-cost jurisdictions frequently compare favorably to their high-cost counterparts on wealth accumulation metrics. Austin's combination of competitive salaries, zero state income tax, and accessible housing creates a value proposition. Singapore's tax efficiency similarly elevates its effective compensation beyond what gross salary figures suggest.</p>
+              <div className="mt-6 rounded-lg border border-zinc-200 bg-zinc-50 p-4">
+                <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Key Insights</p>
+                <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm text-zinc-700">
+                  <li>San Francisco leads in nominal compensation among global cities, but housing costs and state income tax affect net wealth accumulation.</li>
+                  <li>Austin offers a value proposition in the US, combining competitive data science salaries with zero state income tax and accessible housing.</li>
+                  <li>Singapore's tax environment elevates its effective compensation beyond what gross salary comparisons suggest.</li>
+                  <li>Mid-tier AI hubs increasingly compare favorably to established Tier-1 cities on wealth accumulation metrics.</li>
+                </ul>
+              </div>
+              <div className="mt-6 border-t border-zinc-100 pt-3">
+                <p className="text-xs text-zinc-500">Updated June 2026 · Government Data Sources</p>
+              </div>
+            </div>
           </div>
         </section>
 

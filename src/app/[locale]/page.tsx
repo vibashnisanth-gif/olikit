@@ -1018,15 +1018,23 @@ export default async function LocalePage({ params }: Props) {
 
       {/* 3. AI QUICK ANSWERS */}
       {content.aiQuickAnswers && (
-        <section className="rounded-lg border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-8">
-          <h2 className="mb-4 text-lg font-semibold text-zinc-950">AI Quick Answers</h2>
-          <div className="space-y-3">
-            {content.aiQuickAnswers.map((item, i) => (
-              <div key={i}>
-                <p className="text-sm font-medium text-zinc-950">{item.q}</p>
-                <p className="text-sm text-zinc-500 mt-0.5">{item.a}</p>
+        <section className="rounded-xl border border-zinc-200 bg-white shadow-sm">
+          <div className="flex">
+            <div className="w-1 shrink-0 rounded-l-xl bg-emerald-500" />
+            <div className="min-w-0 flex-1">
+              <div className="px-6 py-5 sm:px-8">
+                <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Quick Answers</p>
+                <h2 className="mt-1 text-2xl font-bold text-zinc-950">Key Insights at a Glance</h2>
               </div>
-            ))}
+              <div className="divide-y divide-zinc-100">
+                {content.aiQuickAnswers.map((item, i) => (
+                  <div key={i} className="px-6 py-5 sm:px-8">
+                    <p className="text-base font-semibold text-zinc-950">{item.q}</p>
+                    <p className="mt-1 text-sm leading-7 text-zinc-600">{item.a}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       )}

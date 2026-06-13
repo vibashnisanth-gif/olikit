@@ -98,30 +98,28 @@ export default async function SubRegionToolPage({ params }: Props) {
       </div>
 
       {content.directAnswer && (
-        <div className="direct-answer mb-10 rounded-lg border border-blue-200 bg-blue-50 px-6 py-5 shadow-sm">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-blue-600">
-            At a Glance
-          </p>
-          <p className="mb-1 text-base font-semibold text-blue-900">
-            {content.directAnswer.question}
-          </p>
-          <p className="text-sm leading-relaxed text-blue-800">
-            {content.directAnswer.answer}
-          </p>
+        <div className="direct-answer mb-10 rounded-xl border border-zinc-200 bg-white shadow-sm">
+          <div className="flex">
+            <div className="w-1 shrink-0 rounded-l-xl bg-blue-500" />
+            <div className="min-w-0 flex-1 p-6">
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">At a Glance</p>
+              <p className="mt-2 text-base font-semibold text-zinc-950">{content.directAnswer.question}</p>
+              <p className="mt-1 text-sm leading-relaxed text-zinc-600">{content.directAnswer.answer}</p>
+            </div>
+          </div>
         </div>
       )}
 
       {content.aiAnswer && (
-        <div className="quick-answer mb-10 rounded-lg border border-emerald-200 bg-emerald-50 px-6 py-5 shadow-sm">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-600">
-            Quick Answer
-          </p>
-          <p className="mb-1 text-base font-semibold text-emerald-900">
-            {content.aiAnswer.question}
-          </p>
-          <p className="text-sm leading-relaxed text-emerald-800">
-            {content.aiAnswer.answer}
-          </p>
+        <div className="quick-answer mb-10 rounded-xl border border-zinc-200 bg-white shadow-sm">
+          <div className="flex">
+            <div className="w-1 shrink-0 rounded-l-xl bg-emerald-500" />
+            <div className="min-w-0 flex-1 p-6">
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Quick Answer</p>
+              <p className="mt-2 text-base font-semibold text-zinc-950">{content.aiAnswer.question}</p>
+              <p className="mt-1 text-sm leading-relaxed text-zinc-600">{content.aiAnswer.answer}</p>
+            </div>
+          </div>
         </div>
       )}
 
