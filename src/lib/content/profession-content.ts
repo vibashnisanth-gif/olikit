@@ -90,6 +90,7 @@ export const professionsContent: Record<string, ProfessionContentMap> = {
   us: {
     "software-engineer": generateContent("Software Engineer", "Software Engineers", "United States", "us", "$", 120000),
     "data-scientist": generateContent("Data Scientist", "Data Scientists", "United States", "us", "$", 125000),
+    "product-manager": generateContent("Product Manager", "Product Managers", "United States", "us", "$", 110000),
     "doctor": generateContent("Doctor", "Doctors", "United States", "us", "$", 220000),
     "registered-nurse": generateContent("Registered Nurse", "Registered Nurses", "United States", "us", "$", 82000),
     "teacher": generateContent("Teacher", "Teachers", "United States", "us", "$", 58000),
@@ -102,6 +103,7 @@ export const professionsContent: Record<string, ProfessionContentMap> = {
   uk: {
     "software-engineer": generateContent("Software Engineer", "Software Engineers", "United Kingdom", "uk", "\u00a3", 55000),
     "data-scientist": generateContent("Data Scientist", "Data Scientists", "United Kingdom", "uk", "\u00a3", 58000),
+    "product-manager": generateContent("Product Manager", "Product Managers", "United Kingdom", "uk", "\u00a3", 55000),
     "doctor": generateContent("Doctor", "Doctors", "United Kingdom", "uk", "\u00a3", 85000),
     "registered-nurse": generateContent("Registered Nurse", "Registered Nurses", "United Kingdom", "uk", "\u00a3", 35000),
     "teacher": generateContent("Teacher", "Teachers", "United Kingdom", "uk", "\u00a3", 35000),
@@ -114,6 +116,7 @@ export const professionsContent: Record<string, ProfessionContentMap> = {
   au: {
     "software-engineer": generateContent("Software Engineer", "Software Engineers", "Australia", "au", "A$", 110000),
     "data-scientist": generateContent("Data Scientist", "Data Scientists", "Australia", "au", "A$", 115000),
+    "product-manager": generateContent("Product Manager", "Product Managers", "Australia", "au", "A$", 120000),
     "doctor": generateContent("Doctor", "Doctors", "Australia", "au", "A$", 180000),
     "registered-nurse": generateContent("Registered Nurse", "Registered Nurses", "Australia", "au", "A$", 80000),
     "teacher": generateContent("Teacher", "Teachers", "Australia", "au", "A$", 75000),
@@ -126,6 +129,7 @@ export const professionsContent: Record<string, ProfessionContentMap> = {
   ca: {
     "software-engineer": generateContent("Software Engineer", "Software Engineers", "Canada", "ca", "C$", 85000),
     "data-scientist": generateContent("Data Scientist", "Data Scientists", "Canada", "ca", "C$", 88000),
+    "product-manager": generateContent("Product Manager", "Product Managers", "Canada", "ca", "C$", 85000),
     "doctor": generateContent("Doctor", "Doctors", "Canada", "ca", "C$", 200000),
     "registered-nurse": generateContent("Registered Nurse", "Registered Nurses", "Canada", "ca", "C$", 75000),
     "teacher": generateContent("Teacher", "Teachers", "Canada", "ca", "C$", 65000),
@@ -138,6 +142,7 @@ export const professionsContent: Record<string, ProfessionContentMap> = {
   nz: {
     "software-engineer": generateContent("Software Engineer", "Software Engineers", "New Zealand", "nz", "NZ$", 95000),
     "data-scientist": generateContent("Data Scientist", "Data Scientists", "New Zealand", "nz", "NZ$", 100000),
+    "product-manager": generateContent("Product Manager", "Product Managers", "New Zealand", "nz", "NZ$", 95000),
     "doctor": generateContent("Doctor", "Doctors", "New Zealand", "nz", "NZ$", 150000),
     "registered-nurse": generateContent("Registered Nurse", "Registered Nurses", "New Zealand", "nz", "NZ$", 65000),
     "teacher": generateContent("Teacher", "Teachers", "New Zealand", "nz", "NZ$", 58000),
@@ -150,6 +155,7 @@ export const professionsContent: Record<string, ProfessionContentMap> = {
   in: {
     "software-engineer": generateContent("Software Engineer", "Software Engineers", "India", "in", "\u20b9", 1200000),
     "data-scientist": generateContent("Data Scientist", "Data Scientists", "India", "in", "\u20b9", 1400000),
+    "product-manager": generateContent("Product Manager", "Product Managers", "India", "in", "\u20b9", 2000000),
     "doctor": generateContent("Doctor", "Doctors", "India", "in", "\u20b9", 1200000),
     "registered-nurse": generateContent("Registered Nurse", "Registered Nurses", "India", "in", "\u20b9", 400000),
     "teacher": generateContent("Teacher", "Teachers", "India", "in", "\u20b9", 350000),
@@ -162,6 +168,7 @@ export const professionsContent: Record<string, ProfessionContentMap> = {
   sg: {
     "software-engineer": generateContent("Software Engineer", "Software Engineers", "Singapore", "sg", "S$", 72000),
     "data-scientist": generateContent("Data Scientist", "Data Scientists", "Singapore", "sg", "S$", 78000),
+    "product-manager": generateContent("Product Manager", "Product Managers", "Singapore", "sg", "S$", 75000),
     "doctor": generateContent("Doctor", "Doctors", "Singapore", "sg", "S$", 130000),
     "registered-nurse": generateContent("Registered Nurse", "Registered Nurses", "Singapore", "sg", "S$", 42000),
     "teacher": generateContent("Teacher", "Teachers", "Singapore", "sg", "S$", 48000),

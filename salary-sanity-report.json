@@ -1,7 +1,11 @@
 {
+<<<<<<< Updated upstream
   "timestamp": "2026-06-11T17:06:57.692Z",
+=======
+  "timestamp": "2026-06-13T12:53:34.197Z",
+>>>>>>> Stashed changes
   "passed": true,
-  "totalProfessions": 10,
+  "totalProfessions": 11,
   "errors": [],
   "warnings": [],
   "professionMaxUsd": {
@@ -14,6 +18,7 @@
     "marketing-manager": 95000,
     "mechanical-engineer": 85000,
     "electrician": 60000,
-    "construction-worker": 45000
+    "construction-worker": 45000,
+    "product-manager": 110000
   }
 }

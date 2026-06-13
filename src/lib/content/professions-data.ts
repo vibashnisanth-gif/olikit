@@ -279,6 +279,32 @@ export const professions: ProfessionData[] = [
       in: { average: 250000, entryLevel: 120000, experienced: 500000, rangeLow: 100000, rangeHigh: 600000 },
       sg: { average: 30000, entryLevel: 18000, experienced: 48000, rangeLow: 15000, rangeHigh: 55000 },
     },
+    },
+  {
+    id: "product-manager",
+    slug: "product-manager",
+    name: "Product Manager",
+    shortName: "Product Manager",
+    description:
+      "Product managers define product strategy, prioritize features, and coordinate cross-functional teams to deliver successful products.",
+    metaTitleTemplate: "Product Manager Salary in {country} (2026) | Average Pay",
+    metaDescriptionTemplate:
+      "What is the average product manager salary in {country}? Get the latest product management salary data, compare compensation across experience levels in {country}.",
+    keywords: [
+      "product manager salary",
+      "product management pay",
+      "PM salary",
+    ],
+    relatedTools: ["salary-calculator", "tax-calculator"],
+    salaries: {
+      us: { average: 110000, entryLevel: 70000, experienced: 165000, rangeLow: 60000, rangeHigh: 200000 },
+      uk: { average: 55000, entryLevel: 32000, experienced: 85000, rangeLow: 28000, rangeHigh: 105000 },
+      au: { average: 120000, entryLevel: 75000, experienced: 170000, rangeLow: 65000, rangeHigh: 200000 },
+      ca: { average: 85000, entryLevel: 55000, experienced: 130000, rangeLow: 48000, rangeHigh: 155000 },
+      nz: { average: 95000, entryLevel: 60000, experienced: 135000, rangeLow: 55000, rangeHigh: 160000 },
+      in: { average: 2000000, entryLevel: 800000, experienced: 3500000, rangeLow: 600000, rangeHigh: 4500000 },
+      sg: { average: 75000, entryLevel: 45000, experienced: 115000, rangeLow: 38000, rangeHigh: 140000 },
+    },
   },
 ]
 
