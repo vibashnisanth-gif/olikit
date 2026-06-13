@@ -164,7 +164,7 @@ export default async function SubRegionToolPage({ params }: Props) {
           {dataPoints && (
             <section>
               <StateDataTable dataPoints={dataPoints} stateName={subRegion.name} />
-              <p className="mt-2 text-xs text-zinc-400">
+              <p className="mt-2 text-xs text-zinc-500">
                 Sources: Bureau of Labor Statistics, US Census Bureau, state revenue departments (2024). Figures are estimates and may vary by source and year.
               </p>
             </section>

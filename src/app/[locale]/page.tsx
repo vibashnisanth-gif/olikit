@@ -908,7 +908,7 @@ const LAST_UPDATED = getLastUpdated()
 function SnapshotCard({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-md bg-zinc-50 p-3">
-      <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400">{label}</p>
+      <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-600">{label}</p>
       <p className="mt-0.5 text-sm font-medium text-zinc-950">{value}</p>
     </div>
   )
@@ -926,7 +926,7 @@ function InsightCard({ title, desc, href }: { title: string; desc: string; href:
 function ProfessionGroup({ category, items }: { category: string; items: { label: string; href: string }[] }) {
   return (
     <div>
-      <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-zinc-400">{category}</h4>
+      <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-zinc-600">{category}</h4>
       <ul className="space-y-1.5">
         {items.map((item) => (
           <li key={item.label}>
@@ -991,7 +991,7 @@ export default async function LocalePage({ params }: Props) {
         <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">
           {content.heroDesc}
         </p>
-        <p className="mt-3 text-xs text-zinc-400">Last updated: June 2026</p>
+        <p className="mt-3 text-xs text-zinc-500">Last updated: June 2026</p>
         <div className="mt-6 flex flex-wrap gap-3">
           <a href={`/${slug}/tools/salary-calculator`} className="rounded-md bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800">Salary Calculator</a>
           <a href={`/${slug}/tools/tax-calculator`} className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Tax Calculator</a>

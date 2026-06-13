@@ -51,13 +51,13 @@ export default function ComparePage() {
                   <span className="text-3xl">{c.flag}</span>
                   <div>
                     <h3 className="font-semibold text-zinc-950 group-hover:text-zinc-800 transition-colors">{c.name}</h3>
-                    <p className="text-xs text-zinc-400">{c.currencyCode} &middot; {c.taxAuthorityAbbr}</p>
+                    <p className="text-xs text-zinc-500">{c.currencyCode} &middot; {c.taxAuthorityAbbr}</p>
                   </div>
                 </div>
                 <p className="text-sm leading-6 text-zinc-500 mb-4">
                   Salary benchmarks, tax rates, and cost-of-living data for {c.name}. Compare with {pairs.map((p) => p.name).join(" and ")}.
                 </p>
-                <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-400 group-hover:text-zinc-600 transition-colors">
+                <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-600 group-hover:text-zinc-950 transition-colors">
                   View {c.name} comparisons →
                 </span>
               </a>
@@ -102,7 +102,7 @@ export default function ComparePage() {
                     <p className="text-sm font-semibold text-zinc-950">
                       {fromSlug === "us" ? "USA" : fromSlug === "uk" ? "UK" : fromSlug === "au" ? "Australia" : fromSlug === "ca" ? "Canada" : fromSlug === "sg" ? "Singapore" : fromSlug.toUpperCase()} → {toSlug === "us" ? "USA" : toSlug === "uk" ? "UK" : toSlug === "au" ? "Australia" : toSlug === "ca" ? "Canada" : toSlug === "sg" ? "Singapore" : toSlug.toUpperCase()}
                     </p>
-                    <p className="text-xs text-zinc-400">Software Engineer</p>
+                    <p className="text-xs text-zinc-500">Software Engineer</p>
                   </div>
                 </div>
                 <div className="space-y-2">
@@ -174,7 +174,7 @@ export default function ComparePage() {
             </tbody>
           </table>
         </div>
-        <p className="mt-4 text-xs text-zinc-400">Data sourced from government labor statistics and industry surveys. All figures are annual averages.</p>
+        <p className="mt-4 text-xs text-zinc-500">Data sourced from government labor statistics and industry surveys. All figures are annual averages.</p>
       </section>
 
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10">

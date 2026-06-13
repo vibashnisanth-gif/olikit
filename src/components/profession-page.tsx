@@ -58,7 +58,7 @@ function SalaryTableSection({ table }: { table: NonNullable<ProfessionPageConten
           <thead>
             <tr className="bg-zinc-100">
               {headers.map((h, i) => (
-                <th key={i} className={"px-4 py-3 font-medium text-zinc-700 " + (i === 0 ? "text-left" : "text-right")}>{h}</th>
+                <th key={i} className={"px-4 py-3 font-semibold text-zinc-900 " + (i === 0 ? "text-left" : "text-right")}>{h}</th>
               ))}
             </tr>
           </thead>
@@ -85,9 +85,9 @@ function ComparisonTableSection({ table }: { table: NonNullable<ProfessionPageCo
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-zinc-100">
-              <th className="px-4 py-3 text-left font-medium text-zinc-700">Category</th>
-              <th className="px-4 py-3 text-right font-medium text-zinc-700">Country A</th>
-              <th className="px-4 py-3 text-right font-medium text-zinc-700">Country B</th>
+              <th className="px-4 py-3 text-left font-semibold text-zinc-900">Category</th>
+              <th className="px-4 py-3 text-right font-semibold text-zinc-900">Country A</th>
+              <th className="px-4 py-3 text-right font-semibold text-zinc-900">Country B</th>
             </tr>
           </thead>
           <tbody>
@@ -113,9 +113,9 @@ function CountryRankingSection({ ranking }: { ranking: NonNullable<ProfessionPag
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-zinc-100">
-              <th className="px-4 py-3 text-left font-medium text-zinc-700">Rank</th>
-              <th className="px-4 py-3 text-left font-medium text-zinc-700">Country</th>
-              <th className="px-4 py-3 text-right font-medium text-zinc-700">Average Salary</th>
+              <th className="px-4 py-3 text-left font-semibold text-zinc-900">Rank</th>
+              <th className="px-4 py-3 text-left font-semibold text-zinc-900">Country</th>
+              <th className="px-4 py-3 text-right font-semibold text-zinc-900">Average Salary</th>
             </tr>
           </thead>
           <tbody>

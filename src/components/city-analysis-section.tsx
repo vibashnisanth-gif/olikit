@@ -25,7 +25,7 @@ export function CityAnalysisSection({ title = "City Analysis", cities }: CityAna
                 <p className="text-xs text-zinc-500">{c.country}</p>
               </div>
             </div>
-            <p className="mb-3 text-xs leading-6 text-zinc-600">{c.summary}</p>
+            <p className="mb-3 text-xs leading-6 text-zinc-700">{c.summary}</p>
             <div className="space-y-2">
               {c.metrics.map((m) => (
                 <div key={m.label} className="flex items-center justify-between border-t border-zinc-100 pt-2">

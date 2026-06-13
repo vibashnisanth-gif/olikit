@@ -19,14 +19,14 @@ export function RankingTableSection({ title, description, columns, rows }: Ranki
     <section className="rounded-lg border border-zinc-200 bg-white shadow-sm">
       <div className="border-b border-zinc-200 px-5 py-5 sm:px-8">
         <h2 className="text-2xl font-semibold text-zinc-950">{title}</h2>
-        {description && <p className="mt-1.5 text-sm text-zinc-600">{description}</p>}
+        {description && <p className="mt-1.5 text-sm text-zinc-700">{description}</p>}
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-zinc-50">
               {columns.map((col, i) => (
-                <th key={i} className={`px-4 py-3 text-left font-medium text-zinc-700 ${i === columns.length - 1 ? "text-right" : ""}`}>
+                <th key={i} className={`px-4 py-3 text-left font-semibold text-zinc-900 ${i === columns.length - 1 ? "text-right" : ""}`}>
                   {col}
                 </th>
               ))}

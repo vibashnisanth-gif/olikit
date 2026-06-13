@@ -62,7 +62,7 @@ function QuickAnswersSection({ items }: { items: SalaryIndexContent["quickAnswer
               {items.map((qa, i) => (
                 <div key={i} className="px-6 py-5 sm:px-8">
                   <h3 className="mb-2 text-base font-semibold text-zinc-950">{qa.question}</h3>
-                  <p className="text-sm leading-7 text-zinc-600">{qa.answer}</p>
+                  <p className="text-base leading-7 text-zinc-800">{qa.answer}</p>
                 </div>
               ))}
             </div>
@@ -115,7 +115,7 @@ function ExecutiveSummaryRenderer({ data }: { data: SalaryIndexContent["executiv
             {data.paragraphs.length > 0 && (
               <div className="mt-6 space-y-3 border-t border-zinc-100 pt-6">
                 {data.paragraphs.map((p, i) => (
-                  <p key={i} className="text-sm leading-7 text-zinc-600">{p}</p>
+                  <p key={i} className="text-base leading-7 text-zinc-700">{p}</p>
                 ))}
               </div>
             )}
@@ -150,7 +150,7 @@ function RelocationIntelligenceGrid({ items }: { items: SalaryIndexContent["relo
           {items.map((item, i) => (
             <div key={i} className="rounded-lg border border-zinc-200 bg-zinc-50 p-5">
               <h3 className="mb-2 text-base font-semibold text-zinc-950">{item.heading}</h3>
-              <p className="text-sm leading-6 text-zinc-600">{item.content}</p>
+              <p className="text-sm leading-6 text-zinc-700">{item.content}</p>
             </div>
           ))}
         </div>
@@ -334,7 +334,7 @@ function ProfessionScorecardCard({ card }: { card: SalaryIndexProfessionScorecar
           <span className="text-2xl">{card.icon}</span>
           <h3 className="text-lg font-semibold text-zinc-950">{card.name}</h3>
         </div>
-        <p className="mb-4 text-sm leading-6 text-zinc-600">{card.summary}</p>
+        <p className="mb-4 text-sm leading-6 text-zinc-700">{card.summary}</p>
         <div className="grid gap-3 sm:grid-cols-2">
           <div className="rounded-md bg-zinc-50 p-3">
             <p className="text-xs font-semibold uppercase text-zinc-500">Top Country</p>

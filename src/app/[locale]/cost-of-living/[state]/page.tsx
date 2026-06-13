@@ -133,7 +133,7 @@ export default async function CostOfLivingPage(props: {
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-zinc-400 mt-2">Base: US average = 100. Values above 100 indicate above-average costs.</p>
+          <p className="text-xs text-zinc-500 mt-2">Base: US average = 100. Values above 100 indicate above-average costs.</p>
         </section>
 
         <section className="border rounded-lg p-6 bg-white dark:bg-zinc-800/50">

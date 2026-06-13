@@ -23,7 +23,7 @@ export function RelatedResearchSection({ title = "Related Research", items }: Re
           >
             <h3 className="text-sm font-semibold text-zinc-950 group-hover:text-emerald-700">{item.title}</h3>
             {item.description && (
-              <p className="mt-1.5 text-sm leading-5 text-zinc-600">{item.description}</p>
+              <p className="mt-1.5 text-sm leading-6 text-zinc-700">{item.description}</p>
             )}
           </a>
         ))}

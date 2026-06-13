@@ -24,7 +24,7 @@ export function RelocationIntelligenceSection({ title = "Relocation Intelligence
                 {c.href && <a href={c.href} className="text-xs text-emerald-700 hover:underline">View details →</a>}
               </div>
             </div>
-            <p className="mb-3 text-xs leading-6 text-zinc-600">{c.summary}</p>
+            <p className="mb-3 text-xs leading-6 text-zinc-700">{c.summary}</p>
             <div className="space-y-1.5">
               {c.factors.map((f) => (
                 <div key={f.label} className="flex items-center justify-between border-t border-zinc-100 pt-1.5">

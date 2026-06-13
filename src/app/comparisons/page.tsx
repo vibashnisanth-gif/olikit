@@ -46,7 +46,7 @@ export default function ComparisonsHubPage() {
               >
                 <div className="flex items-center justify-center gap-4 mb-4">
                   <span className="text-3xl">{c.flagA}</span>
-                  <span className="text-sm font-semibold text-zinc-400">vs</span>
+                  <span className="text-sm font-semibold text-zinc-500">vs</span>
                   <span className="text-3xl">{c.flagB}</span>
                 </div>
                 <h3 className="text-center text-sm font-semibold text-zinc-950 group-hover:text-emerald-700 transition-colors">

@@ -100,7 +100,7 @@ export default function DataScientistVsSoftwareEngineer() {
 
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10">
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Salary and Market Economics</h2>
-          <p className="mb-4 text-xs text-zinc-400">Methodology: Based on US market baselines for mid-level professionals.</p>
+          <p className="mb-4 text-xs text-zinc-500">Methodology: Based on US market baselines for mid-level professionals.</p>
           <div className="overflow-x-auto rounded-lg border border-zinc-200 shadow-sm">
             <table className="w-full text-sm">
               <thead>

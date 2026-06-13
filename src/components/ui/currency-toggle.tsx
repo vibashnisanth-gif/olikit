@@ -18,7 +18,7 @@ export function CurrencyToggle() {
 
   return (
     <div className="flex items-center gap-1 rounded-lg border border-zinc-200 bg-white px-1.5 py-1 shadow-sm">
-      <span className="hidden sm:inline text-[11px] font-medium text-zinc-400 mr-0.5">
+      <span className="hidden sm:inline text-[11px] font-medium text-zinc-500 mr-0.5">
         Display:
       </span>
       {SUPPORTED_CURRENCIES.filter((c) => c !== "NZD" && c !== "CHF" && c !== "INR").map((code) => (

@@ -52,17 +52,17 @@ export default function DataScientistUS() {
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">The Olikit Frameworks: United States</h2>
           <div className="grid gap-4 sm:grid-cols-3">
             <div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Olikit Compensation Score</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Olikit Compensation Score</p>
               <p className="mt-1 text-3xl font-bold text-zinc-950">98/100</p>
               <p className="mt-1 text-sm text-zinc-600">Highest global nominal salaries and equity ceilings.</p>
             </div>
             <div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Olikit PPP Score</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Olikit PPP Score</p>
               <p className="mt-1 text-3xl font-bold text-zinc-950">85/100</p>
               <p className="mt-1 text-sm text-zinc-600">High gross pay offset by localized inflation in Tier 1 cities.</p>
             </div>
             <div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Olikit Career Opp. Score</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Olikit Career Opp. Score</p>
               <p className="mt-1 text-3xl font-bold text-zinc-950">99/100</p>
               <p className="mt-1 text-sm text-zinc-600">Unmatched density of FAANG, AI labs, and high-growth startups.</p>
             </div>
@@ -71,7 +71,7 @@ export default function DataScientistUS() {
 
         <section>
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">US Market Salary Benchmarks</h2>
-          <p className="mb-4 text-xs text-zinc-400">Methodology: Figures reflect aggregate estimates of base salaries in major US metropolitan statistical areas. Total Compensation (TC) frequently exceeds these numbers due to bonuses and equity.</p>
+          <p className="mb-4 text-xs text-zinc-600">Methodology: Figures reflect aggregate estimates of base salaries in major US metropolitan statistical areas. Total Compensation (TC) frequently exceeds these numbers due to bonuses and equity.</p>
           <div className="overflow-hidden rounded-lg border border-zinc-200 shadow-sm">
             <table className="w-full text-sm">
               <thead>
@@ -92,8 +92,8 @@ export default function DataScientistUS() {
 
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10">
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Tax Impact Analysis</h2>
-          <p className="mb-4 text-sm leading-6 text-zinc-600">Understanding <strong>Olikit Net Earning Power</strong> requires factoring the US tax structure, which applies both federal and variable state income taxes.</p>
-          <p className="mb-4 text-xs text-zinc-400">Scenario: A single Mid-Level Data Scientist earning $142,000 Base.</p>
+          <p className="mb-4 text-sm leading-6 text-zinc-700">Understanding <strong>Olikit Net Earning Power</strong> requires factoring the US tax structure, which applies both federal and variable state income taxes.</p>
+          <p className="mb-4 text-xs text-zinc-600">Scenario: A single Mid-Level Data Scientist earning $142,000 Base.</p>
           <div className="overflow-x-auto rounded-lg border border-zinc-200 shadow-sm">
             <table className="w-full text-sm">
               <thead>
@@ -113,15 +113,15 @@ export default function DataScientistUS() {
             </table>
           </div>
           <div className="mt-4 space-y-2">
-            <p className="text-sm leading-6 text-zinc-600">Income tax variance across US states drastically alters net take-home pay.</p>
-            <p className="text-sm leading-6 text-zinc-600">Zero-income-tax states like Texas and Washington yield the highest immediate Olikit Net Earning Power for equivalent salaries.</p>
-            <p className="text-sm leading-6 text-zinc-600">Federal taxes and FICA consume roughly 25% of a $142,000 gross salary regardless of state.</p>
+            <p className="text-sm leading-6 text-zinc-700">Income tax variance across US states drastically alters net take-home pay.</p>
+            <p className="text-sm leading-6 text-zinc-700">Zero-income-tax states like Texas and Washington yield the highest immediate Olikit Net Earning Power for equivalent salaries.</p>
+            <p className="text-sm leading-6 text-zinc-700">Federal taxes and FICA consume roughly 25% of a $142,000 gross salary regardless of state.</p>
           </div>
         </section>
 
         <section className="rounded-xl border border-zinc-200 bg-zinc-50 px-6 py-8 shadow-sm sm:px-10">
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Purchasing Power &amp; Relocation Tradeoffs</h2>
-          <p className="mb-4 text-sm leading-6 text-zinc-600">Nominal wealth must be measured against living costs. The Olikit Purchasing Power Score evaluates how far net earnings stretch in primary tech hubs.</p>
+          <p className="mb-4 text-sm leading-6 text-zinc-700">Nominal wealth must be measured against living costs. The Olikit Purchasing Power Score evaluates how far net earnings stretch in primary tech hubs.</p>
           <div className="overflow-x-auto rounded-lg border border-zinc-200 shadow-sm">
             <table className="w-full text-sm">
               <thead>
@@ -139,8 +139,8 @@ export default function DataScientistUS() {
             </table>
           </div>
           <div className="mt-4 space-y-2">
-            <p className="text-sm leading-6 text-zinc-600">Relocating to Tier 2 tech hubs (e.g., Austin, Atlanta, Chicago) often results in a higher Olikit Purchasing Power Score than remaining in Tier 1 hubs.</p>
-            <p className="text-sm leading-6 text-zinc-600">Remote work adjustments are standard; companies frequently apply geo-tiering, reducing base salaries by 10-15% if the employee relocates away from high-cost coastal cities.</p>
+            <p className="text-sm leading-6 text-zinc-700">Relocating to Tier 2 tech hubs (e.g., Austin, Atlanta, Chicago) often results in a higher Olikit Purchasing Power Score than remaining in Tier 1 hubs.</p>
+            <p className="text-sm leading-6 text-zinc-700">Remote work adjustments are standard; companies frequently apply geo-tiering, reducing base salaries by 10-15% if the employee relocates away from high-cost coastal cities.</p>
           </div>
         </section>
 

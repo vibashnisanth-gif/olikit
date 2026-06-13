@@ -96,7 +96,7 @@ export default function DataScientistHub() {
         {/* GLOBAL MARKET SNAPSHOT */}
         <section>
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Global Market Snapshot: 2026</h2>
-          <p className="mb-4 text-xs text-zinc-400">Methodology Note: Figures represent median baseline expectations. Exact figures vary by state/province, employer scale, and individual candidate leverage. Currency conversions utilize projected Q1 2026 baselines.</p>
+          <p className="mb-4 text-xs text-zinc-500">Methodology Note: Figures represent median baseline expectations. Exact figures vary by state/province, employer scale, and individual candidate leverage. Currency conversions utilize projected Q1 2026 baselines.</p>
           <div className="overflow-x-auto rounded-lg border border-zinc-200 shadow-sm">
             <table className="w-full text-sm">
               <thead>

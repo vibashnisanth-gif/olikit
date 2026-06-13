@@ -169,7 +169,7 @@ export function SalaryComparisonCalculator() {
       </div>
 
       <details className="mt-4 group">
-        <summary className="text-xs text-zinc-400 cursor-pointer hover:text-zinc-600 transition-colors">
+        <summary className="text-xs text-zinc-500 cursor-pointer hover:text-zinc-700 transition-colors">
           How are these calculated?
         </summary>
         <div className="mt-2 space-y-2 text-xs text-zinc-500 leading-relaxed">

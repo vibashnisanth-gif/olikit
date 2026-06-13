@@ -11,7 +11,7 @@ export function FutureOutlookSection({ title = "Future Outlook", outlooks }: Fut
         {outlooks.map((o, i) => (
           <div key={i} className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm">
             <h3 className="mb-2 text-base font-semibold text-zinc-950">{o.heading}</h3>
-            <p className="text-sm leading-7 text-zinc-600">{o.content}</p>
+            <p className="text-sm leading-7 text-zinc-700">{o.content}</p>
           </div>
         ))}
       </div>

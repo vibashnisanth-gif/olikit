@@ -162,27 +162,27 @@ export default function SoftwareEngineerHub() {
           </p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-md bg-zinc-50 p-3">
-              <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400">Most Researched Profession</p>
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-600">Most Researched Profession</p>
               <p className="mt-0.5 text-sm font-medium text-zinc-950">Software Engineer</p>
             </div>
             <div className="rounded-md bg-zinc-50 p-3">
-              <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400">Highest Paying Market</p>
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-600">Highest Paying Market</p>
               <p className="mt-0.5 text-sm font-medium text-zinc-950">United States</p>
             </div>
             <div className="rounded-md bg-zinc-50 p-3">
-              <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400">Fastest Growing Market</p>
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-600">Fastest Growing Market</p>
               <p className="mt-0.5 text-sm font-medium text-zinc-950">India</p>
             </div>
             <div className="rounded-md bg-zinc-50 p-3">
-              <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400">Strongest Purchasing Power</p>
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-600">Strongest Purchasing Power</p>
               <p className="mt-0.5 text-sm font-medium text-zinc-950">Varies by city and tax burden</p>
             </div>
             <div className="rounded-md bg-zinc-50 p-3">
-              <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400">Most Competitive Hub</p>
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-600">Most Competitive Hub</p>
               <p className="mt-0.5 text-sm font-medium text-zinc-950">San Francisco</p>
             </div>
             <div className="rounded-md bg-zinc-50 p-3">
-              <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400">Global Demand</p>
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-600">Global Demand</p>
               <p className="mt-0.5 text-sm font-medium text-zinc-950">Very High</p>
             </div>
           </div>
@@ -300,7 +300,7 @@ export default function SoftwareEngineerHub() {
               </tbody>
             </table>
           </div>
-          <p className="mt-3 text-xs text-zinc-400">Salary comparisons should always be evaluated alongside taxes, housing costs and purchasing power.</p>
+          <p className="mt-3 text-xs text-zinc-500">Salary comparisons should always be evaluated alongside taxes, housing costs and purchasing power.</p>
         </section>
 
         {/* HIGHEST PAYING CITIES */}

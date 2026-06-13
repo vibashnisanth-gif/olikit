@@ -42,9 +42,9 @@ export default function SoftwareEngineerIN() {
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Software Engineer Salary in India</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">India is one of the world's largest and fastest-growing technology talent markets. Bengaluru, Hyderabad, Pune and Gurgaon are major technology hubs offering competitive compensation for software engineers across product development, services, fintech and enterprise software.</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
-            <div className="rounded-md bg-blue-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Average Salary</p><p className="mt-1 text-2xl font-bold text-zinc-950">{fmt(SALARY.average)}</p></div>
-            <div className="rounded-md bg-zinc-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Entry Level</p><p className="mt-1 text-2xl font-bold text-zinc-950">{fmt(SALARY.entryLevel)}</p></div>
-            <div className="rounded-md bg-zinc-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Experienced</p><p className="mt-1 text-2xl font-bold text-zinc-950">{fmt(SALARY.experienced)}</p></div>
+            <div className="rounded-md bg-blue-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Average Salary</p><p className="mt-1 text-2xl font-bold text-zinc-950">{fmt(SALARY.average)}</p></div>
+            <div className="rounded-md bg-zinc-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Entry Level</p><p className="mt-1 text-2xl font-bold text-zinc-950">{fmt(SALARY.entryLevel)}</p></div>
+            <div className="rounded-md bg-zinc-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Experienced</p><p className="mt-1 text-2xl font-bold text-zinc-950">{fmt(SALARY.experienced)}</p></div>
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href="/in/tools/salary-calculator" className="rounded-md bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800">Salary Calculator</a>
@@ -65,9 +65,9 @@ export default function SoftwareEngineerIN() {
 
         <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-6 shadow-sm sm:px-8">
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">India Software Engineer Salary Landscape</h2>
-          <p className="mb-3 text-sm leading-7 text-zinc-600">Software engineering is one of India's most dynamic and rapidly evolving professions, with opportunities spanning global technology companies, financial institutions and a vibrant startup ecosystem.</p>
-          <p className="mb-3 text-sm leading-7 text-zinc-600">India's technology sector continues to expand, with increasing demand for engineers in artificial intelligence, cloud computing, cybersecurity and product development.</p>
-          <p className="mb-3 text-sm leading-7 text-zinc-600">When evaluating compensation, professionals should consider salary alongside tax regime choices, housing costs in major cities and purchasing power differences across regions.</p>
+          <p className="mb-3 text-sm leading-7 text-zinc-700">Software engineering is one of India's most dynamic and rapidly evolving professions, with opportunities spanning global technology companies, financial institutions and a vibrant startup ecosystem.</p>
+          <p className="mb-3 text-sm leading-7 text-zinc-700">India's technology sector continues to expand, with increasing demand for engineers in artificial intelligence, cloud computing, cybersecurity and product development.</p>
+          <p className="mb-3 text-sm leading-7 text-zinc-700">When evaluating compensation, professionals should consider salary alongside tax regime choices, housing costs in major cities and purchasing power differences across regions.</p>
         </section>
 
         <section>

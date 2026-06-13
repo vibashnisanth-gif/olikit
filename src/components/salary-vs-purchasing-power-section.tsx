@@ -15,10 +15,10 @@ export function SalaryVsPurchasingPowerSection({ title = "Salary vs Purchasing P
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-zinc-50">
-              <th className="px-4 py-3 text-left font-medium text-zinc-700">Rank</th>
-              <th className="px-4 py-3 text-left font-medium text-zinc-700">Country</th>
-              <th className="px-4 py-3 text-right font-medium text-zinc-700">Avg Salary (USD)</th>
-              <th className="px-4 py-3 text-right font-medium text-zinc-700">Purchasing Power</th>
+              <th className="px-4 py-3 text-left font-semibold text-zinc-900">Rank</th>
+              <th className="px-4 py-3 text-left font-semibold text-zinc-900">Country</th>
+              <th className="px-4 py-3 text-right font-semibold text-zinc-900">Avg Salary (USD)</th>
+              <th className="px-4 py-3 text-right font-semibold text-zinc-900">Purchasing Power</th>
             </tr>
           </thead>
           <tbody>

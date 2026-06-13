@@ -528,7 +528,7 @@ export default function GlobalHomePage() {
                             <span className="text-base">{row.flag}</span>
                             <span className="flex items-center gap-1.5">
                               <span className="text-sm font-medium text-zinc-700">{row.country}</span>
-                              <span className="text-[10px] font-semibold text-zinc-400">#{idx + 1}</span>
+                              <span className="text-[10px] font-semibold text-zinc-500">#{idx + 1}</span>
                             </span>
                           </span>
                           <span className="text-base font-bold text-zinc-950">
@@ -838,7 +838,7 @@ export default function GlobalHomePage() {
               <p className="mt-3 text-xs leading-5 text-zinc-500 flex-1">
                 <span className="font-medium text-zinc-700">Key Strength:</span> {countryKeyStrengths[c.slug] || c.description}
               </p>
-              <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-zinc-400 group-hover:text-zinc-600 transition-colors">
+              <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-zinc-600 group-hover:text-zinc-950 transition-colors">
                 Explore Country
                 <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -1003,13 +1003,13 @@ export default function GlobalHomePage() {
                 Government-sourced salary data
               </p>
               <div className="mt-2 space-y-0.5">
-                <p className="text-xs leading-5 text-zinc-400">
+                <p className="text-xs leading-5 text-zinc-500">
                   Average salary available
                 </p>
-                <p className="text-xs leading-5 text-zinc-400">
+                <p className="text-xs leading-5 text-zinc-500">
                   Compare countries
                 </p>
-                <p className="text-xs leading-5 text-zinc-400">
+                <p className="text-xs leading-5 text-zinc-500">
                   Calculate taxes
                 </p>
               </div>

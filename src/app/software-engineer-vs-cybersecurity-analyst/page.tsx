@@ -86,7 +86,7 @@ export default function SoftwareEngineerVsCybersecurityAnalyst() {
               </tbody>
             </table>
           </div>
-          <p className="mt-3 text-xs text-zinc-400">Average US salaries. Cybersecurity salaries vary significantly by industry and clearance level.</p>
+          <p className="mt-3 text-xs text-zinc-500">Average US salaries. Cybersecurity salaries vary significantly by industry and clearance level.</p>
         </section>
 
         <section className="rounded-lg border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-8">

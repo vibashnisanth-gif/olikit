@@ -34,7 +34,7 @@ export function CurrencyEquivalents({ amount, sourceCurrency, targetCurrencies }
   if (show.length === 0) return null
 
   return (
-    <div className="mt-1 flex flex-wrap gap-x-2.5 text-[11px] text-zinc-400">
+    <div className="mt-1 flex flex-wrap gap-x-2.5 text-[11px] text-zinc-500">
       {show.map((t) => (
         <span key={t.code}>
           ≈ {formatInActiveCurrency(amount, sourceCurrency)} {t.code}

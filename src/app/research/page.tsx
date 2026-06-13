@@ -106,8 +106,8 @@ export default function ResearchPage() {
               <h3 className="font-semibold text-zinc-950 group-hover:text-zinc-800 transition-colors text-sm mb-2">{r.title}</h3>
               <p className="text-xs leading-5 text-zinc-500 mb-4">{r.description}</p>
               <div className="flex items-center justify-between">
-                <span className="text-[10px] text-zinc-400 font-mono">{r.date}</span>
-                <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-400 group-hover:text-zinc-600 transition-colors">
+                <span className="text-[10px] text-zinc-500 font-mono">{r.date}</span>
+                <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-600 group-hover:text-zinc-950 transition-colors">
                   Read →
                 </span>
               </div>
@@ -129,13 +129,13 @@ export default function ResearchPage() {
                 <span className="text-2xl">{c.flag}</span>
                 <div>
                   <h3 className="font-semibold text-sm text-zinc-950 group-hover:text-zinc-800 transition-colors">{c.name}</h3>
-                  <p className="text-xs text-zinc-400">{c.taxAuthorityAbbr} &middot; {c.currencyCode}</p>
+                  <p className="text-xs text-zinc-500">{c.taxAuthorityAbbr} &middot; {c.currencyCode}</p>
                 </div>
               </div>
               <p className="text-xs leading-5 text-zinc-500 mb-3">
                 Tax system analysis, salary trends, and financial research for {c.name}. Data sourced from {c.taxAuthority}.
               </p>
-              <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-400 group-hover:text-zinc-600 transition-colors">
+              <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-600 group-hover:text-zinc-950 transition-colors">
                 View {c.name} research →
               </span>
             </a>

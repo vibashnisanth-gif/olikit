@@ -61,15 +61,15 @@ export default function DataScientistIndexPage() {
           <p className="mb-3 text-sm leading-7 text-zinc-600">While the United States continues to dictate maximum absolute compensation, aggressive tax structures and housing costs in primary tech hubs have driven specialized talent to optimize for Olikit Net Earning Power in jurisdictions like Singapore and regional Australia.</p>
           <div className="mt-5 grid gap-4 sm:grid-cols-3">
             <div className="rounded-lg border border-border-light bg-white p-4 text-center shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Countries Analyzed</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Countries Analyzed</p>
               <p className="mt-1 text-2xl font-bold text-zinc-950">7</p>
             </div>
             <div className="rounded-lg border border-border-light bg-white p-4 text-center shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Highest Salary</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Highest Salary</p>
               <p className="mt-1 text-2xl font-bold text-zinc-950">$142,000 (US)</p>
             </div>
             <div className="rounded-lg border border-border-light bg-white p-4 text-center shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Highest Retained Income</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Highest Retained Income</p>
               <p className="mt-1 text-2xl font-bold text-zinc-950">Singapore (88.5%)</p>
             </div>
           </div>
@@ -87,7 +87,7 @@ export default function DataScientistIndexPage() {
 
         <section>
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Section 2: Nominal Salary Rankings</h2>
-          <p className="mb-4 text-xs text-zinc-400">Ranks countries by raw base compensation, converted to USD.</p>
+          <p className="mb-4 text-xs text-zinc-500">Ranks countries by raw base compensation, converted to USD.</p>
           <div className="overflow-hidden rounded-lg border border-zinc-200 shadow-sm">
             <table className="w-full text-sm">
               <thead>
@@ -111,7 +111,7 @@ export default function DataScientistIndexPage() {
 
         <section>
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Section 3: Net Salary Rankings</h2>
-          <p className="mb-4 text-xs text-zinc-400">Ranks countries by estimated post-tax retained income (Olikit Net Earning Power).</p>
+          <p className="mb-4 text-xs text-zinc-500">Ranks countries by estimated post-tax retained income (Olikit Net Earning Power).</p>
           <div className="overflow-hidden rounded-lg border border-zinc-200 shadow-sm">
             <table className="w-full text-sm">
               <thead>

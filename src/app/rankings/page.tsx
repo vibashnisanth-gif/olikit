@@ -94,7 +94,7 @@ export default function RankingsPage() {
               <p className="text-2xl font-bold tracking-tight text-zinc-950">
                 ${(c.avg / 1000).toFixed(0)}k
               </p>
-              <p className="text-xs text-zinc-400 mt-1">Average annual salary</p>
+              <p className="text-xs text-zinc-600 mt-1">Average annual salary</p>
             </a>
           ))}
         </div>
@@ -109,7 +109,7 @@ export default function RankingsPage() {
               {topSoftwareSalaries.map((c, i) => (
                 <div key={c.slug} className="flex items-center justify-between py-3 first:pt-0 last:pb-0">
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-bold text-zinc-400 w-4">{getRank(i + 1)}</span>
+                    <span className="text-xs font-bold text-zinc-500 w-4">{getRank(i + 1)}</span>
                     <span className="text-base">{c.flag}</span>
                     <a href={`/${c.slug}/salary/software-engineer`} className="text-sm font-medium text-zinc-950 hover:text-emerald-700 transition-colors">
                       {c.name}
@@ -128,7 +128,7 @@ export default function RankingsPage() {
               {topDoctorSalaries.map((c, i) => (
                 <div key={c.slug} className="flex items-center justify-between py-3 first:pt-0 last:pb-0">
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-bold text-zinc-400 w-4">{getRank(i + 1)}</span>
+                    <span className="text-xs font-bold text-zinc-500 w-4">{getRank(i + 1)}</span>
                     <span className="text-base">{c.flag}</span>
                     <a href={`/${c.slug}/salary/doctor`} className="text-sm font-medium text-zinc-950 hover:text-emerald-700 transition-colors">
                       {c.name}
@@ -175,13 +175,13 @@ export default function RankingsPage() {
                 <span className="text-2xl">{c.flag}</span>
                 <div>
                   <h3 className="font-semibold text-sm text-zinc-950 group-hover:text-zinc-800 transition-colors">{c.name}</h3>
-                  <p className="text-xs text-zinc-400">{c.taxAuthorityAbbr} &middot; {c.currencyCode}</p>
+                  <p className="text-xs text-zinc-500">{c.taxAuthorityAbbr} &middot; {c.currencyCode}</p>
                 </div>
               </div>
               <p className="text-xs leading-5 text-zinc-500 mb-3">
                 Profession rankings, salary data, and tax information for {c.name}.
               </p>
-              <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-400 group-hover:text-zinc-600 transition-colors">
+              <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-600 group-hover:text-zinc-950 transition-colors">
                 View {c.name} rankings →
               </span>
             </a>

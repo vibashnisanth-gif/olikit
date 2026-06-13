@@ -29,7 +29,7 @@ export function CountryAnalysisSection({ title = "Country Analysis", countries }
               )}
             </div>
           </div>
-          <p className="text-sm leading-7 text-zinc-600 mb-4">{c.summary}</p>
+          <p className="text-sm leading-7 text-zinc-700 mb-4">{c.summary}</p>
           <div className="grid gap-3 sm:grid-cols-3">
             {c.metrics.map((m) => (
               <div key={m.label} className="rounded-md bg-zinc-50 p-3">

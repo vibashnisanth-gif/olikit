@@ -139,7 +139,7 @@ export default async function AverageSalaryPage(props: {
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-zinc-400 mt-2">Source: {data?.source}</p>
+          <p className="text-xs text-zinc-500 mt-2">Source: {data?.source}</p>
         </section>
 
         <section className="border rounded-lg p-6 bg-white dark:bg-zinc-800/50">

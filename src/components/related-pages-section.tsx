@@ -18,7 +18,7 @@ export function RelatedPagesSection({ title = "Explore More", pages }: RelatedPa
           <a
             key={i}
             href={p.href}
-            className="rounded-lg border border-zinc-200 bg-white px-4 py-2.5 text-sm font-medium text-zinc-700 shadow-sm transition hover:border-zinc-300 hover:bg-zinc-50 hover:text-zinc-950"
+            className="rounded-lg border border-zinc-200 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-800 shadow-sm transition hover:border-zinc-300 hover:bg-zinc-50 hover:text-zinc-950"
           >
             {p.label}
           </a>

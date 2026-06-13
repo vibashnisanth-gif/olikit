@@ -37,9 +37,9 @@ export default function SoftwareEngineerNZ() {
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Software Engineer Salary in New Zealand</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">New Zealand offers a compelling combination of technology career opportunities and high quality of life. Auckland, Wellington and Christchurch are the primary technology employment markets, with growing demand for software engineers across fintech, agritech, gaming and government services.</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
-            <div className="rounded-md bg-blue-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Average Salary</p><p className="mt-1 text-2xl font-bold text-zinc-950">{COUNTRY.currency}{SALARY.average.toLocaleString()}</p></div>
-            <div className="rounded-md bg-zinc-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Entry Level</p><p className="mt-1 text-2xl font-bold text-zinc-950">{COUNTRY.currency}{SALARY.entryLevel.toLocaleString()}</p></div>
-            <div className="rounded-md bg-zinc-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Experienced</p><p className="mt-1 text-2xl font-bold text-zinc-950">{COUNTRY.currency}{SALARY.experienced.toLocaleString()}</p></div>
+            <div className="rounded-md bg-blue-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Average Salary</p><p className="mt-1 text-2xl font-bold text-zinc-950">{COUNTRY.currency}{SALARY.average.toLocaleString()}</p></div>
+            <div className="rounded-md bg-zinc-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Entry Level</p><p className="mt-1 text-2xl font-bold text-zinc-950">{COUNTRY.currency}{SALARY.entryLevel.toLocaleString()}</p></div>
+            <div className="rounded-md bg-zinc-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Experienced</p><p className="mt-1 text-2xl font-bold text-zinc-950">{COUNTRY.currency}{SALARY.experienced.toLocaleString()}</p></div>
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href="/nz/tools/salary-calculator" className="rounded-md bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800">Salary Calculator</a>
@@ -60,9 +60,9 @@ export default function SoftwareEngineerNZ() {
 
         <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-6 shadow-sm sm:px-8">
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">New Zealand Software Engineer Salary Landscape</h2>
-          <p className="mb-3 text-sm leading-7 text-zinc-600">Software engineering remains a growing profession in New Zealand, with demand across technology, financial services, agriculture and government sectors.</p>
-          <p className="mb-3 text-sm leading-7 text-zinc-600">New Zealand's technology sector has seen increased investment and international attention, creating new opportunities for skilled software engineers.</p>
-          <p className="mb-3 text-sm leading-7 text-zinc-600">When evaluating compensation, professionals should consider salary alongside tax obligations, housing costs and lifestyle benefits.</p>
+          <p className="mb-3 text-sm leading-7 text-zinc-700">Software engineering remains a growing profession in New Zealand, with demand across technology, financial services, agriculture and government sectors.</p>
+          <p className="mb-3 text-sm leading-7 text-zinc-700">New Zealand's technology sector has seen increased investment and international attention, creating new opportunities for skilled software engineers.</p>
+          <p className="mb-3 text-sm leading-7 text-zinc-700">When evaluating compensation, professionals should consider salary alongside tax obligations, housing costs and lifestyle benefits.</p>
         </section>
 
         <section>
