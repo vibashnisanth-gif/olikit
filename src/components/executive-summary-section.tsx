@@ -18,19 +18,19 @@ export function ExecutiveSummarySection({ title = "Executive Summary", summary, 
 
           {primaryMetric && (
             <div className="mt-4">
-              <p className="text-4xl font-bold text-zinc-950">{primaryMetric.value}</p>
-              <p className="mt-1 text-base font-medium text-zinc-700">{primaryMetric.label}</p>
+              <p className="max-sm:text-4xl sm:text-5xl font-bold text-zinc-950">{primaryMetric.value}</p>
+              <p className="mt-1 text-lg font-medium text-zinc-700">{primaryMetric.label}</p>
             </div>
           )}
 
           <p className="mt-4 text-sm leading-7 text-zinc-600">{summary}</p>
 
           {supportingMetrics.length > 0 && (
-            <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4">
+            <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
               {supportingMetrics.map((m) => (
                 <div key={m.label}>
-                  <p className="text-sm text-zinc-500">{m.label}</p>
-                  <p className="text-lg font-semibold text-zinc-900">{m.value}</p>
+                  <p className="text-sm text-zinc-600">{m.label}</p>
+                  <p className="mt-0.5 text-xl font-semibold text-zinc-900">{m.value}</p>
                 </div>
               ))}
             </div>

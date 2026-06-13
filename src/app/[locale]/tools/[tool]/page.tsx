@@ -89,7 +89,7 @@ export default async function ToolPage({ params }: Props) {
             <div className="min-w-0 flex-1 p-6">
               <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">At a Glance</p>
               <p className="mt-2 text-base font-semibold text-zinc-950">{content.directAnswer.question}</p>
-              <p className="mt-1 text-sm leading-relaxed text-zinc-600">{content.directAnswer.answer}</p>
+              <p className="mt-1 text-sm leading-relaxed text-zinc-700">{content.directAnswer.answer}</p>
             </div>
           </div>
         </div>
@@ -102,7 +102,7 @@ export default async function ToolPage({ params }: Props) {
             <div className="min-w-0 flex-1 p-6">
               <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Quick Answer</p>
               <p className="mt-2 text-base font-semibold text-zinc-950">{content.aiAnswer.question}</p>
-              <p className="mt-1 text-sm leading-relaxed text-zinc-600">{content.aiAnswer.answer}</p>
+              <p className="mt-1 text-sm leading-relaxed text-zinc-700">{content.aiAnswer.answer}</p>
             </div>
           </div>
         </div>

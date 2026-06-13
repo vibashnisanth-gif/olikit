@@ -48,24 +48,20 @@ function ResearchMetadataBlock({ data }: { data: SalaryIndexContent["researchMet
 }
 
 function QuickAnswersSection({ items }: { items: SalaryIndexContent["quickAnswers"] }) {
+  if (!items || items.length === 0) return null
   return (
     <Section id="quick-answers">
       <div className="rounded-xl border border-zinc-200 bg-white shadow-sm">
         <div className="flex">
           <div className="w-1 shrink-0 rounded-l-xl bg-emerald-500" />
-          <div className="min-w-0 flex-1">
-            <div className="px-6 py-5 sm:px-8">
-              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Quick Answers</p>
-              <h2 className="mt-1 text-2xl font-bold text-zinc-950">Key Insights at a Glance</h2>
-            </div>
-            <div className="divide-y divide-zinc-100">
-              {items.map((qa, i) => (
-                <div key={i} className="px-6 py-5 sm:px-8">
-                  <h3 className="mb-2 text-base font-semibold text-zinc-950">{qa.question}</h3>
-                  <p className="text-base leading-7 text-zinc-800">{qa.answer}</p>
-                </div>
-              ))}
-            </div>
+          <div className="min-w-0 flex-1 p-6 sm:p-8">
+            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Quick Answers</p>
+            {items.map((qa, i) => (
+              <div key={i} className={`${i > 0 ? "mt-6 border-t border-zinc-100 pt-6" : "mt-4"}`}>
+                <h3 className="text-base font-semibold text-zinc-950">{qa.question}</h3>
+                <p className="mt-1 text-base leading-7 text-zinc-800">{qa.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -92,21 +88,21 @@ function ExecutiveSummaryRenderer({ data }: { data: SalaryIndexContent["executiv
 
             {primaryMetric && (
               <div className="mt-4">
-                <p className="text-4xl font-bold text-zinc-950">{primaryMetric.value}</p>
-                <p className="mt-1 text-base font-medium text-zinc-700">{primaryMetric.label}</p>
+                <p className="max-sm:text-4xl sm:text-5xl font-bold text-zinc-950">{primaryMetric.value}</p>
+                <p className="mt-1 text-lg font-medium text-zinc-700">{primaryMetric.label}</p>
               </div>
             )}
 
-            {hasInsights && !primaryMetric && (
+            {hasInsights && (
               <p className="mt-4 text-base font-semibold text-emerald-700">{allInsights[0]}</p>
             )}
 
             {supportingMetrics.length > 0 && (
-              <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4">
+              <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3">
                 {supportingMetrics.map((m) => (
                   <div key={m.label}>
-                    <p className="text-sm text-zinc-500">{m.label}</p>
-                    <p className="text-lg font-semibold text-zinc-900">{m.value}</p>
+                    <p className="text-sm text-zinc-600">{m.label}</p>
+                    <p className="mt-0.5 text-xl font-semibold text-zinc-900">{m.value}</p>
                   </div>
                 ))}
               </div>
@@ -121,10 +117,10 @@ function ExecutiveSummaryRenderer({ data }: { data: SalaryIndexContent["executiv
             )}
 
             {showInsightList && (
-              <div className="mt-6 rounded-lg border border-zinc-200 bg-zinc-50 p-4">
+              <div className="mt-6 rounded-lg border border-zinc-200 bg-white p-4">
                 <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Key Insights</p>
                 <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm text-zinc-700">
-                  {(primaryMetric ? allInsights : allInsights.slice(1)).map((insight, i) => (
+                  {allInsights.slice(1).map((insight, i) => (
                     <li key={i}>{insight}</li>
                   ))}
                 </ul>
