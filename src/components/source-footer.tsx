@@ -15,12 +15,12 @@ export function SourceFooter({ localeSlug }: SourceFooterProps) {
   const localeName = locale.name
 
   return (
-    <section className="border-t border-border-light pt-8 space-y-8">
+    <section className="border-t border-zinc-200 pt-8 space-y-8">
       <div>
-        <h2 className="text-xl font-semibold tracking-tight text-text-primary mb-4">
+        <h2 className="text-xl font-semibold text-zinc-950 mb-4">
           Official Sources
         </h2>
-        <p className="text-sm text-text-muted mb-4">
+        <p className="text-sm text-zinc-500 mb-4">
           {localeName} calculators use data from the following official government agencies:
         </p>
         <ul className="space-y-3">
@@ -30,28 +30,28 @@ export function SourceFooter({ localeSlug }: SourceFooterProps) {
                 href={source.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-medium text-blue-600 hover:text-blue-800 hover:underline"
+                className="font-medium text-emerald-700 hover:text-emerald-800 hover:underline"
               >
                 {source.name}
               </a>
-              <span className="text-text-muted"> &mdash; {source.description}</span>
+              <span className="text-zinc-500"> &mdash; {source.description}</span>
             </li>
           ))}
         </ul>
       </div>
 
       <div>
-        <h2 className="text-xl font-semibold tracking-tight text-text-primary mb-3">
+        <h2 className="text-xl font-semibold text-zinc-950 mb-3">
           Methodology
         </h2>
-        <p className="text-sm text-text-secondary leading-relaxed">{sources.methodology}</p>
+        <p className="text-sm text-zinc-600 leading-relaxed">{sources.methodology}</p>
       </div>
 
       <div>
-        <h2 className="text-xl font-semibold tracking-tight text-text-primary mb-3">
+        <h2 className="text-xl font-semibold text-zinc-950 mb-3">
           Data Sources
         </h2>
-        <p className="text-sm text-text-secondary leading-relaxed">
+        <p className="text-sm text-zinc-600 leading-relaxed">
           All tax brackets, contribution rates, and economic data used in our
           calculators are sourced from the official government publications listed
           above. Rates are updated at least annually to reflect the latest tax year
@@ -60,7 +60,7 @@ export function SourceFooter({ localeSlug }: SourceFooterProps) {
         </p>
       </div>
 
-      <p className="text-xs text-text-muted italic">
+      <p className="text-xs text-zinc-500 italic">
         Last updated: {sources.lastUpdated}. Information may change; always verify with official sources.
       </p>
     </section>

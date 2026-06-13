@@ -1,21 +1,26 @@
-type Props = {
-  title?: string
-  pages: { label: string; href: string }[]
+interface RelatedPageItem {
+  label: string
+  href: string
 }
 
-export function RelatedPagesSection({ title = "Explore More", pages }: Props) {
+interface RelatedPagesSectionProps {
+  title?: string
+  pages: RelatedPageItem[]
+}
+
+export function RelatedPagesSection({ title = "Explore More", pages }: RelatedPagesSectionProps) {
   if (pages.length === 0) return null
   return (
-    <section className="rounded-xl border border-border-light bg-surface-primary px-6 py-6 shadow-sm sm:px-8">
-      <h2 className="mb-4 text-2xl font-semibold tracking-tight text-text-primary">{title}</h2>
-      <div className="flex flex-wrap gap-2">
-        {pages.map((page) => (
+    <section className="rounded-lg border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-8">
+      <h2 className="mb-4 text-2xl font-semibold text-zinc-950">{title}</h2>
+      <div className="flex flex-wrap gap-3">
+        {pages.map((p, i) => (
           <a
-            key={page.href}
-            href={page.href}
-            className="rounded-md bg-surface-muted px-3 py-1.5 text-sm font-medium text-text-secondary transition hover:bg-gray-200 hover:text-text-primary"
+            key={i}
+            href={p.href}
+            className="rounded-lg border border-zinc-200 bg-white px-4 py-2.5 text-sm font-medium text-zinc-700 shadow-sm transition hover:border-zinc-300 hover:bg-zinc-50 hover:text-zinc-950"
           >
-            {page.label}
+            {p.label}
           </a>
         ))}
       </div>
