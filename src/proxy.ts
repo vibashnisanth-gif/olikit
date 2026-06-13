@@ -76,6 +76,9 @@ export function proxy(request: NextRequest) {
     "/software-engineer",
     "/data-scientist",
     "/comparisons",
+    "/product-manager",
+    "/best-countries-for-product-managers",
+    "/highest-paying-countries-for-product-managers",
     "/ads.txt",
   ]
   if (pathname === "/" || skipPatterns.some((p) => pathname.startsWith(p))) {
