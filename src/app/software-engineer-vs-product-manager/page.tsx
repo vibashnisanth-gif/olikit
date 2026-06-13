@@ -144,9 +144,10 @@ export default function SoftwareEngineerVsProductManager() {
 
         <RelatedPagesSection
           pages={[
-            { label: "Software Engineer Hub", href: "/professions/software-engineer" },
+            { label: "Software Engineer Hub", href: "/software-engineer" },
             { label: "Software Engineer vs Data Scientist", href: "/software-engineer-vs-data-scientist" },
             { label: "Software Engineer vs Cybersecurity Analyst", href: "/software-engineer-vs-cybersecurity-analyst" },
+            { label: "Product Manager vs Software Engineer", href: "/product-manager-vs-software-engineer" },
             { label: "Software Engineer Salary Index 2026", href: "/research/software-engineer-salary-index-2026" },
             { label: "Highest Paying Countries", href: "/rankings/highest-paying-countries-software-engineers" },
           ]}

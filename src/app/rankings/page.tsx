@@ -162,6 +162,38 @@ export default function RankingsPage() {
         </div>
       </section>
 
+      <section className="rounded-xl border border-zinc-200 bg-zinc-50 px-6 py-8 sm:px-10">
+        <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">Data Scientist Rankings</h2>
+        <div className="grid gap-4 sm:grid-cols-3">
+          <a href="/rankings/highest-paying-countries-data-scientists" className="group rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300">
+            <h3 className="font-semibold text-sm text-zinc-950 group-hover:text-emerald-700 transition-colors mb-2">Highest Paying Countries</h3>
+            <p className="text-xs leading-5 text-zinc-500">Countries ranked by average data scientist salary with purchasing power analysis.</p>
+          </a>
+          <a href="/rankings/highest-paying-cities-data-scientists" className="group rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300">
+            <h3 className="font-semibold text-sm text-zinc-950 group-hover:text-emerald-700 transition-colors mb-2">Highest Paying Cities</h3>
+            <p className="text-xs leading-5 text-zinc-500">Global cities ranked by data scientist compensation with cost of living context.</p>
+          </a>
+          <a href="/rankings/best-countries-for-data-scientists" className="group rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300">
+            <h3 className="font-semibold text-sm text-zinc-950 group-hover:text-emerald-700 transition-colors mb-2">Best Countries Overall</h3>
+            <p className="text-xs leading-5 text-zinc-500">Multi-factor evaluation of the best countries for data scientists.</p>
+          </a>
+        </div>
+      </section>
+
+      <section className="rounded-xl border border-zinc-200 bg-zinc-50 px-6 py-8 sm:px-10">
+        <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">Product Manager Rankings</h2>
+        <div className="grid gap-4 sm:grid-cols-3">
+          <a href="/highest-paying-countries-for-product-managers" className="group rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300">
+            <h3 className="font-semibold text-sm text-zinc-950 group-hover:text-emerald-700 transition-colors mb-2">Highest Paying Countries</h3>
+            <p className="text-xs leading-5 text-zinc-500">Countries ranked by average product manager salary with purchasing power analysis.</p>
+          </a>
+          <a href="/best-countries-for-product-managers" className="group rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300">
+            <h3 className="font-semibold text-sm text-zinc-950 group-hover:text-emerald-700 transition-colors mb-2">Best Countries Overall</h3>
+            <p className="text-xs leading-5 text-zinc-500">Multi-factor evaluation of the best countries for product managers.</p>
+          </a>
+        </div>
+      </section>
+
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10">
         <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">Country Rankings</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -457,14 +457,14 @@ export function SalaryIndexRenderer({ content }: SalaryIndexRendererProps) {
     <>
       <MobileToc items={content.toc} />
 
-      <div className="mt-6 lg:mt-0 lg:grid lg:grid-cols-[220px_1fr] lg:gap-10">
+      <div className={`mt-6 lg:mt-0 ${hasLeftSidebar ? 'lg:grid lg:grid-cols-[220px_1fr] lg:gap-10' : ''}`}>
         {hasLeftSidebar && (
           <aside className="hidden lg:block">
             <StickyToc items={content.toc} />
           </aside>
         )}
 
-        <div className="min-w-0 space-y-12">
+        <div className={`space-y-12 ${hasLeftSidebar ? 'min-w-0' : ''}`}>
           <Section id="hero">
             <HeroSection
               badge={content.hero.badge}

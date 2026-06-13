@@ -48,7 +48,7 @@ export default function Page() {
       { label: "Product Manager Salary UK", href: "/product-manager-salary-uk" },
       { label: "Product Manager Salary Canada", href: "/product-manager-salary-canada" },
       { label: "Product Manager Salary Australia", href: "/product-manager-salary-australia" },
-      { label: "Highest Paying Countries", href: "/product-manager-highest-paying-countries" },
+      { label: "Highest Paying Countries", href: "/highest-paying-countries-for-product-managers" },
     ],
   }
 

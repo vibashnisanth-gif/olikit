@@ -50,8 +50,11 @@ export default function Page() {
     ],
     relatedPages: [
       { label: "Product Manager Hub", href: "/product-manager" },
-      { label: "Highest Paying Countries", href: "/product-manager-highest-paying-countries" },
       { label: "Salary by Country", href: "/product-manager-salary-by-country" },
+      { label: "Tax-Adjusted Salary", href: "/product-manager-tax-adjusted-salary" },
+      { label: "PPP-Adjusted Salary", href: "/product-manager-ppp-adjusted-salary" },
+      { label: "Highest Paying Countries", href: "/highest-paying-countries-for-product-managers" },
+      { label: "Best Countries for PMs", href: "/best-countries-for-product-managers" },
     ],
   }
 

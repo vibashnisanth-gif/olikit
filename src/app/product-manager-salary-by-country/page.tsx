@@ -8,7 +8,7 @@ import type { ProfessionPageContent } from "@/types/profession-page"
 
 const pagePath = "/product-manager-salary-by-country"
 const seoTitle = "Product Manager Salary by Country (2026)"
-const seoDesc = "Compare product manager salaries by country in 2026. View average, entry-level, and experienced salaries across major economies."
+const seoDesc = "Compare product manager salaries by country in 2026. View average, entry-level, and experienced salaries for product managers across 7 major economies."
 
 export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
 
@@ -23,19 +23,19 @@ export default function Page() {
     hero: {
       badge: "Global Comparison",
       title: "Product Manager Salary by Country",
-      description: "Compare product manager salaries across major economies with detailed breakdowns by experience level.",
+      description: "Compare product manager salaries across 7 major economies. View average, entry-level, and experienced salaries side by side to make informed career decisions.",
     },
     salaryCards: [
       { label: "Countries", value: "7 Analyzed" },
-      { label: "Highest Average", value: "A$120,000 (AU)" },
-      { label: "High Growth Role", value: "20%+ demand increase" },
+      { label: "Highest Average", value: "$110,000 (US)" },
+      { label: "Wide Range", value: "$60K-$200K+" },
     ],
     salaryTable: {
       title: "Product Manager Salary by Country (2026)",
       headers: ["Country", "Average", "Entry Level", "Experienced", "Range"],
       rows: [
-        { country: "\u{1F1E6}\u{1F1FA} Australia", average: "A$120,000", entryLevel: "A$75,000", experienced: "A$170,000", range: "A$65K - A$200K" },
         { country: "\u{1F1FA}\u{1F1F8} United States", average: "$110,000", entryLevel: "$70,000", experienced: "$165,000", range: "$60K - $200K" },
+        { country: "\u{1F1E6}\u{1F1FA} Australia", average: "A$120,000", entryLevel: "A$75,000", experienced: "A$170,000", range: "A$65K - A$200K" },
         { country: "\u{1F1F3}\u{1F1FF} New Zealand", average: "NZ$95,000", entryLevel: "NZ$60,000", experienced: "NZ$135,000", range: "NZ$55K - NZ$160K" },
         { country: "\u{1F1E8}\u{1F1E6} Canada", average: "C$85,000", entryLevel: "C$55,000", experienced: "C$130,000", range: "C$48K - C$155K" },
         { country: "\u{1F1F8}\u{1F1EC} Singapore", average: "S$75,000", entryLevel: "S$45,000", experienced: "S$115,000", range: "S$38K - S$140K" },
@@ -43,13 +43,34 @@ export default function Page() {
         { country: "\u{1F1EE}\u{1F1F3} India", average: "\u20b920,00,000", entryLevel: "\u20b98,00,000", experienced: "\u20b935,00,000", range: "\u20b96L - \u20b945L" },
       ],
     },
+    proseSections: [
+      {
+        title: "Understanding Global Salary Differences",
+        paragraphs: [
+          "Product manager salaries vary significantly by country due to factors including market demand, cost of living, technology ecosystem maturity, and local economic conditions. The United States leads in nominal compensation driven by its large technology sector.",
+          "When comparing salaries across countries, consider tax burden, purchasing power, benefits, and career growth opportunities. Higher nominal salaries in expensive markets may not always translate to better real outcomes.",
+        ],
+      },
+    ],
+    countryCards: {
+      title: "Detailed Country Breakdown",
+      countries: [
+        { flag: "\u{1F1FA}\u{1F1F8}", name: "United States", slug: "us", summary: "Highest PM salaries globally. Average $110K.", metrics: [{ label: "Currency", value: "USD ($)" }, { label: "Tax Rate", value: "~22%" }] },
+        { flag: "\u{1F1E6}\u{1F1FA}", name: "Australia", slug: "au", summary: "Strong PM demand in tech and finance. Average A$120K.", metrics: [{ label: "Currency", value: "AUD (A$)" }, { label: "Tax Rate", value: "~25%" }] },
+        { flag: "\u{1F1F3}\u{1F1FF}", name: "New Zealand", slug: "nz", summary: "Growing tech PM market. Average NZ$95K.", metrics: [{ label: "Currency", value: "NZD (NZ$)" }, { label: "Tax Rate", value: "~25%" }] },
+        { flag: "\u{1F1E8}\u{1F1E6}", name: "Canada", slug: "ca", summary: "Growing tech hubs in Toronto and Vancouver. Average C$85K.", metrics: [{ label: "Currency", value: "CAD (C$)" }, { label: "Tax Rate", value: "~25%" }] },
+      ],
+    },
     faqs: [
-      { question: "Which country pays product managers the most?", answer: "Australia pays the highest average product manager salary at A$120,000, closely followed by the United States at $110,000." },
+      { question: "Which country pays product managers the most?", answer: "The United States pays the highest average product manager salary at $110,000, followed by Australia at A$120,000 and New Zealand at NZ$95,000." },
+      { question: "What is the entry-level product manager salary by country?", answer: "Entry-level salaries range from $70,000 (US) and A$75,000 (Australia) to \u00a332,000 (UK) and \u20b98,00,000 (India)." },
     ],
     relatedPages: [
       { label: "Product Manager Hub", href: "/product-manager" },
-      { label: "Highest Paying Countries", href: "/product-manager-highest-paying-countries" },
-      { label: "Product Manager Salary", href: "/product-manager-salary" },
+      { label: "Highest Paying Countries", href: "/highest-paying-countries-for-product-managers" },
+      { label: "Best Countries", href: "/best-countries-for-product-managers" },
+      { label: "Tax-Adjusted Salary", href: "/product-manager-tax-adjusted-salary" },
+      { label: "PPP-Adjusted Salary", href: "/product-manager-ppp-adjusted-salary" },
     ],
   }
 

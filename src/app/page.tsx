@@ -989,39 +989,82 @@ export default function GlobalHomePage() {
         <h2 className="mb-6 text-xl font-semibold text-zinc-950 sm:text-2xl">
           Explore Salaries by Profession
         </h2>
-        <div className="grid gap-6 lg:gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {popularProfessionCards.map((prof) => (
-            <a
-              key={prof.name}
-              href="/professions"
-              className="card-hover group rounded-lg border border-zinc-200 bg-white p-5 shadow-sm flex flex-col"
-            >
-              <h3 className="font-semibold text-zinc-950 group-hover:text-zinc-700 transition-colors">
-                {prof.name}
-              </h3>
-              <p className="mt-1 text-sm leading-6 text-zinc-600">
-                Government-sourced salary data
-              </p>
-              <div className="mt-2 space-y-0.5">
-                <p className="text-xs leading-5 text-zinc-500">
-                  Average salary available
-                </p>
-                <p className="text-xs leading-5 text-zinc-500">
-                  Compare countries
-                </p>
-                <p className="text-xs leading-5 text-zinc-500">
-                  Calculate taxes
-                </p>
-              </div>
-            </a>
-          ))}
+        <p className="mb-6 text-sm leading-6 text-zinc-600 max-w-2xl">
+          Dedicated career intelligence hubs for the most-requested professions. Each hub provides country-by-country salary data, tax analysis, and purchasing power comparisons.
+        </p>
+        <div className="grid gap-6 lg:gap-4 sm:grid-cols-3">
+          <a
+            href="/software-engineer"
+            className="card-hover group rounded-xl border border-zinc-200 bg-white p-6 shadow-sm flex flex-col"
+          >
+            <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-blue-200 self-start">
+              TECHNOLOGY
+            </span>
+            <h3 className="text-lg font-semibold text-zinc-950 group-hover:text-zinc-700 transition-colors">
+              Software Engineer
+            </h3>
+            <p className="mt-1.5 text-sm leading-6 text-zinc-600 flex-1">
+              Salaries, taxes, PPP-adjusted income, and career comparisons across 7 major economies.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-600">Salary by Country</span>
+              <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-600">Rankings</span>
+              <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-600">Comparisons</span>
+            </div>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 group-hover:text-emerald-700 transition-colors">
+              Explore Hub &rarr;
+            </span>
+          </a>
+          <a
+            href="/data-scientist"
+            className="card-hover group rounded-xl border border-zinc-200 bg-white p-6 shadow-sm flex flex-col"
+          >
+            <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-purple-50 px-3 py-1 text-xs font-semibold text-purple-700 ring-1 ring-purple-200 self-start">
+              DATA & AI
+            </span>
+            <h3 className="text-lg font-semibold text-zinc-950 group-hover:text-zinc-700 transition-colors">
+              Data Scientist
+            </h3>
+            <p className="mt-1.5 text-sm leading-6 text-zinc-600 flex-1">
+              Data science compensation, salary rankings, and career analysis across global markets.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-600">Salary by Country</span>
+              <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-600">Rankings</span>
+              <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-600">Comparisons</span>
+            </div>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 group-hover:text-emerald-700 transition-colors">
+              Explore Hub &rarr;
+            </span>
+          </a>
+          <a
+            href="/product-manager"
+            className="card-hover group rounded-xl border border-zinc-200 bg-white p-6 shadow-sm flex flex-col"
+          >
+            <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700 ring-1 ring-amber-200 self-start">
+              PRODUCT
+            </span>
+            <h3 className="text-lg font-semibold text-zinc-950 group-hover:text-zinc-700 transition-colors">
+              Product Manager
+            </h3>
+            <p className="mt-1.5 text-sm leading-6 text-zinc-600 flex-1">
+              Product management compensation benchmarks and salary data across countries.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-600">Salary by Country</span>
+              <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-600">Rankings</span>
+            </div>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 group-hover:text-emerald-700 transition-colors">
+              Explore Hub &rarr;
+            </span>
+          </a>
         </div>
         <div className="mt-6">
           <a
             href="/professions"
             className="inline-flex items-center gap-1 text-sm font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
           >
-            Explore All Professions &rarr;
+            Browse All Professions &rarr;
           </a>
         </div>
       </section>

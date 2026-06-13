@@ -144,9 +144,10 @@ export default function DataScientistVsProductManager() {
 
         <RelatedPagesSection
           pages={[
-            { label: "Data Scientist Hub", href: "/professions/data-scientist" },
+            { label: "Data Scientist Hub", href: "/data-scientist" },
             { label: "Data Scientist vs Software Engineer", href: "/data-scientist-vs-software-engineer" },
             { label: "Data Scientist vs Data Analyst", href: "/data-scientist-vs-data-analyst" },
+            { label: "Product Manager vs Data Scientist", href: "/product-manager-vs-data-scientist" },
             { label: "Data Scientist Salary Research 2026", href: "/research/data-scientist-salary-index-2026" },
             { label: "Highest Paying Countries for Data Scientists", href: "/rankings/highest-paying-countries-data-scientists" },
           ]}

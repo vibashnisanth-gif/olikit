@@ -597,7 +597,7 @@ export default function GlobalSalaryIndexPage() {
       { label: "Product Manager Hub", href: "/product-manager" },
       { label: "Highest Paying Countries (SE)", href: "/software-engineer-highest-paying-countries" },
       { label: "Highest Paying Countries (DS)", href: "/data-scientist-highest-paying-countries" },
-      { label: "Highest Paying Countries (PM)", href: "/product-manager-highest-paying-countries" },
+      { label: "Highest Paying Countries (PM)", href: "/highest-paying-countries-for-product-managers" },
       { label: "Professions Overview", href: "/professions" },
       { label: "Global Research Hub", href: "/research" },
     ],

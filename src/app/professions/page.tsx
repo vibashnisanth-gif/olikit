@@ -32,6 +32,54 @@ export default function ProfessionsPage() {
       </section>
 
       <section>
+        <h2 className="mb-4 text-xl font-semibold text-zinc-950">Career Intelligence Hubs</h2>
+        <p className="mb-6 text-sm leading-6 text-zinc-600 max-w-2xl">
+          Dedicated hubs for the most-requested professions with country-by-country salary data, tax analysis, rankings, and career comparisons.
+        </p>
+        <div className="grid gap-6 sm:grid-cols-3">
+          <a
+            href="/software-engineer"
+            className="card-hover group rounded-xl border border-zinc-200 bg-white p-6 shadow-sm"
+          >
+            <h3 className="text-lg font-semibold text-zinc-950 group-hover:text-zinc-700">Software Engineer</h3>
+            <p className="mt-2 text-sm leading-6 text-zinc-600">Salaries, taxes, PPP-adjusted income, and career comparisons across 7 major economies.</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Salary by Country</span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Rankings</span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Comparisons</span>
+            </div>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 group-hover:text-emerald-700">Explore Hub &rarr;</span>
+          </a>
+          <a
+            href="/data-scientist"
+            className="card-hover group rounded-xl border border-zinc-200 bg-white p-6 shadow-sm"
+          >
+            <h3 className="text-lg font-semibold text-zinc-950 group-hover:text-zinc-700">Data Scientist</h3>
+            <p className="mt-2 text-sm leading-6 text-zinc-600">Data science compensation, salary rankings, and career analysis across global markets.</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Salary by Country</span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Rankings</span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Comparisons</span>
+            </div>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 group-hover:text-emerald-700">Explore Hub &rarr;</span>
+          </a>
+          <a
+            href="/product-manager"
+            className="card-hover group rounded-xl border border-zinc-200 bg-white p-6 shadow-sm"
+          >
+            <h3 className="text-lg font-semibold text-zinc-950 group-hover:text-zinc-700">Product Manager</h3>
+            <p className="mt-2 text-sm leading-6 text-zinc-600">Product management compensation benchmarks and salary data across countries.</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Salary by Country</span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Rankings</span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Comparisons</span>
+            </div>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 group-hover:text-emerald-700">Explore Hub &rarr;</span>
+          </a>
+        </div>
+      </section>
+
+      <section>
         <h2 className="mb-4 text-xl font-semibold text-zinc-950">Popular Professions</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {professions.map((prof) => (

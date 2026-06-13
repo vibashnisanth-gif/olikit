@@ -29,6 +29,22 @@ export default function ResearchPage() {
       category: "Compensation",
     },
     {
+      title: "Data Scientist Salary Index 2026",
+      description: "Institutional research report on global data scientist compensation. Country-by-country analysis of base salaries, retained income, and purchasing power across 7 major economies.",
+      icon: "🤖",
+      href: "/research/data-scientist-salary-index-2026",
+      date: "2026",
+      category: "Compensation",
+    },
+    {
+      title: "Global Salary Index 2026",
+      description: "Comprehensive global salary index comparing average compensation across all tracked professions. Multi-country analysis with purchasing power parity adjustments.",
+      icon: "🌍",
+      href: "/research/global-salary-index-2026",
+      date: "2026",
+      category: "Compensation",
+    },
+    {
       title: "Global Salary Report",
       description: "Comprehensive analysis of salary benchmarks across major economies. Software engineer, doctor, teacher, nurse, and accountant salary comparisons with currency-adjusted data.",
       icon: "💰",

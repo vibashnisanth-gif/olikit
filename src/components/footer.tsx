@@ -28,7 +28,7 @@ export function Footer({ currentSlug }: Props) {
           </p>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
           <div>
             <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-900">Countries</h3>
             <ul className="space-y-1.5">
@@ -51,9 +51,20 @@ export function Footer({ currentSlug }: Props) {
           </div>
 
           <div>
+            <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-900">Professions</h3>
+            <ul className="space-y-1.5 text-sm text-zinc-700">
+              <li><a href="/software-engineer" className="transition-colors hover:text-zinc-950">Software Engineer</a></li>
+              <li><a href="/data-scientist" className="transition-colors hover:text-zinc-950">Data Scientist</a></li>
+              <li><a href="/product-manager" className="transition-colors hover:text-zinc-950">Product Manager</a></li>
+              <li><a href="/professions" className="transition-colors hover:text-zinc-950">All Professions</a></li>
+            </ul>
+          </div>
+
+          <div>
             <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-900">Research</h3>
             <ul className="space-y-1.5 text-sm text-zinc-700">
-              <li><a href="/compare" className="transition-colors hover:text-zinc-950">Global Comparisons</a></li>
+              <li><a href="/compare" className="transition-colors hover:text-zinc-950">Country Comparison Tool</a></li>
+              <li><a href="/comparisons" className="transition-colors hover:text-zinc-950">Salary Comparisons</a></li>
               <li><a href="/rankings" className="transition-colors hover:text-zinc-950">Global Rankings</a></li>
               <li><a href="/research" className="transition-colors hover:text-zinc-950">Global Research</a></li>
               <li><a href="/professions" className="transition-colors hover:text-zinc-950">Professions by Salary</a></li>
