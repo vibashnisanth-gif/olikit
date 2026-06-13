@@ -20,26 +20,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     "about", "contact", "privacy-policy", "terms", "disclaimer",
     "compare", "countries", "data-sources", "editorial-policy", "methodology",
-<<<<<<< Updated upstream
     "professions", "professions/software-engineer", "professions/data-scientist", "rankings", "research",
-=======
-    "professions", "professions/software-engineer", "rankings", "research",
     "software-engineer", "software-engineer-salary",
->>>>>>> Stashed changes
     "software-engineer-salary-us", "software-engineer-salary-uk",
     "software-engineer-salary-australia", "software-engineer-salary-canada",
     "software-engineer-salary-new-zealand", "software-engineer-salary-singapore",
     "software-engineer-salary-india",
-<<<<<<< Updated upstream
-    "data-scientist-salary-us", "data-scientist-salary-uk",
-    "data-scientist-salary-australia", "data-scientist-salary-canada",
-    "data-scientist-salary-new-zealand", "data-scientist-salary-singapore",
-    "data-scientist-salary-india",
-    "software-engineer-vs-data-scientist", "software-engineer-vs-product-manager",
-    "software-engineer-vs-cybersecurity-analyst",
-    "data-scientist-vs-software-engineer", "data-scientist-vs-product-manager",
-    "data-scientist-vs-data-analyst",
-=======
     "software-engineer-tax-adjusted-salary", "software-engineer-ppp-adjusted-salary",
     "software-engineer-highest-paying-countries", "software-engineer-best-countries",
     "software-engineer-salary-by-country",
@@ -49,10 +35,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "software-engineer-uk-vs-australia",
     "data-scientist", "data-scientist-salary",
     "data-scientist-salary-us", "data-scientist-salary-uk",
-    "data-scientist-salary-canada", "data-scientist-salary-australia",
+    "data-scientist-salary-australia", "data-scientist-salary-canada",
+    "data-scientist-salary-new-zealand", "data-scientist-salary-singapore",
+    "data-scientist-salary-india",
     "data-scientist-tax-adjusted-salary", "data-scientist-ppp-adjusted-salary",
     "data-scientist-highest-paying-countries", "data-scientist-best-countries",
     "data-scientist-salary-by-country",
+    "data-scientist-vs-software-engineer", "data-scientist-vs-product-manager",
+    "data-scientist-vs-data-analyst",
     "data-scientist-us-vs-uk", "data-scientist-us-vs-canada",
     "data-scientist-uk-vs-australia",
     "product-manager", "product-manager-salary",
@@ -60,13 +50,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "product-manager-salary-canada", "product-manager-salary-australia",
     "product-manager-highest-paying-countries",
     "product-manager-salary-by-country",
->>>>>>> Stashed changes
     "comparisons",
-    "software-engineer-us-vs-canada",
     "software-engineer-us-vs-australia",
-    "software-engineer-uk-vs-australia",
     "software-engineer-india-vs-singapore",
-    "software-engineer-us-vs-uk",
     "comparisons/data-scientist-us-vs-canada",
     "comparisons/data-scientist-us-vs-australia",
     "comparisons/data-scientist-uk-vs-australia",
@@ -79,12 +65,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "rankings/highest-paying-cities-data-scientists",
     "rankings/best-countries-for-data-scientists",
     "research/software-engineer-salary-index-2026",
-<<<<<<< Updated upstream
     "research/data-scientist-salary-index-2026",
-    "methodology/olikit-scoring-system",
-=======
     "research/global-salary-index-2026",
->>>>>>> Stashed changes
+    "methodology/olikit-scoring-system",
   ]
 
   entries.push({
