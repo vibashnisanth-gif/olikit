@@ -34,7 +34,7 @@ function getRate(from: CurrencyCode, to: CurrencyCode): number {
   const fromToUSD = BASE_RATES[from]
   const toToUSD = BASE_RATES[to]
   if (!fromToUSD || !toToUSD) return 1
-  return toToUSD / fromToUSD
+  return fromToUSD / toToUSD
 }
 
 export function convert(amount: number, from: CurrencyCode, to: CurrencyCode): number {
