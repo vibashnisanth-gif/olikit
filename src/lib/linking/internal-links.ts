@@ -136,7 +136,7 @@ export function getAllInternalLinks(
   ]
 }
 
-const PROFESSION_SITEMAP: Record<string, { hub: string; salary: string; taxAdjusted: string; pppAdjusted: string; highestPaying: string; bestCountries: string; salaryByCountry: string; comparisons: string[] }> = {
+const PROFESSION_SITEMAP: Record<string, { hub: string; salary: string; taxAdjusted: string; pppAdjusted: string; highestPaying: string; bestCountries: string; salaryByCountry: string; salaryIndex?: string; highestPayingCities?: string; comparisons: string[] }> = {
   "software-engineer": {
     hub: "/software-engineer",
     salary: "/software-engineer-salary",
@@ -173,6 +173,8 @@ const PROFESSION_SITEMAP: Record<string, { hub: string; salary: string; taxAdjus
     highestPaying: "/highest-paying-countries-for-product-managers",
     bestCountries: "/best-countries-for-product-managers",
     salaryByCountry: "/product-manager-salary-by-country",
+    salaryIndex: "/research/product-manager-salary-index-2026",
+    highestPayingCities: "/rankings/highest-paying-cities-product-managers",
     comparisons: [],
   },
 }
@@ -186,7 +188,7 @@ export function getProfessionLinks(slug: string): InternalLink[] {
     { label: `${ucFirst(slug.replace("-", " "))} Salary Overview`, href: info.salary, type: "content" as const },
   ]
 
-  for (const url of [info.taxAdjusted, info.pppAdjusted, info.highestPaying, info.bestCountries, info.salaryByCountry]) {
+  for (const url of [info.taxAdjusted, info.pppAdjusted, info.highestPaying, info.bestCountries, info.salaryByCountry, info.salaryIndex, info.highestPayingCities]) {
     if (url) {
       const label = url.split("/").pop()!.replace(/-/g, " ")
       links.push({ label: ucFirst(label), href: url, type: "content" as const })
@@ -205,6 +207,7 @@ export function getGlobalResearchLinks(): InternalLink[] {
   return [
     { label: "Global Salary Index 2026", href: "/research/global-salary-index-2026", type: "content" },
     { label: "Software Engineer Salary Index 2026", href: "/research/software-engineer-salary-index-2026", type: "content" },
+    { label: "Product Manager Salary Index 2026", href: "/research/product-manager-salary-index-2026", type: "content" },
     { label: "Research Hub", href: "/research", type: "content" },
     { label: "Professions Hub", href: "/professions", type: "content" },
   ]

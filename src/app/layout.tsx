@@ -42,12 +42,14 @@ export const metadata: Metadata = {
       "Global salary intelligence, research, and data-driven compensation comparisons across 7 countries. Make informed career and relocation decisions with transparent methodology.",
     url: SITE_URL,
     locale: "en_US",
+    images: [{ url: `${SITE_URL}/api/og?title=Global+Salary+Intelligence&type=website&year=2026`, width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Olikit — Global Salary Intelligence",
     description:
       "Global salary intelligence, research, and data-driven compensation comparisons across 7 countries.",
+    images: [`${SITE_URL}/api/og?title=Global+Salary+Intelligence&type=website&year=2026`],
   },
   other: process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID
     ? {

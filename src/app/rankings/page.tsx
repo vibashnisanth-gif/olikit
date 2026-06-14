@@ -191,6 +191,10 @@ export default function RankingsPage() {
             <h3 className="font-semibold text-sm text-zinc-950 group-hover:text-emerald-700 transition-colors mb-2">Best Countries Overall</h3>
             <p className="text-xs leading-5 text-zinc-500">Multi-factor evaluation of the best countries for product managers.</p>
           </a>
+          <a href="/rankings/highest-paying-cities-product-managers" className="group rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300">
+            <h3 className="font-semibold text-sm text-zinc-950 group-hover:text-emerald-700 transition-colors mb-2">Highest Paying Cities</h3>
+            <p className="text-xs leading-5 text-zinc-500">Global cities ranked by product manager compensation with cost of living context.</p>
+          </a>
         </div>
       </section>
 

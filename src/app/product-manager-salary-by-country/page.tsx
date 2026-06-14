@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { Shell } from "@/components/shell"
 import { ProfessionPageRenderer } from "@/components/profession-page"
 import { buildProfessionMetadata } from "@/lib/seo/profession-metadata"
-import { buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
+import { buildBreadcrumbJsonLd, buildArticleJsonLd } from "@/lib/seo/json-ld"
 import { SITE_URL } from "@/lib/seo/constants"
 import type { ProfessionPageContent } from "@/types/profession-page"
 
@@ -13,6 +13,8 @@ const seoDesc = "Compare product manager salaries by country in 2026. View avera
 export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
 
 export default function Page() {
+  const articleSchema = buildArticleJsonLd(seoTitle, seoDesc, pagePath, { code: "en", name: "English", slug: "en" } as any)
+
   const breadcrumbSchema = buildBreadcrumbJsonLd([
     { label: "Home", url: SITE_URL },
     { label: "Salary by Country", url: `${SITE_URL}${pagePath}` },
@@ -71,11 +73,14 @@ export default function Page() {
       { label: "Best Countries", href: "/best-countries-for-product-managers" },
       { label: "Tax-Adjusted Salary", href: "/product-manager-tax-adjusted-salary" },
       { label: "PPP-Adjusted Salary", href: "/product-manager-ppp-adjusted-salary" },
+      { label: "Highest Paying Cities", href: "/rankings/highest-paying-cities-product-managers" },
+      { label: "PM Salary Index 2026", href: "/research/product-manager-salary-index-2026" },
     ],
   }
 
   return (
     <Shell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <ProfessionPageRenderer content={content} />
     </Shell>

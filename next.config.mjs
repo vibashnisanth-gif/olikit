@@ -42,6 +42,11 @@ const nextConfig = {
         destination: "/software-engineer-us-vs-uk",
         permanent: true,
       },
+      {
+        source: "/product-manager-highest-paying-countries",
+        destination: "/highest-paying-countries-for-product-managers",
+        permanent: true,
+      },
     ]
   },
   async headers() {

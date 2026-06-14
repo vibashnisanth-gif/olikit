@@ -16,6 +16,7 @@ export function buildProfessionMetadata(
   description: string,
   path: string,
 ): Metadata {
+  const ogImage = { url: `${SITE_URL}/api/og?title=${encodeURIComponent(title)}&type=website&year=2026`, width: 1200, height: 630 }
   return {
     title,
     description,
@@ -26,11 +27,13 @@ export function buildProfessionMetadata(
       url: `${SITE_URL}${path}`,
       siteName: "Olikit",
       type: "website",
+      images: [ogImage],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [ogImage.url],
     },
     robots: { index: true, follow: true },
   }

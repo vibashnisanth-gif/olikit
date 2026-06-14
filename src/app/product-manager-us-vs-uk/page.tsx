@@ -23,11 +23,12 @@ const COUNTRY_B = { flag: "\u{1F1EC}\u{1F1E7}", name: "United Kingdom", slug: "u
 const pagePath = "/product-manager-us-vs-uk"
 
 export const metadata: Metadata = {
-  title: "Product Manager US vs UK: Salary & Career Comparison (2026)",
+  title: "Product Manager US vs UK (2026) Salary Comparison",
   description: "Compare product manager salaries, taxes, cost of living, and career opportunities between the United States and the United Kingdom. Data-driven analysis for informed career decisions.",
   alternates: { canonical: `${SITE_URL}${pagePath}` },
+  robots: { index: true, follow: true },
   openGraph: {
-    title: "Product Manager US vs UK: Salary & Career Comparison (2026) | Olikit",
+    title: "Product Manager US vs UK (2026) Comparison | Olikit",
     description: "Detailed comparison of product manager careers in the US vs UK. Salary, tax, cost of living, and opportunity analysis.",
     url: `${SITE_URL}${pagePath}`,
     siteName: "Olikit",
@@ -205,9 +206,15 @@ export default function USvsUKPage() {
             { label: "Product Manager Hub", href: "/product-manager" },
             { label: "Product Manager Salary US", href: "/product-manager-salary-us" },
             { label: "Product Manager Salary UK", href: "/product-manager-salary-uk" },
+            { label: "Salary by Country", href: "/product-manager-salary-by-country" },
+            { label: "Tax-Adjusted Salary", href: "/product-manager-tax-adjusted-salary" },
+            { label: "PPP-Adjusted Salary", href: "/product-manager-ppp-adjusted-salary" },
             { label: "Product Manager US vs Canada", href: "/product-manager-us-vs-canada" },
             { label: "Product Manager UK vs Australia", href: "/product-manager-uk-vs-australia" },
             { label: "Highest Paying Countries", href: "/highest-paying-countries-for-product-managers" },
+            { label: "Best Countries for PMs", href: "/best-countries-for-product-managers" },
+            { label: "Highest Paying Cities", href: "/rankings/highest-paying-cities-product-managers" },
+            { label: "PM Salary Index 2026", href: "/research/product-manager-salary-index-2026" },
           ]}
         />
       </div>

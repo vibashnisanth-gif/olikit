@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { Shell } from "@/components/shell"
 import { ProfessionPageRenderer } from "@/components/profession-page"
 import { buildProfessionMetadata } from "@/lib/seo/profession-metadata"
-import { buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
+import { buildBreadcrumbJsonLd, buildArticleJsonLd } from "@/lib/seo/json-ld"
 import { SITE_URL } from "@/lib/seo/constants"
 import type { ProfessionPageContent } from "@/types/profession-page"
 import { getProfession } from "@/lib/content/professions-data"
@@ -24,6 +24,13 @@ function formatSalary(value: number, slug: string): string {
 }
 
 export default function ProductManagerHubPage() {
+  const articleSchema = buildArticleJsonLd(
+    "Product Manager Salary & Career Intelligence (2026)",
+    "Research product manager salaries across 7 major economies. Compare compensation by country, analyze career paths, and make informed career decisions.",
+    pagePath,
+    { code: "en", name: "English", slug: "en" } as any,
+  )
+
   const breadcrumbSchema = buildBreadcrumbJsonLd([
     { label: "Home", url: SITE_URL },
     { label: "Product Manager", url: `${SITE_URL}${pagePath}` },
@@ -92,12 +99,15 @@ export default function ProductManagerHubPage() {
       { label: "PM US vs UK", href: "/product-manager-us-vs-uk" },
       { label: "PM US vs Canada", href: "/product-manager-us-vs-canada" },
       { label: "PM UK vs Australia", href: "/product-manager-uk-vs-australia" },
+      { label: "PM Salary Index 2026", href: "/research/product-manager-salary-index-2026" },
+      { label: "Highest Paying Cities", href: "/rankings/highest-paying-cities-product-managers" },
       { label: "Global Research", href: "/research" },
     ],
   }
 
   return (
     <Shell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <ProfessionPageRenderer content={content} />
     </Shell>

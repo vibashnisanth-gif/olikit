@@ -45,6 +45,14 @@ export default function ResearchPage() {
       category: "Compensation",
     },
     {
+      title: "Product Manager Salary Index 2026",
+      description: "Research report analyzing product manager salaries across 7 major economies. Includes salary rankings, purchasing power analysis, and detailed country profiles.",
+      icon: "📋",
+      href: "/research/product-manager-salary-index-2026",
+      date: "2026",
+      category: "Compensation",
+    },
+    {
       title: "Global Salary Report",
       description: "Comprehensive analysis of salary benchmarks across major economies. Software engineer, doctor, teacher, nurse, and accountant salary comparisons with currency-adjusted data.",
       icon: "💰",

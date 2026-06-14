@@ -74,6 +74,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "research/software-engineer-salary-index-2026",
     "research/data-scientist-salary-index-2026",
     "research/global-salary-index-2026",
+    "research/product-manager-salary-index-2026",
+    "rankings/highest-paying-cities-product-managers",
     "methodology/olikit-scoring-system",
   ]
 
