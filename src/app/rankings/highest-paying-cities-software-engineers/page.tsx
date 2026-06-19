@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     siteName: "Olikit",
     type: "article",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Highest Paying Cities for Software Engineers (2026) | Olikit Research",
+    description: "Research on the highest paying cities for software engineers. Compare city-level compensation, cost of living, tax environments, and purchasing power across global technology hubs.",
+  },
 }
 
 const quickAnswers = [

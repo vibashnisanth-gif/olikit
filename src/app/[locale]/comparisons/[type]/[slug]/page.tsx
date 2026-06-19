@@ -176,7 +176,7 @@ export default async function ComparisonPage({ params }: Props) {
           </section>
         )}
 
-        <AdUnit slot="1234567895" format="horizontal" />
+        <AdUnit slot="COMPARISON_PAGE_SLOT" format="horizontal" />
 
         <NewsletterSignup locale={localeSlug} source={`profession-compare-${slug}`} variant="banner" />
 
@@ -233,12 +233,12 @@ export default async function ComparisonPage({ params }: Props) {
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="rounded-lg border border-blue-200 bg-blue-50 px-5 py-4">
           <p className="text-xs font-semibold uppercase tracking-wider text-blue-600">{content.localeA.name}</p>
-          <p className="mt-1 text-lg font-bold text-zinc-900">{content.localeA.name}</p>
+          <p className="mt-1 text-lg font-bold text-zinc-900">{content.comparisonTable[0]?.valueA ?? content.localeA.name}</p>
           {content.regionA && <p className="text-sm text-zinc-600">Region: {content.regionA.name}</p>}
         </div>
         <div className="rounded-lg border border-indigo-200 bg-indigo-50 px-5 py-4">
           <p className="text-xs font-semibold uppercase tracking-wider text-indigo-600">{content.localeB.name}</p>
-          <p className="mt-1 text-lg font-bold text-zinc-900">{content.localeB.name}</p>
+          <p className="mt-1 text-lg font-bold text-zinc-900">{content.comparisonTable[0]?.valueB ?? content.localeB.name}</p>
           {content.regionB && <p className="text-sm text-zinc-600">Region: {content.regionB.name}</p>}
         </div>
       </div>
@@ -324,7 +324,7 @@ export default async function ComparisonPage({ params }: Props) {
         </div>
       </section>
 
-      <AdUnit slot="1234567895" format="horizontal" />
+      <AdUnit slot="COMPARISON_BOTTOM_SLOT" format="horizontal" />
 
       <LastUpdated />
       <SourceFooter localeSlug={locale.slug} />

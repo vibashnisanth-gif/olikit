@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { Shell } from "@/components/shell"
+import { FAQSection } from "@/components/faq-section"
 
 const COUNTRY = { slug: "uk", name: "United Kingdom", flag: "\u{1F1EC}\u{1F1E7}", currency: "\u00a3", taxAuthority: "HM Revenue & Customs (HMRC)" }
 const SALARY = { average: 55000, entryLevel: 30000, experienced: 85000 }
@@ -10,11 +11,36 @@ export const metadata: Metadata = {
   description: "Research software engineer salaries in the United Kingdom. Compare compensation across experience levels, understand taxes and evaluate purchasing power.",
   alternates: { canonical: `${SITE_URL}/software-engineer-salary-${COUNTRY.slug}` },
   openGraph: { title: "Software Engineer Salary in the United Kingdom", description: "Research software engineer salaries in the United Kingdom." },
+  twitter: { card: "summary_large_image", title: "Software Engineer Salary in the United Kingdom", description: "Research software engineer salaries in the United Kingdom." },
 }
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Software Engineer Salary in the United Kingdom",
+  description: "Research software engineer salaries in the United Kingdom. Compare compensation across experience levels, understand taxes and evaluate purchasing power.",
+  url: `${SITE_URL}/software-engineer-salary-uk`,
+  datePublished: "2026-01-15",
+  dateModified: new Date().toISOString().split("T")[0],
+  author: { "@type": "Organization", name: "Olikit", url: SITE_URL },
+  publisher: { "@type": "Organization", name: "Olikit", url: SITE_URL },
+  mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/software-engineer-salary-uk` },
+}
+
+const faqData = [
+  { question: "What is the average software engineer salary in the United Kingdom?", answer: "The average software engineer salary in the United Kingdom is approximately £55,000 per year. Entry-level positions start around £30,000, while experienced engineers earn up to £85,000 or more. London commands a significant premium over other UK cities, with senior roles at financial technology companies often exceeding £120,000 including bonuses." },
+  { question: "How do UK software engineer salaries compare to the United States?", answer: "UK software engineer salaries are substantially lower than US equivalents on an absolute basis. A UK software engineer earning £55,000 earns approximately 46% of the US average ($120,000 at current exchange rates). However, when factoring in benefits such as the National Health Service, pension auto-enrolment and stronger employment protections, the effective compensation gap narrows." },
+  { question: "How much more does London pay compared to other UK cities?", answer: "London software engineer salaries are typically 20-40% higher than other UK cities. A senior engineer in London might earn £90,000-£120,000, while the same role in Manchester, Edinburgh or Cambridge might pay £65,000-£85,000. However, London's significantly higher housing costs and commuting expenses should be factored into any comparison." },
+  { question: "How do taxes and National Insurance affect UK software engineer take-home pay?", answer: "UK software engineers pay income tax and National Insurance contributions. For a £55,000 salary, the effective tax rate is approximately 23-25% including National Insurance. Higher-rate (40%) tax applies to earnings above £50,270. Scotland has slightly different tax bands. Pension contributions through salary sacrifice can reduce tax liability while building retirement savings." },
+  { question: "What are the growing tech hubs outside London?", answer: "Manchester, Edinburgh, Cambridge and Bristol have emerged as significant UK technology hubs outside London. Manchester has a particularly strong digital and tech scene with lower operating costs. Cambridge benefits from the university's deep tech ecosystem. Edinburgh offers growing fintech and software opportunities with high quality of life." },
+  { question: "What is the state of the UK tech scene in 2026?", answer: "The UK technology sector remains one of Europe's largest, with particular strength in fintech, artificial intelligence, enterprise software and gaming. London continues to attract substantial venture capital investment, while regional tech hubs are growing rapidly. The UK government's focus on becoming a science and technology superpower has driven increased investment in digital infrastructure." },
+  { question: "What is work-life balance like for UK software engineers?", answer: "UK software engineers generally enjoy strong work-life balance compared to US peers. Typical working hours are 37.5-40 hours per week with 25-30 days annual leave plus public holidays. Remote and hybrid working arrangements remain common. Statutory protections including parental leave, sick pay and the right to request flexible working provide a strong employment framework." },
+]
 
 export default function SoftwareEngineerUK() {
   return (
-    <Shell>
+    <Shell localeSlug="uk">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <div className="space-y-12">
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
           <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">{COUNTRY.flag} {COUNTRY.name} &mdash; Salary Intelligence</p>
@@ -55,7 +81,7 @@ export default function SoftwareEngineerUK() {
             <table className="w-full text-sm"><thead><tr className="bg-zinc-50"><th className="px-4 py-3 text-left font-medium text-zinc-700">Level</th><th className="px-4 py-3 text-left font-medium text-zinc-700">Experience</th><th className="px-4 py-3 text-right font-medium text-zinc-700">Annual Salary</th></tr></thead>
             <tbody>
               <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Entry Level</td><td className="px-4 py-3 text-zinc-500">0\u20132 Years</td><td className="px-4 py-3 text-right text-zinc-950">{COUNTRY.currency}{SALARY.entryLevel.toLocaleString()}</td></tr>
-              <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Mid Level</td><td className="px-4 py-3 text-zinc-500">3\u20137 Years</td><td className="px-4 py-3 text-right text-zinc-950">{COUNTRY.currency}{(SALARY.average + SALARY.experienced / 2).toLocaleString()}</td></tr>
+              <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Mid Level</td><td className="px-4 py-3 text-zinc-500">3\u20137 Years</td><td className="px-4 py-3 text-right text-zinc-950">{COUNTRY.currency}{((SALARY.average + SALARY.experienced) / 2).toLocaleString()}</td></tr>
               <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Senior</td><td className="px-4 py-3 text-zinc-500">8\u201315 Years</td><td className="px-4 py-3 text-right text-zinc-950">{COUNTRY.currency}{SALARY.experienced.toLocaleString()}</td></tr>
             </tbody></table>
           </div>
@@ -71,6 +97,11 @@ export default function SoftwareEngineerUK() {
             <a href="/rankings" className="rounded-md bg-zinc-100 px-3 py-1.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Global Rankings</a>
           </div>
         </section>
+
+        <FAQSection
+          title="Frequently Asked Questions"
+          faqs={faqData}
+        />
       </div>
     </Shell>
   )

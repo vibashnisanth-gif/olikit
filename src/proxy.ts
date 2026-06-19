@@ -41,7 +41,10 @@ function buildHreflangHeader(pathname: string | undefined): string {
     )
   }
 
-  const defaultPath = currentPath.replace(COUNTRY_SLUG_PATTERN, "/")
+  let defaultPath = currentPath.replace(COUNTRY_SLUG_PATTERN, "/")
+  if (defaultPath.startsWith("/salary/")) {
+    defaultPath = defaultPath.replace("/salary/", "/professions/")
+  }
   links.push(
     `<${X_DEFAULT_URL}${defaultPath}>; rel="alternate"; hreflang="x-default"`
   )

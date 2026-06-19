@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { Shell } from "@/components/shell"
+import { FAQSection } from "@/components/faq-section"
 
 const COUNTRY = { slug: "nz", name: "New Zealand", flag: "\u{1F1F3}\u{1F1FF}", currency: "NZ$", taxAuthority: "Inland Revenue (IRD)" }
 const SALARY = { average: 95000, entryLevel: 55000, experienced: 140000 }
@@ -10,11 +11,36 @@ export const metadata: Metadata = {
   description: "Research software engineer salaries in New Zealand. Compare compensation across experience levels, understand taxes and evaluate purchasing power.",
   alternates: { canonical: `${SITE_URL}/software-engineer-salary-new-zealand` },
   openGraph: { title: "Software Engineer Salary in New Zealand", description: "Research software engineer salaries in New Zealand." },
+  twitter: { card: "summary_large_image", title: "Software Engineer Salary in New Zealand", description: "Research software engineer salaries in New Zealand." },
 }
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Software Engineer Salary in New Zealand",
+  description: "Research software engineer salaries in New Zealand. Compare compensation across experience levels, understand taxes and evaluate purchasing power.",
+  url: `${SITE_URL}/software-engineer-salary-new-zealand`,
+  datePublished: "2026-01-15",
+  dateModified: new Date().toISOString().split("T")[0],
+  author: { "@type": "Organization", name: "Olikit", url: SITE_URL },
+  publisher: { "@type": "Organization", name: "Olikit", url: SITE_URL },
+  mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/software-engineer-salary-new-zealand` },
+}
+
+const faqData = [
+  { question: "What is the average software engineer salary in New Zealand?", answer: "The average software engineer salary in New Zealand is approximately NZ$95,000 per year. Entry-level positions start around NZ$55,000, while experienced engineers earn up to NZ$140,000 or more. Auckland generally commands the highest salaries, followed by Wellington and Christchurch." },
+  { question: "How do New Zealand software engineer salaries compare to Australia and the US?", answer: "New Zealand software engineer salaries are competitive regionally but lower than both the US and Australia. An NZ engineer earning NZ$95,000 earns approximately 66% of the US average ($120,000) and about 86% of the Australian average (A$110,000) at market exchange rates. However, New Zealand's lifestyle benefits and manageable pace of life are significant compensating factors." },
+  { question: "Which New Zealand city offers the best opportunities for software engineers?", answer: "Auckland offers the largest technology job market and highest salaries in New Zealand, driven by its concentration of financial services, gaming and enterprise technology companies. Wellington has a strong government technology sector and growing startup ecosystem. Christchurch offers lower housing costs with emerging technology opportunities." },
+  { question: "How do housing costs affect software engineers in New Zealand?", answer: "Housing affordability is a significant consideration for New Zealand software engineers. Auckland's median house price exceeds NZ$1 million, creating challenges for even well-paid engineers. Wellington and Christchurch offer more affordable options. The housing shortage in major centres has driven increased remote work adoption and interest in regional locations." },
+  { question: "What are the immigration pathways for software engineers in New Zealand?", answer: "New Zealand offers the Skilled Migrant Category visa and the Green List pathway for software engineers, which provides a streamlined residence pathway. Software engineering is classified as a Green List occupation, making it eligible for direct residence after two years. The Accredited Employer Work Visa (AEWV) provides an initial pathway for employment." },
+  { question: "What is work-life balance like for New Zealand software engineers?", answer: "New Zealand is renowned for its exceptional work-life balance. Standard working hours are 37.5-40 per week with four weeks annual leave. The culture emphasizes outdoor recreation and family time. Remote work is widely accepted, and many technology companies offer flexible arrangements that allow engineers to enjoy New Zealand's natural environment." },
+  { question: "How is New Zealand's technology sector growing for software engineers?", answer: "New Zealand's technology sector has experienced steady growth, with particular strength in agritech, gaming, fintech and health technology. The government's Digital Technology Industry Transformation Plan supports sector growth. Increasing venture capital investment and international recognition of New Zealand startups have created expanding opportunities for software engineers." },
+]
 
 export default function SoftwareEngineerNZ() {
   return (
-    <Shell>
+    <Shell localeSlug="nz">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <div className="space-y-12">
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
           <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">{COUNTRY.flag} {COUNTRY.name} &mdash; Salary Intelligence</p>
@@ -55,7 +81,7 @@ export default function SoftwareEngineerNZ() {
             <table className="w-full text-sm"><thead><tr className="bg-zinc-50"><th className="px-4 py-3 text-left font-medium text-zinc-700">Level</th><th className="px-4 py-3 text-left font-medium text-zinc-700">Experience</th><th className="px-4 py-3 text-right font-medium text-zinc-700">Annual Salary</th></tr></thead>
             <tbody>
               <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Entry Level</td><td className="px-4 py-3 text-zinc-500">0\u20132 Years</td><td className="px-4 py-3 text-right text-zinc-950">{COUNTRY.currency}{SALARY.entryLevel.toLocaleString()}</td></tr>
-              <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Mid Level</td><td className="px-4 py-3 text-zinc-500">3\u20137 Years</td><td className="px-4 py-3 text-right text-zinc-950">{COUNTRY.currency}{(SALARY.average + SALARY.experienced / 2).toLocaleString()}</td></tr>
+              <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Mid Level</td><td className="px-4 py-3 text-zinc-500">3\u20137 Years</td><td className="px-4 py-3 text-right text-zinc-950">{COUNTRY.currency}{((SALARY.average + SALARY.experienced) / 2).toLocaleString()}</td></tr>
               <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Senior</td><td className="px-4 py-3 text-zinc-500">8\u201315 Years</td><td className="px-4 py-3 text-right text-zinc-950">{COUNTRY.currency}{SALARY.experienced.toLocaleString()}</td></tr>
             </tbody></table>
           </div>
@@ -71,6 +97,11 @@ export default function SoftwareEngineerNZ() {
             <a href="/rankings" className="rounded-md bg-zinc-100 px-3 py-1.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Global Rankings</a>
           </div>
         </section>
+
+        <FAQSection
+          title="Frequently Asked Questions"
+          faqs={faqData}
+        />
       </div>
     </Shell>
   )

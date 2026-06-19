@@ -338,7 +338,7 @@ export default async function ProfessionPage({ params }: Props) {
 
           <NewsletterSignup locale={localeSlug} source={`profession-sidebar-${professionSlug}`} variant="sidebar" />
 
-          <AdUnit slot="1234567893" format="rectangle" className="hidden md:block" />
+          <AdUnit slot="PROFESSION_SALARY_SLOT" format="rectangle" className="hidden md:block" />
 
           <div className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
             <h3 className="mb-3 font-semibold text-zinc-950">Other Countries</h3>

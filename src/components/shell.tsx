@@ -10,14 +10,14 @@ import { Breadcrumbs } from "./breadcrumbs"
 import { CookieConsent } from "./cookie-consent"
 import { PageTracker } from "@/lib/analytics/page-tracker"
 
-export function Shell({ children }: { children: React.ReactNode }) {
+export function Shell({ children, localeSlug }: { children: React.ReactNode; localeSlug?: string }) {
   const pathname = usePathname()
-  const slug = pathname?.split("/")[1] || null
+  const slug = localeSlug ?? (pathname?.split("/")[1] || null)
   const country = slug ? getCountry(slug) : null
 
   return (
     <div className="flex flex-col min-h-full">
-      <ContextBar slug={country?.slug ?? null} name={country?.name ?? null} currencyCode="" taxAuthority="" />
+      <ContextBar slug={country?.slug ?? null} name={country?.name ?? null} currencyCode={country?.currencyCode ?? ""} taxAuthority={country?.taxAuthority ?? ""} />
       <PageTracker />
       <Header currentSlug={country?.slug ?? null} />
       <main className="flex-1 mx-auto w-full max-w-6xl px-4 py-8 sm:py-10">

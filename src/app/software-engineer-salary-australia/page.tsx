@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { Shell } from "@/components/shell"
+import { FAQSection } from "@/components/faq-section"
 
 const COUNTRY = { slug: "au", name: "Australia", flag: "\u{1F1E6}\u{1F1FA}", currency: "A$", taxAuthority: "Australian Taxation Office (ATO)" }
 const SALARY = { average: 110000, entryLevel: 65000, experienced: 160000 }
@@ -10,11 +11,36 @@ export const metadata: Metadata = {
   description: "Research software engineer salaries in Australia. Compare compensation across experience levels, understand taxes and evaluate purchasing power.",
   alternates: { canonical: `${SITE_URL}/software-engineer-salary-australia` },
   openGraph: { title: "Software Engineer Salary in Australia", description: "Research software engineer salaries in Australia." },
+  twitter: { card: "summary_large_image", title: "Software Engineer Salary in Australia", description: "Research software engineer salaries in Australia." },
 }
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Software Engineer Salary in Australia",
+  description: "Research software engineer salaries in Australia. Compare compensation across experience levels, understand taxes and evaluate purchasing power.",
+  url: `${SITE_URL}/software-engineer-salary-australia`,
+  datePublished: "2026-01-15",
+  dateModified: new Date().toISOString().split("T")[0],
+  author: { "@type": "Organization", name: "Olikit", url: SITE_URL },
+  publisher: { "@type": "Organization", name: "Olikit", url: SITE_URL },
+  mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/software-engineer-salary-australia` },
+}
+
+const faqData = [
+  { question: "What is the average software engineer salary in Australia?", answer: "The average software engineer salary in Australia is approximately A$110,000 per year. Entry-level positions start around A$65,000, while experienced engineers earn up to A$160,000 or more. Sydney and Melbourne generally command the highest salaries, driven by demand from financial services and technology companies." },
+  { question: "How do Australian software engineer salaries compare to the US and UK?", answer: "Australian software engineer salaries sit between the US and UK on a global scale. A US engineer earning $120,000 earns approximately 1.8x the Australian average of A$110,000. However, Australian salaries exceed UK levels, with the average A$110,000 approximately 1.6x the UK average of £55,000 when converted. Superannuation and universal healthcare add significant non-salary value." },
+  { question: "Which Australian city pays software engineers the highest salary?", answer: "Sydney generally offers the highest software engineering salaries in Australia, followed by Melbourne and Brisbane. Sydney's finance and technology sectors drive higher compensation, though housing costs are also the highest nationally. Melbourne offers competitive salaries with slightly lower living costs, while Brisbane and Perth offer growing technology opportunities with more affordable housing." },
+  { question: "How does superannuation add to total compensation for Australian engineers?", answer: "Australian employers must contribute 11.5% superannuation on top of salary, adding significant long-term value. For an engineer earning A$110,000, this means an additional A$12,650 in retirement savings annually. Superannuation is taxed concessionally at 15%, making it a powerful wealth-building tool that should be factored into total compensation comparisons." },
+  { question: "How do housing costs affect purchasing power for Australian software engineers?", answer: "Housing costs in Sydney and Melbourne are among the highest globally relative to local incomes. A software engineer earning the average A$110,000 in Sydney faces median property prices of over A$1.4 million, creating significant housing affordability challenges. Brisbane, Perth and Adelaide offer more attainable housing while still providing competitive technology salaries." },
+  { question: "What are the immigration pathways for software engineers in Australia?", answer: "Australia offers several skilled migration pathways for software engineers, including the Skilled Independent Visa (subclass 189), Skilled Nominated Visa (190), and Temporary Skill Shortage Visa (482). Software engineering appears on the Medium and Long-term Strategic Skills List, making it eligible for permanent residency pathways and various state nomination programs." },
+  { question: "What is work-life balance like for Australian software engineers?", answer: "Australian software engineers enjoy strong work-life balance with typical 38-hour work weeks, four weeks annual leave and generous public holidays. The culture emphasizes work-life balance, with remote and flexible work arrangements widely accepted. The outdoor lifestyle and natural environment are significant quality-of-life advantages for technology professionals." },
+]
 
 export default function SoftwareEngineerAU() {
   return (
-    <Shell>
+    <Shell localeSlug="au">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <div className="space-y-12">
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
           <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">{COUNTRY.flag} {COUNTRY.name} &mdash; Salary Intelligence</p>
@@ -55,7 +81,7 @@ export default function SoftwareEngineerAU() {
             <table className="w-full text-sm"><thead><tr className="bg-zinc-50"><th className="px-4 py-3 text-left font-medium text-zinc-700">Level</th><th className="px-4 py-3 text-left font-medium text-zinc-700">Experience</th><th className="px-4 py-3 text-right font-medium text-zinc-700">Annual Salary</th></tr></thead>
             <tbody>
               <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Entry Level</td><td className="px-4 py-3 text-zinc-500">0\u20132 Years</td><td className="px-4 py-3 text-right text-zinc-950">{COUNTRY.currency}{SALARY.entryLevel.toLocaleString()}</td></tr>
-              <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Mid Level</td><td className="px-4 py-3 text-zinc-500">3\u20137 Years</td><td className="px-4 py-3 text-right text-zinc-950">{COUNTRY.currency}{(SALARY.average + SALARY.experienced / 2).toLocaleString()}</td></tr>
+              <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Mid Level</td><td className="px-4 py-3 text-zinc-500">3\u20137 Years</td><td className="px-4 py-3 text-right text-zinc-950">{COUNTRY.currency}{((SALARY.average + SALARY.experienced) / 2).toLocaleString()}</td></tr>
               <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Senior</td><td className="px-4 py-3 text-zinc-500">8\u201315 Years</td><td className="px-4 py-3 text-right text-zinc-950">{COUNTRY.currency}{SALARY.experienced.toLocaleString()}</td></tr>
             </tbody></table>
           </div>
@@ -71,6 +97,11 @@ export default function SoftwareEngineerAU() {
             <a href="/rankings" className="rounded-md bg-zinc-100 px-3 py-1.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Global Rankings</a>
           </div>
         </section>
+
+        <FAQSection
+          title="Frequently Asked Questions"
+          faqs={faqData}
+        />
       </div>
     </Shell>
   )

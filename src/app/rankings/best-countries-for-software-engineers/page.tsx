@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     siteName: "Olikit",
     type: "article",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Countries for Software Engineers (2026) | Olikit Research",
+    description: "Multi-factor evaluation of countries for software engineers. Compare salary, taxation, purchasing power, immigration pathways, career growth, and technology ecosystem strength across 7 major economies.",
+  },
 }
 
 const quickAnswers = [

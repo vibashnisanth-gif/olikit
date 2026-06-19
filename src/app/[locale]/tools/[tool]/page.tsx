@@ -196,7 +196,7 @@ export default async function ToolPage({ params }: Props) {
 
           <NewsletterSignup locale={locale.slug} source="tool-sidebar" variant="sidebar" />
 
-          <AdUnit slot="1234567890" format="rectangle" className="hidden md:block" />
+          <AdUnit slot="TOOL_PAGE_SLOT" format="rectangle" className="hidden md:block" />
 
           <div className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
             <h3 className="mb-3 font-semibold text-zinc-950">Related Guide</h3>

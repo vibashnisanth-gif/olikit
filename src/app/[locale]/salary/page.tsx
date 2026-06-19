@@ -90,7 +90,7 @@ export default async function SalaryHubPage(props: { params: Promise<{ locale: s
           </p>
         </section>
 
-        <AdUnit slot="1234567897" format="horizontal" />
+        <AdUnit slot="SALARY_HUB_SLOT" format="horizontal" />
 
         {content.sections.map((section, i) => (
           <section key={i}>

@@ -10,7 +10,7 @@ import { costOfLivingData } from "@/lib/content/state-expansion"
 import { glossaryEntries } from "@/lib/content/glossary"
 import { getLatestUpdates } from "@/lib/content/updates"
 import { getLastUpdated } from "@/lib/seo/freshness"
-import { buildLocalBusinessJsonLd, buildOrganizationJsonLd } from "@/lib/seo/json-ld"
+import { buildWebSiteJsonLd, buildOrganizationJsonLd } from "@/lib/seo/json-ld"
 import { getAllCountries } from "@/lib/content/country-registry"
 
 type Props = { params: Promise<{ locale: string }> }
@@ -717,7 +717,7 @@ export default async function LocalePage({ params }: Props) {
   const name = locale.name
   const states = locale.states
   const latestUpdates = getLatestUpdates(3)
-  const websiteJsonLd = buildLocalBusinessJsonLd(locale)
+  const websiteJsonLd = buildWebSiteJsonLd(locale)
   const orgJsonLd = buildOrganizationJsonLd(locale)
   const content = COUNTRY_CONTENT[slug]
   const countries = getAllCountries()

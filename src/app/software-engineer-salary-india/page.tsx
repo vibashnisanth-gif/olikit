@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { Shell } from "@/components/shell"
+import { FAQSection } from "@/components/faq-section"
 
 const COUNTRY = { slug: "in", name: "India", flag: "\u{1F1EE}\u{1F1F3}", currency: "\u20b9", taxAuthority: "Income Tax Department of India" }
 const SALARY = { average: 1200000, entryLevel: 400000, experienced: 2500000 }
@@ -15,11 +16,36 @@ export const metadata: Metadata = {
   description: "Research software engineer salaries in India. Compare compensation across experience levels, understand taxes and evaluate purchasing power across major technology hubs.",
   alternates: { canonical: `${SITE_URL}/software-engineer-salary-india` },
   openGraph: { title: "Software Engineer Salary in India", description: "Research software engineer salaries in India." },
+  twitter: { card: "summary_large_image", title: "Software Engineer Salary in India", description: "Research software engineer salaries in India." },
 }
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Software Engineer Salary in India",
+  description: "Research software engineer salaries in India. Compare compensation across experience levels, understand taxes and evaluate purchasing power across major technology hubs.",
+  url: `${SITE_URL}/software-engineer-salary-india`,
+  datePublished: "2026-01-15",
+  dateModified: new Date().toISOString().split("T")[0],
+  author: { "@type": "Organization", name: "Olikit", url: SITE_URL },
+  publisher: { "@type": "Organization", name: "Olikit", url: SITE_URL },
+  mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/software-engineer-salary-india` },
+}
+
+const faqData = [
+  { question: "What is the average software engineer salary in India?", answer: "The average software engineer salary in India is approximately ₹12,00,000 per year. Entry-level positions start around ₹4,00,000, while experienced engineers earn up to ₹25,00,000 or more. Bengaluru, Hyderabad and Pune-Gurgaon command the highest salaries, driven by demand from global capability centres and product companies." },
+  { question: "Which Indian city offers the highest software engineer salaries?", answer: "Bengaluru generally offers the highest software engineering salaries in India, followed by Hyderabad and Gurgaon. Bengaluru's concentration of global technology companies and startups creates strong demand for engineering talent. Hyderabad has emerged as a competitive market with lower living costs, while Gurgaon serves the Delhi-NCR technology corridor." },
+  { question: "How does purchasing power for Indian software engineers compare globally?", answer: "Indian software engineers benefit from significantly lower living costs compared to developed economies, resulting in competitive purchasing power. An engineer earning ₹12,00,000 in Bengaluru enjoys a lifestyle comparable to earning significantly more in US or European cities. When adjusted for purchasing power parity, Indian software engineer compensation is highly competitive globally." },
+  { question: "How do the Old and New tax regimes affect Indian software engineer take-home pay?", answer: "India offers two tax regimes. The Old regime allows deductions and exemptions (HRA, 80C, 80D) and is beneficial for those with significant investments and housing costs. The New regime offers lower rates but fewer deductions. For a ₹12,00,000 salary, the New regime typically results in lower taxes. The choice depends on individual investment patterns and housing situation." },
+  { question: "What is the job growth outlook for software engineers in India?", answer: "The job outlook for software engineers in India remains exceptionally strong, with the technology sector growing at 8-10% annually. Demand is particularly high in artificial intelligence, cloud computing, cybersecurity and product development. India's digital transformation and the expansion of global capability centres continue to drive substantial hiring across all experience levels." },
+  { question: "What is the difference between working at GCCs versus Indian product companies?", answer: "Global Capability Centres (GCCs) of multinational corporations typically offer higher salaries, better work infrastructure and exposure to global engineering practices. Indian product companies offer faster career growth, more ownership and equity opportunities. Both sectors provide strong career development, with GCCs offering international mobility and product companies offering entrepreneurial experience." },
+  { question: "What is the career velocity for software engineers in India?", answer: "Career velocity in Indian technology is among the fastest globally. Engineers can progress from entry-level to senior positions within 5-7 years, with corresponding salary growth of 15-25% annually through job switches. The combination of a large talent pool, high demand and competitive dynamics between companies drives rapid career advancement for high-performing engineers." },
+]
 
 export default function SoftwareEngineerIN() {
   return (
-    <Shell>
+    <Shell localeSlug="in">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <div className="space-y-12">
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
           <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">{COUNTRY.flag} {COUNTRY.name} &mdash; Salary Intelligence</p>
@@ -76,6 +102,11 @@ export default function SoftwareEngineerIN() {
             <a href="/rankings" className="rounded-md bg-zinc-100 px-3 py-1.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Global Rankings</a>
           </div>
         </section>
+
+        <FAQSection
+          title="Frequently Asked Questions"
+          faqs={faqData}
+        />
       </div>
     </Shell>
   )

@@ -4,6 +4,8 @@ import { getProfession } from "@/lib/content/professions-data"
 import { COUNTRY_FLAGS, COUNTRY_NAMES } from "@/lib/content/country-registry"
 import { SITE_URL } from "@/lib/seo/constants"
 import { Shell } from "@/components/shell"
+import { FAQSection } from "@/components/faq-section"
+import { buildFaqJsonLd, buildArticleJsonLd } from "@/lib/seo/json-ld"
 
 const se = getProfession("software-engineer")!
 
@@ -56,6 +58,11 @@ export const metadata: Metadata = {
     siteName: "Olikit",
     locale: "en-US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Software Engineer Salary, Career Growth and Compensation Intelligence",
+    description: "Compare software engineer salaries across countries and evaluate career progression. Research compensation, taxes, and purchasing power.",
   },
 }
 
@@ -113,6 +120,20 @@ const relatedProfessions = [
 export default function SoftwareEngineerHub() {
   return (
     <Shell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+  __html: JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "Software Engineer Salary, Career Growth and Compensation Intelligence",
+    description: "Research software engineer salaries, compare compensation across countries, evaluate career progression and understand how taxes and cost of living affect take-home earnings.",
+    url: "https://www.olikit.com/professions/software-engineer",
+    datePublished: "2026-01-15",
+    dateModified: new Date().toISOString().split("T")[0],
+    author: { "@type": "Organization", name: "Olikit", url: "https://www.olikit.com" },
+    publisher: { "@type": "Organization", name: "Olikit", url: "https://www.olikit.com" },
+    mainEntityOfPage: { "@type": "WebPage", "@id": "https://www.olikit.com/professions/software-engineer" },
+  })
+}} />
       <div className="space-y-16">
         {/* HERO */}
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
@@ -361,6 +382,19 @@ export default function SoftwareEngineerHub() {
             </a>
           </div>
         </section>
+        <FAQSection
+          title="Frequently Asked Questions"
+          faqs={[
+            { question: "What is the average software engineer salary globally?", answer: "Software engineer salaries vary significantly by country and experience level. The United States offers the highest average salary at approximately $120,000 per year for mid-level engineers. Other major markets include Australia (A$110,000), Canada (C$85,000), the United Kingdom (£55,000), Singapore (S$72,000), New Zealand (NZ$95,000), and India (₹12,00,000). Entry-level salaries are typically 40-60% of the average, while experienced engineers earn 1.5-2x the average." },
+            { question: "Which country pays software engineers the highest salary?", answer: "The United States generally offers the highest absolute software engineering salaries, driven by venture capital density, a culture of equity compensation, and high demand across technology hubs. Senior software engineers at major US technology companies can earn total compensation packages exceeding $300,000 including equity. However, taxes, healthcare costs, and living expenses in major US cities significantly affect net take-home pay." },
+            { question: "How does purchasing power affect software engineer compensation?", answer: "Purchasing Power Parity (PPP) is critical when comparing salaries across countries. A software engineer earning ₹12,00,000 in India may achieve a higher standard of living than an engineer earning $120,000 in San Francisco, due to dramatically lower housing and service costs. Our country-specific salary pages include purchasing power analysis to provide a complete financial picture." },
+            { question: "What experience level earns the most as a software engineer?", answer: "Staff and Principal Engineers with 15+ years of experience earn the highest compensation, particularly at major technology companies where total compensation can exceed $500,000. Senior engineers (8-15 years) typically earn 1.5-2x mid-level compensation. The largest salary jumps often occur when moving from mid-level to senior, and from senior to staff." },
+            { question: "Is software engineering still a good career in 2026?", answer: "Software engineering remains one of the strongest professional careers globally. Demand continues across all major economies, driven by digital transformation, artificial intelligence adoption, and the growing reliance on software across industries. While the market has normalized after the pandemic boom, skilled engineers continue to command strong salaries and excellent career mobility." },
+            { question: "How do taxes affect software engineer take-home pay?", answer: "Taxes significantly affect real earnings. Engineers in high-tax jurisdictions like the UK, Canada, and Australia may lose 30-40% of gross income to progressive taxation. In contrast, Singapore's effective tax rate for mid-level engineers is approximately 7-11%, and some US states like Texas and Washington have no state income tax. Our salary calculators provide accurate net income estimates for each country." },
+            { question: "What is the best country for software engineer career growth?", answer: "The United States offers the strongest career growth potential for software engineers, with the highest concentration of venture capital, hyperscale technology companies, and senior individual contributor tracks. Canada and Australia offer excellent work-life balance alongside strong career opportunities. India provides the fastest career velocity in terms of responsibility and promotion speed." },
+            { question: "Do software engineers earn more than other tech professions?", answer: "Software engineers generally earn competitive salaries compared to other technology professions. Product managers earn similar compensation at senior levels. Data scientists often earn slightly more at the entry level but comparable mid-career salaries. Cybersecurity analysts earn competitive salaries with strong growth. DevOps and machine learning engineers often earn premiums over general software engineering roles." },
+          ]}
+        />
       </div>
     </Shell>
   )

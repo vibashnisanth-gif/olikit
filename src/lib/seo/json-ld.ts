@@ -98,7 +98,7 @@ export function buildProductJsonLd(
   }
 }
 
-export function buildLocalBusinessJsonLd(
+export function buildWebSiteJsonLd(
   locale: Locale,
   subRegion?: SubRegion
 ): JsonLd {
@@ -239,7 +239,7 @@ export function buildAggregateJsonLd(
       { label: "Home", url: `${SITE_URL}/${locale.slug}` },
       { label: tool.name, url: `${SITE_URL}${path}` },
     ]),
-    buildLocalBusinessJsonLd(locale),
+    buildWebSiteJsonLd(locale),
     buildSpeakableJsonLd(),
   ]
 

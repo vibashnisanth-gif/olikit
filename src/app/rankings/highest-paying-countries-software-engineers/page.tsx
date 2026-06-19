@@ -18,6 +18,11 @@ export const metadata: Metadata = {
     siteName: "Olikit",
     type: "article",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Highest Paying Countries for Software Engineers (2026) | Olikit Research",
+    description: "Definitive 2026 research on the highest paying countries for software engineers. Compare qualitative compensation, tax environments, and purchasing power parity.",
+  },
 }
 
 const quickAnswers = [
