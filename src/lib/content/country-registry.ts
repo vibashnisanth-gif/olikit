@@ -157,6 +157,9 @@ export const USD_EXCHANGE_RATES: Record<string, number> = {
   sgd: 0.74,
 }
 
+// Note: Exchange rates are static. They should be periodically reviewed.
+// Last updated: 2026-01-15. Staleness may affect purchasing power comparisons.
+
 export function toUSD(amount: number, currencyCode: string): number {
   const rate = USD_EXCHANGE_RATES[currencyCode.toLowerCase()]
   if (!rate) return amount

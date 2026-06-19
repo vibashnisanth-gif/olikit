@@ -701,11 +701,17 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ locale: locale.slug }))
 }
 
+const THIN_LOCALES = new Set(["nz", "in", "sg"])
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: localeSlug } = await params
   const locale = getLocale(localeSlug)
   if (!locale) return {}
-  return buildMetadata(locale, null, `/${locale.slug}`)
+  const metadata = buildMetadata(locale, null, `/${locale.slug}`)
+  if (THIN_LOCALES.has(localeSlug)) {
+    return { ...metadata, robots: { index: false, follow: true } }
+  }
+  return metadata
 }
 
 export default async function LocalePage({ params }: Props) {

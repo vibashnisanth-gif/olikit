@@ -4,6 +4,7 @@ import { useState, useMemo, useCallback } from 'react'
 import { getCalculatorConfig } from '@/lib/calculator-registry'
 import type { CalculatorField, ResultGroup } from '@/lib/calculator-registry'
 import { CalculatorShare } from '@/components/calculator-share'
+import { getLocale } from '@/lib/seo/locales'
 
 const CURRENCY_SYMBOLS: Record<string, string> = {
   us: '$',
@@ -93,11 +94,14 @@ function ResultCard({ group }: { group: ResultGroup }) {
 export function CalculatorInteractive({ toolSlug, localeSlug }: Props) {
   const config = getCalculatorConfig(toolSlug)
   const currencySymbol = CURRENCY_SYMBOLS[localeSlug] ?? '$'
-  const locale = useMemo(() => ({
-    slug: localeSlug,
-    code: localeSlug === 'uk' ? 'en-GB' : `en-${localeSlug.toUpperCase()}`,
-    currencySymbol,
-  }), [localeSlug, currencySymbol])
+  const locale = useMemo(() => {
+    const localeData = getLocale(localeSlug)
+    return {
+      slug: localeSlug,
+      code: localeData?.code ?? `en-${localeSlug.toUpperCase()}`,
+      currencySymbol,
+    }
+  }, [localeSlug, currencySymbol])
 
   const initialValues = useMemo(() => {
     if (!config) return {}
