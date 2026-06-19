@@ -1,0 +1,65 @@
+URL,Type,Severity,Confidence,Action,Reason
+/,Static Static homepage,None,High,KEEP,Full content with salary snapshot, tools, guides, research, FAQ
+/about,Static About page,None,High,KEEP,Trust page — proper content
+/contact,Static Contact page,None,High,KEEP,Trust page — proper content
+/privacy-policy,Static Privacy page,None,High,KEEP,Trust page — proper content
+/terms,Static Terms page,None,High,KEEP,Trust page — proper content
+/disclaimer,Static Disclaimer page,None,High,KEEP,Trust page — proper content
+/editorial-policy,Static Editorial policy,None,High,KEEP,Trust page — proper content
+/methodology,Static Methodology page,None,High,KEEP,Trust page — proper content
+/data-sources,Static Data sources,None,High,KEEP,Trust page — proper content
+/countries,Static Countries hub,None,High,KEEP,Hub page
+/professions,Static Professions hub,None,High,KEEP,Hub page
+/professions/software-engineer,Static Profession hub,None,High,KEEP,Full authority content
+/compare,Static Compare tool,None,High,KEEP,Interactive tool
+/rankings,Static Rankings hub,None,High,KEEP,Hub page
+/rankings/best-countries-for-software-engineers,Static Ranking page,None,High,KEEP,Full content
+/rankings/highest-paying-cities-software-engineers,Static Ranking page,None,High,KEEP,Full content
+/rankings/highest-paying-countries-software-engineers,Static Ranking page,None,High,KEEP,Full content
+/research,Static Research hub,None,High,KEEP,Hub page — proper content
+/research/software-engineer-salary-index-2026,Static Research report,None,High,KEEP,Full research content
+/software-engineer-salary-us,Static Country salary,P0,High,FIX,Mid-level calc bug — wrong operator precedence
+/software-engineer-salary-uk,Static Country salary,None,High,KEEP,Correct content
+/software-engineer-salary-canada,Static Country salary,None,High,KEEP,Correct content
+/software-engineer-salary-australia,Static Country salary,None,High,KEEP,Correct content
+/software-engineer-salary-new-zealand,Static Country salary,None,High,KEEP,Correct content
+/software-engineer-salary-india,Static Country salary,None,High,KEEP,Correct content
+/software-engineer-salary-singapore,Static Country salary,None,High,KEEP,Correct content
+/software-engineer-vs-data-scientist,Static Comparison,P0,High,FIX,Uses Shell — broken locale detection
+/software-engineer-vs-product-manager,Static Comparison,P0,High,FIX,Uses Shell — broken locale detection
+/software-engineer-vs-cybersecurity-analyst,Static Comparison,P0,High,FIX,Uses Shell — broken locale detection
+/[locale]/,Locale Homepage.us,None,High,KEEP,Full content for US locale
+/[locale]/,Locale Homepage.uk,None,High,KEEP,Full content for UK locale
+/[locale]/,Locale Homepage.au,None,High,KEEP,Full content for AU locale
+/[locale]/,Locale Homepage.ca,None,High,KEEP,Full content for CA locale
+/[locale]/,Locale Homepage.nz,P2,Medium,NOINDEX,Thin content — missing 7 sections vs primary locales
+/[locale]/,Locale Homepage.in,P2,Medium,NOINDEX,Thin content — missing 9 sections vs primary locales
+/[locale]/,Locale Homepage.sg,P2,Medium,NOINDEX,Thin content — missing 9 sections vs primary locales
+/[locale]/salary/,Locale Salary hub,None,High,KEEP,Hub page with full content
+/[locale]/salary/[profession],Locale Profession salary,P1,High,FIX,geneateStaticParams generates 404 combos for missing locale×profession data
+/[locale]/tools/,Locale Tools hub,None,High,KEEP,Hub page
+/[locale]/tools/[tool],Locale Tool page,None,High,KEEP,Interactive calculator with full content
+/[locale]/tools/[tool]/compare,Locale Tool compare,P2,Medium,NOINDEX,Requires ?with= query param; empty initial state
+/[locale]/comparisons/,Locale Comparisons hub,None,High,KEEP,Hub page
+/[locale]/comparisons/[type]/[slug],Locale Comparison detail,P0,High,FIX,Card shows locale name twice instead of salary value
+/[locale]/rankings/,Locale Rankings hub,None,High,KEEP,Hub page
+/[locale]/research/,Locale Research hub,None,High,KEEP,Hub page
+/[locale]/research/[report],Locale Research report,None,High,KEEP,Full content
+/[locale]/guides/,Locale Guides hub,None,High,KEEP,Hub page
+/[locale]/guides/[guide],Locale Guide detail,None,High,KEEP,Full content
+/[locale]/guides/best,Locale Best guides,None,High,KEEP,Full content
+/[locale]/states/,Locale States hub,None,High,KEEP,Hub page
+/[locale]/state/[subregion],Locale State detail,None,High,KEEP,Full content
+/[locale]/state/[subregion]/[tool],Locale State tool,None,High,KEEP,Full content
+/[locale]/best-states-for-salary/,Locale Best states,P2,Medium,KEEP,Only CA has state-specific data; other states generic
+/[locale]/best-states-for-cost-of-living/,Locale Best COL,P2,Medium,KEEP,Gearic content for non-CA states
+/[locale]/best-states-for-home-affordability/,Locale Best afford,P2,Medium,KEEP,Gearic content for non-CA states
+/[locale]/best-states-for-retirement/,Locale Best retirement,P2,Medium,KEEP,Gearic content for non-CA states
+/[locale]/average-salary/[state],Locale State avg salary,P2,Medium,KEEP,Gearic content for non-CA states
+/[locale]/cost-of-living/[state],Locale State COL,P2,Medium,KEEP,Gearic content for non-CA states
+/[locale]/salary-vs-cost-of-living/[state],Locale State salary vs COL,P2,Medium,KEEP,Gearic content for non-CA states
+/[locale]/financial-data/,Locale Financial data,None,High,KEEP,Hub page
+/[locale]/glossary/,Locale Glossary hub,None,High,KEEP,Hub page — 10 entries
+/[locale]/glossary/[entry],Locale Glossary entry,None,High,KEEP,Full content — 10 entries
+/[locale]/search/,Locale Search,None,High,KEEP,Client-side search
+/[locale]/updates/,Locale Updates,None,High,KEEP,Changelog — 7 entries
