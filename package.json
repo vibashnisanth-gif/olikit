@@ -14,8 +14,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "next": "16.2.6",
-    "opencode-ponytail": "^4.7.3",
+    "playwright": "^1.60.0",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },

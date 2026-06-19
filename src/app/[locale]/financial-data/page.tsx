@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: "Financial Data Library - Olikit",
     description: "Access verified financial data including average salaries, cost of living indices, tax rates, mortgage data, minimum wages, and property tax rates. All data sourced from official government publications.",
     alternates: { canonical: `${SITE_URL}/${locale.slug}/financial-data` },
+    robots: { index: false, follow: true },
     openGraph: { title: "Financial Data Library - Olikit", description: "Verified financial data from official government sources.", url: `${SITE_URL}/${locale.slug}/financial-data`, siteName: "Olikit", type: "website" },
   }
 }

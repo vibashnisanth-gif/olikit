@@ -2,75 +2,54 @@
 
 import { useState } from "react"
 
-function AccordionItem({
-  question,
-  answer,
-  isOpen,
-  onToggle,
-}: {
-  question: string
-  answer: string
-  isOpen: boolean
-  onToggle: () => void
-}) {
-  return (
-    <div className="border-b border-zinc-100 last:border-b-0">
-      <h3>
-        <button
-          type="button"
-          onClick={onToggle}
-          aria-expanded={isOpen}
-          className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-base font-semibold text-zinc-950 transition-colors hover:text-zinc-700 sm:px-6 sm:py-5"
-        >
-          <span>{question}</span>
-          <svg
-            className={`h-4 w-4 shrink-0 text-zinc-400 transition-transform duration-200 ${
-              isOpen ? "rotate-180" : ""
-            }`}
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-      </h3>
-      <div
-        className={`overflow-hidden transition-all duration-200 ${
-          isOpen ? "max-h-96 px-5 pb-5 sm:px-6" : "max-h-0 px-5 sm:px-6"
-        }`}
-      >
-        <p className="text-sm leading-6 text-zinc-500">{answer}</p>
-      </div>
-    </div>
-  )
-}
-
-const faqs = [
-  { q: "What is Olikit?", a: "Olikit is a salary, tax, take-home pay and cost-of-living platform that helps users compare financial outcomes across multiple countries using calculators, compensation data and government-sourced information." },
-  { q: "How does Olikit calculate salaries?", a: "Salary benchmarks are derived from labor statistics, compensation studies and publicly available employment datasets where available." },
-  { q: "How does Olikit calculate taxes?", a: "Tax calculations use official tax brackets, rates and thresholds published by the relevant tax authorities for each supported country." },
-  { q: "Which countries does Olikit cover?", a: "Olikit provides country-specific salary, tax and compensation information for the United States, United Kingdom, Australia, Canada, India, New Zealand and Singapore." },
-  { q: "Is Olikit free to use?", a: "Yes. All calculators, salary comparisons, guides and research content are available free of charge." },
-  { q: "How often is the data updated?", a: "Tax datasets are reviewed whenever governments publish updates. Salary and compensation datasets are reviewed periodically as new public information becomes available." },
-  { q: "Can I compare countries?", a: "Yes. Olikit provides comparison tools and research designed to help users understand differences in salaries, taxation and affordability between countries." },
-  { q: "Where does Olikit get its data?", a: "Olikit uses public information from government tax authorities, labor statistics agencies and official economic datasets." },
-]
-
-export function FaqAccordion() {
+export function FAQAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
+  const faqs = [
+    { q: "How is salary calculated?", a: "Salary data is collected from government labor statistics, industry surveys, and compensation databases." },
+    { q: "How often is data updated?", a: "Salary data is reviewed and updated quarterly to reflect the latest market conditions." },
+    { q: "Which countries are covered?", a: "We cover 7 countries: US, UK, Australia, Canada, New Zealand, India, and Singapore." },
+    { q: "Does salary include bonuses?", a: "Base salary figures shown do not include bonuses, equity, or benefits unless specifically noted." },
+    { q: "How is tax calculated?", a: "Tax calculations include federal/national income tax, state/provincial tax, and mandatory social contributions." },
+    { q: "What is purchasing power parity?", a: "PPP adjusts salaries for local price levels to compare real purchasing power across countries." },
+    { q: "Are calculators free?", a: "Yes, all calculators and tools on Olikit are completely free to use." },
+    { q: "How is cost of living measured?", a: "Cost of living data is sourced from Numbeo and OECD indices comparing major cities." },
+  ]
+
   return (
-    <div className="divide-y divide-zinc-100 rounded-lg border border-zinc-200">
+    <div className="divide-y divide-border-light rounded-xl border border-border-light bg-surface-primary">
       {faqs.map((faq, i) => (
-        <AccordionItem
-          key={i}
-          question={faq.q}
-          answer={faq.a}
-          isOpen={openIndex === i}
-          onToggle={() => setOpenIndex(openIndex === i ? null : i)}
-        />
+        <div key={i}>
+          <button
+            onClick={() => setOpenIndex(openIndex === i ? null : i)}
+            className="flex w-full items-center justify-between gap-4 px-6 py-4 text-left text-base font-semibold text-text-primary transition-colors duration-150 hover:bg-surface-muted sm:px-6 sm:py-5"
+            aria-expanded={openIndex === i}
+          >
+            <span>{faq.q}</span>
+            <svg
+              className={`h-4 w-4 shrink-0 text-text-muted transition-transform duration-200 ${
+                openIndex === i ? "rotate-180" : ""
+              }`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div
+            className={`grid transition-all duration-200 ease-out ${
+              openIndex === i ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+            }`}
+          >
+            <div className="overflow-hidden">
+              <div className="px-6 pb-5 sm:px-6">
+                <p className="text-sm leading-6 text-text-secondary">{faq.a}</p>
+              </div>
+            </div>
+          </div>
+        </div>
       ))}
     </div>
   )

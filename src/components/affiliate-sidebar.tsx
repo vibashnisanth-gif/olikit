@@ -30,7 +30,7 @@ export function AffiliateSidebar({ countrySlug, toolCategory, toolName }: Props)
           </a>
         ))}
       </div>
-      <p className="mt-3 text-xs text-zinc-400">
+      <p className="mt-3 text-xs text-zinc-500">
         If you sign up through these links, we may earn a commission.
       </p>
     </div>

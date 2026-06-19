@@ -1,23 +1,9 @@
 import type { Metadata } from "next"
 import { locales } from "@/lib/seo/locales"
 import { professions, getProfession } from "@/lib/content/professions-data"
+import { COUNTRY_FLAGS } from "@/lib/content/country-registry"
 import { Shell } from "@/components/shell"
-
-const CURRENCY_SYMBOLS: Record<string, string> = {
-  us: "$", uk: "£", au: "A$", ca: "C$", nz: "NZ$", in: "₹", sg: "S$",
-}
-
-const COUNTRY_FLAGS: Record<string, string> = {
-  us: "🇺🇸", uk: "🇬🇧", au: "🇦🇺", ca: "🇨🇦", nz: "🇳🇿", in: "🇮🇳", sg: "🇸🇬",
-}
-
-function formatSalary(amount: number, countrySlug: string): string {
-  const symbol = CURRENCY_SYMBOLS[countrySlug] || "$"
-  if (countrySlug === "in") {
-    return `${symbol}${(amount / 100000).toFixed(1)}L`
-  }
-  return `${symbol}${amount.toLocaleString()}`
-}
+import { formatSalaryBySlug } from "@/lib/currency"
 
 export const metadata: Metadata = {
   title: "Browse Professions by Salary",
@@ -43,6 +29,54 @@ export default function ProfessionsPage() {
         <p className="mt-4 max-w-2xl text-lg leading-8 text-zinc-600">
           Compare salaries for popular professions across major economies. Find salary data for technology, healthcare, finance, education, engineering, and trades.
         </p>
+      </section>
+
+      <section>
+        <h2 className="mb-4 text-xl font-semibold text-zinc-950">Career Intelligence Hubs</h2>
+        <p className="mb-6 text-sm leading-6 text-zinc-600 max-w-2xl">
+          Dedicated hubs for the most-requested professions with country-by-country salary data, tax analysis, rankings, and career comparisons.
+        </p>
+        <div className="grid gap-6 sm:grid-cols-3">
+          <a
+            href="/software-engineer"
+            className="card-hover group rounded-xl border border-zinc-200 bg-white p-6 shadow-sm"
+          >
+            <h3 className="text-lg font-semibold text-zinc-950 group-hover:text-zinc-700">Software Engineer</h3>
+            <p className="mt-2 text-sm leading-6 text-zinc-600">Salaries, taxes, PPP-adjusted income, and career comparisons across 7 major economies.</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Salary by Country</span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Rankings</span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Comparisons</span>
+            </div>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 group-hover:text-emerald-700">Explore Hub &rarr;</span>
+          </a>
+          <a
+            href="/data-scientist"
+            className="card-hover group rounded-xl border border-zinc-200 bg-white p-6 shadow-sm"
+          >
+            <h3 className="text-lg font-semibold text-zinc-950 group-hover:text-zinc-700">Data Scientist</h3>
+            <p className="mt-2 text-sm leading-6 text-zinc-600">Data science compensation, salary rankings, and career analysis across global markets.</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Salary by Country</span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Rankings</span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Comparisons</span>
+            </div>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 group-hover:text-emerald-700">Explore Hub &rarr;</span>
+          </a>
+          <a
+            href="/product-manager"
+            className="card-hover group rounded-xl border border-zinc-200 bg-white p-6 shadow-sm"
+          >
+            <h3 className="text-lg font-semibold text-zinc-950 group-hover:text-zinc-700">Product Manager</h3>
+            <p className="mt-2 text-sm leading-6 text-zinc-600">Product management compensation benchmarks and salary data across countries.</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Salary by Country</span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Rankings</span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Comparisons</span>
+            </div>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 group-hover:text-emerald-700">Explore Hub &rarr;</span>
+          </a>
+        </div>
       </section>
 
       <section>
@@ -85,8 +119,8 @@ export default function ProfessionsPage() {
                     </a>
                   </td>
                   <td className="px-4 py-3 text-zinc-500 capitalize">{prof.id}</td>
-                  <td className="px-4 py-3 text-right font-medium text-zinc-950">
-                    {formatSalary(prof.salaries.us.average, "us")}
+                  <td className="px-4 py-3 text-right font-medium text-zinc-950 tabular-nums">
+                    {formatSalaryBySlug(prof.salaries.us.average, "us", { showCode: true })}
                   </td>
                 </tr>
               ))}
@@ -111,7 +145,7 @@ export default function ProfessionsPage() {
                       href={`/${loc.slug}/salary/${prof.slug}`}
                       className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-700 hover:bg-zinc-200 hover:text-zinc-950 transition-colors"
                     >
-                      {COUNTRY_FLAGS[loc.slug]} {loc.name}: {formatSalary(salary.average, loc.slug)}
+                      {COUNTRY_FLAGS[loc.slug]} {loc.name}: {formatSalaryBySlug(salary.average, loc.slug, { showCode: true })}
                     </a>
                   ) : null
                 })}

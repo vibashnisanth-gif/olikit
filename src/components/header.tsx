@@ -122,14 +122,14 @@ export function Header({ currentSlug }: Props) {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="rounded-md px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-100"
+                  className="rounded-md px-4 py-3 text-sm font-medium text-zinc-700 hover:bg-zinc-100"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
                 </a>
               ))}
               <div className="mt-2 border-t border-zinc-100 pt-3">
-                <p className="px-3 pb-2 text-xs font-semibold uppercase tracking-wider text-zinc-400">
+                <p className="px-3 pb-2 text-xs font-semibold uppercase tracking-wider text-zinc-500">
                   Countries
                 </p>
                 <div className="px-3">

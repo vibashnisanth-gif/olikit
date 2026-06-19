@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #18181b;
+  --background: #ffffff;
+  --foreground: #111827;
 }
 
 @theme inline {
@@ -10,6 +10,32 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-surface-primary: #ffffff;
+  --color-surface-secondary: #f8fbff;
+  --color-surface-tertiary: #f6fbf8;
+  --color-surface-muted: #fafafa;
+
+  --color-border-light: #e5e7eb;
+  --color-border-medium: #d1d5db;
+  --color-border-strong: #9ca3af;
+
+  --color-text-primary: #111827;
+  --color-text-secondary: #4b5563;
+  --color-text-muted: #6b7280;
+
+  --color-profession-tech-bg: #eaf8f1;
+  --color-profession-tech-border: #cdeedc;
+  --color-profession-healthcare-bg: #fff1e8;
+  --color-profession-healthcare-border: #ffd8c2;
+  --color-profession-finance-bg: #fff8e1;
+  --color-profession-finance-border: #ffe8a3;
+  --color-profession-research-bg: #f3eeff;
+  --color-profession-research-border: #ddd1ff;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -26,4 +52,85 @@ input,
 select,
 button {
   font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.card-hover {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.btn-primary {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.btn-primary:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+.btn-primary:active {
+  transform: scale(0.99);
+}
+
+.btn-secondary {
+  transition: transform 200ms ease, border-color 200ms ease, background-color 200ms ease;
+}
+.btn-secondary:hover {
+  transform: scale(1.01);
+  border-color: #9ca3af;
+  background-color: #f9fafb;
+}
+
+tr.row-hover {
+  transition: background-color 150ms ease;
+}
+tr.row-hover:hover {
+  background-color: #f9fafb;
+}
+
+.faq-accordion {
+  transition: max-height 200ms ease, opacity 200ms ease;
+}
+.faq-chevron {
+  transition: transform 200ms ease;
+}
+.faq-chevron.open {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-hover:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .btn-primary:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .btn-secondary:hover {
+    transform: none;
+  }
+  tr.row-hover:hover {
+    background-color: transparent;
+  }
 }

@@ -21,6 +21,38 @@ export default function ResearchPage() {
 
   const reports = [
     {
+      title: "Software Engineer Salary Index 2026",
+      description: "Flagship research report analyzing software engineer salaries across 7 major economies. Includes salary rankings, purchasing power analysis, and detailed country profiles.",
+      icon: "📈",
+      href: "/research/software-engineer-salary-index-2026",
+      date: "2026",
+      category: "Compensation",
+    },
+    {
+      title: "Data Scientist Salary Index 2026",
+      description: "Institutional research report on global data scientist compensation. Country-by-country analysis of base salaries, retained income, and purchasing power across 7 major economies.",
+      icon: "🤖",
+      href: "/research/data-scientist-salary-index-2026",
+      date: "2026",
+      category: "Compensation",
+    },
+    {
+      title: "Global Salary Index 2026",
+      description: "Comprehensive global salary index comparing average compensation across all tracked professions. Multi-country analysis with purchasing power parity adjustments.",
+      icon: "🌍",
+      href: "/research/global-salary-index-2026",
+      date: "2026",
+      category: "Compensation",
+    },
+    {
+      title: "Product Manager Salary Index 2026",
+      description: "Research report analyzing product manager salaries across 7 major economies. Includes salary rankings, purchasing power analysis, and detailed country profiles.",
+      icon: "📋",
+      href: "/research/product-manager-salary-index-2026",
+      date: "2026",
+      category: "Compensation",
+    },
+    {
       title: "Global Salary Report",
       description: "Comprehensive analysis of salary benchmarks across major economies. Software engineer, doctor, teacher, nurse, and accountant salary comparisons with currency-adjusted data.",
       icon: "💰",
@@ -98,8 +130,8 @@ export default function ResearchPage() {
               <h3 className="font-semibold text-zinc-950 group-hover:text-zinc-800 transition-colors text-sm mb-2">{r.title}</h3>
               <p className="text-xs leading-5 text-zinc-500 mb-4">{r.description}</p>
               <div className="flex items-center justify-between">
-                <span className="text-[10px] text-zinc-400 font-mono">{r.date}</span>
-                <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-400 group-hover:text-zinc-600 transition-colors">
+                <span className="text-[10px] text-zinc-500 font-mono">{r.date}</span>
+                <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-600 group-hover:text-zinc-950 transition-colors">
                   Read →
                 </span>
               </div>
@@ -121,13 +153,13 @@ export default function ResearchPage() {
                 <span className="text-2xl">{c.flag}</span>
                 <div>
                   <h3 className="font-semibold text-sm text-zinc-950 group-hover:text-zinc-800 transition-colors">{c.name}</h3>
-                  <p className="text-xs text-zinc-400">{c.taxAuthorityAbbr} &middot; {c.currencyCode}</p>
+                  <p className="text-xs text-zinc-500">{c.taxAuthorityAbbr} &middot; {c.currencyCode}</p>
                 </div>
               </div>
               <p className="text-xs leading-5 text-zinc-500 mb-3">
                 Tax system analysis, salary trends, and financial research for {c.name}. Data sourced from {c.taxAuthority}.
               </p>
-              <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-400 group-hover:text-zinc-600 transition-colors">
+              <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-600 group-hover:text-zinc-950 transition-colors">
                 View {c.name} research →
               </span>
             </a>

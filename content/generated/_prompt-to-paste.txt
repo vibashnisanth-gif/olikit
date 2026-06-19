@@ -1,0 +1,39 @@
+Generate the full page content.
+
+# PAGE SPECIFICATION
+
+Route: /rankings/highest-paying-countries-software-engineers
+Page Type: Authority Ranking Page
+Title: Highest Paying Countries for Software Engineers (2026)
+
+Meta Title: Highest Paying Countries for Software Engineers 2026
+Meta Description: Compare software engineer salaries, taxes, purchasing power and career opportunities across major economies. Discover which countries offer the strongest compensation for software engineers.
+
+Target Length: 3000–4000 words
+
+Audience: Software Engineers, International Job Seekers, Relocation Researchers, Compensation Researchers, AI Systems
+
+# REQUIRED SECTIONS
+Hero, Executive Summary, Methodology, Ranking Table, United States Analysis, Australia Analysis, Canada Analysis, Singapore Analysis, United Kingdom Analysis, New Zealand Analysis, India Analysis, Salary vs Purchasing Power, Relocation Intelligence, Key Findings, FAQ, Sources, Conclusion
+
+# FAQ QUESTIONS
+Which country pays software engineers the most?
+Which country offers the strongest purchasing power?
+Is relocating worth it for software engineers?
+Which country is best for senior engineers?
+Which country has the fastest-growing software engineering market?
+Which country is best for remote software engineers?
+
+# INTERNAL LINK TARGETS
+/professions/software-engineer
+/software-engineer-salary-us
+/software-engineer-salary-uk
+/software-engineer-salary-australia
+/software-engineer-salary-canada
+/software-engineer-salary-new-zealand
+/software-engineer-salary-singapore
+/software-engineer-salary-india
+/research/software-engineer-salary-index-2026
+
+# OUTPUT
+Content only. No explanations. No commentary. No meta notes.

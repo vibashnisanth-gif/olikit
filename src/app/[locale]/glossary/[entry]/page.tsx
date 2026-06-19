@@ -5,6 +5,7 @@ import { locales, getLocale } from "@/lib/seo/locales"
 import { glossaryEntries, getGlossaryEntry } from "@/lib/content/glossary"
 import { tools } from "@/lib/content/templates"
 import { guides } from "@/lib/content/guide-templates"
+import { professions } from "@/lib/content/professions-data"
 import { SITE_URL } from "@/lib/seo/constants"
 import { SourceFooter } from "@/components/source-footer"
 import { LastUpdated } from "@/components/last-updated"
@@ -54,6 +55,41 @@ export default async function GlossaryEntryPage({ params }: Props) {
         <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">{entry.definition}</p>
       </div>
 
+      {entry.detailedExplanation && (
+        <section className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm">
+          <h2 className="mb-3 text-xl font-semibold text-zinc-950">In-Depth Explanation</h2>
+          <p className="text-zinc-600 leading-relaxed">{entry.detailedExplanation}</p>
+        </section>
+      )}
+
+      {entry.salaryImplications && (
+        <section className="rounded-lg border border-amber-200 bg-amber-50 p-5 shadow-sm">
+          <h2 className="mb-3 text-xl font-semibold text-amber-900">Salary Implications</h2>
+          <p className="text-amber-800 leading-relaxed">{entry.salaryImplications}</p>
+        </section>
+      )}
+
+      {entry.relatedTerms && entry.relatedTerms.length > 0 && (
+        <section className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm">
+          <h2 className="mb-3 text-xl font-semibold text-zinc-950">Related Terms</h2>
+          <div className="flex flex-wrap gap-2">
+            {entry.relatedTerms.map(slug => {
+              const relatedEntry = getGlossaryEntry(slug)
+              if (!relatedEntry) return null
+              return (
+                <Link
+                  key={slug}
+                  href={`/${locale.slug}/glossary/${slug}`}
+                  className="rounded-md bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700 ring-1 ring-blue-200 hover:bg-blue-100"
+                >
+                  {relatedEntry.term}
+                </Link>
+              )
+            })}
+          </div>
+        </section>
+      )}
+
       <div className="rounded-md border border-emerald-200 bg-emerald-50 p-5">
         <h2 className="mb-2 text-sm font-semibold uppercase tracking-wider text-emerald-800">Example</h2>
         <p className="text-sm leading-relaxed text-emerald-900">{entry.example}</p>
@@ -84,9 +120,22 @@ export default async function GlossaryEntryPage({ params }: Props) {
             if (!guide) return null
             return <Link key={slug} href={`/${locale.slug}/guides/${slug}`} className="rounded-md bg-white px-4 py-2 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 hover:bg-zinc-50">{guide.name}</Link>
           })}
+          <Link href={`/${locale.slug}/salary`} className="rounded-md bg-white px-4 py-2 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 hover:bg-zinc-50">Salary Hub</Link>
+          <Link href={`/${locale.slug}/methodology`} className="rounded-md bg-white px-4 py-2 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 hover:bg-zinc-50">Methodology</Link>
           <Link href={`/${locale.slug}/glossary`} className="rounded-md bg-white px-4 py-2 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 hover:bg-zinc-50">All Glossary Terms</Link>
         </div>
       </section>
+
+      {professions.length > 0 && (
+        <section className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm">
+          <h2 className="mb-3 text-xl font-semibold text-zinc-950">Explore Salaries by Profession</h2>
+          <div className="flex flex-wrap gap-2">
+            {professions.slice(0, 6).map(p => (
+              <Link key={p.slug} href={`/${locale.slug}/salary/${p.slug}`} className="rounded-md border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-50 hover:text-zinc-950">{p.name}</Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       <SourceFooter localeSlug={locale.slug} />
       <LastUpdated />

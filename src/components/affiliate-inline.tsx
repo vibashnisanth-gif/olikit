@@ -32,7 +32,7 @@ export function AffiliateInline({ countrySlug, category, title }: Props) {
           </a>
         ))}
       </div>
-      <p className="mt-2 text-xs text-amber-400">
+      <p className="mt-2 text-xs text-amber-700">
         We may earn a commission if you sign up through these links.
       </p>
     </div>

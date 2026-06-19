@@ -135,3 +135,184 @@ export function getAllInternalLinks(
     ...getContentLinks(tool, locale),
   ]
 }
+
+const PROFESSION_SITEMAP: Record<string, { hub: string; salary: string; taxAdjusted: string; pppAdjusted: string; highestPaying: string; bestCountries: string; salaryByCountry: string; salaryIndex?: string; highestPayingCities?: string; comparisons: string[] }> = {
+  "software-engineer": {
+    hub: "/software-engineer",
+    salary: "/software-engineer-salary",
+    taxAdjusted: "/software-engineer-tax-adjusted-salary",
+    pppAdjusted: "/software-engineer-ppp-adjusted-salary",
+    highestPaying: "/software-engineer-highest-paying-countries",
+    bestCountries: "/software-engineer-best-countries",
+    salaryByCountry: "/software-engineer-salary-by-country",
+    comparisons: [
+      "/software-engineer-us-vs-uk",
+      "/software-engineer-us-vs-canada",
+      "/software-engineer-uk-vs-australia",
+    ],
+  },
+  "data-scientist": {
+    hub: "/data-scientist",
+    salary: "/data-scientist-salary",
+    taxAdjusted: "/data-scientist-tax-adjusted-salary",
+    pppAdjusted: "/data-scientist-ppp-adjusted-salary",
+    highestPaying: "/data-scientist-highest-paying-countries",
+    bestCountries: "/data-scientist-best-countries",
+    salaryByCountry: "/data-scientist-salary-by-country",
+    comparisons: [
+      "/data-scientist-us-vs-uk",
+      "/data-scientist-us-vs-canada",
+      "/data-scientist-uk-vs-australia",
+    ],
+  },
+  "product-manager": {
+    hub: "/product-manager",
+    salary: "/product-manager-salary",
+    taxAdjusted: "/product-manager-tax-adjusted-salary",
+    pppAdjusted: "/product-manager-ppp-adjusted-salary",
+    highestPaying: "/highest-paying-countries-for-product-managers",
+    bestCountries: "/best-countries-for-product-managers",
+    salaryByCountry: "/product-manager-salary-by-country",
+    salaryIndex: "/research/product-manager-salary-index-2026",
+    highestPayingCities: "/rankings/highest-paying-cities-product-managers",
+    comparisons: [],
+  },
+  "ai-engineer": {
+    hub: "/ai-engineer",
+    salary: "/ai-engineer-salary",
+    taxAdjusted: "/ai-engineer-tax-adjusted-salary",
+    pppAdjusted: "/ai-engineer-ppp-adjusted-salary",
+    highestPaying: "/ai-engineer-highest-paying-countries",
+    bestCountries: "/ai-engineer-best-countries",
+    salaryByCountry: "/ai-engineer-salary-by-country",
+    comparisons: [],
+  },
+  "machine-learning-engineer": {
+    hub: "/machine-learning-engineer",
+    salary: "/machine-learning-engineer-salary",
+    taxAdjusted: "/machine-learning-engineer-tax-adjusted-salary",
+    pppAdjusted: "/machine-learning-engineer-ppp-adjusted-salary",
+    highestPaying: "/machine-learning-engineer-highest-paying-countries",
+    bestCountries: "/machine-learning-engineer-best-countries",
+    salaryByCountry: "/machine-learning-engineer-salary-by-country",
+    comparisons: [],
+  },
+  "cloud-engineer": {
+    hub: "/cloud-engineer",
+    salary: "/cloud-engineer-salary",
+    taxAdjusted: "/cloud-engineer-tax-adjusted-salary",
+    pppAdjusted: "/cloud-engineer-ppp-adjusted-salary",
+    highestPaying: "/cloud-engineer-highest-paying-countries",
+    bestCountries: "/cloud-engineer-best-countries",
+    salaryByCountry: "/cloud-engineer-salary-by-country",
+    comparisons: [],
+  },
+  "cybersecurity-analyst": {
+    hub: "/cybersecurity-analyst",
+    salary: "/cybersecurity-analyst-salary",
+    taxAdjusted: "/cybersecurity-analyst-tax-adjusted-salary",
+    pppAdjusted: "/cybersecurity-analyst-ppp-adjusted-salary",
+    highestPaying: "/cybersecurity-analyst-highest-paying-countries",
+    bestCountries: "/cybersecurity-analyst-best-countries",
+    salaryByCountry: "/cybersecurity-analyst-salary-by-country",
+    comparisons: [],
+  },
+  "devops-engineer": {
+    hub: "/devops-engineer",
+    salary: "/devops-engineer-salary",
+    taxAdjusted: "/devops-engineer-tax-adjusted-salary",
+    pppAdjusted: "/devops-engineer-ppp-adjusted-salary",
+    highestPaying: "/devops-engineer-highest-paying-countries",
+    bestCountries: "/devops-engineer-best-countries",
+    salaryByCountry: "/devops-engineer-salary-by-country",
+    comparisons: [],
+  },
+  "financial-analyst": {
+    hub: "/financial-analyst",
+    salary: "/financial-analyst-salary",
+    taxAdjusted: "/financial-analyst-tax-adjusted-salary",
+    pppAdjusted: "/financial-analyst-ppp-adjusted-salary",
+    highestPaying: "/financial-analyst-highest-paying-countries",
+    bestCountries: "/financial-analyst-best-countries",
+    salaryByCountry: "/financial-analyst-salary-by-country",
+    comparisons: [],
+  },
+  "business-analyst": {
+    hub: "/business-analyst",
+    salary: "/business-analyst-salary",
+    taxAdjusted: "/business-analyst-tax-adjusted-salary",
+    pppAdjusted: "/business-analyst-ppp-adjusted-salary",
+    highestPaying: "/business-analyst-highest-paying-countries",
+    bestCountries: "/business-analyst-best-countries",
+    salaryByCountry: "/business-analyst-salary-by-country",
+    comparisons: [],
+  },
+  "project-manager": {
+    hub: "/project-manager",
+    salary: "/project-manager-salary",
+    taxAdjusted: "/project-manager-tax-adjusted-salary",
+    pppAdjusted: "/project-manager-ppp-adjusted-salary",
+    highestPaying: "/project-manager-highest-paying-countries",
+    bestCountries: "/project-manager-best-countries",
+    salaryByCountry: "/project-manager-salary-by-country",
+    comparisons: [],
+  },
+  "solutions-architect": {
+    hub: "/solutions-architect",
+    salary: "/solutions-architect-salary",
+    taxAdjusted: "/solutions-architect-tax-adjusted-salary",
+    pppAdjusted: "/solutions-architect-ppp-adjusted-salary",
+    highestPaying: "/solutions-architect-highest-paying-countries",
+    bestCountries: "/solutions-architect-best-countries",
+    salaryByCountry: "/solutions-architect-salary-by-country",
+    comparisons: [],
+  },
+  "data-engineer": {
+    hub: "/data-engineer",
+    salary: "/data-engineer-salary",
+    taxAdjusted: "/data-engineer-tax-adjusted-salary",
+    pppAdjusted: "/data-engineer-ppp-adjusted-salary",
+    highestPaying: "/data-engineer-highest-paying-countries",
+    bestCountries: "/data-engineer-best-countries",
+    salaryByCountry: "/data-engineer-salary-by-country",
+    comparisons: [],
+  },
+}
+
+export function getProfessionLinks(slug: string): InternalLink[] {
+  const info = PROFESSION_SITEMAP[slug]
+  if (!info) return []
+
+  const links: InternalLink[] = [
+    { label: `${ucFirst(slug.replace("-", " "))} Hub`, href: info.hub, type: "content" as const },
+    { label: `${ucFirst(slug.replace("-", " "))} Salary Overview`, href: info.salary, type: "content" as const },
+  ]
+
+  for (const url of [info.taxAdjusted, info.pppAdjusted, info.highestPaying, info.bestCountries, info.salaryByCountry, info.salaryIndex, info.highestPayingCities]) {
+    if (url) {
+      const label = url.split("/").pop()!.replace(/-/g, " ")
+      links.push({ label: ucFirst(label), href: url, type: "content" as const })
+    }
+  }
+
+  for (const url of info.comparisons) {
+    const pair = url.split("/").pop()!.split("-vs-").join(" vs ")
+    links.push({ label: ucFirst(pair), href: url, type: "comparison" as const })
+  }
+
+  return links
+}
+
+export function getGlobalResearchLinks(): InternalLink[] {
+  return [
+    { label: "Global Salary Index 2026", href: "/research/global-salary-index-2026", type: "content" },
+    { label: "Software Engineer Salary Index 2026", href: "/research/software-engineer-salary-index-2026", type: "content" },
+    { label: "Product Manager Salary Index 2026", href: "/research/product-manager-salary-index-2026", type: "content" },
+    { label: "Research Hub", href: "/research", type: "content" },
+    { label: "Professions Hub", href: "/professions", type: "content" },
+  ]
+}
+
+function ucFirst(s: string): string {
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}

@@ -1,8 +1,11 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
-import { getAllCountries } from "@/lib/content/country-registry"
+import { getAllCountries, COUNTRY_FLAGS } from "@/lib/content/country-registry"
 import { professions } from "@/lib/content/professions-data"
 import { Shell } from "@/components/shell"
+import { formatSalaryBySlug, formatSalary, slugToCurrency, convertSalary } from "@/lib/currency"
+import { SalaryComparisonCalculator } from "@/components/salary-comparison-calculator"
+import type { CurrencyCode } from "@/lib/currency"
 
 export const metadata: Metadata = {
   title: "Global Comparisons — Compare Countries",
@@ -48,13 +51,13 @@ export default function ComparePage() {
                   <span className="text-3xl">{c.flag}</span>
                   <div>
                     <h3 className="font-semibold text-zinc-950 group-hover:text-zinc-800 transition-colors">{c.name}</h3>
-                    <p className="text-xs text-zinc-400">{c.currencyCode} &middot; {c.taxAuthorityAbbr}</p>
+                    <p className="text-xs text-zinc-500">{c.currencyCode} &middot; {c.taxAuthorityAbbr}</p>
                   </div>
                 </div>
                 <p className="text-sm leading-6 text-zinc-500 mb-4">
                   Salary benchmarks, tax rates, and cost-of-living data for {c.name}. Compare with {pairs.map((p) => p.name).join(" and ")}.
                 </p>
-                <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-400 group-hover:text-zinc-600 transition-colors">
+                <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-600 group-hover:text-zinc-950 transition-colors">
                   View {c.name} comparisons →
                 </span>
               </a>
@@ -62,6 +65,73 @@ export default function ComparePage() {
           })}
         </div>
       </section>
+
+      <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10">
+        <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">Salary Equivalent Comparisons</h2>
+        <p className="mb-6 text-sm leading-6 text-zinc-500">
+          See how a Software Engineer salary in one country converts to another. All figures based on average annual salaries.
+        </p>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { from: "us", to: "uk" },
+            { from: "us", to: "au" },
+            { from: "us", to: "ca" },
+            { from: "uk", to: "au" },
+            { from: "ca", to: "au" },
+            { from: "sg", to: "au" },
+          ].map((pair) => {
+            const fromSlug = pair.from
+            const toSlug = pair.to
+            const fromCurr = slugToCurrency(fromSlug)
+            const toCurr = slugToCurrency(toSlug)
+            const se = professions.find((p) => p.id === "software-engineer")!
+            const fromSalary = se.salaries[fromSlug]?.average ?? 0
+            const converted = convertSalary(fromSalary, fromCurr, toCurr)
+            const convertedEur = convertSalary(fromSalary, fromCurr, "EUR")
+            return (
+              <div
+                key={`${fromSlug}-${toSlug}`}
+                className="card-hover rounded-xl border border-zinc-200 bg-zinc-50 p-5"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="flex -space-x-1">
+                    <span className="text-2xl relative z-10">{COUNTRY_FLAGS[fromSlug]}</span>
+                    <span className="text-2xl">{COUNTRY_FLAGS[toSlug]}</span>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-zinc-950">
+                      {fromSlug === "us" ? "USA" : fromSlug === "uk" ? "UK" : fromSlug === "au" ? "Australia" : fromSlug === "ca" ? "Canada" : fromSlug === "sg" ? "Singapore" : fromSlug.toUpperCase()} → {toSlug === "us" ? "USA" : toSlug === "uk" ? "UK" : toSlug === "au" ? "Australia" : toSlug === "ca" ? "Canada" : toSlug === "sg" ? "Singapore" : toSlug.toUpperCase()}
+                    </p>
+                    <p className="text-xs text-zinc-500">Software Engineer</p>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-zinc-500">Original</span>
+                    <span className="font-semibold text-zinc-950">{formatSalary(fromSalary, fromCurr, { showCode: true })}</span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-zinc-500">Converted</span>
+                    <span className="font-medium text-zinc-700">{formatSalary(converted, toCurr, { showCode: true })}</span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-zinc-500">EUR Equivalent</span>
+                    <span className="font-medium text-zinc-700">{formatSalary(convertedEur, "EUR", { showCode: true })}</span>
+                  </div>
+                </div>
+                <a
+                  href={`/${fromSlug}/comparisons`}
+                  className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
+                >
+                  Full comparison →
+                </a>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+
+      <SalaryComparisonCalculator />
 
       <section className="rounded-xl border border-zinc-200 bg-zinc-50 px-6 py-8 sm:px-10">
         <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">Salary Comparison by Profession</h2>
@@ -93,9 +163,7 @@ export default function ComparePage() {
                       return (
                         <td key={c.slug} className="px-3 py-3 text-right text-zinc-600 tabular-nums">
                           {val
-                            ? val >= 100000
-                              ? `${c.currencySymbol}${(val / 1000).toFixed(0)}k`
-                              : `${c.currencySymbol}${val.toLocaleString()}`
+                            ? formatSalaryBySlug(val, c.slug, { compact: val >= 100000 })
                             : "—"}
                         </td>
                       )
@@ -106,7 +174,7 @@ export default function ComparePage() {
             </tbody>
           </table>
         </div>
-        <p className="mt-4 text-xs text-zinc-400">Data sourced from government labor statistics and industry surveys. All figures are annual averages.</p>
+        <p className="mt-4 text-xs text-zinc-500">Data sourced from government labor statistics and industry surveys. All figures are annual averages.</p>
       </section>
 
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10">

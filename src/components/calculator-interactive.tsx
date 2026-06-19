@@ -186,7 +186,7 @@ export function CalculatorInteractive({ toolSlug, localeSlug }: Props) {
             </div>
           )}
           {!calculation.results && !calculation.error && (
-            <div className="rounded-md border border-dashed border-zinc-300 bg-white p-8 text-center text-sm text-zinc-400">
+            <div className="rounded-md border border-dashed border-zinc-300 bg-white p-8 text-center text-sm text-zinc-500">
               Adjust inputs to see results
             </div>
           )}

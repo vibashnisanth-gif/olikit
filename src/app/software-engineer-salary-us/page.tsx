@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
+import { buildArticleJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
 import { Shell } from "@/components/shell"
 import { FAQSection } from "@/components/faq-section"
 
@@ -41,18 +42,32 @@ const faqData = [
 ]
 
 export default function SoftwareEngineerUS() {
+  const articleSchema = buildArticleJsonLd(
+    "Software Engineer Salary in the United States (2026)",
+    "Research software engineer salaries in the United States. Compare compensation across experience levels, understand taxes and evaluate purchasing power.",
+    `/software-engineer-salary-${COUNTRY.slug}`,
+    { code: "en", name: "English", slug: "en" } as any,
+  )
+
+  const breadcrumbSchema = buildBreadcrumbJsonLd([
+    { label: "Home", url: SITE_URL },
+    { label: "Salaries", url: `${SITE_URL}/salaries` },
+    { label: "Software Engineer Salary US", url: `${SITE_URL}/software-engineer-salary-${COUNTRY.slug}` },
+  ])
+
   return (
     <Shell localeSlug="us">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
           <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">{COUNTRY.flag} {COUNTRY.name} &mdash; Salary Intelligence</p>
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Software Engineer Salary in the United States</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">The United States consistently reports some of the highest software engineering salaries in the world. Technology hubs across California, Washington, New York and Texas offer competitive compensation for skilled engineers.</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
-            <div className="rounded-md bg-blue-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Average Salary</p><p className="mt-1 text-2xl font-bold text-zinc-950">${SALARY.average.toLocaleString()}</p></div>
-            <div className="rounded-md bg-zinc-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Entry Level</p><p className="mt-1 text-2xl font-bold text-zinc-950">${SALARY.entryLevel.toLocaleString()}</p></div>
-            <div className="rounded-md bg-zinc-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Experienced</p><p className="mt-1 text-2xl font-bold text-zinc-950">${SALARY.experienced.toLocaleString()}</p></div>
+            <div className="rounded-md bg-blue-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Average Salary</p><p className="mt-1 text-2xl font-bold text-zinc-950">${SALARY.average.toLocaleString()}</p></div>
+            <div className="rounded-md bg-zinc-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Entry Level</p><p className="mt-1 text-2xl font-bold text-zinc-950">${SALARY.entryLevel.toLocaleString()}</p></div>
+            <div className="rounded-md bg-zinc-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Experienced</p><p className="mt-1 text-2xl font-bold text-zinc-950">${SALARY.experienced.toLocaleString()}</p></div>
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href="/us/tools/salary-calculator" className="rounded-md bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800">Salary Calculator</a>
@@ -64,10 +79,10 @@ export default function SoftwareEngineerUS() {
         <section>
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Key Takeaways</h2>
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm"><h3 className="mb-1.5 text-base font-semibold text-zinc-950">Highest Salaries Globally</h3><p className="text-sm leading-6 text-zinc-600">The US offers some of the highest software engineer salaries in the world, particularly in major technology hubs.</p></div>
-            <div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm"><h3 className="mb-1.5 text-base font-semibold text-zinc-950">Taxes Affect Take-Home Pay</h3><p className="text-sm leading-6 text-zinc-600">Federal and state income taxes, along with healthcare costs, can significantly affect real earnings.</p></div>
-            <div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm"><h3 className="mb-1.5 text-base font-semibold text-zinc-950">Location Matters</h3><p className="text-sm leading-6 text-zinc-600">Salaries vary significantly between cities such as San Francisco, Seattle, New York and Austin.</p></div>
-            <div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm"><h3 className="mb-1.5 text-base font-semibold text-zinc-950">Purchasing Power Varies</h3><p className="text-sm leading-6 text-zinc-600">High salaries in expensive cities may result in similar purchasing power to lower salaries in affordable regions.</p></div>
+            <div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm"><h3 className="mb-1.5 text-base font-semibold text-zinc-950">Highest Salaries Globally</h3><p className="text-sm leading-6 text-zinc-700">The US offers some of the highest software engineer salaries in the world, particularly in major technology hubs.</p></div>
+            <div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm"><h3 className="mb-1.5 text-base font-semibold text-zinc-950">Taxes Affect Take-Home Pay</h3><p className="text-sm leading-6 text-zinc-700">Federal and state income taxes, along with healthcare costs, can significantly affect real earnings.</p></div>
+            <div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm"><h3 className="mb-1.5 text-base font-semibold text-zinc-950">Location Matters</h3><p className="text-sm leading-6 text-zinc-700">Salaries vary significantly between cities such as San Francisco, Seattle, New York and Austin.</p></div>
+            <div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm"><h3 className="mb-1.5 text-base font-semibold text-zinc-950">Purchasing Power Varies</h3><p className="text-sm leading-6 text-zinc-700">High salaries in expensive cities may result in similar purchasing power to lower salaries in affordable regions.</p></div>
           </div>
         </section>
 

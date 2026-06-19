@@ -9,6 +9,7 @@ import { buildBreadcrumbs } from "@/lib/linking/internal-links"
 import { buildFaqJsonLd, buildHowToJsonLd, buildBreadcrumbJsonLd, buildSpeakableJsonLd, buildWebPageJsonLd, buildArticleJsonLd } from "@/lib/seo/json-ld"
 import { SourceFooter } from "@/components/source-footer"
 import { LastUpdated } from "@/components/last-updated"
+import { TakeHomeComparison } from "@/components/takehome-comparison"
 
 type Props = {
   params: Promise<{ locale: string; guide: string }>
@@ -79,17 +80,26 @@ export default async function GuidePage({ params }: Props) {
       </div>
 
       {content.directAnswer && (
-        <div className="direct-answer rounded-lg border border-blue-200 bg-blue-50 px-6 py-5 shadow-sm">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-blue-600">
-            At a Glance
-          </p>
-          <p className="mb-1 text-base font-semibold text-blue-900">
-            {content.directAnswer.question}
-          </p>
-          <p className="text-sm leading-relaxed text-blue-800">
-            {content.directAnswer.answer}
-          </p>
+        <div className="direct-answer rounded-xl border border-zinc-200 bg-white shadow-sm">
+          <div className="flex">
+            <div className="w-1 shrink-0 rounded-l-xl bg-blue-500" />
+            <div className="min-w-0 flex-1 p-6">
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+                At a Glance
+              </p>
+              <p className="mt-2 text-base font-semibold text-zinc-950">
+                {content.directAnswer.question}
+              </p>
+              <p className="mt-1 text-sm leading-relaxed text-zinc-700">
+                {content.directAnswer.answer}
+              </p>
+            </div>
+          </div>
         </div>
+      )}
+
+      {guide.slug === "salary-after-tax-by-country" && (
+        <TakeHomeComparison localeSlug={locale.slug} />
       )}
 
       {content.toolLinks.length > 0 && (

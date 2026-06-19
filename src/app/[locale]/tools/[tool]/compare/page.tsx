@@ -29,7 +29,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = getLocale(localeSlug)
   const tool = getToolBySlug(toolSlug)
   if (!locale || !tool) return {}
-  return buildMetadata(locale, tool, `/${locale.slug}/tools/${tool.slug}/compare`)
+  return {
+    ...buildMetadata(locale, tool, `/${locale.slug}/tools/${tool.slug}/compare`),
+    robots: { index: false, follow: true },
+  }
 }
 
 export default async function ComparePage({ params, searchParams }: Props) {
@@ -174,7 +177,7 @@ export default async function ComparePage({ params, searchParams }: Props) {
             <p className="text-zinc-500 mb-2">
               Select a country above to compare {toolName} across countries.
             </p>
-            <p className="text-sm text-zinc-400">
+            <p className="text-sm text-zinc-500">
               See how tax rates, brackets, and rules differ between {localeName} and other countries.
             </p>
           </div>

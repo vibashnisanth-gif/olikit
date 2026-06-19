@@ -9,6 +9,7 @@ import { Footer } from "./footer"
 import { Breadcrumbs } from "./breadcrumbs"
 import { CookieConsent } from "./cookie-consent"
 import { PageTracker } from "@/lib/analytics/page-tracker"
+import { CurrencyToggle } from "@/components/ui/currency-toggle"
 
 export function Shell({ children, localeSlug }: { children: React.ReactNode; localeSlug?: string }) {
   const pathname = usePathname()
@@ -22,6 +23,9 @@ export function Shell({ children, localeSlug }: { children: React.ReactNode; loc
       <Header currentSlug={country?.slug ?? null} />
       <main className="flex-1 mx-auto w-full max-w-6xl px-4 py-8 sm:py-10">
         <Breadcrumbs />
+        <div className="flex justify-end mb-4">
+          <CurrencyToggle />
+        </div>
         {children}
       </main>
       <Footer currentSlug={country?.slug ?? null} />

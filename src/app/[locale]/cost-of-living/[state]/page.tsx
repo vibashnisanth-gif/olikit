@@ -81,9 +81,14 @@ export default async function CostOfLivingPage(props: {
           <p className="text-lg text-zinc-600 dark:text-zinc-400">{content.intro}</p>
         </section>
 
-        <section className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6">
-          <h2 className="text-xl font-semibold mb-3">Quick Answer</h2>
-          <p className="text-zinc-700 dark:text-zinc-300">{content.quickAnswer}</p>
+        <section className="rounded-xl border border-zinc-200 bg-white shadow-sm">
+          <div className="flex">
+            <div className="w-1 shrink-0 rounded-l-xl bg-emerald-500" />
+            <div className="min-w-0 flex-1 p-6">
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Quick Answer</p>
+              <p className="mt-2 text-sm leading-7 text-zinc-600">{content.quickAnswer}</p>
+            </div>
+          </div>
         </section>
 
         <section className="bg-zinc-50 dark:bg-zinc-800/50 rounded-lg p-6">
@@ -128,7 +133,7 @@ export default async function CostOfLivingPage(props: {
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-zinc-400 mt-2">Base: US average = 100. Values above 100 indicate above-average costs.</p>
+          <p className="text-xs text-zinc-500 mt-2">Base: US average = 100. Values above 100 indicate above-average costs.</p>
         </section>
 
         <section className="border rounded-lg p-6 bg-white dark:bg-zinc-800/50">

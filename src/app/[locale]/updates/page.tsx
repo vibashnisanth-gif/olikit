@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: "Latest Updates - Olikit",
     description: "Stay up to date with the latest tax updates, salary data changes, mortgage rate updates, and new content on Olikit.",
     alternates: { canonical: `${SITE_URL}/${locale.slug}/updates` },
+    robots: { index: false, follow: true },
   }
 }
 

@@ -10,6 +10,7 @@ import { tools } from "@/lib/content/templates"
 import { AffiliateSidebar } from "@/components/affiliate-sidebar"
 import { NewsletterSignup } from "@/components/newsletter-signup"
 import { AdUnit } from "@/components/ad-unit"
+import { formatSalary as fmtSalary, formatSalaryFull as fmtSalaryFull, slugToCurrency } from "@/lib/currency"
 
 type Props = {
   params: Promise<{ locale: string; profession: string }>
@@ -50,18 +51,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function formatSalary(value: number, localeSlug: string): string {
-  const locale = getLocale(localeSlug)
-  const symbol = locale?.currency.symbol ?? "$"
-  if (value >= 100000) {
-    return `${symbol}${(value / 1000).toFixed(0)}k`
-  }
-  return `${symbol}${value.toLocaleString()}`
+  return fmtSalary(value, slugToCurrency(localeSlug), { compact: value >= 100000 })
 }
 
 function formatSalaryFull(value: number, localeSlug: string): string {
-  const locale = getLocale(localeSlug)
-  const symbol = locale?.currency.symbol ?? "$"
-  return `${symbol}${value.toLocaleString()}`
+  return fmtSalary(value, slugToCurrency(localeSlug))
 }
 
 export default async function ProfessionPage({ params }: Props) {

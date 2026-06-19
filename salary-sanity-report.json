@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-06-11T03:15:13.206Z",
+  "timestamp": "2026-06-14T07:14:39.412Z",
   "passed": true,
-  "totalProfessions": 10,
+  "totalProfessions": 21,
   "errors": [],
   "warnings": [],
   "professionMaxUsd": {
@@ -14,6 +14,17 @@
     "marketing-manager": 95000,
     "mechanical-engineer": 85000,
     "electrician": 60000,
-    "construction-worker": 45000
+    "construction-worker": 45000,
+    "product-manager": 110000,
+    "ai-engineer": 135000,
+    "machine-learning-engineer": 130000,
+    "cloud-engineer": 115000,
+    "cybersecurity-analyst": 105000,
+    "devops-engineer": 125000,
+    "financial-analyst": 75000,
+    "business-analyst": 70000,
+    "project-manager": 85000,
+    "solutions-architect": 140000,
+    "data-engineer": 115000
   }
 }

@@ -1,0 +1,16 @@
+{
+  "name": "Olikit — Global Salary Intelligence",
+  "short_name": "Olikit",
+  "description": "Global Salary Intelligence — Research, rankings, and comparisons for global compensation",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#111827",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

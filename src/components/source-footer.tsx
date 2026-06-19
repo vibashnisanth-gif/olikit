@@ -20,7 +20,7 @@ export function SourceFooter({ localeSlug }: SourceFooterProps) {
         <h2 className="text-xl font-semibold text-zinc-950 mb-4">
           Official Sources
         </h2>
-        <p className="text-sm text-zinc-500 mb-4">
+        <p className="text-sm text-zinc-600 mb-4">
           {localeName} calculators use data from the following official government agencies:
         </p>
         <ul className="space-y-3">
@@ -30,11 +30,11 @@ export function SourceFooter({ localeSlug }: SourceFooterProps) {
                 href={source.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-medium text-blue-600 hover:text-blue-800 hover:underline"
+                className="font-medium text-emerald-700 hover:text-emerald-800 hover:underline"
               >
                 {source.name}
               </a>
-              <span className="text-zinc-500"> &mdash; {source.description}</span>
+              <span className="text-zinc-600"> &mdash; {source.description}</span>
             </li>
           ))}
         </ul>
@@ -44,14 +44,14 @@ export function SourceFooter({ localeSlug }: SourceFooterProps) {
         <h2 className="text-xl font-semibold text-zinc-950 mb-3">
           Methodology
         </h2>
-        <p className="text-sm text-zinc-600 leading-relaxed">{sources.methodology}</p>
+        <p className="text-sm leading-7 text-zinc-700">{sources.methodology}</p>
       </div>
 
       <div>
         <h2 className="text-xl font-semibold text-zinc-950 mb-3">
           Data Sources
         </h2>
-        <p className="text-sm text-zinc-600 leading-relaxed">
+        <p className="text-sm leading-7 text-zinc-700">
           All tax brackets, contribution rates, and economic data used in our
           calculators are sourced from the official government publications listed
           above. Rates are updated at least annually to reflect the latest tax year
@@ -60,7 +60,7 @@ export function SourceFooter({ localeSlug }: SourceFooterProps) {
         </p>
       </div>
 
-      <p className="text-xs text-zinc-400 italic">
+      <p className="text-xs text-zinc-600 italic">
         Last updated: {sources.lastUpdated}. Information may change; always verify with official sources.
       </p>
     </section>

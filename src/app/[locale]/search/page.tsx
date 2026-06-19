@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: "Search - Olikit",
     description: "Search across all Olikit calculators, guides, salary data, cost of living data, glossary terms, and research reports.",
     alternates: { canonical: `${SITE_URL}/${locale.slug}/search` },
+    robots: { index: false, follow: true },
   }
 }
 

@@ -78,23 +78,23 @@ export function Breadcrumbs() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbsJsonLd) }}
       />
       <nav aria-label="Breadcrumb" className="mb-4">
-        <ol className="flex flex-wrap items-center gap-1.5 text-xs text-zinc-500">
+        <ol className="flex flex-wrap items-center gap-1.5 text-xs text-text-muted">
           {crumbs.map((crumb, i) => (
             <li key={crumb.href} className="flex items-center gap-1.5">
               {i > 0 && (
-                <svg className="h-3 w-3 shrink-0 text-zinc-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg className="h-3 w-3 shrink-0 text-border-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
               )}
               {i < crumbs.length - 1 ? (
                 <a
                   href={crumb.href}
-                  className="hover:text-zinc-950 transition-colors"
+                  className="hover:text-text-primary transition-colors"
                 >
                   {crumb.label}
                 </a>
               ) : (
-                <span className="font-medium text-zinc-800">{crumb.label}</span>
+                <span className="font-medium text-text-secondary">{crumb.label}</span>
               )}
             </li>
           ))}

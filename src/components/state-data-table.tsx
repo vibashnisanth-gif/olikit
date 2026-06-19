@@ -17,21 +17,21 @@ const rows: { label: string; format: (d: StateDataPoints) => string; tooltip: st
 
 export function StateDataTable({ dataPoints, stateName }: { dataPoints: StateDataPoints; stateName: string }) {
   return (
-    <div className="overflow-x-auto rounded-lg border border-zinc-200 shadow-sm">
+    <div className="overflow-x-auto rounded-xl border border-border-light shadow-sm">
       <table className="w-full text-sm">
         <thead>
-          <tr className="bg-zinc-50">
-            <th className="px-4 py-3 text-left font-semibold text-zinc-700">Metric</th>
-            <th className="px-4 py-3 text-left font-semibold text-zinc-700">{stateName} Value</th>
-            <th className="px-4 py-3 text-left font-semibold text-zinc-700">Notes</th>
+          <tr className="bg-surface-muted">
+            <th className="px-4 py-3 text-left font-semibold text-text-secondary">Metric</th>
+            <th className="px-4 py-3 text-left font-semibold text-text-secondary">{stateName} Value</th>
+            <th className="px-4 py-3 text-left font-semibold text-text-secondary">Notes</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-zinc-200">
+        <tbody className="divide-y divide-border-light">
           {rows.map((row) => (
-            <tr key={row.label} className="even:bg-zinc-50">
-              <td className="px-4 py-3 font-medium text-zinc-900">{row.label}</td>
-              <td className="px-4 py-3 text-zinc-800">{row.format(dataPoints)}</td>
-              <td className="px-4 py-3 text-zinc-500">{row.tooltip}</td>
+            <tr key={row.label} className="transition-colors duration-150 hover:bg-surface-muted/50">
+              <td className="px-4 py-3 font-medium text-text-primary">{row.label}</td>
+              <td className="px-4 py-3 text-text-primary">{row.format(dataPoints)}</td>
+              <td className="px-4 py-3 text-text-muted">{row.tooltip}</td>
             </tr>
           ))}
         </tbody>

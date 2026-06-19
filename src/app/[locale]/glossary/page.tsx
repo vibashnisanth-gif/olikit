@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: "Financial Glossary - Olikit",
     description: "Comprehensive financial glossary covering salary, tax, mortgage, and investment terms. Clear definitions, real examples, and links to related calculators and guides.",
     alternates: { canonical: `${SITE_URL}/${locale.slug}/glossary` },
+    robots: { index: false, follow: true },
   }
 }
 

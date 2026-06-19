@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
+import { buildArticleJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
 import { Shell } from "@/components/shell"
 import { FAQSection } from "@/components/faq-section"
 
@@ -38,18 +39,32 @@ const faqData = [
 ]
 
 export default function SoftwareEngineerCA() {
+  const articleSchema = buildArticleJsonLd(
+    "Software Engineer Salary in Canada (2026)",
+    "Research software engineer salaries in Canada. Compare compensation across experience levels, understand taxes and evaluate purchasing power.",
+    `/software-engineer-salary-canada`,
+    { code: "en", name: "English", slug: "en" } as any,
+  )
+
+  const breadcrumbSchema = buildBreadcrumbJsonLd([
+    { label: "Home", url: SITE_URL },
+    { label: "Salaries", url: `${SITE_URL}/salaries` },
+    { label: "Software Engineer Salary Canada", url: `${SITE_URL}/software-engineer-salary-canada` },
+  ])
+
   return (
     <Shell localeSlug="ca">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
           <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">{COUNTRY.flag} {COUNTRY.name} &mdash; Salary Intelligence</p>
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Software Engineer Salary in Canada</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">Canada's technology sector continues to grow rapidly, with Toronto, Vancouver, Montreal and Calgary emerging as major technology employment centres. Software engineers benefit from strong demand and competitive compensation across fintech, enterprise software, gaming and artificial intelligence.</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
-            <div className="rounded-md bg-blue-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Average Salary</p><p className="mt-1 text-2xl font-bold text-zinc-950">{COUNTRY.currency}{SALARY.average.toLocaleString()}</p></div>
-            <div className="rounded-md bg-zinc-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Entry Level</p><p className="mt-1 text-2xl font-bold text-zinc-950">{COUNTRY.currency}{SALARY.entryLevel.toLocaleString()}</p></div>
-            <div className="rounded-md bg-zinc-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Experienced</p><p className="mt-1 text-2xl font-bold text-zinc-950">{COUNTRY.currency}{SALARY.experienced.toLocaleString()}</p></div>
+            <div className="rounded-md bg-blue-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Average Salary</p><p className="mt-1 text-2xl font-bold text-zinc-950">{COUNTRY.currency}{SALARY.average.toLocaleString()}</p></div>
+            <div className="rounded-md bg-zinc-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Entry Level</p><p className="mt-1 text-2xl font-bold text-zinc-950">{COUNTRY.currency}{SALARY.entryLevel.toLocaleString()}</p></div>
+            <div className="rounded-md bg-zinc-50 p-4"><p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">Experienced</p><p className="mt-1 text-2xl font-bold text-zinc-950">{COUNTRY.currency}{SALARY.experienced.toLocaleString()}</p></div>
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href="/ca/tools/salary-calculator" className="rounded-md bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800">Salary Calculator</a>
@@ -70,9 +85,9 @@ export default function SoftwareEngineerCA() {
 
         <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-6 shadow-sm sm:px-8">
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Canada Software Engineer Salary Landscape</h2>
-          <p className="mb-3 text-sm leading-7 text-zinc-600">Software engineering demand continues to grow across Canada, driven by technology companies, financial institutions and enterprise organizations.</p>
-          <p className="mb-3 text-sm leading-7 text-zinc-600">The technology workforce is expanding rapidly, with strong demand for experienced engineers in cloud computing, artificial intelligence and cybersecurity.</p>
-          <p className="mb-3 text-sm leading-7 text-zinc-600">When evaluating compensation, professionals should consider salary alongside provincial taxes, housing costs and purchasing power differences between cities.</p>
+          <p className="mb-3 text-sm leading-7 text-zinc-700">Software engineering demand continues to grow across Canada, driven by technology companies, financial institutions and enterprise organizations.</p>
+          <p className="mb-3 text-sm leading-7 text-zinc-700">The technology workforce is expanding rapidly, with strong demand for experienced engineers in cloud computing, artificial intelligence and cybersecurity.</p>
+          <p className="mb-3 text-sm leading-7 text-zinc-700">When evaluating compensation, professionals should consider salary alongside provincial taxes, housing costs and purchasing power differences between cities.</p>
         </section>
 
         <section>

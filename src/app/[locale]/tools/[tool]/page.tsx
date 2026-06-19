@@ -83,35 +83,43 @@ export default async function ToolPage({ params }: Props) {
       </div>
 
       {content.directAnswer && (
-        <div className="direct-answer rounded-lg border border-blue-200 bg-blue-50 px-6 py-5 shadow-sm">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-blue-600">
-            At a Glance
-          </p>
-          <p className="mb-1 text-base font-semibold text-blue-900">
-            {content.directAnswer.question}
-          </p>
-          <p className="text-sm leading-relaxed text-blue-800">
-            {content.directAnswer.answer}
-          </p>
+        <div className="direct-answer rounded-xl border border-zinc-200 bg-white shadow-sm">
+          <div className="flex">
+            <div className="w-1 shrink-0 rounded-l-xl bg-blue-500" />
+            <div className="min-w-0 flex-1 p-6">
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">At a Glance</p>
+              <p className="mt-2 text-base font-semibold text-zinc-950">{content.directAnswer.question}</p>
+              <p className="mt-1 text-sm leading-relaxed text-zinc-700">{content.directAnswer.answer}</p>
+            </div>
+          </div>
         </div>
       )}
 
       {content.aiAnswer && (
-        <div className="quick-answer rounded-lg border border-emerald-200 bg-emerald-50 px-6 py-5 shadow-sm">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-600">
-            Quick Answer
-          </p>
-          <p className="mb-1 text-base font-semibold text-emerald-900">
-            {content.aiAnswer.question}
-          </p>
-          <p className="text-sm leading-relaxed text-emerald-800">
-            {content.aiAnswer.answer}
-          </p>
+        <div className="quick-answer rounded-xl border border-zinc-200 bg-white shadow-sm">
+          <div className="flex">
+            <div className="w-1 shrink-0 rounded-l-xl bg-emerald-500" />
+            <div className="min-w-0 flex-1 p-6">
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Quick Answer</p>
+              <p className="mt-2 text-base font-semibold text-zinc-950">{content.aiAnswer.question}</p>
+              <p className="mt-1 text-sm leading-relaxed text-zinc-700">{content.aiAnswer.answer}</p>
+            </div>
+          </div>
         </div>
       )}
 
       <div>
         <CalculatorInteractive toolSlug={tool.slug} localeSlug={locale.slug} />
+      </div>
+
+      <div className="flex flex-wrap gap-3 rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
+        <span className="mr-1 self-center text-sm font-semibold text-zinc-600">Also explore:</span>
+        <a href={`/${locale.slug}/salary`} className="rounded-md bg-zinc-950 px-3 py-1.5 text-sm font-medium text-white hover:bg-zinc-800">Salary Hub</a>
+        <a href={`/${locale.slug}/methodology`} className="rounded-md bg-zinc-950 px-3 py-1.5 text-sm font-medium text-white hover:bg-zinc-800">Methodology</a>
+        {professions.slice(0, 3).map(p => (
+          <a key={p.slug} href={`/${locale.slug}/salary/${p.slug}`} className="rounded-md border border-zinc-300 bg-white px-3 py-1.5 text-sm font-medium text-zinc-700 hover:bg-zinc-50">{p.name} Salary</a>
+        ))}
+        <a href={`/${locale.slug}/glossary`} className="rounded-md border border-zinc-300 bg-white px-3 py-1.5 text-sm font-medium text-zinc-700 hover:bg-zinc-50">Financial Glossary</a>
       </div>
 
       {content.steps && content.steps.length > 0 && (
