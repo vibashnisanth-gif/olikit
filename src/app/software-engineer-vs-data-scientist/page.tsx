@@ -75,7 +75,7 @@ export default function SoftwareEngineerVsDataScientist() {
           <p className="mt-3 text-sm leading-7 text-zinc-500">Understanding the differences between these two technology careers is essential for students, career changers, and professionals evaluating their next move. While both roles are highly paid and in demand, they require distinct skill sets, educational backgrounds, and offer different day-to-day experiences.</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href="/professions/software-engineer" className="rounded-md bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800">Software Engineer Hub</a>
-            <a href="/us/salary/data-scientist" className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Data Scientist Salary</a>
+            <a href="/professions/data-scientist" className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Data Scientist Salary</a>
           </div>
         </section>
 

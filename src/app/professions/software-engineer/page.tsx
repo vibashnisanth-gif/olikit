@@ -154,9 +154,9 @@ export default function SoftwareEngineerHub() {
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href="/compare" className="rounded-md bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800">Compare Countries</a>
-            <a href="/us/tools/salary-calculator" className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Salary Calculator</a>
-            <a href="/us/tools/salary-calculator?mode=after-tax" className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Salary After Tax</a>
-            <a href="/us/guides" className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Cost of Living Calculator</a>
+            <a href="/tools/salary-calculator" className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Salary Calculator</a>
+            <a href="/compare" className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Compare Salaries</a>
+            <a href="/rankings" className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Global Rankings</a>
           </div>
         </section>
 

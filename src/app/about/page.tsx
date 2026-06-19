@@ -153,7 +153,7 @@ export default function AboutPage() {
             <Link href="/sg" className="text-blue-600 hover:underline">Singapore</Link>.
           </p>
           <p className="mt-4">
-            <Link href="/us/salary" className="text-blue-600 hover:underline font-medium">Explore Salary Resources</Link>
+            <Link href="/professions" className="text-blue-600 hover:underline font-medium">Explore Salary Resources</Link>
             {" "}&mdash; Average salary data, cost of living comparisons, and salary guides.
           </p>
         </section>

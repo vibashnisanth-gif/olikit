@@ -75,7 +75,7 @@ export default function SoftwareEngineerVsCybersecurityAnalyst() {
           <p className="mt-3 text-sm leading-7 text-zinc-500">Software engineers and cybersecurity analysts play complementary but distinct roles in the technology ecosystem. Software engineers focus on building and improving systems, while cybersecurity analysts focus on defending those systems from ever-evolving threats. Understanding these career paths is essential for anyone deciding between creation and protection in the technology field.</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href="/professions/software-engineer" className="rounded-md bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800">Software Engineer Hub</a>
-            <a href="/us/salary/cybersecurity-analyst" className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Cybersecurity Salary</a>
+            <a href="/professions/cybersecurity-analyst" className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Cybersecurity Salary</a>
           </div>
         </section>
 

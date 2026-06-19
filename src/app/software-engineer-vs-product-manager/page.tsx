@@ -75,7 +75,7 @@ export default function SoftwareEngineerVsProductManager() {
           <p className="mt-3 text-sm leading-7 text-zinc-500">Software engineers and product managers work closely together to build successful products, but their responsibilities, skill sets, and career trajectories are fundamentally different. Understanding these differences is critical for anyone deciding between a technical building role and a strategic product leadership path.</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href="/professions/software-engineer" className="rounded-md bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800">Software Engineer Hub</a>
-            <a href="/us/salary/product-manager" className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Product Manager Salary</a>
+            <a href="/professions/product-manager" className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Product Manager Salary</a>
           </div>
         </section>
 

@@ -171,7 +171,7 @@ export function buildArticleJsonLd(
     description,
     url: `${SITE_URL}${path}`,
     inLanguage: locale.code,
-    datePublished: "2026-01-15",
+    datePublished: getDateModified(),
     dateModified: getDateModified(),
     author: {
       "@type": "Organization",

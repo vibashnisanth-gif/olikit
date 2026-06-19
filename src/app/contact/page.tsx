@@ -90,11 +90,11 @@ export default function ContactPage() {
           <h2 className="text-xl font-semibold text-zinc-950 mb-3">Our Calculators</h2>
           <p className="text-zinc-600">
             Browse our free calculators:{" "}
-            <Link href="/us/tools/salary-calculator" className="text-emerald-600 hover:text-emerald-700">Salary Calculator</Link>,{" "}
-            <Link href="/us/tools/tax-calculator" className="text-emerald-600 hover:text-emerald-700">Tax Calculator</Link>,{" "}
-            <Link href="/us/tools/mortgage-calculator" className="text-emerald-600 hover:text-emerald-700">Mortgage Calculator</Link>,{" "}
-            <Link href="/us/tools/investment-calculator" className="text-emerald-600 hover:text-emerald-700">Investment Calculator</Link>,{" "}
-            <Link href="/us/tools/retirement-calculator" className="text-emerald-600 hover:text-emerald-700">Retirement Calculator</Link>.
+            <Link href="/compare" className="text-emerald-600 hover:text-emerald-700">Compare Salaries</Link>,{" "}
+            <Link href="/rankings" className="text-emerald-600 hover:text-emerald-700">Salary Rankings</Link>,{" "}
+            <Link href="/countries" className="text-emerald-600 hover:text-emerald-700">Country Guides</Link>,{" "}
+            <Link href="/research" className="text-emerald-600 hover:text-emerald-700">Research Reports</Link>,{" "}
+            <Link href="/professions" className="text-emerald-600 hover:text-emerald-700">Profession Hubs</Link>.
           </p>
         </section>
       </div>

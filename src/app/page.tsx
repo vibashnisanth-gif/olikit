@@ -375,10 +375,10 @@ export default function GlobalHomePage() {
             Explore Salary Data
           </a>
           <a
-            href="/us/tools/salary-calculator"
+            href="/compare"
             className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-6 py-3 text-sm font-medium text-zinc-700 transition hover:bg-zinc-50 hover:border-zinc-300"
           >
-            Calculate Take-Home Pay
+            Compare Salaries
           </a>
         </div>
 

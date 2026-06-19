@@ -1,5 +1,7 @@
 export function getLastUpdated(): string {
-  return "June 2026"
+  const now = new Date()
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  return `${months[now.getMonth()]} ${now.getFullYear()}`
 }
 
 export function getCurrentYear(): number {
@@ -7,7 +9,7 @@ export function getCurrentYear(): number {
 }
 
 export function getDateModified(): string {
-  return "2026-06-01"
+  return new Date().toISOString().split("T")[0]
 }
 
 export interface FreshnessInfo {
@@ -16,10 +18,12 @@ export interface FreshnessInfo {
   lastUpdated: string
 }
 
+const BUILD_DATE = new Date().toISOString().split("T")[0]
+
 export function getFreshnessInfo(): FreshnessInfo {
   return {
     dateModified: getDateModified(),
-    datePublished: "2026-01-15",
+    datePublished: BUILD_DATE,
     lastUpdated: getLastUpdated(),
   }
 }
