@@ -178,7 +178,7 @@ export function getBestStatesForHomeAffordability(): StateRankingsData {
   return {
     h1: "Best States for Home Affordability (2025-2026)",
     metaDescription: "Top US states ranked by home affordability. Compare home price-to-income ratios, mortgage affordability, and property taxes across states.",
-    intro: "Home affordability varies dramatically across the United States. This ranking compares states by the ratio of median home values to average salaries, along with property tax rates and mortgage affordability. Whether you are a first-time homebuyer or looking to relocate, understanding which states offer the best value for your housing dollar is essential for making informed decisions.",
+    intro: "Home affordability varies dramatically across the United States. This ranking compares states by the ratio of median home values to average salaries, along with property tax rates and mortgage affordability. States are evaluated on home price-to-income ratios, allowing first-time buyers and relocating professionals to identify where their housing budget goes furthest.",
     methodology: "States are ranked by home price-to-income ratio (median home value divided by average annual salary). Lower ratios indicate better affordability. Additional context includes effective property tax rates, mortgage payment estimates (assuming 20% down, 30-year fixed at 6.5%), and cost of living indices. Data sources: Zillow Home Value Index, Bureau of Labor Statistics, US Census Bureau.",
     keyInsights: [
       `Ohio offers the most affordable housing with a median home value of $200,000 and an average salary of $55,000.`,

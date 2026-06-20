@@ -242,11 +242,11 @@ export function generateSalaryHubContent(locale: Locale): {
     sections: [
       {
         heading: `${locale.name} Salary Calculator`,
-        body: `Our free salary calculator for ${locale.name} provides accurate take-home pay estimates after federal and state taxes, Social Security, Medicare, and other deductions. Enter your annual salary, filing status, and location to see your net pay, marginal tax rate, and effective tax rate. The calculator uses up-to-date tax brackets and contribution rates for the ${locale.taxTerms.incomeTaxYear} tax year.`,
+        body: `Estimate your take-home pay in ${locale.name} after federal and state taxes, Social Security, Medicare, and other deductions. Enter your annual salary, filing status, and location to see your net pay, marginal tax rate, and effective tax rate. The calculator uses current tax brackets and contribution rates for the ${locale.taxTerms.incomeTaxYear} tax year.`,
       },
       {
         heading: `Average Salaries by State`,
-        body: `Salary levels vary significantly across ${locale.name} states due to differences in industry mix, cost of living, labor demand, and regional economic conditions. Our average salary pages provide state-specific data including mean annual wages, median household incomes, and cost of living context to help you make informed career and relocation decisions.`,
+        body: `Salary levels vary significantly across ${locale.name} states due to differences in industry mix, cost of living, labor demand, and regional economic conditions. Average salary pages provide state-specific data including mean annual wages, median household incomes, and cost-of-living context for career and relocation planning.`,
       },
       {
         heading: `Tax Impact on Your Salary`,
@@ -254,7 +254,7 @@ export function generateSalaryHubContent(locale: Locale): {
       },
       {
         heading: `Salary Guides and Resources`,
-        body: `Beyond calculators, our salary guides provide in-depth information on salary negotiation, understanding your pay stub, benefits evaluation, and retirement planning. Whether you are starting a new job, negotiating a raise, or planning a career change, our resources help you make informed financial decisions.`,
+        body: `Beyond calculators, salary guides cover salary negotiation, pay stub interpretation, benefits evaluation, and retirement planning using state-specific tax rates and deduction rules.`,
       },
     ],
     faqs: [

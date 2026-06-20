@@ -95,7 +95,7 @@ export function generateGuideContent(
     }),
     "tax-brackets-by-country": () => ({
       h1: `${locale.name} Tax Brackets ${taxYear} - Complete Guide to Income Tax Rates`,
-      intro: `Understanding tax brackets is essential for effective financial planning in ${locale.name}. The ${taxYear} tax year features a progressive tax system where your income is divided into portions, each taxed at a different rate. This guide explains how tax brackets work in ${locale.name}, what your marginal and effective tax rates mean, and how ${locale.name}'s tax system compares to other countries. Knowing your tax bracket helps you make informed decisions about salary negotiation, additional work, investments, and retirement contributions.`,
+      intro: `Understanding tax brackets is essential for effective financial planning in ${locale.name}. The ${taxYear} tax year features a progressive tax system where your income is divided into portions, each taxed at a different rate. This guide explains how tax brackets work in ${locale.name}, what your marginal and effective tax rates mean, and how the tax system compares to other countries. Use the tax calculator above to model how bracket changes affect your net income.`,
       keyTakeaways: [
         `${locale.name} uses a progressive tax system for ${taxYear} where income is divided into brackets, each taxed at a different rate.`,
         `Your marginal tax rate is the rate on your last dollar earned; your effective rate is your total tax divided by total income and is always lower.`,
@@ -159,7 +159,7 @@ export function generateGuideContent(
     }),
     "how-much-house-can-i-afford": () => ({
       h1: `How Much House Can I Afford in ${locale.name}? - Complete Guide ${taxYear}`,
-      intro: `Determining how much house you can afford in ${locale.name} requires understanding your budget, the 28% rule, down payment requirements, and total homeownership costs. This guide walks you through the process of calculating your affordable home price range in ${locale.name}, considering local property prices, mortgage rates for ${taxYear}, property taxes, insurance, and other costs specific to ${locale.name}. Whether you are a first-time homebuyer or looking to upgrade, knowing your budget before house hunting saves time and prevents financial strain.`,
+      intro: `Determining how much house you can afford in ${locale.name} requires understanding your budget, the 28% rule, down payment requirements, and total homeownership costs. This guide walks you through calculating your affordable home price range in ${locale.name}, considering local property prices, mortgage rates for ${taxYear}, property taxes, insurance, and other country-specific costs. First-time and existing homeowners can use the mortgage calculator to test different scenarios.`,
       keyTakeaways: [
         `The 28% rule limits monthly housing costs to 28% of gross monthly income — a conservative starting point for ${locale.name} homebuyers.`,
         `Down payments in ${locale.name} range from 3-20%; a 20% down payment avoids private mortgage insurance and reduces monthly costs.`,
@@ -298,7 +298,7 @@ export function generateGuideContent(
       ]
       return {
         h1: `Best Money Transfer Services in ${locale.name} (${taxYear})`,
-        intro: `Sending money internationally from ${locale.name} can be expensive if you use traditional banks, which often add hidden markups to exchange rates and charge high fees. Fortunately, specialist money transfer services offer much better rates and lower fees. This guide compares the best options available in ${locale.name}, including Wise, Revolut, Remitly, and OFX. Whether you are sending money to family abroad, paying for international services, or managing cross-border business transactions, choosing the right provider can save you significant amounts on every transfer.`,
+        intro: `Sending money internationally from ${locale.name} can be expensive if you use traditional banks, which often add hidden markups to exchange rates and charge high fees. Specialist money transfer services offer better rates and lower fees. This guide compares the best options available in ${locale.name}, including Wise, Revolut, Remitly, and OFX. Each provider is evaluated on exchange rate margins, transfer speed, and fee structure for personal and business transfers.`,
         keyTakeaways: [
           `Traditional banks in ${locale.name} typically add 3-5% markup on exchange rates, while specialist services offer near-real rates with low fees.`,
           `Wise (formerly TransferWise) uses the real mid-market exchange rate with transparent, low fees starting from 0.41%.`,
@@ -388,7 +388,7 @@ export function generateGuideContent(
     "best-investment-platforms": () => {
       return {
         h1: `Best Investment Platforms in ${locale.name} (${taxYear})`,
-        intro: `Investing in ${locale.name} has never been more accessible thanks to a wide range of online investment platforms and trading apps. Whether you are a complete beginner looking to start with small amounts or an experienced investor seeking advanced tools, there is a platform suited to your needs. This guide compares the best investment platforms available in ${locale.name}, covering fees, features, account types, and who each platform is ideal for.`,
+        intro: `Online investment platforms and trading apps have expanded access to ${locale.name}'s financial markets. This guide compares platforms available in ${locale.name} across fees, features, account types, and minimum deposit requirements. Each platform is evaluated for beginners, intermediate investors, and active traders separately.`,
         keyTakeaways: [
           `The best investment platform in ${locale.name} depends on your experience level, investment amount, and preferred asset types.`,
           `Commission-free trading is now widely available in ${locale.name}, making it affordable to start investing with small amounts.`,
@@ -434,7 +434,7 @@ export function generateGuideContent(
     },
     "compound-interest-examples": () => ({
       h1: `Compound Interest Examples for ${locale.name} - Investment Growth Guide`,
-      intro: `Compound interest is the most powerful force in personal finance, allowing your money to grow exponentially over time. In ${locale.name}, understanding how compounding works is essential for building wealth through investments, retirement accounts, and savings. This guide provides real compound interest examples showing how different investment amounts, return rates, and time horizons affect your wealth in ${locale.name}. Whether you are investing for retirement, education, or other financial goals, these examples demonstrate the importance of starting early and investing consistently.`,
+      intro: `Compound interest allows your money to grow on both the principal and previously accumulated returns. This guide shows how different investment amounts, return rates, and time horizons affect wealth accumulation in ${locale.name}, using the investment calculator to model scenarios for retirement, education funding, and general wealth building.`,
       keyTakeaways: [
         `Compound interest means earning returns on both your principal and previously accumulated returns — the earlier you start, the more powerful the effect.`,
         `A ${currency}10,000 investment at 7% annual return grows to approximately ${currency}76,100 in 30 years through compounding alone.`,

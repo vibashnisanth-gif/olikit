@@ -748,7 +748,7 @@ export default function GlobalHomePage() {
           </h2>
           <div className="mt-5 space-y-3 text-base leading-7 text-zinc-600">
             <p>
-              Olikit helps people understand how salaries, taxes and living costs affect their financial outcomes. Whether you are evaluating a job offer, planning an international move, comparing career opportunities or researching compensation trends, Olikit provides the tools and data needed to make informed decisions.
+              Olikit helps people understand how salaries, taxes and living costs affect their financial outcomes. The platform combines salary benchmarks, tax calculations, compensation research and cost-of-living insights for professionals evaluating job offers, planning international moves, or comparing career opportunities across 7 major economies.
             </p>
             <p>
               Unlike generic calculators, Olikit combines salary benchmarks, tax calculations, compensation research and cost-of-living insights into a single platform designed for professionals, job seekers, businesses, remote workers and expatriates.

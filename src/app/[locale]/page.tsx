@@ -43,7 +43,7 @@ const COUNTRY_CONTENT: Record<string, {
 }> = {
   us: {
     heroH1: "United States Salary, Tax and Cost of Living Intelligence",
-    heroDesc: "Research salaries, estimate take-home pay, compare states and understand cost-of-living differences across the United States. Olikit combines salary benchmarks, tax insights, affordability research and compensation analysis to help professionals, job seekers and families make better financial decisions. Whether you are evaluating a new job offer, planning a relocation or researching compensation trends, our calculators, rankings and guides provide transparent insights built from government-sourced and publicly available data.",
+    heroDesc: "Analyze software engineer salaries, income tax brackets, and cost of living across all 50 US states. Data sourced from BLS OEWS, IRS tax tables, and Census Bureau surveys. Compare take-home pay after federal and state income tax, Social Security, and Medicare.",
     snapshotCurrency: "USD ($)",
     snapshotTaxAuthority: "Internal Revenue Service (IRS)",
     snapshotTopSectors: "Technology",
@@ -166,7 +166,7 @@ const COUNTRY_CONTENT: Record<string, {
   },
   uk: {
     heroH1: "United Kingdom Salary, Tax and Cost of Living Intelligence",
-    heroDesc: "Research salaries, estimate take-home pay, compare regions and understand cost-of-living differences across the United Kingdom. Olikit combines salary benchmarks, tax insights, affordability research and compensation analysis to help professionals make informed financial and career decisions. Whether you are evaluating a new role in London, comparing salaries across the UK or planning a relocation, our calculators, rankings and guides provide transparent insights built from government-sourced and publicly available data.",
+    heroDesc: "UK salary data by profession and region, PAYE income tax and National Insurance calculations, and housing affordability analysis. Sources include the Office for National Statistics, HMRC tax tables, and the Land Registry. Compare take-home pay across England, Scotland, Wales, and Northern Ireland.",
     snapshotCurrency: "GBP (\u00a3)",
     snapshotTaxAuthority: "HM Revenue & Customs (HMRC)",
     snapshotTopSectors: "Financial Services",
@@ -289,7 +289,7 @@ const COUNTRY_CONTENT: Record<string, {
   },
   au: {
     heroH1: "Australia Salary, Tax and Cost of Living Intelligence",
-    heroDesc: "Research salaries, estimate take-home pay, compare Australian states and understand cost-of-living differences across the country. Olikit combines salary benchmarks, tax insights, affordability research and compensation analysis to help professionals make informed career and financial decisions. Whether you are evaluating a job offer in Sydney, comparing opportunities across Australia or planning an international relocation, our calculators, rankings and guides provide transparent insights built from government-sourced and publicly available data.",
+    heroDesc: "Australian salary benchmarks by occupation and state, PAYG tax bracket calculations, and cost-of-living comparisons across Sydney, Melbourne, Brisbane, and Perth. Data from the Australian Bureau of Statistics, ATO tax tables, and the Superannuation Guarantee rates. Includes mandatory superannuation analysis.",
     snapshotCurrency: "Australian Dollar (AUD)",
     snapshotTaxAuthority: "Australian Taxation Office (ATO)",
     snapshotTopSectors: "Mining & Resources",
@@ -412,7 +412,7 @@ const COUNTRY_CONTENT: Record<string, {
   },
   ca: {
     heroH1: "Canada Salary, Tax and Cost of Living Intelligence",
-    heroDesc: "Research salaries, estimate take-home pay, compare provinces and understand cost-of-living differences across Canada. Olikit combines salary benchmarks, tax insights, affordability research and compensation analysis to help professionals make informed financial and career decisions. Whether you are evaluating a role in Toronto, comparing opportunities across provinces or planning an international relocation, our calculators, rankings and guides provide transparent insights built from government-sourced and publicly available data.",
+    heroDesc: "Canadian salary data by profession and province, federal and provincial income tax calculations, CPP and EI deduction estimates. Sources include Statistics Canada, Canada Revenue Agency tax brackets, and provincial housing authorities. Compare purchasing power across Toronto, Vancouver, Montreal, and Calgary.",
     snapshotCurrency: "Canadian Dollar (CAD)",
     snapshotTaxAuthority: "Canada Revenue Agency (CRA)",
     snapshotTopSectors: "Energy & Technology",
@@ -536,7 +536,7 @@ const COUNTRY_CONTENT: Record<string, {
   },
   nz: {
     heroH1: "New Zealand Salary, Tax and Cost of Living Intelligence",
-    heroDesc: "Research salaries, estimate take-home pay, compare regions and understand cost-of-living differences across New Zealand. Olikit combines salary benchmarks, tax insights, affordability research and compensation analysis to help professionals make informed financial and career decisions. Whether you are evaluating a role in Auckland, comparing opportunities across regions or planning an international relocation, our calculators, rankings and guides provide transparent insights built from government-sourced and publicly available data.",
+    heroDesc: "New Zealand salary data by profession, PAYE income tax calculations with ACC levies, and KiwiSaver contribution modeling. Data from Stats NZ, Inland Revenue tax brackets, and the Ministry of Business, Innovation and Employment. Includes regional cost-of-living comparisons across the North and South Islands.",
     snapshotCurrency: "New Zealand Dollar (NZD)",
     snapshotTaxAuthority: "Inland Revenue (IRD)",
     snapshotTopSectors: "Healthcare & Professional Services",
@@ -659,7 +659,7 @@ const COUNTRY_CONTENT: Record<string, {
   },
   in: {
     heroH1: "India Salary, Tax and Cost of Living Intelligence",
-    heroDesc: "Research salaries, estimate take-home pay, compare professions and understand cost-of-living differences across India. Olikit combines salary benchmarks, tax insights, affordability research and compensation analysis to help professionals make informed financial and career decisions. Whether you are evaluating a role in Bengaluru, comparing opportunities across Indian cities or exploring international career options, our calculators, rankings and guides provide transparent insights built from government-sourced and publicly available data.",
+    heroDesc: "India salary benchmarks by profession and city, Old vs New Tax Regime comparisons, EPF and professional tax deduction estimates. Data sources include the Ministry of Statistics, Income Tax Department rates, and industry compensation surveys. Compare purchasing power across Bengaluru, Mumbai, Hyderabad, Delhi-NCR, and Pune.",
     snapshotCurrency: "Indian Rupee (INR)",
     snapshotTaxAuthority: "Income Tax Department of India",
     snapshotTopSectors: "Technology & Financial Services",
@@ -781,7 +781,7 @@ const COUNTRY_CONTENT: Record<string, {
   },
   sg: {
     heroH1: "Singapore Salary, Tax and Cost of Living Intelligence",
-    heroDesc: "Research salaries, estimate take-home pay, compare professions and understand cost-of-living differences across Singapore. Olikit combines salary benchmarks, tax insights, affordability research and compensation analysis to help professionals make informed financial and career decisions. Whether you are evaluating a role in Singapore, comparing international opportunities or planning an overseas relocation, our calculators, rankings and guides provide transparent insights built from government-sourced and publicly available data.",
+    heroDesc: "Singapore salary benchmarks by profession, CPF contribution calculations for employees and employers, and individual income tax estimates using IRAS progressive rates. Data from the Ministry of Manpower, CPF Board, and Department of Statistics Singapore. Includes cost-of-living comparisons for expatriates and locals.",
     snapshotCurrency: "Singapore Dollar (SGD)",
     snapshotTaxAuthority: "Inland Revenue Authority of Singapore (IRAS)",
     snapshotTopSectors: "Financial Services",

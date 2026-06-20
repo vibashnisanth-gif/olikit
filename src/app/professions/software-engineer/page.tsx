@@ -140,7 +140,7 @@ export default function SoftwareEngineerHub() {
             Olikit combines salary benchmarks, affordability research, purchasing power analysis and career insights to help software engineers make informed financial and professional decisions.
           </p>
           <p className="mt-2 max-w-3xl text-sm leading-7 text-zinc-500">
-            Whether you are choosing a career path, negotiating a salary, comparing international opportunities or planning a relocation, our calculators, rankings and research provide transparent insights built from publicly available and government-sourced information.
+            All data draws from government-sourced salary surveys, tax authority publications, and publicly available compensation research. Calculators apply current tax brackets, social contribution rates, and cost-of-living indices for each country.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href="/compare" className="rounded-md bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800">Compare Countries</a>

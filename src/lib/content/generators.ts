@@ -57,7 +57,15 @@ function generateIntro(
   locationName: string,
   currency: string
 ): string {
-  return `Our free ${tool.name.toLowerCase()} helps you make informed financial decisions in ${locationName}. Whether you are planning your budget, evaluating a loan, or projecting investment growth, our calculator provides accurate results based on ${locationName} specific rates and regulations.`
+  const intros: Record<string, string> = {
+    "salary-calculator": `Estimate your take-home pay in ${locationName} after income tax, social security, and other deductions. The calculator applies ${locationName}'s progressive tax brackets and deduction rules for the current tax year.`,
+    "tax-calculator": `Calculate your income tax liability in ${locationName} using current progressive tax brackets. See how marginal rates, deductions, and credits affect your total tax bill and effective rate.`,
+    "mortgage-calculator": `Work out your monthly mortgage payments in ${locationName}, including principal, interest, property taxes, and insurance. Adjust the loan term, down payment, and interest rate to find a plan that fits your budget.`,
+    "investment-calculator": `Project how your investments can grow in ${locationName} over time. Adjust initial principal, regular contributions, expected return rate, and investment horizon to see the effect of compounding.`,
+    "retirement-calculator": `Estimate how much you need to save for retirement in ${locationName}. The calculator factors in your current savings, monthly contributions, expected returns, pension benefits, and inflation.`,
+    "budget-calculator": `Build a monthly budget for ${locationName} by entering your income and expenses. See how much you can save each month and where your money goes.`,
+  }
+  return intros[tool.id] || `${tool.name} calculator for ${locationName}. Enter your details to get ${locationName}-specific results based on current rates and regulations.`
 }
 
 function generateSections(
@@ -636,7 +644,7 @@ function generateAiAnswer(
   const blockMap: Record<string, { question: string; answer: string }> = {
     "salary-calculator": {
       question: `How do I calculate my take-home pay after taxes in ${locationName}?`,
-      answer: `To calculate your take-home pay in ${locationName}, start with your gross annual salary. Subtract ${taxYear} income tax using the progressive tax brackets applicable to your income level. Then deduct social security contributions, pension contributions, and other mandatory deductions. The result is your net take-home pay. Our free salary calculator does this instantly for any salary amount.`,
+      answer: `To calculate your take-home pay in ${locationName}, start with your gross annual salary. Subtract ${taxYear} income tax using the progressive tax brackets applicable to your income level. Then deduct social security contributions, pension contributions, and other mandatory deductions. The result is your net take-home pay. Use the salary calculator above to compute your exact figures.`,
     },
     "tax-calculator": {
       question: `How are income taxes calculated in ${locationName}?`,
@@ -805,12 +813,12 @@ function generateDirectAnswer(
   const blockMap: Record<string, DirectAnswerBlock> = {
     "salary-calculator": {
       question: `How much take-home pay will I receive from my salary in ${locationName}?`,
-      answer: `Your take-home pay in ${locationName} is your gross salary minus income tax, social security contributions, and other deductions. Use our free salary calculator to instantly compute your net pay after ${locale.taxTerms.incomeTaxYear} taxes, including accurate tax bracket calculations and deduction estimates specific to ${locationName}.`,
+      answer: `Your take-home pay in ${locationName} is your gross salary minus income tax, social security contributions, and other deductions. The salary calculator above computes your net pay after ${locale.taxTerms.incomeTaxYear} taxes, including accurate tax bracket calculations and deduction estimates specific to ${locationName}.`,
       snippetType: "paragraph",
     },
     "tax-calculator": {
       question: `How much income tax will I pay in ${locationName} for ${locale.taxTerms.incomeTaxYear}?`,
-      answer: `Income tax in ${locationName} is calculated using progressive tax brackets for ${locale.taxTerms.incomeTaxYear}. Your tax liability depends on your taxable income, filing status, and eligible deductions. Our free tax calculator applies current rates instantly to estimate your total tax, effective rate, and marginal rate.`,
+      answer: `Income tax in ${locationName} is calculated using progressive tax brackets for ${locale.taxTerms.incomeTaxYear}. Your tax liability depends on your taxable income, filing status, and eligible deductions. The tax calculator above applies current rates to estimate your total tax, effective rate, and marginal rate.`,
       snippetType: "paragraph",
     },
     "mortgage-calculator": {
@@ -850,7 +858,7 @@ function injectStateSections(
     const cityRef = locationName.split(",")[0]
     enhanced.push({
       heading: `${cityRef} Key Financial Data at a Glance`,
-      body: `${locationName} residents and job seekers should understand the local financial landscape. The table below shows key economic indicators for ${cityRef}, including income levels, tax burdens, housing costs, and the overall cost of living index. This data helps you compare ${cityRef} with other states and make informed decisions about relocation, employment, and home buying. All figures are based on the most recent available data from the Bureau of Labor Statistics, US Census Bureau, and state revenue departments.`,
+      body: `${locationName} residents and job seekers should understand the local financial landscape. The table below shows key economic indicators for ${cityRef}, including income levels, tax burdens, housing costs, and the overall cost of living index. Use this data to compare ${cityRef} with other states when evaluating relocation, employment, or home buying options. All figures are based on the most recent available data from the Bureau of Labor Statistics, US Census Bureau, and state revenue departments.`,
     })
   }
 
@@ -1358,7 +1366,7 @@ export function generateComparisonContent(
       },
       {
         heading: "Key Takeaways",
-        body: `This comparison helps you make informed decisions if you are considering opportunities in both ${localeA.name} and ${localeB.name}. Use the individual calculators for detailed country-specific calculations.`,
+        body: `Review the key differences between ${localeA.name} and ${localeB.name} above. Use each country's individual calculator for more detailed, scenario-specific results.`,
       },
     ],
     faqs: [
