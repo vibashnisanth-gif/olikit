@@ -22,7 +22,7 @@ export default function EditorialPolicyPage() {
       <section>
         <h2 className="text-xl font-semibold text-zinc-950 mb-3">Accuracy</h2>
         <p className="text-sm leading-7 text-zinc-600">
-          Olikit is committed to providing accurate and up-to-date financial data. All calculations are based on official government tax brackets, rates, and thresholds. We verify our calculations against official government calculators and published tax tables. Data is reviewed and updated at least annually, or when significant tax law changes occur.
+          Olikit is committed to providing accurate and up-to-date financial data. All calculations are based on official government tax brackets, rates, and thresholds published by the IRS, HMRC, ATO, CRA, IRD, Indian Income Tax Department, IRAS, and their corresponding statistical agencies. We verify our calculations against official government calculators and published tax tables. Data is reviewed and updated at least annually, or when significant tax law changes occur. Every page that uses source data links to the specific government publication, statistical release, or dataset it references.
         </p>
       </section>
 

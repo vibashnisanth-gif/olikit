@@ -1222,7 +1222,22 @@ export default function GlobalHomePage() {
       </section>
       </FadeInSection>
 
-      {/* SECTION 19 — FINAL CTA */}
+      {/* SECTION 19 — SOURCES & METHODOLOGY */}
+      <FadeInSection>
+      <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10">
+        <h2 className="text-xl font-semibold text-zinc-950 sm:text-2xl mb-4">
+          Sources & Methodology
+        </h2>
+        <p className="text-sm leading-7 text-zinc-600 mb-4">
+          Olikit compiles salary, tax, and financial data from official government publications including the Internal Revenue Service (IRS), Bureau of Labor Statistics (BLS), HM Revenue &amp; Customs (HMRC), Office for National Statistics (ONS), Australian Taxation Office (ATO), Australian Bureau of Statistics (ABS), Canada Revenue Agency (CRA), Statistics Canada, Inland Revenue Department (IRD), Stats NZ, Indian Income Tax Department, IRAS, and Department of Statistics Singapore. All tax calculations apply current-year progressive brackets, thresholds, and deduction rules published by each jurisdiction. Salary figures reflect publicly reported averages from labor statistics and industry surveys; individual outcomes vary. Detailed methodology is documented on our <a href="/methodology" className="text-emerald-700 hover:text-emerald-600 font-medium">methodology page</a>.
+        </p>
+        <p className="text-xs text-zinc-500">
+          Last updated: {getDateModified()}
+        </p>
+      </section>
+      </FadeInSection>
+
+      {/* SECTION 20 — FINAL CTA */}
       <FadeInSection>
       <section className="rounded-xl border border-zinc-200 bg-zinc-50 px-6 py-8 sm:px-10 sm:py-10 text-center">
         <div className="mx-auto max-w-2xl">

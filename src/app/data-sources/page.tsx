@@ -10,13 +10,13 @@ export const metadata: Metadata = {
 }
 
 const sources = [
-  { slug: "us", tax: "IRS — Internal Revenue Service", taxUrl: "https://www.irs.gov", labor: "Bureau of Labor Statistics", laborUrl: "https://www.bls.gov" },
-  { slug: "uk", tax: "HMRC — HM Revenue & Customs", taxUrl: "https://www.gov.uk/government/organisations/hm-revenue-customs", labor: "Office for National Statistics", laborUrl: "https://www.ons.gov.uk" },
-  { slug: "au", tax: "ATO — Australian Taxation Office", taxUrl: "https://www.ato.gov.au", labor: "Australian Bureau of Statistics", laborUrl: "https://www.abs.gov.au" },
-  { slug: "ca", tax: "CRA — Canada Revenue Agency", taxUrl: "https://www.canada.ca/en/revenue-agency.html", labor: "Statistics Canada", laborUrl: "https://www.statcan.gc.ca" },
-  { slug: "nz", tax: "IRD — Inland Revenue Department", taxUrl: "https://www.ird.govt.nz", labor: "Stats NZ", laborUrl: "https://www.stats.govt.nz" },
-  { slug: "in", tax: "Income Tax Department", taxUrl: "https://www.incometax.gov.in", labor: "Ministry of Statistics and Programme Implementation", laborUrl: "https://www.mospi.gov.in" },
-  { slug: "sg", tax: "IRAS — Inland Revenue Authority of Singapore", taxUrl: "https://www.iras.gov.sg", labor: "Department of Statistics Singapore", laborUrl: "https://www.singstat.gov.sg" },
+  { slug: "us", tax: "IRS — Internal Revenue Service", taxUrl: "https://www.irs.gov/pub/irs-drop/n-25-26.pdf", labor: "Bureau of Labor Statistics", laborUrl: "https://www.bls.gov/oes/" },
+  { slug: "uk", tax: "HMRC — HM Revenue & Customs", taxUrl: "https://www.gov.uk/government/publications/rates-and-allowances-income-tax/rates-and-allowances-income-tax", labor: "Office for National Statistics", laborUrl: "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earnings" },
+  { slug: "au", tax: "ATO — Australian Taxation Office", taxUrl: "https://www.ato.gov.au/tax-rates-and-codes/tax-rates", labor: "Australian Bureau of Statistics", laborUrl: "https://www.abs.gov.au/statistics/labour/earings" },
+  { slug: "ca", tax: "CRA — Canada Revenue Agency", taxUrl: "https://www.canada.ca/en/revenue-agency/services/tax/individuals/federal-income-tax-rates.html", labor: "Statistics Canada", laborUrl: "https://www.statcan.gc.ca/en/subjects-start/employment_and_unemployment" },
+  { slug: "nz", tax: "IRD — Inland Revenue Department", taxUrl: "https://www.ird.govt.nz/income-tax/income-tax-for-individuals", labor: "Stats NZ", laborUrl: "https://www.stats.govt.nz/topics/income/" },
+  { slug: "in", tax: "Income Tax Department", taxUrl: "https://www.incometax.gov.in/iec/foportal/help/individual-itr", labor: "Ministry of Statistics and Programme Implementation", laborUrl: "https://www.mospi.gov.in/statistical-year-book-india" },
+  { slug: "sg", tax: "IRAS — Inland Revenue Authority of Singapore", taxUrl: "https://www.iras.gov.sg/taxes/individual-income-tax/basics-of-individual-income-tax/tax-rates", labor: "Department of Statistics Singapore", laborUrl: "https://www.singstat.gov.sg/find-data/search-by-theme/labour" },
 ]
 
 export default function DataSourcesPage() {

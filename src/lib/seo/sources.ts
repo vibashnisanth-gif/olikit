@@ -19,19 +19,19 @@ export const sourceRegistry: Record<string, LocaleSources> = {
     officialSources: [
       {
         name: "Internal Revenue Service (IRS)",
-        url: "https://www.irs.gov/",
+        url: "https://www.irs.gov/pub/irs-drop/n-25-26.pdf",
         description: "Federal tax brackets, standard deductions, and contribution limits.",
         category: "tax",
       },
       {
         name: "Bureau of Labor Statistics (BLS)",
-        url: "https://www.bls.gov/",
+        url: "https://www.bls.gov/oes/",
         description: "Employment data, wage estimates, and CPI inflation figures.",
         category: "labor",
       },
       {
         name: "US Census Bureau",
-        url: "https://www.census.gov/",
+        url: "https://www.census.gov/acs/www/data/data-tables-and-tools/",
         description: "Demographic data, median income, and housing statistics.",
         category: "statistics",
       },
@@ -56,13 +56,13 @@ export const sourceRegistry: Record<string, LocaleSources> = {
     officialSources: [
       {
         name: "HM Revenue & Customs (HMRC)",
-        url: "https://www.gov.uk/government/organisations/hm-revenue-customs",
+        url: "https://www.gov.uk/government/publications/rates-and-allowances-income-tax/rates-and-allowances-income-tax",
         description: "Income tax bands, National Insurance rates, and pension allowances.",
         category: "tax",
       },
       {
         name: "Office for National Statistics (ONS)",
-        url: "https://www.ons.gov.uk/",
+        url: "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earnings",
         description: "UK earnings data, CPI inflation, and economic statistics.",
         category: "statistics",
       },
@@ -81,13 +81,13 @@ export const sourceRegistry: Record<string, LocaleSources> = {
     officialSources: [
       {
         name: "Australian Taxation Office (ATO)",
-        url: "https://www.ato.gov.au/",
+        url: "https://www.ato.gov.au/tax-rates-and-codes/tax-rates",
         description: "Income tax rates, Medicare levy, and superannuation contribution limits.",
         category: "tax",
       },
       {
         name: "Australian Bureau of Statistics (ABS)",
-        url: "https://www.abs.gov.au/",
+        url: "https://www.abs.gov.au/statistics/labour/earnings",
         description: "Wage data, employment statistics, and cost of living indices.",
         category: "statistics",
       },
@@ -106,13 +106,13 @@ export const sourceRegistry: Record<string, LocaleSources> = {
     officialSources: [
       {
         name: "Canada Revenue Agency (CRA)",
-        url: "https://www.canada.ca/en/revenue-agency.html",
+        url: "https://www.canada.ca/en/revenue-agency/services/tax/individuals/federal-income-tax-rates.html",
         description: "Federal and provincial income tax rates, CPP contributions, and RRSP limits.",
         category: "tax",
       },
       {
         name: "Statistics Canada",
-        url: "https://www.statcan.gc.ca/",
+        url: "https://www.statcan.gc.ca/en/subjects-start/employment_and_unemployment",
         description: "Employment data, income statistics, and housing market data.",
         category: "statistics",
       },
@@ -131,13 +131,13 @@ export const sourceRegistry: Record<string, LocaleSources> = {
     officialSources: [
       {
         name: "Inland Revenue (IRD)",
-        url: "https://www.ird.govt.nz/",
+        url: "https://www.ird.govt.nz/income-tax/income-tax-for-individuals",
         description: "Income tax brackets, KiwiSaver rules, and ACC levies.",
         category: "tax",
       },
       {
         name: "Stats NZ",
-        url: "https://www.stats.govt.nz/",
+        url: "https://www.stats.govt.nz/topics/income/",
         description: "Wage data, employment statistics, and cost of living indices.",
         category: "statistics",
       },
@@ -156,7 +156,7 @@ export const sourceRegistry: Record<string, LocaleSources> = {
     officialSources: [
       {
         name: "Income Tax Department",
-        url: "https://www.incometaxindia.gov.in/",
+        url: "https://www.incometaxindia.gov.in/Pages/acts/income-tax-act-1961.aspx",
         description: "Income tax slabs, exemption limits, and deduction rules under the Income Tax Act.",
         category: "tax",
       },
@@ -187,13 +187,13 @@ export const sourceRegistry: Record<string, LocaleSources> = {
     officialSources: [
       {
         name: "Inland Revenue Authority of Singapore (IRAS)",
-        url: "https://www.iras.gov.sg/",
+        url: "https://www.iras.gov.sg/taxes/individual-income-tax/basics-of-individual-income-tax/tax-rates",
         description: "Personal income tax rates, reliefs, and rebates.",
         category: "tax",
       },
       {
         name: "SingStat (Department of Statistics Singapore)",
-        url: "https://www.singstat.gov.sg/",
+        url: "https://www.singstat.gov.sg/find-data/search-by-theme/labour",
         description: "Economic indicators, wage data, and household statistics.",
         category: "statistics",
       },
