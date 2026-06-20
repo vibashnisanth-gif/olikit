@@ -117,6 +117,13 @@ export default function AboutPage() {
         </section>
 
         <section>
+          <h2 className="text-2xl font-semibold mb-3">Editorial Independence</h2>
+          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+            Olikit operates independently. Our financial data, calculators, rankings, and recommendations are created using transparent, objective criteria and are not influenced by advertisers, affiliates, or any third party. We may earn revenue through advertising and affiliate links, but these partnerships never affect the accuracy, objectivity, or integrity of our content. Affiliate relationships are clearly disclosed on relevant pages.
+          </p>
+        </section>
+
+        <section>
           <h2 className="text-2xl font-semibold mb-3">Why Trust Olikit?</h2>
           <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
             Olikit is designed for accuracy and transparency. Every calculation is based on official government data, not estimates. Our calculators are tested against published examples from tax authorities. When rates change, we update them promptly and flag which tax year each calculator references. We do not fabricate data or use unofficial sources.

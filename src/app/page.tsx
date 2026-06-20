@@ -479,7 +479,23 @@ export default function GlobalHomePage() {
         </div>
       </section>
 
-      {/* SECTION 2 — TRUST STRIP */}
+      {/* SECTION 2 — HOW WE CALCULATE */}
+      <FadeInSection>
+      <section className="rounded-xl border border-emerald-200 bg-emerald-50 px-6 py-5 sm:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+          <div className="shrink-0">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-800">
+              How We Calculate
+            </span>
+          </div>
+          <p className="text-sm leading-6 text-emerald-900">
+            Salary data sourced from government labor statistics and industry surveys. Tax calculations use official brackets published by tax authorities (IRS, HMRC, ATO, CRA, IRD, IRAS). Cost-of-living indexes reflect official CPI and housing data. All figures are for educational purposes; individual outcomes vary. See our <a href="/methodology" className="font-semibold text-emerald-800 underline hover:text-emerald-700">full methodology</a>.
+          </p>
+        </div>
+      </section>
+      </FadeInSection>
+
+      {/* SECTION 3 — TRUST STRIP */}
       <FadeInSection>
       <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-6 py-3">
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-600">
