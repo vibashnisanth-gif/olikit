@@ -285,6 +285,10 @@ export default async function ProfessionPage({ params }: Props) {
             </div>
           </section>
 
+          <section className="rounded-lg border border-zinc-200 bg-zinc-50 p-5 text-sm text-zinc-500 leading-relaxed">
+            Salary figures represent averages from government labor statistics and industry surveys. Individual compensation varies by experience, employer, location, and qualifications. Tax calculations use official brackets from {locale.name}&apos;s tax authority. Figures updated {lastUpdated}. See <a href="/methodology" className="text-emerald-700 hover:text-emerald-600 font-medium">methodology</a> for details.
+          </section>
+
           {content.faqs.length > 0 && (
             <section className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm">
               <h2 className="mb-4 text-xl font-semibold text-zinc-950">

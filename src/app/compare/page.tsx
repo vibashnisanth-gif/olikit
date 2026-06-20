@@ -36,6 +36,17 @@ export default function ComparePage() {
         </p>
       </section>
 
+      <section className="rounded-xl border border-amber-200 bg-amber-50 px-6 py-4 sm:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
+          <span className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800">
+            How to Interpret
+          </span>
+          <p className="text-sm leading-6 text-amber-900">
+            Salary figures are annual averages sourced from government labor statistics and industry surveys, converted to local currency. Tax calculations use official brackets from each country's tax authority. Direct salary comparisons do not account for purchasing power, benefits, equity compensation, or non-monetary factors. See individual country pages and <a href="/methodology" className="font-semibold text-amber-800 underline hover:text-amber-700">methodology</a> for details.
+          </p>
+        </div>
+      </section>
+
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10">
         <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">Country-to-Country Comparisons</h2>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

@@ -76,6 +76,17 @@ export default function RankingsPage() {
         </p>
       </section>
 
+      <section className="rounded-xl border border-amber-200 bg-amber-50 px-6 py-4 sm:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
+          <span className="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800">
+            How to Interpret
+          </span>
+          <p className="text-sm leading-6 text-amber-900">
+            Rankings are based on average annual salaries across tracked professions, converted to USD using market exchange rates. Figures represent central tendencies from government labor statistics and industry surveys; individual compensation varies by experience, employer, and location. Use rankings as a starting point for comparison, not as definitive pay scales. See <a href="/methodology" className="font-semibold text-amber-800 underline hover:text-amber-700">methodology</a> for details.
+          </p>
+        </div>
+      </section>
+
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10">
         <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">Highest Average Salaries by Country</h2>
         <p className="mb-4 text-sm leading-6 text-zinc-500">Countries ranked by average annual salary across all tracked professions (converted to USD).</p>
