@@ -16,6 +16,12 @@ export function Shell({ children, localeSlug }: { children: React.ReactNode; loc
   const slug = localeSlug ?? (pathname?.split("/")[1] || null)
   const country = slug ? getCountry(slug) : null
 
+  if (slug && country && typeof window !== "undefined") {
+    try {
+      localStorage.setItem("olikit-last-locale", slug)
+    } catch {}
+  }
+
   return (
     <div className="flex flex-col min-h-full">
       <ContextBar slug={country?.slug ?? null} name={country?.name ?? null} currencyCode={country?.currencyCode ?? ""} taxAuthority={country?.taxAuthority ?? ""} />

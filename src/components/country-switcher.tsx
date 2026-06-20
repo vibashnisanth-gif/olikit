@@ -22,7 +22,9 @@ export function CountrySwitcher({ currentSlug, currentName, countries }: Props) 
     if (!toSlug) return "/"
     if (!currentSlug) return `/${toSlug}`
     if (toSlug === currentSlug) return pathname
-    return pathname.replace(`/${currentSlug}`, `/${toSlug}`)
+    const segments = pathname.split("/").filter(Boolean)
+    const newSegments = segments.map((seg) => (seg === currentSlug ? toSlug : seg))
+    return "/" + newSegments.join("/")
   }
 
   return (

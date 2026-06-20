@@ -16,9 +16,9 @@ export function Header({ currentSlug }: Props) {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
-    if (searchQuery.trim()) {
-      window.location.href = `/${currentSlug || "us"}/search?q=${encodeURIComponent(searchQuery.trim())}`
-    }
+    if (!searchQuery.trim()) return
+    const slug = currentSlug || (typeof window !== "undefined" ? localStorage.getItem("olikit-last-locale") : null) || "us"
+    window.location.href = `/${slug}/search?q=${encodeURIComponent(searchQuery.trim())}`
   }
 
   const countries = getAllCountries()

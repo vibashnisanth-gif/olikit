@@ -67,7 +67,7 @@ export default function MethodologyPage() {
           <li><strong className="text-zinc-950">Exchange Rate (25%)</strong> — How close the offered exchange rate is to the mid-market rate. Services offering real or near-real exchange rates score highest.</li>
           <li><strong className="text-zinc-950">Speed (15%)</strong> — How quickly transfers or transactions are completed. Same-day or instant services score highest.</li>
           <li><strong className="text-zinc-950">Coverage (15%)</strong> — Number of countries, currencies, and payment methods supported. Broader coverage scores higher.</li>
-          <li><strong className="text-zinc-950">Trust &amp; Regulation (10%)</strong> — Regulatory oversight, licensing, user reviews, and company history. FCA, FCA-regulated, and equivalent bodies add points.</li>
+          <li><strong className="text-zinc-950">Trust &amp; Regulation (10%)</strong> — Regulatory oversight, licensing, user reviews, and company history. FCA and equivalent bodies add points.</li>
           <li><strong className="text-zinc-950">User Experience (10%)</strong> — App ratings, website usability, customer support quality, and ease of onboarding.</li>
         </ul>
         <p className="mt-3 text-sm leading-7 text-zinc-600">

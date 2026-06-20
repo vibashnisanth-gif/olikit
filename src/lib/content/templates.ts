@@ -4,19 +4,19 @@ export const tools: Tool[] = [
   {
     id: "salary-calculator",
     slug: "salary-calculator",
-    name: "Salary Calculator",
-    shortName: "Salary",
+    name: "Pay Period Converter",
+    shortName: "Pay Period",
     category: "salary",
     description:
-      "Calculate your take-home pay after taxes and deductions in {country}.",
-    metaTitleTemplate: "{tool} {country} - Free Take-Home Pay Calculator",
+      "Convert salary between annual, monthly, biweekly, weekly, daily, and hourly periods.",
+    metaTitleTemplate: "{tool} {country} - Free Salary Period Converter",
     metaDescriptionTemplate:
-      "Calculate your take-home pay in {country} with our free salary calculator. Get accurate after-tax salary estimates with {country} tax rates for {taxYear}.",
+      "Convert your salary between pay periods in {country}. Free pay period converter for annual, monthly, biweekly, weekly, daily, and hourly rates.",
     keywords: [
-      "salary calculator",
-      "take home pay",
-      "after tax salary",
-      "income tax calculator",
+      "pay period converter",
+      "salary converter",
+      "annual to hourly",
+      "monthly to annual",
     ],
     relatedTools: ["tax-calculator", "retirement-calculator", "budget-planner"],
   },

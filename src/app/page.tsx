@@ -453,11 +453,11 @@ export default function GlobalHomePage() {
               </p>
               <div className="divide-y divide-zinc-100">
                 {[
-                  { rank: "#1", country: "Switzerland", salary: "CHF 95,000" },
-                  { rank: "#2", country: "Singapore", salary: "SGD 90,000" },
-                  { rank: "#3", country: "United States", salary: "$128,000" },
-                  { rank: "#4", country: "Australia", salary: "A$110,000" },
-                  { rank: "#5", country: "Canada", salary: "CA$88,000" },
+                  { rank: "#1", country: "United States", salary: "$120,000" },
+                  { rank: "#2", country: "Australia", salary: "A$110,000" },
+                  { rank: "#3", country: "Singapore", salary: "S$72,000" },
+                  { rank: "#4", country: "Canada", salary: "C$85,000" },
+                  { rank: "#5", country: "United Kingdom", salary: "£55,000" },
                 ].map((entry) => (
                   <div
                     key={entry.country}
@@ -602,12 +602,12 @@ export default function GlobalHomePage() {
           </p>
           <div className="mt-6 grid gap-3">
             {[
-              { rank: 1, country: "United States", flag: "🇺🇸", amount: 128000, curr: "USD" as const, pct: "100%", slug: "us", badge: "Highest Average" },
-              { rank: 2, country: "Australia", flag: "🇦🇺", amount: 110000, curr: "AUD" as const, pct: "86%", slug: "au", badge: "Strong Purchasing Power" },
-              { rank: 3, country: "Singapore", flag: "🇸🇬", amount: 78000, curr: "SGD" as const, pct: "61%", slug: "sg", badge: "Low Tax Jurisdiction" },
-              { rank: 4, country: "Canada", flag: "🇨🇦", amount: 88000, curr: "CAD" as const, pct: "69%", slug: "ca", badge: "Growing Tech Sector" },
-              { rank: 5, country: "New Zealand", flag: "🇳🇿", amount: 100000, curr: "NZD" as const, pct: "78%", slug: "nz", badge: "Strong Healthcare Pay" },
-              { rank: 6, country: "United Kingdom", flag: "🇬🇧", amount: 58000, curr: "GBP" as const, pct: "45%", slug: "uk", badge: "Financial Hub Premium" },
+              { rank: 1, country: "United States", flag: "🇺🇸", amount: 120000, curr: "USD" as const, pct: "100%", slug: "us", badge: "Highest Average" },
+              { rank: 2, country: "Australia", flag: "🇦🇺", amount: 110000, curr: "AUD" as const, pct: "92%", slug: "au", badge: "Strong Purchasing Power" },
+              { rank: 3, country: "Singapore", flag: "🇸🇬", amount: 72000, curr: "SGD" as const, pct: "60%", slug: "sg", badge: "Low Tax Jurisdiction" },
+              { rank: 4, country: "Canada", flag: "🇨🇦", amount: 85000, curr: "CAD" as const, pct: "71%", slug: "ca", badge: "Growing Tech Sector" },
+              { rank: 5, country: "New Zealand", flag: "🇳🇿", amount: 95000, curr: "NZD" as const, pct: "79%", slug: "nz", badge: "Strong Healthcare Pay" },
+              { rank: 6, country: "United Kingdom", flag: "🇬🇧", amount: 55000, curr: "GBP" as const, pct: "46%", slug: "uk", badge: "Financial Hub Premium" },
               { rank: 7, country: "India", flag: "🇮🇳", amount: 1200000, curr: "INR" as const, pct: "—", slug: "in", badge: "Fastest Growing Digital Economy" },
             ].map((c) => (
               <Link

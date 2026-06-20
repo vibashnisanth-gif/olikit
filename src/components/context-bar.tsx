@@ -22,32 +22,27 @@ const BAR_STYLES: Record<string, string> = {
 }
 
 export function ContextBar({ slug, name, currencyCode, taxAuthority }: Props) {
-  const isGlobal = !slug
-  const flag = isGlobal ? "🌍" : (COUNTRY_FLAGS[slug] || "🌍")
-  const label = isGlobal ? "Global" : name
-  const style = isGlobal ? BAR_STYLES.global : (BAR_STYLES[slug] || BAR_STYLES.global)
+  if (!slug) return null
+  const flag = COUNTRY_FLAGS[slug] || "🌍"
+  const style = BAR_STYLES[slug] || BAR_STYLES.global
 
   return (
     <div className={`sticky top-0 z-40 ${style}`}>
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-1.5">
         <span className="flex items-center gap-1.5 text-xs font-semibold tracking-wider">
           <span className="text-sm leading-none">{flag}</span>
-          {label}
-          {!isGlobal && (
-            <span className="text-[10px] font-normal opacity-60">
-              &nbsp;&bull; {currencyCode} &bull; {taxAuthority}
-            </span>
-          )}
+          {name}
+          <span className="text-[10px] font-normal opacity-60">
+            &nbsp;&bull; {currencyCode} &bull; {taxAuthority}
+          </span>
         </span>
-        {!isGlobal && (
-          <a
-            href="/"
-            onClick={() => trackCountrySwitch(slug, "global")}
-            className="text-[10px] font-medium opacity-60 hover:opacity-100 transition-opacity"
-          >
-            View Global
-          </a>
-        )}
+        <a
+          href="/"
+          onClick={() => trackCountrySwitch(slug, "global")}
+          className="text-[10px] font-medium opacity-60 hover:opacity-100 transition-opacity"
+        >
+          View Global
+        </a>
       </div>
     </div>
   )

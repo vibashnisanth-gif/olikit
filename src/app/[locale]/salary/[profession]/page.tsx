@@ -212,7 +212,7 @@ export default async function ProfessionPage({ params }: Props) {
             </p>
             <div className="flex flex-wrap gap-3">
               <a
-                href={`https://www.indeed.com${localeSlug !== "us" ? `.${localeSlug}` : ""}`}
+                href={localeSlug === "us" ? "https://www.indeed.com" : localeSlug === "uk" ? "https://uk.indeed.com" : `https://${localeSlug}.indeed.com`}
                 target="_blank"
                 rel="noopener noreferrer sponsored"
                 className="rounded-md bg-white px-4 py-2 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 hover:bg-zinc-50 transition-colors"
