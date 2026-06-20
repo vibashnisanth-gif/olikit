@@ -32,6 +32,17 @@
   --color-profession-finance-border: #ffe8a3;
   --color-profession-research-bg: #f3eeff;
   --color-profession-research-border: #ddd1ff;
+
+  --color-primary: #111827;
+  --color-primary-hover: #0f172a;
+  --color-secondary: #f8fbff;
+  --color-secondary-hover: #eef5fc;
+  --color-secondary-border: #d1d5db;
+  --color-secondary-text: #111827;
+  --color-secondary-text-hover: #0f172a;
+  --color-muted: #fafafa;
+  --color-muted-text: #4b5563;
+  --color-muted-text-hover: #111827;
 }
 
 html {

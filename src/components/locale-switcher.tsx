@@ -17,7 +17,9 @@ export function LocaleSwitcher({ currentSlug, currentName, locales }: Props) {
 
   const switchUrl = (toSlug: string): string => {
     if (toSlug === currentSlug) return pathname
-    return pathname.replace(`/${currentSlug}`, `/${toSlug}`)
+    const segments = pathname.split("/").filter(Boolean)
+    const newSegments = segments.map((seg) => (seg === currentSlug ? toSlug : seg))
+    return "/" + newSegments.join("/")
   }
 
   return (

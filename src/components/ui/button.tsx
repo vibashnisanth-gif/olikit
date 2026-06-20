@@ -7,12 +7,13 @@ type ButtonProps = {
   href?: string
   className?: string
   children: React.ReactNode
+  disabled?: boolean
 }
 
 const variantClasses: Record<Variant, string> = {
-  primary: "bg-text-primary text-white hover:bg-gray-800 active:scale-[0.98]",
-  secondary: "bg-surface-secondary border border-border-light text-text-secondary hover:bg-blue-50 hover:border-blue-200 hover:text-text-primary active:scale-[0.98]",
-  ghost: "text-text-secondary hover:bg-surface-muted hover:text-text-primary",
+  primary: "bg-primary text-white hover:bg-primary-hover active:scale-[0.98]",
+  secondary: "bg-secondary border border-secondary-border text-secondary-text hover:bg-secondary-hover hover:border-primary active:scale-[0.98]",
+  ghost: "text-secondary-text hover:bg-muted hover:text-primary active:scale-[0.98]",
 }
 
 const sizeClasses: Record<Size, string> = {
@@ -21,19 +22,22 @@ const sizeClasses: Record<Size, string> = {
   lg: "px-6 py-3 text-base",
 }
 
-export function Button({ variant = "primary", size = "md", href, className = "", children, ...props }: ButtonProps & Record<string, unknown>) {
-  const base = `inline-flex items-center justify-center gap-1.5 rounded-md font-medium transition-all duration-150 hover:scale-[1.01] ${variantClasses[variant]} ${sizeClasses[size]} ${className}`
+const focusStyles = "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+const disabledStyles = "disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+
+export function Button({ variant = "primary", size = "md", href, className = "", children, disabled, ...props }: ButtonProps & Record<string, unknown>) {
+  const base = `inline-flex items-center justify-center gap-1.5 rounded-md font-medium transition-all duration-150 hover:scale-[1.01] ${variantClasses[variant]} ${sizeClasses[size]} ${focusStyles} ${disabledStyles} ${className}`
 
   if (href) {
     return (
-      <a href={href} className={base}>
+      <a href={href} className={base} aria-disabled={disabled}>
         {children}
       </a>
     )
   }
 
   return (
-    <button className={base} {...props}>
+    <button className={base} disabled={disabled} {...props}>
       {children}
     </button>
   )
