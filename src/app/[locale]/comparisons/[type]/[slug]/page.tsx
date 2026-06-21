@@ -38,14 +38,18 @@ export async function generateStaticParams() {
     for (const pair of comparisonPairs) {
       const slugA = pair.regionA ?? pair.pairA
       const slugB = pair.regionB ?? pair.pairB
-      params.push({ locale: locale.slug, type: pair.type, slug: `${slugA}-vs-${slugB}` })
+      if (locale.slug === slugA || locale.slug === slugB) {
+        params.push({ locale: locale.slug, type: pair.type, slug: `${slugA}-vs-${slugB}` })
+      }
     }
     for (const pair of professionComparisonPairs) {
-      params.push({
-        locale: locale.slug,
-        type: "profession-salary",
-        slug: `${pair.professionSlug}-${pair.pairA}-vs-${pair.pairB}`,
-      })
+      if (locale.slug === pair.pairA || locale.slug === pair.pairB) {
+        params.push({
+          locale: locale.slug,
+          type: "profession-salary",
+          slug: `${pair.professionSlug}-${pair.pairA}-vs-${pair.pairB}`,
+        })
+      }
     }
   }
   return params

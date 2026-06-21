@@ -36,9 +36,9 @@ export function ExecutiveSummarySection({ title = "Executive Summary", summary, 
             </div>
           )}
 
-          <div className="mt-6 border-t border-zinc-100 pt-3">
-            <p className="text-xs text-zinc-500">Updated June 2026 · Government Data Sources</p>
-          </div>
+            <div className="mt-6 border-t border-zinc-100 pt-3">
+              <p className="text-xs text-zinc-500">Updated {new Date().getFullYear()} · Government Data Sources</p>
+            </div>
         </div>
       </div>
     </section>

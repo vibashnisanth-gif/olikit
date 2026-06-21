@@ -11,6 +11,7 @@ import { AffiliateSidebar } from "@/components/affiliate-sidebar"
 import { NewsletterSignup } from "@/components/newsletter-signup"
 import { AdUnit } from "@/components/ad-unit"
 import { formatSalary as fmtSalary, formatSalaryFull as fmtSalaryFull, slugToCurrency } from "@/lib/currency"
+import { Shell } from "@/components/shell"
 
 type Props = {
   params: Promise<{ locale: string; profession: string }>
@@ -89,7 +90,8 @@ export default async function ProfessionPage({ params }: Props) {
   }
 
   return (
-    <div className="space-y-10">
+    <Shell localeSlug={localeSlug}>
+      <div className="space-y-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd()) }}
@@ -357,5 +359,6 @@ export default async function ProfessionPage({ params }: Props) {
         </aside>
       </div>
     </div>
+    </Shell>
   )
 }
