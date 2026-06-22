@@ -8,7 +8,7 @@ import type { ProfessionPageContent } from "@/types/profession-page"
 
 const pagePath = "/financial-analyst-salary"
 const seoTitle = "Financial Analyst Salary Research & Insights (2026)"
-const seoDesc = "Comprehensive research on financial analyst salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate total compensation."
+const seoDesc = "Global research on financial analyst salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate total compensation."
 
 export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
 
@@ -23,13 +23,13 @@ export default function Page() {
     hero: {
       badge: "Salary Research",
       title: "Financial Analyst Salary Research",
-      description: "Comprehensive analysis of financial analyst compensation across 7 major economies. Research salary benchmarks, tax-adjusted earnings, purchasing power, and career dynamics.",
+      description: "Side-by-side analysis of financial analyst compensation across 7 major economies. Track financial analyst salaries across 7 economies and see how location and experience affect pay.",
       cta: { label: "Salary by Country", href: "/financial-analyst-salary-by-country" },
     },
     salaryCards: [
-      { label: "Global Average", value: "$75,000 (US)" },
-      { label: "Avg Entry Level", value: "$50,000 (US)" },
-      { label: "Highest Experienced", value: "$115,000 (US)" },
+      { label: "US Average", value: "$75,000" },
+      { label: "US Entry Level", value: "$50,000" },
+      { label: "US Experienced", value: "$115,000" },
     ],
     keyTakeaways: [
       { title: "Broad Career Options", description: "Financial analysts work across multiple sectors with varying compensation." },

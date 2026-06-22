@@ -364,7 +364,7 @@ export default function SoftwareEngineerHub() {
             </a>
             <a href="/research/software-engineer-salary-index-2026" className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
               <h3 className="mb-2 text-lg font-semibold text-zinc-950">Software Engineer Salary Index 2026</h3>
-              <p className="text-sm leading-6 text-zinc-600">Comprehensive global salary analysis covering software engineering compensation trends and international comparisons.</p>
+              <p className="text-sm leading-6 text-zinc-600">In-depth global salary analysis covering software engineering compensation trends and international comparisons.</p>
             </a>
             <a href="/research/software-engineer-salary-index-2026" className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
               <h3 className="mb-2 text-lg font-semibold text-zinc-950">Remote Software Engineer Salary Report</h3>

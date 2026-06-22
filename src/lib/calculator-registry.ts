@@ -290,7 +290,7 @@ const calculatorConfigs: Record<string, SupportedCalculatorConfig> = {
       ]
     },
   }),
-  'profit-margin-calculator': defineCalculatorConfig<BreakEvenInput, BreakEvenOutput>({
+  'break-even-calculator': defineCalculatorConfig<BreakEvenInput, BreakEvenOutput>({
     calculator: new BreakEvenCalculator(),
     fields: [
       { name: 'fixedCosts', label: 'Fixed Costs', type: 'currency', defaultValue: 50000, min: 0 },

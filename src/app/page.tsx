@@ -684,7 +684,7 @@ export default function GlobalHomePage() {
                 Olikit Global Salary Index 2026
               </h3>
               <p className="mt-2 text-sm leading-6 text-zinc-600">
-                Comprehensive analysis comparing salaries, taxes, purchasing power and cost-of-living across 7 major economies using government-sourced data.
+                In-depth analysis comparing salaries, taxes, purchasing power and cost-of-living across 7 major economies using government-sourced data.
               </p>
               <div className="mt-4 space-y-2">
                 {[
@@ -717,7 +717,7 @@ export default function GlobalHomePage() {
                 { title: "Highest Paying Countries", href: "/rankings/highest-paying-countries-software-engineers", desc: "Countries offering the highest absolute compensation across all experience levels." },
                 { title: "Highest Paying Cities", href: "/rankings/highest-paying-cities-software-engineers", desc: "Metropolitan areas with the best salary-to-cost-of-living ratios globally." },
                 { title: "Salary After Tax Rankings", href: "/compare", desc: "Net take-home pay comparison across countries after income tax and social contributions." },
-                { title: "Cost of Living Analysis", href: "/research", desc: "Comprehensive breakdown of housing, transportation, healthcare and goods costs." },
+                { title: "Cost of Living Analysis", href: "/research", desc: "Side-by-side breakdown of housing, transportation, healthcare and goods costs." },
                 { title: "Tax System Comparisons", href: "/compare", desc: "Side-by-side comparison of tax brackets, rates and thresholds across jurisdictions." },
               ].map((item) => (
                 <Link
@@ -1284,6 +1284,7 @@ export default function GlobalHomePage() {
       </section>
       </FadeInSection>
     </div>
+    <p className="text-xs text-zinc-400 mt-8">Some links on this page are affiliate links. We may earn a commission at no extra cost to you.</p>
     </Shell>
   )
 }

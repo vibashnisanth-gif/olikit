@@ -8,7 +8,7 @@ import type { ProfessionPageContent } from "@/types/profession-page"
 
 const pagePath = "/cybersecurity-analyst-salary"
 const seoTitle = "Cybersecurity Analyst Salary Research & Insights (2026)"
-const seoDesc = "Comprehensive research on cybersecurity analyst salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate total compensation."
+const seoDesc = "Expert research on cybersecurity analyst salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate total compensation."
 
 export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
 
@@ -23,13 +23,13 @@ export default function Page() {
     hero: {
       badge: "Salary Research",
       title: "Cybersecurity Analyst Salary Research",
-      description: "Comprehensive analysis of cybersecurity analyst compensation across 7 major economies. Research salary benchmarks, tax-adjusted earnings, purchasing power, and career dynamics.",
+      description: "Detailed intelligence on cybersecurity analyst compensation across 7 major economies. Analyze cybersecurity analyst salary data across 7 countries to find where your expertise is valued most.",
       cta: { label: "Salary by Country", href: "/cybersecurity-analyst-salary-by-country" },
     },
     salaryCards: [
-      { label: "Global Average", value: "$105,000 (US)" },
-      { label: "Avg Entry Level", value: "$65,000 (US)" },
-      { label: "Highest Experienced", value: "$160,000 (US)" },
+      { label: "US Average", value: "$105,000" },
+      { label: "US Entry Level", value: "$65,000" },
+      { label: "US Experienced", value: "$160,000" },
     ],
     keyTakeaways: [
       { title: "Rapidly Growing Field", description: "Cybersecurity is one of the fastest-growing tech fields with strong compensation growth." },

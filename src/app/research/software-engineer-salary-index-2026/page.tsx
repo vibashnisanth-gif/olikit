@@ -9,7 +9,7 @@ const pagePath = "/research/software-engineer-salary-index-2026"
 
 export const metadata: Metadata = {
   title: "Software Engineer Salary Index 2026 | Global Research Report",
-  description: "A comprehensive research report analyzing software engineer salaries, purchasing power, and career dynamics across the world's leading technology markets including the US, UK, Canada, Australia, Singapore, India, and New Zealand.",
+  description: "A detailed research report analyzing software engineer salaries, purchasing power, and career dynamics across the world's leading technology markets including the US, UK, Canada, Australia, Singapore, India, and New Zealand.",
   alternates: { canonical: `${SITE_URL}${pagePath}` },
   openGraph: {
     title: "Software Engineer Salary Index 2026 | Global Research Report | Olikit",
@@ -52,12 +52,12 @@ export default function SalaryIndexPage() {
 const contentData: SalaryIndexContent = {
   seo: {
     metaTitle: "Software Engineer Salary Index 2026 | Global Research Report",
-    metaDescription: "Comprehensive research report analyzing software engineer salaries across 7 major economies: US, UK, Canada, Australia, Singapore, India, and New Zealand. Includes salary rankings, purchasing power analysis, and country profiles.",
+    metaDescription: "In-depth research report analyzing software engineer salaries across 7 major economies: US, UK, Canada, Australia, Singapore, India, and New Zealand. Includes salary rankings, purchasing power analysis, and country profiles.",
   },
   hero: {
     badge: "Olikit Research Report 2026",
     title: "Software Engineer Salary Index 2026",
-    description: "A comprehensive research report analyzing software engineer salaries, purchasing power, and career dynamics across the world's leading technology markets. This report covers salary benchmarks, tax analysis, cost of living comparisons, and career intelligence across 7 major economies.",
+    description: "A detailed research report analyzing software engineer salaries, purchasing power, and career dynamics across the world's leading technology markets. This report covers salary benchmarks, tax analysis, cost of living comparisons, and career intelligence across 7 major economies.",
   },
   researchMetadata: {
     coverageYear: "2026",

@@ -8,7 +8,7 @@ import type { ProfessionPageContent } from "@/types/profession-page"
 
 const pagePath = "/business-analyst-salary"
 const seoTitle = "Business Analyst Salary Research & Insights (2026)"
-const seoDesc = "Comprehensive research on business analyst salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate total compensation."
+const seoDesc = "Global research on business analyst salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate total compensation."
 
 export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
 
@@ -23,13 +23,13 @@ export default function Page() {
     hero: {
       badge: "Salary Research",
       title: "Business Analyst Salary Research",
-      description: "Comprehensive analysis of business analyst compensation across 7 major economies. Research salary benchmarks, tax-adjusted earnings, purchasing power, and career dynamics.",
+      description: "Rigorous analysis of business analyst compensation across 7 major economies. Compare business analyst salaries by country and identify where your analytical skills earn the most.",
       cta: { label: "Salary by Country", href: "/business-analyst-salary-by-country" },
     },
     salaryCards: [
-      { label: "Global Average", value: "$70,000 (US)" },
-      { label: "Avg Entry Level", value: "$45,000 (US)" },
-      { label: "Highest Experienced", value: "$110,000 (US)" },
+      { label: "US Average", value: "$70,000" },
+      { label: "US Entry Level", value: "$45,000" },
+      { label: "US Experienced", value: "$110,000" },
     ],
     keyTakeaways: [
       { title: "Cross-Industry Demand", description: "Business analysts are needed across virtually all industries." },

@@ -8,87 +8,87 @@ interface BracketDef {
 
 const US_SINGLE: BracketDef[] = [
   { rate: 10, min: 0, max: 11600 },
-  { rate: 12, min: 11601, max: 47150 },
-  { rate: 22, min: 47151, max: 100525 },
-  { rate: 24, min: 100526, max: 191950 },
-  { rate: 32, min: 191951, max: 243725 },
-  { rate: 35, min: 243726, max: 609350 },
-  { rate: 37, min: 609351, max: Infinity },
+  { rate: 12, min: 11600, max: 47150 },
+  { rate: 22, min: 47150, max: 100525 },
+  { rate: 24, min: 100525, max: 191950 },
+  { rate: 32, min: 191950, max: 243725 },
+  { rate: 35, min: 243725, max: 609350 },
+  { rate: 37, min: 609350, max: Infinity },
 ]
 
 const US_MARRIED: BracketDef[] = [
   { rate: 10, min: 0, max: 23200 },
-  { rate: 12, min: 23201, max: 94300 },
-  { rate: 22, min: 94301, max: 201050 },
-  { rate: 24, min: 201051, max: 383900 },
-  { rate: 32, min: 383901, max: 487450 },
-  { rate: 35, min: 487451, max: 731200 },
-  { rate: 37, min: 731201, max: Infinity },
+  { rate: 12, min: 23200, max: 94300 },
+  { rate: 22, min: 94300, max: 201050 },
+  { rate: 24, min: 201050, max: 383900 },
+  { rate: 32, min: 383900, max: 487450 },
+  { rate: 35, min: 487450, max: 731200 },
+  { rate: 37, min: 731200, max: Infinity },
 ]
 
 const US_HOH: BracketDef[] = [
   { rate: 10, min: 0, max: 16550 },
-  { rate: 12, min: 16551, max: 63100 },
-  { rate: 22, min: 63101, max: 100500 },
-  { rate: 24, min: 100501, max: 191950 },
-  { rate: 32, min: 191951, max: 243700 },
-  { rate: 35, min: 243701, max: 609350 },
-  { rate: 37, min: 609351, max: Infinity },
+  { rate: 12, min: 16550, max: 63100 },
+  { rate: 22, min: 63100, max: 100500 },
+  { rate: 24, min: 100500, max: 191950 },
+  { rate: 32, min: 191950, max: 243700 },
+  { rate: 35, min: 243700, max: 609350 },
+  { rate: 37, min: 609350, max: Infinity },
 ]
 
 const UK: BracketDef[] = [
   { rate: 0, min: 0, max: 12570 },
-  { rate: 20, min: 12571, max: 50270 },
-  { rate: 40, min: 50271, max: 125140 },
-  { rate: 45, min: 125141, max: Infinity },
+  { rate: 20, min: 12570, max: 50270 },
+  { rate: 40, min: 50270, max: 125140 },
+  { rate: 45, min: 125140, max: Infinity },
 ]
 
 const AU: BracketDef[] = [
   { rate: 0, min: 0, max: 18200 },
-  { rate: 16, min: 18201, max: 45000 },
-  { rate: 30, min: 45001, max: 135000 },
-  { rate: 37, min: 135001, max: 190000 },
-  { rate: 45, min: 190001, max: Infinity },
+  { rate: 16, min: 18200, max: 45000 },
+  { rate: 30, min: 45000, max: 135000 },
+  { rate: 37, min: 135000, max: 190000 },
+  { rate: 45, min: 190000, max: Infinity },
 ]
 
 const CA: BracketDef[] = [
   { rate: 15, min: 0, max: 55867 },
-  { rate: 20.5, min: 55868, max: 111733 },
-  { rate: 26, min: 111734, max: 173205 },
-  { rate: 29, min: 173206, max: 246752 },
-  { rate: 33, min: 246753, max: Infinity },
+  { rate: 20.5, min: 55867, max: 111733 },
+  { rate: 26, min: 111733, max: 173205 },
+  { rate: 29, min: 173205, max: 246752 },
+  { rate: 33, min: 246752, max: Infinity },
 ]
 
 const NZ: BracketDef[] = [
   { rate: 10.5, min: 0, max: 14000 },
-  { rate: 17.5, min: 14001, max: 48000 },
-  { rate: 30, min: 48001, max: 70000 },
-  { rate: 33, min: 70001, max: 180000 },
-  { rate: 39, min: 180001, max: Infinity },
+  { rate: 17.5, min: 14000, max: 48000 },
+  { rate: 30, min: 48000, max: 70000 },
+  { rate: 33, min: 70000, max: 180000 },
+  { rate: 39, min: 180000, max: Infinity },
 ]
 
 const IN: BracketDef[] = [
   { rate: 0, min: 0, max: 300000 },
-  { rate: 5, min: 300001, max: 700000 },
-  { rate: 10, min: 700001, max: 1000000 },
-  { rate: 15, min: 1000001, max: 1200000 },
-  { rate: 20, min: 1200001, max: 1500000 },
-  { rate: 30, min: 1500001, max: Infinity },
+  { rate: 5, min: 300000, max: 700000 },
+  { rate: 10, min: 700000, max: 1000000 },
+  { rate: 15, min: 1000000, max: 1200000 },
+  { rate: 20, min: 1200000, max: 1500000 },
+  { rate: 30, min: 1500000, max: Infinity },
 ]
 
 const SG: BracketDef[] = [
   { rate: 0, min: 0, max: 20000 },
-  { rate: 2, min: 20001, max: 30000 },
-  { rate: 3.5, min: 30001, max: 40000 },
-  { rate: 7, min: 40001, max: 80000 },
-  { rate: 11.5, min: 80001, max: 120000 },
-  { rate: 15, min: 120001, max: 160000 },
-  { rate: 18, min: 160001, max: 200000 },
-  { rate: 19, min: 200001, max: 240000 },
-  { rate: 19.5, min: 240001, max: 320000 },
-  { rate: 20, min: 320001, max: 500000 },
-  { rate: 22, min: 500001, max: 1000000 },
-  { rate: 23, min: 1000001, max: Infinity },
+  { rate: 2, min: 20000, max: 30000 },
+  { rate: 3.5, min: 30000, max: 40000 },
+  { rate: 7, min: 40000, max: 80000 },
+  { rate: 11.5, min: 80000, max: 120000 },
+  { rate: 15, min: 120000, max: 160000 },
+  { rate: 18, min: 160000, max: 200000 },
+  { rate: 19, min: 200000, max: 240000 },
+  { rate: 19.5, min: 240000, max: 320000 },
+  { rate: 20, min: 320000, max: 500000 },
+  { rate: 22, min: 500000, max: 1000000 },
+  { rate: 23, min: 1000000, max: Infinity },
 ]
 
 function getBrackets(locale: string | undefined, status: 'single' | 'married' | 'headOfHousehold'): BracketDef[] {

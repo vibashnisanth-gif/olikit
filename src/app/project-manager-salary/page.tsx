@@ -8,7 +8,7 @@ import type { ProfessionPageContent } from "@/types/profession-page"
 
 const pagePath = "/project-manager-salary"
 const seoTitle = "Project Manager Salary Research & Insights (2026)"
-const seoDesc = "Comprehensive research on project manager salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate total compensation."
+const seoDesc = "Data-driven research on project manager salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate total compensation."
 
 export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
 
@@ -23,13 +23,13 @@ export default function Page() {
     hero: {
       badge: "Salary Research",
       title: "Project Manager Salary Research",
-      description: "Comprehensive analysis of project manager compensation across 7 major economies. Research salary benchmarks, tax-adjusted earnings, purchasing power, and career dynamics.",
+      description: "Actionable analysis of project manager compensation across 7 major economies. Compare project manager salaries side by side and see how experience level changes your earning power.",
       cta: { label: "Salary by Country", href: "/project-manager-salary-by-country" },
     },
     salaryCards: [
-      { label: "Global Average", value: "$85,000 (US)" },
-      { label: "Avg Entry Level", value: "$55,000 (US)" },
-      { label: "Highest Experienced", value: "$130,000 (US)" },
+      { label: "US Average", value: "$85,000" },
+      { label: "US Entry Level", value: "$55,000" },
+      { label: "US Experienced", value: "$130,000" },
     ],
     keyTakeaways: [
       { title: "Cross-Industry Role", description: "Project managers work across technology, construction, healthcare, and finance." },

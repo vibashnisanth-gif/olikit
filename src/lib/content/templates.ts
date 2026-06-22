@@ -4,19 +4,19 @@ export const tools: Tool[] = [
   {
     id: "salary-calculator",
     slug: "salary-calculator",
-    name: "Pay Period Converter",
-    shortName: "Pay Period",
+    name: "Salary Calculator",
+    shortName: "Salary",
     category: "salary",
     description:
-      "Convert salary between annual, monthly, biweekly, weekly, daily, and hourly periods.",
-    metaTitleTemplate: "{tool} {country} - Free Salary Period Converter",
+      "Calculate your take-home pay after income tax, social security, and deductions.",
+    metaTitleTemplate: "{tool} {country} - Free Take-Home Pay Calculator",
     metaDescriptionTemplate:
-      "Convert your salary between pay periods in {country}. Free pay period converter for annual, monthly, biweekly, weekly, daily, and hourly rates.",
+      "Calculate your take-home pay in {country}. Free salary calculator with {country} tax brackets, social security, and deduction estimates.",
     keywords: [
-      "pay period converter",
-      "salary converter",
-      "annual to hourly",
-      "monthly to annual",
+      "salary calculator",
+      "take home pay",
+      "pay calculator",
+      "after tax salary",
     ],
     relatedTools: ["tax-calculator", "retirement-calculator", "budget-planner"],
   },
@@ -77,7 +77,7 @@ export const tools: Tool[] = [
       "Project investment growth with compound interest and regular contributions.",
     metaTitleTemplate: "{tool} {country} - Free Compound Interest Calculator",
     metaDescriptionTemplate:
-      "Project your investment growth in {country} with our free compound interest calculator. Calculate returns with regular contributions and {country} tax rates.",
+      "Project your investment growth in {country} with our free compound interest calculator. Calculate returns with regular contributions and different compounding frequencies.",
     keywords: [
       "investment calculator",
       "compound interest",
@@ -101,7 +101,7 @@ export const tools: Tool[] = [
     metaTitleTemplate:
       "{tool} {country} - Free Retirement Savings Planner",
     metaDescriptionTemplate:
-      "Plan your retirement in {country} with our free retirement calculator. Estimate how much you need to save with {country} pension and tax considerations.",
+      "Plan your retirement in {country} with our free retirement calculator. Estimate how much you need to save based on your current savings, contributions, and expected returns.",
     keywords: [
       "retirement calculator",
       "retirement savings",
@@ -139,22 +139,22 @@ export const tools: Tool[] = [
     ],
   },
   {
-    id: "profit-margin-calculator",
-    slug: "profit-margin-calculator",
-    name: "Profit Margin Calculator",
-    shortName: "Profit Margin",
+    id: "break-even-calculator",
+    slug: "break-even-calculator",
+    name: "Break-Even Calculator",
+    shortName: "Break-Even",
     category: "business",
     description:
-      "Calculate gross profit margin, markup, and break-even points.",
+      "Calculate your break-even point, contribution margin, and unit economics.",
     metaTitleTemplate:
-      "{tool} {country} - Free Gross Profit & Margin Calculator",
+      "{tool} {country} - Free Break-Even Point Calculator",
     metaDescriptionTemplate:
-      "Calculate your profit margins in {country} with our free calculator. Gross margin, markup percentage, and break-even analysis for {country} businesses.",
+      "Calculate your break-even point in {country} with our free calculator. Break-even units, revenue, and contribution margin analysis for {country} businesses.",
     keywords: [
-      "profit margin calculator",
-      "gross margin",
-      "markup calculator",
-      "break even",
+      "break-even calculator",
+      "break-even point",
+      "contribution margin",
+      "unit economics",
     ],
     relatedTools: [
       "business-loan-calculator",

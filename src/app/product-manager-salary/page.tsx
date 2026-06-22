@@ -8,7 +8,7 @@ import type { ProfessionPageContent } from "@/types/profession-page"
 
 const pagePath = "/product-manager-salary"
 const seoTitle = "Product Manager Salary Research & Insights (2026)"
-const seoDesc = "Comprehensive research on product manager salaries across 7 major economies. Compare average pay by country and evaluate compensation."
+const seoDesc = "Global research on product manager salaries across 7 major economies. Compare average pay by country and evaluate compensation."
 
 export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
 
@@ -25,13 +25,13 @@ export default function Page() {
     hero: {
       badge: "Salary Research",
       title: "Product Manager Salary Research",
-      description: "Comprehensive analysis of product manager compensation across major economies.",
+      description: "Side-by-side comparison of product manager compensation across major economies. Review product manager compensation data across 7 economies to benchmark your earning potential.",
       cta: { label: "Salary by Country", href: "/product-manager-salary-by-country" },
     },
     salaryCards: [
-      { label: "Global Average", value: "$110,000 (US)" },
-      { label: "Avg Entry Level", value: "$70,000 (US)" },
-      { label: "Highest Experienced", value: "$165,000 (US)" },
+      { label: "US Average", value: "$110,000" },
+      { label: "US Entry Level", value: "$70,000" },
+      { label: "US Experienced", value: "$165,000" },
     ],
     salaryTable: {
       title: "Product Manager Salary by Country",

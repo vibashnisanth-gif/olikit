@@ -58,7 +58,7 @@ export default function AboutPage() {
         <section>
           <h2 className="text-2xl font-semibold mb-3">What Is Olikit?</h2>
           <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
-            Olikit is a free online financial tools platform that provides salary calculators, tax calculators, mortgage calculators, investment calculators, retirement planners, business loan calculators, and profit margin calculators. Every tool is fully localized for the United States, United Kingdom, Australia, Canada, India, New Zealand, and Singapore. We also provide state-level calculators for regions with sub-national tax systems.
+            Olikit is a free online financial tools platform that provides salary calculators, tax calculators, mortgage calculators, investment calculators, retirement planners, business loan calculators, and break-even calculators. Every tool is fully localized for the United States, United Kingdom, Australia, Canada, India, New Zealand, and Singapore. We also provide state-level calculators for regions with sub-national tax systems.
           </p>
           <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed mt-3">
             Our mission is to make financial planning accessible to everyone, regardless of where they live. We do not sell user data, require accounts, or charge for any calculator. Every tool is free to use, ad-supported, and updated annually to reflect the latest tax laws and financial regulations.
@@ -142,7 +142,7 @@ export default function AboutPage() {
             <li><strong>Investment Calculators</strong> — Compound interest projections with regular contributions.</li>
             <li><strong>Retirement Calculators</strong> — Pension readiness with state pension and retirement account projections.</li>
             <li><strong>Business Loan Calculators</strong> — Loan payments, total interest, and affordability analysis.</li>
-            <li><strong>Profit Margin Calculators</strong> — Margin, markup, and break-even analysis for businesses.</li>
+            <li><strong>Break-Even Calculators</strong> — Margin, markup, and break-even analysis for businesses.</li>
             <li><strong>Salary Guides</strong> — Average salary data, cost of living comparisons, and salary by state pages.</li>
           </ul>
         </section>

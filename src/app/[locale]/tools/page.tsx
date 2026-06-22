@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `Financial Calculators for ${locale.name} | Olikit`,
-    description: `Free financial calculators for ${locale.name}. Salary, tax, mortgage, investment, retirement, business loan, and profit margin calculators with ${locale.name}-specific rates and regulations.`,
+    description: `Free financial calculators for ${locale.name}. Salary, tax, mortgage, investment, retirement, business loan, and break-even calculators with ${locale.name}-specific rates and regulations.`,
     alternates: {
       canonical: `https://olikit.com/${locale.slug}/tools`,
     },
@@ -70,7 +70,7 @@ export default async function ToolsHubPage({ params }: Props) {
           Financial Calculators for {name}
         </h1>
         <p className="mt-4 max-w-2xl text-lg leading-8 text-zinc-600">
-          Free financial calculators for {name}. Salary, tax, mortgage, investment, retirement, business loan, and profit margin calculators with {name}-specific rates and regulations.
+          Free financial calculators for {name}. Salary, tax, mortgage, investment, retirement, business loan, and break-even calculators with {name}-specific rates and regulations.
         </p>
       </section>
 

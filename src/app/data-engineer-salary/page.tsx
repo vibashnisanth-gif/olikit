@@ -8,7 +8,7 @@ import type { ProfessionPageContent } from "@/types/profession-page"
 
 const pagePath = "/data-engineer-salary"
 const seoTitle = "Data Engineer Salary Research & Insights (2026)"
-const seoDesc = "Comprehensive research on data engineer salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate total compensation."
+const seoDesc = "Thorough research on data engineer salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate total compensation."
 
 export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
 
@@ -23,13 +23,13 @@ export default function Page() {
     hero: {
       badge: "Salary Research",
       title: "Data Engineer Salary Research",
-      description: "Comprehensive analysis of data engineer compensation across 7 major economies. Research salary benchmarks, tax-adjusted earnings, purchasing power, and career dynamics.",
+      description: "Data-driven analysis of data engineer compensation across 7 major economies. Review data engineer compensation across global markets and target the countries with the highest demand.",
       cta: { label: "Salary by Country", href: "/data-engineer-salary-by-country" },
     },
     salaryCards: [
-      { label: "Global Average", value: "$115,000 (US)" },
-      { label: "Avg Entry Level", value: "$70,000 (US)" },
-      { label: "Highest Experienced", value: "$170,000 (US)" },
+      { label: "US Average", value: "$115,000" },
+      { label: "US Entry Level", value: "$70,000" },
+      { label: "US Experienced", value: "$170,000" },
     ],
     keyTakeaways: [
       { title: "Essential Data Role", description: "Data engineers are foundational to data-driven organizations with strong demand." },

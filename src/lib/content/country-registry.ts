@@ -152,13 +152,14 @@ export const USD_EXCHANGE_RATES: Record<string, number> = {
   gbp: 1.27,
   aud: 0.67,
   cad: 0.73,
+  eur: 1.09,
   nzd: 0.60,
   inr: 0.012,
   sgd: 0.74,
 }
 
 // Note: Exchange rates are static. They should be periodically reviewed.
-// Last updated: 2026-01-15. Staleness may affect purchasing power comparisons.
+// Last updated: 2026-06-21. Staleness may affect purchasing power comparisons.
 
 export function toUSD(amount: number, currencyCode: string): number {
   const rate = USD_EXCHANGE_RATES[currencyCode.toLowerCase()]

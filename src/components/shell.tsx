@@ -27,7 +27,7 @@ export function Shell({ children, localeSlug }: { children: React.ReactNode; loc
       <ContextBar slug={country?.slug ?? null} name={country?.name ?? null} currencyCode={country?.currencyCode ?? ""} taxAuthority={country?.taxAuthority ?? ""} />
       <PageTracker />
       <Header currentSlug={country?.slug ?? null} />
-      <main className="flex-1 mx-auto w-full max-w-6xl px-4 py-8 sm:py-10">
+      <main id="main-content" className="flex-1 mx-auto w-full max-w-6xl px-4 py-8 sm:py-10">
         <Breadcrumbs />
         <div className="flex justify-end mb-4">
           <CurrencyToggle />

@@ -8,7 +8,7 @@ import type { ProfessionPageContent } from "@/types/profession-page"
 
 const pagePath = "/cloud-engineer-salary"
 const seoTitle = "Cloud Engineer Salary Research & Insights (2026)"
-const seoDesc = "Comprehensive research on cloud engineer salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate total compensation."
+const seoDesc = "Authoritative research on cloud engineer salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate total compensation."
 
 export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
 
@@ -23,13 +23,13 @@ export default function Page() {
     hero: {
       badge: "Salary Research",
       title: "Cloud Engineer Salary Research",
-      description: "Comprehensive analysis of cloud engineer compensation across 7 major economies. Research salary benchmarks, tax-adjusted earnings, purchasing power, and career dynamics.",
+      description: "Actionable analysis of cloud engineer compensation across 7 major economies. See how cloud engineer salaries differ across 7 major economies and which markets pay a premium.",
       cta: { label: "Salary by Country", href: "/cloud-engineer-salary-by-country" },
     },
     salaryCards: [
-      { label: "Global Average", value: "$115,000 (US)" },
-      { label: "Avg Entry Level", value: "$70,000 (US)" },
-      { label: "Highest Experienced", value: "$170,000 (US)" },
+      { label: "US Average", value: "$115,000" },
+      { label: "US Entry Level", value: "$70,000" },
+      { label: "US Experienced", value: "$170,000" },
     ],
     keyTakeaways: [
       { title: "Strong Global Demand", description: "Cloud engineers are in demand across all analyzed economies as cloud adoption continues." },

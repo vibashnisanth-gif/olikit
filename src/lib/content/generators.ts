@@ -164,7 +164,7 @@ function generateSections(
       },
       {
         heading: `Country-Specific Mortgage Considerations for ${locationName}`,
-        body: `${locationName} has unique property buying rules including different down payment requirements, mortgage interest deductibility, property tax structures, and closing costs. Our calculator accounts for ${locale.taxTerms.vatName} at ${locale.taxTerms.vatRate}% where applicable, local property tax rates, and region-specific insurance requirements. Some countries require mortgage insurance for down payments below 20%, while others have政府对 first-home buyer grants or stamp duty exemptions that affect total upfront costs.`,
+        body: `${locationName} has unique property buying rules including different down payment requirements, mortgage interest deductibility, property tax structures, and closing costs. Our calculator accounts for ${locale.taxTerms.vatName} at ${locale.taxTerms.vatRate}% where applicable, local property tax rates, and region-specific insurance requirements. Some countries require mortgage insurance for down payments below 20%, while others have government first-home buyer grants or stamp duty exemptions that affect total upfront costs.`,
       },
       {
         heading: "Mortgage Methodology and Data Sources",
@@ -261,34 +261,34 @@ function generateSections(
         body: `Interest rate data is sourced from central bank base rates and commercial lender rate sheets for small business loans. Fee structures are based on typical SME lending practices in ${locationName}. Our amortization calculations follow standard financial mathematics consistent with lending industry practices. All rates are reviewed quarterly and updated when central banks adjust monetary policy or when new government SME lending programmes are announced.`,
       },
     ],
-    "profit-margin-calculator": [
+    "break-even-calculator": [
       {
-        heading: `Profit Margins for ${locationName} Businesses`,
-        body: `Calculate your gross profit margin, markup percentage, and break-even point. Essential for pricing strategy and financial planning in ${locationName}.`,
+        heading: `Break-Even Analysis for ${locationName} Businesses`,
+        body: `Calculate your break-even point, contribution margin, and unit economics. Essential for pricing strategy and financial planning in ${locationName}.`,
       },
       {
         heading: "Pricing Strategy",
-        body: `Understanding your profit margins is key to sustainable business growth in ${locationName}. Our calculator helps you determine optimal pricing by analyzing costs, desired margins, and market rates.`,
+        body: `Understanding your break-even point is key to sustainable business growth in ${locationName}. Our calculator helps you determine the minimum sales volume needed to cover all costs.`,
       },
       {
-        heading: "How Profit Margin Is Calculated",
-        body: `The profit margin calculator computes three key metrics from your revenue and cost inputs. Gross profit = Revenue - Cost of Goods Sold. Gross profit margin = (Gross Profit / Revenue) × 100. Markup percentage = (Gross Profit / Cost) × 100. The calculator also shows the relationship between margin and markup — a 25% margin equals a 33.3% markup, and understanding this distinction is critical for accurate pricing. The break-even analysis shows the minimum revenue needed to cover all costs.`,
+        heading: "How Break-Even Is Calculated",
+        body: `The break-even calculator computes key metrics from your cost and pricing inputs. Break-Even Units = Fixed Costs / (Selling Price per Unit - Variable Cost per Unit). Break-Even Revenue = Break-Even Units × Selling Price per Unit. Contribution Margin per Unit = Selling Price - Variable Cost. The break-even point shows the minimum sales volume needed to cover all costs.`,
       },
       {
-        heading: "Profit Margin Formulas",
-        body: `Gross Profit Margin (%) = (Revenue - Cost of Goods Sold) / Revenue × 100. Markup (%) = (Revenue - Cost of Goods Sold) / Cost of Goods Sold × 100. Break-Even Point = Fixed Costs / (Unit Price - Variable Cost per Unit). Net Profit Margin = (Total Revenue - All Expenses) / Total Revenue × 100. The relationship between margin and markup is: Margin = Markup / (1 + Markup), and Markup = Margin / (1 - Margin).`,
+        heading: "Break-Even Formula",
+        body: `Break-Even Point (Units) = Fixed Costs / (Unit Selling Price - Variable Cost per Unit). Break-Even Revenue = Fixed Costs / Contribution Margin Ratio. Contribution Margin Ratio = (Selling Price - Variable Cost) / Selling Price. The relationship between break-even and contribution margin is: higher contribution margins mean lower break-even points, requiring fewer sales to become profitable.`,
       },
       {
-        heading: "Worked Example: Profit Margin",
-        body: `A ${locationName} business sells a product for ${currencySymbol}100 with production costs of ${currencySymbol}60. Gross profit = ${currencySymbol}40. Gross profit margin = (40/100) × 100 = 40%. Markup = (40/60) × 100 = 66.7%. If fixed costs are ${currencySymbol}10,000 per month, the break-even point = 10,000 / (100 - 60) = 250 units per month. At 300 units sold, total profit = (300 × ${currencySymbol}40) - ${currencySymbol}10,000 = ${currencySymbol}2,000. This example shows how margin analysis directly translates into business profitability decisions.`,
+        heading: "Worked Example: Break-Even Analysis",
+        body: `A ${locationName} business has fixed costs of ${currencySymbol}10,000 per month, sells a product for ${currencySymbol}100, with production costs of ${currencySymbol}60 per unit. Contribution margin = ${currencySymbol}40. Break-even point = 10,000 / 40 = 250 units per month. At 300 units sold, total profit = (300 × ${currencySymbol}40) - ${currencySymbol}10,000 = ${currencySymbol}2,000. This example shows how break-even analysis directly informs business profitability decisions.`,
       },
       {
-        heading: `Country-Specific Profit Margin Considerations for ${locationName}`,
-        body: `${locationName} has specific tax treatments for business income, VAT/GST obligations, and industry-specific margin norms. Our calculator accounts for ${locale.taxTerms.vatName} at ${locale.taxTerms.vatRate}% where applicable, which affects pricing strategy and true revenue. Different industries in ${locationName} have varying typical margin ranges — retail businesses often operate at 30-50% margins, while service businesses may achieve 60-80% margins on labour costs.`,
+        heading: `Country-Specific Considerations for ${locationName}`,
+        body: `${locationName} has specific tax treatments for business income, VAT/GST obligations, and industry-specific cost structures. Our calculator accounts for ${locale.taxTerms.vatName} at ${locale.taxTerms.vatRate}% where applicable, which affects pricing strategy and true revenue. Different industries in ${locationName} have varying typical cost structures that affect break-even analysis.`,
       },
       {
-        heading: "Profit Margin Methodology and Data Sources",
-        body: `Industry margin benchmarks are sourced from published financial reports, industry association data, and government business statistics. Our calculations follow standard accounting definitions for gross profit, operating profit, and net profit as defined by Generally Accepted Accounting Principles (GAAP). VAT and sales tax rates are sourced from government tax authorities. Margin benchmarks are reviewed annually against the latest industry data to ensure relevance for ${locationName} businesses.`,
+        heading: "Break-Even Methodology and Data Sources",
+        body: `Industry cost benchmarks are sourced from published financial reports, industry association data, and government business statistics. Our calculations follow standard accounting definitions for fixed costs, variable costs, and contribution margin as defined by Generally Accepted Accounting Principles (GAAP). VAT and sales tax rates are sourced from government tax authorities.`,
       },
     ],
   }
@@ -305,11 +305,11 @@ function defaultSections(
   return [
     {
       heading: `${tool.name} - ${locationName}`,
-      body: `Use our free ${tool.name.toLowerCase()} designed specifically for ${locationName}. Get accurate results based on local rates, regulations, and financial practices.`,
+      body: `This calculator provides ${locationName}-specific results based on local rates, regulations, and financial practices. Enter your details to get an accurate estimate.`,
     },
     {
-      heading: `Why Use Olikit's ${tool.name}`,
-      body: `Our calculators are free, accurate, and updated regularly to reflect the latest ${locationName} financial data. No registration required, privacy-first, and mobile-friendly.`,
+      heading: `Using This Calculator`,
+      body: `This tool applies current ${locationName} financial data and is updated regularly to reflect the latest rate changes. No registration required, and your data stays in your browser.`,
     },
   ]
 }
@@ -579,30 +579,30 @@ function generateFaqs(
         answer: `Business credit scores typically range from 0-100, with higher scores qualifying for better rates. A strong score (75+) may secure rates 2-4% lower than a weak score (below 50). Improving your business credit score before applying can save thousands in interest over the loan term.`,
       },
     ],
-    "profit-margin-calculator": [
+    "break-even-calculator": [
       {
-        question: `What is a good profit margin in ${locationName}?`,
-        answer: `Healthy profit margins vary by industry in ${locationName}. Generally, 10-20% is considered good for most businesses, but this depends on your specific sector.`,
+        question: `What is a good break-even point for ${locationName} businesses?`,
+        answer: `A lower break-even point means less risk. In ${locationName}, the break-even point depends on your fixed costs, pricing, and variable costs per unit. Use our calculator to find your specific break-even.`,
       },
       {
-        question: `How do I calculate markup from margin?`,
-        answer: `Markup and margin are different concepts. Our calculator handles both calculations automatically. Markup is the percentage added to cost, while margin is the percentage of revenue that is profit.`,
+        question: `How do I calculate break-even from fixed and variable costs?`,
+        answer: `Break-Even Units = Fixed Costs / (Selling Price per Unit - Variable Cost per Unit). Our calculator handles this automatically. The difference between selling price and variable cost is your contribution margin per unit.`,
       },
       {
-        question: `What is the difference between gross margin and net margin in ${locationName}?`,
-        answer: `Gross margin considers only the direct cost of goods sold, while net margin includes all operating expenses, taxes, and interest. A healthy gross margin (40-60%) does not guarantee a good net margin (10-20%) if operating costs are high. Both metrics are essential for understanding business profitability.`,
+        question: `What is the difference between contribution margin and profit margin in ${locationName}?`,
+        answer: `Contribution margin is selling price minus variable cost per unit — it shows how much each sale contributes toward covering fixed costs. Profit margin includes all costs and shows actual profit. A healthy contribution margin (40-60%) does not guarantee profitability if fixed costs are high. Both metrics are essential for understanding business economics.`,
       },
       {
-        question: `How does VAT/GST affect profit margins in ${locationName}?`,
-        answer: `${locale.taxTerms.vatName} at ${locale.taxTerms.vatRate}% in ${locationName} is typically collected on behalf of the government and does not directly affect profit margins if handled correctly. However, businesses must account for VAT/GST in their pricing strategy, as it affects the final price customers pay and can influence demand.`,
+        question: `How does VAT/GST affect break-even calculations in ${locationName}?`,
+        answer: `${locale.taxTerms.vatName} at ${locale.taxTerms.vatRate}% in ${locationName} is typically collected on behalf of the government and does not directly affect break-even if handled correctly. However, businesses must account for VAT/GST in their pricing strategy, as it affects the final price customers pay and can influence demand.`,
       },
       {
         question: `What is a break-even point and why does it matter for ${locationName} businesses?`,
         answer: `The break-even point is the sales volume at which total revenue equals total costs — no profit, no loss. Knowing your break-even helps determine minimum pricing, sales targets, and the feasibility of your business model. A lower break-even point means less risk and greater financial flexibility.`,
       },
       {
-        question: `How can I improve my profit margins in ${locationName}?`,
-        answer: `Strategies to improve margins include reducing supplier costs through bulk purchasing, increasing prices (if market-competitive), improving operational efficiency, upselling higher-margin products, and reducing waste. Even a 1% margin improvement can significantly impact bottom-line profit for established businesses.`,
+        question: `How can I lower my break-even point in ${locationName}?`,
+        answer: `Strategies include reducing fixed costs (rent, salaries, insurance), negotiating lower variable costs with suppliers, increasing prices (if market-competitive), and improving operational efficiency. Even small improvements can significantly lower your break-even point and reduce business risk.`,
       },
     ],
   }

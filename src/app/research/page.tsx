@@ -38,7 +38,7 @@ export default function ResearchPage() {
     },
     {
       title: "Global Salary Index 2026",
-      description: "Comprehensive global salary index comparing average compensation across all tracked professions. Multi-country analysis with purchasing power parity adjustments.",
+      description: "Authoritative global salary index comparing average compensation across all tracked professions. Multi-country analysis with purchasing power parity adjustments.",
       icon: "🌍",
       href: "/research/global-salary-index-2026",
       date: "2026",
@@ -54,7 +54,7 @@ export default function ResearchPage() {
     },
     {
       title: "Global Salary Report",
-      description: "Comprehensive analysis of salary benchmarks across major economies. Software engineer, doctor, teacher, nurse, and accountant salary comparisons with currency-adjusted data.",
+      description: "Thorough analysis of salary benchmarks across major economies. Software engineer, doctor, teacher, nurse, and accountant salary comparisons with currency-adjusted data.",
       icon: "💰",
       href: "/research/global-salary-index-2026",
       date: "2025-2026",

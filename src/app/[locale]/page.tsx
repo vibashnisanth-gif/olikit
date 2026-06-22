@@ -112,7 +112,7 @@ const COUNTRY_CONTENT: Record<string, {
     featuredResearch: [
       { title: "Highest Paying Jobs in the United States", desc: "Explore salary benchmarks across technology, healthcare, finance and engineering occupations.", href: "/us/rankings", cta: "Explore Report" },
       { title: "Best States for High Earners", desc: "Compare compensation, taxes and purchasing power across major labor markets.", href: "/us/best-states-for-salary", cta: "Compare States" },
-      { title: "United States Salary Intelligence Report 2026", desc: "Comprehensive analysis of salaries, taxes, affordability and purchasing power.", href: "/us/research", cta: "Explore Report" },
+      { title: "United States Salary Intelligence Report 2026", desc: "In-depth analysis of salaries, taxes, affordability and purchasing power.", href: "/us/research", cta: "Explore Report" },
     ],
     salaryLandscape: {
       text: [
@@ -237,7 +237,7 @@ const COUNTRY_CONTENT: Record<string, {
     featuredResearch: [
       { title: "Highest Paying Jobs in the United Kingdom", desc: "Explore salary benchmarks across finance, technology, healthcare and engineering occupations.", href: "/uk/rankings", cta: "Explore Report" },
       { title: "Best Regions for High Earners", desc: "Compare compensation, taxes and affordability across the UK.", href: "/uk/salary", cta: "Compare Regions" },
-      { title: "United Kingdom Salary Intelligence Report 2026", desc: "Comprehensive analysis of salaries, taxes, affordability and purchasing power throughout the country.", href: "/uk/research", cta: "Explore Report" },
+      { title: "United Kingdom Salary Intelligence Report 2026", desc: "Thorough analysis of salaries, taxes, affordability and purchasing power throughout the country.", href: "/uk/research", cta: "Explore Report" },
     ],
     salaryLandscape: {
       text: [
@@ -360,7 +360,7 @@ const COUNTRY_CONTENT: Record<string, {
     featuredResearch: [
       { title: "Highest Paying Jobs in Australia", desc: "Explore salary benchmarks across mining, technology, healthcare and engineering occupations.", href: "/au/rankings", cta: "Explore Report" },
       { title: "Best States for High Earners", desc: "Compare compensation, affordability and purchasing power across Australia.", href: "/au/best-states-for-salary", cta: "Compare States" },
-      { title: "Australia Salary Intelligence Report 2026", desc: "Comprehensive analysis of salaries, taxes, affordability and purchasing power across Australia.", href: "/au/research", cta: "Explore Report" },
+      { title: "Australia Salary Intelligence Report 2026", desc: "Authoritative analysis of salaries, taxes, affordability and purchasing power across Australia.", href: "/au/research", cta: "Explore Report" },
     ],
     salaryLandscape: {
       text: [
@@ -483,7 +483,7 @@ const COUNTRY_CONTENT: Record<string, {
     featuredResearch: [
       { title: "Highest Paying Jobs in Canada", desc: "Explore salary benchmarks across technology, healthcare, engineering, finance and energy occupations.", href: "/ca/rankings", cta: "Explore Report" },
       { title: "Best Provinces for High Earners", desc: "Compare compensation, affordability and purchasing power across Canada.", href: "/ca/best-states-for-salary", cta: "Compare Provinces" },
-      { title: "Canada Salary Intelligence Report 2026", desc: "Comprehensive analysis of salaries, taxes, affordability and purchasing power across Canada.", href: "/ca/research", cta: "Explore Report" },
+      { title: "Canada Salary Intelligence Report 2026", desc: "Detailed analysis of salaries, taxes, affordability and purchasing power across Canada.", href: "/ca/research", cta: "Explore Report" },
     ],
     salaryLandscape: {
       text: [
@@ -607,7 +607,7 @@ const COUNTRY_CONTENT: Record<string, {
     featuredResearch: [
       { title: "Highest Paying Jobs in New Zealand", desc: "Explore salary benchmarks across healthcare, engineering, technology and professional services occupations.", href: "/nz/rankings", cta: "Explore Report" },
       { title: "Best Regions for High Earners", desc: "Compare compensation, affordability and purchasing power across New Zealand.", href: "/nz/salary", cta: "Compare Regions" },
-      { title: "New Zealand Salary Intelligence Report 2026", desc: "Comprehensive analysis of salaries, taxes, affordability and purchasing power across New Zealand.", href: "/nz/research", cta: "Explore Report" },
+      { title: "New Zealand Salary Intelligence Report 2026", desc: "Expert analysis of salaries, taxes, affordability and purchasing power across New Zealand.", href: "/nz/research", cta: "Explore Report" },
     ],
     salaryLandscape: {
       text: [
@@ -695,7 +695,7 @@ const COUNTRY_CONTENT: Record<string, {
     featuredResearch: [
       { title: "Highest Paying Jobs in India", desc: "Explore salary benchmarks across technology, healthcare, finance and engineering occupations.", href: "/in/rankings", cta: "Explore Report" },
       { title: "Best Cities for High Earners", desc: "Compare compensation, affordability and purchasing power across India.", href: "/in/salary", cta: "Explore Report" },
-      { title: "India Salary Intelligence Report 2026", desc: "Comprehensive analysis of salaries, taxes, affordability and purchasing power across India.", href: "/in/research", cta: "Explore Report" },
+      { title: "India Salary Intelligence Report 2026", desc: "Global analysis of salaries, taxes, affordability and purchasing power across India.", href: "/in/research", cta: "Explore Report" },
     ],
     professionGroups: [
       { category: "Technology", items: [
@@ -815,9 +815,9 @@ const COUNTRY_CONTENT: Record<string, {
       { title: "Cost of Living in Singapore", desc: "Compare housing, transportation and everyday living costs.", href: "/sg/guides" },
     ],
     featuredResearch: [
-      { title: "Highest Paying Jobs in Singapore", desc: "Comprehensive salary benchmarks across major occupations.", href: "/sg/research/highest-paying-states", cta: "Explore Report" },
+      { title: "Highest Paying Jobs in Singapore", desc: "Authoritative salary benchmarks across major occupations.", href: "/sg/research/highest-paying-states", cta: "Explore Report" },
       { title: "Best Careers for High Earners", desc: "Compare long-term compensation growth across professions.", href: "/sg/rankings", cta: "Explore Report" },
-      { title: "Singapore Salary Intelligence Report 2026", desc: "Comprehensive analysis of salaries, taxes, affordability and purchasing power across Singapore.", href: "/sg/research", cta: "Explore Report" },
+      { title: "Singapore Salary Intelligence Report 2026", desc: "Rigorous analysis of salaries, taxes, affordability and purchasing power across Singapore.", href: "/sg/research", cta: "Explore Report" },
     ],
     professionGroups: [
       { category: "Technology", items: [
@@ -1210,7 +1210,7 @@ export default async function LocalePage({ params }: Props) {
         <div className="mb-4 flex items-end justify-between gap-4">
           <div>
             <h2 className="text-2xl font-semibold text-zinc-950">Financial Guides</h2>
-            <p className="mt-1 text-sm text-zinc-600">Comprehensive guides for {name}</p>
+            <p className="mt-1 text-sm text-zinc-600">Practical guides for {name}</p>
           </div>
           <a href={`/${slug}/guides`} className="shrink-0 text-sm font-medium text-blue-600 hover:underline">All Guides</a>
         </div>

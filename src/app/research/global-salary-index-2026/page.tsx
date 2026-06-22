@@ -582,7 +582,7 @@ export default function GlobalSalaryIndexPage() {
     ],
 
     relatedResearch: [
-      { title: "Software Engineer Salary Index 2026", description: "Comprehensive analysis of software engineer compensation, market trends, and career growth across 7 major economies.", href: "/research/software-engineer-salary-index-2026" },
+      { title: "Software Engineer Salary Index 2026", description: "In-depth analysis of software engineer compensation, market trends, and career growth across 7 major economies.", href: "/research/software-engineer-salary-index-2026" },
       { title: "Software Engineer Hub", description: "Complete salary data, tax analysis, and purchasing power comparisons for software engineers worldwide.", href: "/software-engineer" },
       { title: "Data Scientist Hub", description: "Explore data scientist salaries, highest-paying countries, and cross-border compensation analysis.", href: "/data-scientist" },
       { title: "Product Manager Hub", description: "Product manager salary benchmarks, top markets, and career intelligence for product leaders.", href: "/product-manager" },

@@ -8,7 +8,7 @@ import type { ProfessionPageContent } from "@/types/profession-page"
 
 const pagePath = "/software-engineer-salary"
 const seoTitle = "Software Engineer Salary Research & Insights (2026)"
-const seoDesc = "Comprehensive research on software engineer salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate total compensation."
+const seoDesc = "In-depth research on software engineer salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate total compensation."
 
 export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
 
@@ -23,14 +23,14 @@ export default function Page() {
     hero: {
       badge: "Salary Research",
       title: "Software Engineer Salary Research",
-      description: "Comprehensive analysis of software engineer compensation across 7 major economies. Research salary benchmarks, tax-adjusted earnings, purchasing power, and career dynamics to make informed career decisions.",
+      description: "Detailed breakdown of software engineer compensation across 7 major economies. Compare salary ranges across the US, UK, CA, AU, NZ, IN, and SG to find the best market for your skills.",
       cta: { label: "Salary by Country", href: "/software-engineer-salary-by-country" },
       secondaryCta: { label: "US Salary", href: "/software-engineer-salary-us" },
     },
     salaryCards: [
-      { label: "Global Average", value: "$120,000 (US)" },
-      { label: "Avg Entry Level", value: "$75,000 (US)" },
-      { label: "Highest Experienced", value: "$180,000 (US)" },
+      { label: "US Average", value: "$120,000" },
+      { label: "US Entry Level", value: "$75,000" },
+      { label: "US Experienced", value: "$180,000" },
     ],
     keyTakeaways: [
       { title: "US Dominates Nominal Salaries", description: "The United States offers the highest nominal software engineer salaries globally at $120,000 average." },

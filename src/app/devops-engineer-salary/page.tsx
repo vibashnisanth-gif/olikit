@@ -8,7 +8,7 @@ import type { ProfessionPageContent } from "@/types/profession-page"
 
 const pagePath = "/devops-engineer-salary"
 const seoTitle = "DevOps Engineer Salary Research & Insights (2026)"
-const seoDesc = "Comprehensive research on devops engineer salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate total compensation."
+const seoDesc = "In-depth research on DevOps engineer salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate total compensation."
 
 export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
 
@@ -23,13 +23,13 @@ export default function Page() {
     hero: {
       badge: "Salary Research",
       title: "DevOps Engineer Salary Research",
-      description: "Comprehensive analysis of devops engineer compensation across 7 major economies. Research salary benchmarks, tax-adjusted earnings, purchasing power, and career dynamics.",
+      description: "Expert intelligence on DevOps engineer compensation across 7 major economies. Compare DevOps engineer salaries by country and find where your infrastructure skills command the best rate.",
       cta: { label: "Salary by Country", href: "/devops-engineer-salary-by-country" },
     },
     salaryCards: [
-      { label: "Global Average", value: "$125,000 (US)" },
-      { label: "Avg Entry Level", value: "$75,000 (US)" },
-      { label: "Highest Experienced", value: "$180,000 (US)" },
+      { label: "US Average", value: "$125,000" },
+      { label: "US Entry Level", value: "$75,000" },
+      { label: "US Experienced", value: "$180,000" },
     ],
     keyTakeaways: [
       { title: "Premium Over Traditional SE", description: "DevOps engineers often earn 5-10% more than traditional software engineers due to specialized infrastructure skills." },

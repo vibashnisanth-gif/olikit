@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!locale) return {}
   return {
     title: "US State Rankings - Salary, Cost of Living, Retirement & Housing",
-    description: "Comprehensive US state rankings by average salary, cost of living, retirement friendliness, and home affordability. Compare all 50 states with official data.",
+    description: "Detailed US state rankings by average salary, cost of living, retirement friendliness, and home affordability. Compare all 50 states with official data.",
     alternates: { canonical: `${SITE_URL}/${locale.slug}/best-states-for-salary` },
     openGraph: { title: "US State Rankings", description: "Compare states by salary, cost of living, retirement, and home affordability.", siteName: "Olikit", type: "website" },
   }
@@ -100,7 +100,7 @@ export default async function StateRankingsPage({ params }: Props) {
     <div className="space-y-16">
       <div className="rounded-lg border border-zinc-200 bg-white px-5 py-7 shadow-sm sm:px-8">
         <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">US State Rankings (2025-2026)</h1>
-        <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">Comprehensive rankings of US states by average salary, cost of living, retirement friendliness, and home affordability. All data sourced from official government publications and updated for 2025-2026.</p>
+        <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">Detailed rankings of US states by average salary, cost of living, retirement friendliness, and home affordability. All data sourced from official government publications and updated for 2025-2026.</p>
       </div>
 
       <nav className="flex flex-wrap gap-2">

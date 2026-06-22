@@ -18,13 +18,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `Financial Guides for ${locale.name} | Olikit`,
-    description: `Comprehensive financial guides for ${locale.name}. Learn about salary, tax, mortgage, retirement, and investment planning.`,
+    description: `Practical financial guides for ${locale.name}. Learn about salary, tax, mortgage, retirement, and investment planning.`,
     alternates: {
       canonical: `https://olikit.com/${locale.slug}/guides`,
     },
     openGraph: {
       title: `Financial Guides for ${locale.name}`,
-      description: `Comprehensive financial guides for ${locale.name}.`,
+      description: `Practical financial guides for ${locale.name}.`,
     },
   }
 }
@@ -47,7 +47,7 @@ export default async function GuidesPage({ params }: Props) {
           Financial Guides for {name}
         </h1>
         <p className="mt-4 max-w-2xl text-lg leading-8 text-zinc-600">
-          Comprehensive guides to help you make better financial decisions in {name}. Learn about salary after tax,
+          Practical guides to help you make better financial decisions in {name}. Learn about salary after tax,
           tax brackets, mortgage affordability, retirement planning, and compound interest.
         </p>
       </section>

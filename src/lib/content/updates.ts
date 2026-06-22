@@ -73,7 +73,7 @@ export const updates: UpdateEntry[] = [
     date: "April 2026",
     title: "Site Launched with 400+ Calculator Pages",
     category: "site",
-    description: "Initial launch of Olikit.com with 400+ localized calculator pages covering salary, tax, mortgage, investment, retirement, business loan, and profit margin calculations across major economies.",
+    description: "Initial launch of Olikit.com with 400+ localized calculator pages covering salary, tax, mortgage, investment, retirement, business loan, and break-even calculations across major economies.",
     source: "Olikit Engineering",
     relatedPages: [
       { label: "All Tools", href: "/us" },

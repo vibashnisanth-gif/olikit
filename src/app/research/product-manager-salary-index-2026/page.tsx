@@ -9,7 +9,7 @@ const pagePath = "/research/product-manager-salary-index-2026"
 
 export const metadata: Metadata = {
   title: "Product Manager Salary Index 2026 | Global Research Report",
-  description: "A comprehensive research report analyzing product manager salaries, purchasing power, and career dynamics across the world's leading technology markets including the US, UK, Canada, Australia, Singapore, India, and New Zealand.",
+  description: "A thorough research report analyzing product manager salaries, purchasing power, and career dynamics across the world's leading technology markets including the US, UK, Canada, Australia, Singapore, India, and New Zealand.",
   alternates: { canonical: `${SITE_URL}${pagePath}` },
   openGraph: {
     title: "Product Manager Salary Index 2026 | Global Research Report | Olikit",
@@ -52,12 +52,12 @@ export default function SalaryIndexPage() {
 const contentData: SalaryIndexContent = {
   seo: {
     metaTitle: "Product Manager Salary Index 2026 | Global Research Report",
-    metaDescription: "Comprehensive research report analyzing product manager salaries across 7 major economies: US, UK, Canada, Australia, Singapore, India, and New Zealand. Includes salary rankings, purchasing power analysis, and country profiles.",
+    metaDescription: "Authoritative research report analyzing product manager salaries across 7 major economies: US, UK, Canada, Australia, Singapore, India, and New Zealand. Includes salary rankings, purchasing power analysis, and country profiles.",
   },
   hero: {
     badge: "Olikit Research Report 2026",
     title: "Product Manager Salary Index 2026",
-    description: "A comprehensive research report analyzing product manager salaries, purchasing power, and career dynamics across the world's leading technology markets. This report covers salary benchmarks, tax analysis, cost of living comparisons, and career intelligence across 7 major economies.",
+    description: "A thorough research report analyzing product manager salaries, purchasing power, and career dynamics across the world's leading technology markets. This report covers salary benchmarks, tax analysis, cost of living comparisons, and career intelligence across 7 major economies.",
   },
   researchMetadata: {
     coverageYear: "2026",

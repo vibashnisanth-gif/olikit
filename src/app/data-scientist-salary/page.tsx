@@ -8,7 +8,7 @@ import type { ProfessionPageContent } from "@/types/profession-page"
 
 const pagePath = "/data-scientist-salary"
 const seoTitle = "Data Scientist Salary Research & Insights (2026)"
-const seoDesc = "Comprehensive research on data scientist salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate compensation."
+const seoDesc = "Thorough examination of data scientist salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate compensation."
 
 export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
 
@@ -23,14 +23,14 @@ export default function Page() {
     hero: {
       badge: "Salary Research",
       title: "Data Scientist Salary Research",
-      description: "Comprehensive analysis of data scientist compensation across 7 major economies. Research salary benchmarks, tax-adjusted earnings, and career dynamics.",
+      description: "Rigorous analysis of data scientist compensation across 7 major economies. See how data scientist pay stacks up across the US, UK, CA, AU, NZ, IN, and SG to identify top opportunities.",
       cta: { label: "Salary by Country", href: "/data-scientist-salary-by-country" },
       secondaryCta: { label: "US Salary", href: "/data-scientist-salary-us" },
     },
     salaryCards: [
-      { label: "Global Average", value: "$125,000 (US)" },
-      { label: "Avg Entry Level", value: "$80,000 (US)" },
-      { label: "Highest Experienced", value: "$175,000 (US)" },
+      { label: "US Average", value: "$125,000" },
+      { label: "US Entry Level", value: "$80,000" },
+      { label: "US Experienced", value: "$175,000" },
     ],
     salaryTable: {
       title: "Data Scientist Salary by Country",

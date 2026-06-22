@@ -8,7 +8,7 @@ import type { ProfessionPageContent } from "@/types/profession-page"
 
 const pagePath = "/machine-learning-engineer-salary"
 const seoTitle = "Machine Learning Engineer Salary Research & Insights (2026)"
-const seoDesc = "Comprehensive research on machine learning engineer salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate total compensation."
+const seoDesc = "Authoritative research on machine learning engineer salaries across 7 major economies. Compare average pay by country, analyze tax implications, and evaluate total compensation."
 
 export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
 
@@ -23,13 +23,13 @@ export default function Page() {
     hero: {
       badge: "Salary Research",
       title: "Machine Learning Engineer Salary Research",
-      description: "Comprehensive analysis of machine learning engineer compensation across 7 major economies. Research salary benchmarks, tax-adjusted earnings, purchasing power, and career dynamics.",
+      description: "Rigorous analysis of machine learning engineer compensation across 7 major economies. Examine ML engineer compensation across major tech markets and identify the highest-paying destinations.",
       cta: { label: "Salary by Country", href: "/machine-learning-engineer-salary-by-country" },
     },
     salaryCards: [
-      { label: "Global Average", value: "$130,000 (US)" },
-      { label: "Avg Entry Level", value: "$80,000 (US)" },
-      { label: "Highest Experienced", value: "$190,000 (US)" },
+      { label: "US Average", value: "$130,000" },
+      { label: "US Entry Level", value: "$80,000" },
+      { label: "US Experienced", value: "$190,000" },
     ],
     keyTakeaways: [
       { title: "Strong Demand for ML Skills", description: "Machine learning engineers are in high demand across all major economies, commanding premium salaries." },

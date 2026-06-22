@@ -17,7 +17,7 @@ export const locales: Locale[] = [
     region: "north-america",
     defaultTitle: "Free Online Finance & Business Tools",
     defaultDescription:
-      "Free finance, salary, tax, mortgage and business calculators. Make informed decisions with our comprehensive suite of online tools.",
+      "Free finance, salary, tax, mortgage and business calculators with current tax brackets and local data.",
     states: usStates(),
     googleProperty: "olikit.com",
     googleAdsId: "ca-pub-xxxxxxxx",
@@ -39,7 +39,7 @@ export const locales: Locale[] = [
     region: "europe",
     defaultTitle: "Free Online Finance & Business Tools United Kingdom",
     defaultDescription:
-      "Free UK finance, salary, tax and business calculators. Make informed decisions with our comprehensive suite of online tools.",
+      "Free UK finance, salary, tax and business calculators with current HMRC tax brackets and local data.",
     googleProperty: "olikit.com",
     googleSearchConsoleId: "G-zqYpV3qRnw",
   },
@@ -59,7 +59,7 @@ export const locales: Locale[] = [
     region: "oceania",
     defaultTitle: "Free Online Finance & Business Tools Australia",
     defaultDescription:
-      "Free Australian finance, salary, tax and business calculators. Make informed decisions with our online tools.",
+      "Free Australian finance, salary, tax and business calculators with current ATO tax brackets and local data.",
     states: [
       { code: "nsw", name: "New South Wales", slug: "nsw" },
       { code: "vic", name: "Victoria", slug: "vic" },
@@ -86,7 +86,7 @@ export const locales: Locale[] = [
     region: "north-america",
     defaultTitle: "Free Online Finance & Business Tools Canada",
     defaultDescription:
-      "Free Canadian finance, salary, tax and mortgage calculators. Make informed decisions with our online tools.",
+      "Free Canadian finance, salary, tax and mortgage calculators with current CRA tax brackets and local data.",
     states: [
       { code: "on", name: "Ontario", slug: "ontario" },
       { code: "bc", name: "British Columbia", slug: "british-columbia" },
@@ -111,7 +111,7 @@ export const locales: Locale[] = [
     region: "oceania",
     defaultTitle: "Free Online Finance & Business Tools New Zealand",
     defaultDescription:
-      "Free New Zealand finance, salary, tax and business calculators. Make informed decisions with our online tools.",
+      "Free New Zealand finance, salary, tax and business calculators with current IRD tax brackets and local data.",
     googleSearchConsoleId: "G-zqYpV3qRnw",
   },
   {
@@ -130,7 +130,7 @@ export const locales: Locale[] = [
     region: "asia",
     defaultTitle: "Free Online Finance & Business Tools India",
     defaultDescription:
-      "Free Indian finance, salary, tax and business calculators. Make informed decisions with our online tools.",
+      "Free Indian finance, salary, tax and business calculators with current ITD tax brackets and local data.",
     states: [
       { code: "mh", name: "Maharashtra", slug: "maharashtra" },
       { code: "dl", name: "Delhi", slug: "delhi" },
@@ -159,7 +159,7 @@ export const locales: Locale[] = [
     region: "asia",
     defaultTitle: "Free Online Finance & Business Tools Singapore",
     defaultDescription:
-      "Free Singapore finance, salary, tax and business calculators. Make informed decisions with our online tools.",
+      "Free Singapore finance, salary, tax and business calculators with current IRAS tax brackets and local data.",
     googleSearchConsoleId: "G-zqYpV3qRnw",
   },
 ]
