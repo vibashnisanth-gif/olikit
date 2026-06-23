@@ -36,6 +36,15 @@ const jsonLd = {
     description:
       "Free online finance and business calculators with multi-country support.",
     foundingDate: "2026",
+    founder: {
+      "@type": "Person",
+      name: "Vibash",
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Sydney",
+      addressCountry: "AU",
+    },
   },
 }
 
@@ -52,6 +61,16 @@ export default function AboutPage() {
           <h1 className="text-4xl font-bold mb-4">About Olikit</h1>
           <p className="text-lg text-zinc-600 dark:text-zinc-400">
             Free, accurate financial calculators designed for every country we serve. Olikit helps you understand your salary, taxes, mortgage, investments, and retirement across major economies.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-semibold mb-3">Founder</h2>
+          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+            Olikit was created by <strong>Vibash</strong>, an independent developer based in Sydney, Australia. With experience across software engineering, financial data analysis, and cross-economy compensation research, Vibash built Olikit to make salary and tax comparison tools freely accessible across major global economies.
+          </p>
+          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed mt-3">
+            Olikit is a solo-operated project. All calculators, data pipelines, content, and infrastructure are built and maintained by the founder. Questions, corrections, and feedback are welcome at <a href="mailto:support@olikit.com" className="text-blue-600 hover:underline">support@olikit.com</a>.
           </p>
         </section>
 

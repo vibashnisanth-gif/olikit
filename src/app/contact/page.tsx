@@ -67,6 +67,15 @@ export default function ContactPage() {
           </p>
         </section>
 
+        <section className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-zinc-950 mb-3">Address</h2>
+          <p className="text-zinc-600">
+            Olikit<br />
+            Sydney, NSW<br />
+            Australia
+          </p>
+        </section>
+
         <section>
           <h2 className="text-xl font-semibold text-zinc-950 mb-3">What to Include</h2>
           <ul className="list-disc pl-6 space-y-2 text-zinc-600">
