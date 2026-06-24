@@ -4,14 +4,14 @@ import { SITE_URL } from "@/lib/seo/constants"
 import { Shell } from "@/components/shell"
 
 export const metadata: Metadata = {
-  title: "Contact Olikit — Get in Touch",
+    title: "Contact — Get in Touch",
   description:
     "Contact the Olikit team for feedback, questions, or support. We welcome suggestions for new calculators, countries, and features.",
   alternates: {
     canonical: `${SITE_URL}/contact`,
   },
   openGraph: {
-    title: "Contact Olikit — Get in Touch",
+  title: "Contact — Get in Touch",
     description:
       "Contact the Olikit team for feedback, questions, or support.",
     url: `${SITE_URL}/contact`,

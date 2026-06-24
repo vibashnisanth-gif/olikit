@@ -3,7 +3,7 @@ import { SITE_URL } from "@/lib/seo/constants"
 import { Shell } from "@/components/shell"
 
 export const metadata: Metadata = {
-  title: "Methodology — How Olikit Calculates Data",
+  title: "Methodology — How We Calculate Data",
   description: "Learn how Olikit calculates taxes, salaries, and financial metrics. Our methodology covers data collection, formulas, verification processes, and update frequency.",
   alternates: { canonical: `${SITE_URL}/methodology` },
 }

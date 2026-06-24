@@ -12,7 +12,6 @@ export type CalculatorCategory =
   | 'tax'
   | 'business'
   | 'personal-finance'
-  | 'currency'
   | 'salary'
   | 'budget'
   | 'valuation'

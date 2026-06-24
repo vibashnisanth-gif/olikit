@@ -3,14 +3,14 @@ import { SITE_URL } from "@/lib/seo/constants"
 import { Shell } from "@/components/shell"
 
 export const metadata: Metadata = {
-  title: "Terms of Service — Olikit",
+    title: "Terms of Service",
   description:
     "Olikit terms of service govern the use of our free financial calculators. Important disclaimers about calculator accuracy and financial advice.",
   alternates: {
     canonical: `${SITE_URL}/terms`,
   },
   openGraph: {
-    title: "Terms of Service — Olikit",
+  title: "Terms of Service",
     description:
       "Terms governing the use of Olikit's free financial calculators and services.",
     url: `${SITE_URL}/terms`,

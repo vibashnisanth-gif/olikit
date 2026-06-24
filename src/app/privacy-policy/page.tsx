@@ -3,14 +3,14 @@ import { SITE_URL } from "@/lib/seo/constants"
 import { Shell } from "@/components/shell"
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Olikit",
+    title: "Privacy Policy",
   description:
     "Olikit privacy policy explains how we handle data, cookies, Google Analytics, and AdSense. We are committed to protecting your privacy.",
   alternates: {
     canonical: `${SITE_URL}/privacy-policy`,
   },
   openGraph: {
-    title: "Privacy Policy — Olikit",
+  title: "Privacy Policy",
     description:
       "Olikit privacy policy — how we handle data, cookies, analytics, and advertising.",
     url: `${SITE_URL}/privacy-policy`,

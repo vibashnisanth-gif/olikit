@@ -4,7 +4,7 @@ import { getAllCountries, COUNTRY_FLAGS, COUNTRY_NAMES } from "@/lib/content/cou
 import { Shell } from "@/components/shell"
 
 export const metadata: Metadata = {
-  title: "Data Sources — Where Olikit Gets Its Data",
+  title: "Data Sources — Where We Get Our Data",
   description: "Official data sources used by Olikit including IRS, HMRC, ATO, CRA, IRD, Indian Income Tax Department, IRAS, and government labor statistics.",
   alternates: { canonical: `${SITE_URL}/data-sources` },
 }

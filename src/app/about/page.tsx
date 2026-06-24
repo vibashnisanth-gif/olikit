@@ -5,14 +5,14 @@ import { getLastUpdated } from "@/lib/seo/freshness"
 import { Shell } from "@/components/shell"
 
 export const metadata: Metadata = {
-  title: "About Olikit — Free Online Finance & Business Calculators",
+    title: "About — Free Online Finance & Business Calculators",
   description:
     "Olikit provides free, accurate financial calculators for the United States, United Kingdom, Australia, Canada, India, New Zealand, and Singapore. Learn about our mission, data sources, and methodology.",
   alternates: {
     canonical: `${SITE_URL}/about`,
   },
   openGraph: {
-    title: "About Olikit — Free Online Finance & Business Calculators",
+  title: "About — Free Online Finance & Business Calculators",
     description:
       "Olikit provides free, accurate financial calculators across major economies. Learn about our mission, data sources, and methodology.",
     url: `${SITE_URL}/about`,

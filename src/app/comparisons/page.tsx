@@ -3,11 +3,11 @@ import { SITE_URL } from "@/lib/seo/constants"
 import { Shell } from "@/components/shell"
 
 export const metadata: Metadata = {
-  title: "Salary Comparisons — Software Engineer, Data Scientist & Cross-Profession Analysis | Olikit",
+    title: "Salary Comparisons — Software Engineer, Data Scientist & Cross-Profession Analysis",
   description: "Compare software engineer, data scientist, and product manager salaries, taxes, and career opportunities across countries. Cross-profession and cross-country analysis.",
   alternates: { canonical: `${SITE_URL}/comparisons` },
   openGraph: {
-    title: "Salary Comparisons — Software Engineer, Data Scientist & Cross-Profession Analysis | Olikit",
+  title: "Salary Comparisons — Software Engineer, Data Scientist & Cross-Profession Analysis",
     description: "Compare salaries, taxes, and career opportunities across countries and professions.",
     url: `${SITE_URL}/comparisons`,
     siteName: "Olikit",
