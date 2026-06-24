@@ -26,15 +26,16 @@ export function Header({ currentSlug }: Props) {
 
   const navLinks = [
     { label: "Home", href: isGlobal ? "/" : `/${currentSlug}` },
+    { label: "Professions", href: "/professions" },
+    { label: "Calculators", href: "/compare" },
     { label: "Comparisons", href: "/compare" },
     { label: "Rankings", href: "/rankings" },
     { label: "Research", href: "/research" },
-    { label: "Guides", href: isGlobal ? "/us/guides" : `/${currentSlug}/guides` },
     { label: "About", href: "/about" },
   ]
 
   return (
-    <header className="sticky top-8 z-30 border-b border-zinc-200/80 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-30 border-b border-zinc-200/80 bg-white/95 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
         <a
           href={isGlobal ? "/" : `/${currentSlug}`}

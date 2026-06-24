@@ -31,7 +31,6 @@ const COUNTRY_CONTENT: Record<string, {
   aiQuickAnswers?: { q: string; a: string }[]
   keyTakeaways?: { title: string; desc: string }[]
   featuredInsights: { title: string; desc: string; href: string }[]
-  professionGroups: { category: string; items: { label: string; href: string }[] }[]
   careerPaths?: { title: string; desc: string; href: string }[]
   featuredResearch?: { title: string; desc: string; href: string; cta?: string }[]
   salaryLandscape?: { text: string[]; factors: string[]; sectorsIntro: string }
@@ -74,34 +73,7 @@ const COUNTRY_CONTENT: Record<string, {
       { title: "State Income Tax Differences", desc: "Understand how federal and state tax systems affect take-home income.", href: "/us/tools/tax-calculator" },
       { title: "Cost of Living Across America", desc: "Compare affordability, housing costs and purchasing power across states.", href: "/us/cost-of-living" },
     ],
-    professionGroups: [
-      { category: "Technology", items: [
-        { label: "Software Engineer Salary", href: "/us/salary/software-engineer" },
-        { label: "Data Scientist Salary", href: "/us/salary/data-scientist" },
-        { label: "Product Manager Salary", href: "/us/tools/salary-calculator" },
-        { label: "Cybersecurity Analyst Salary", href: "/us/tools/salary-calculator" },
-      ]},
-      { category: "Healthcare", items: [
-        { label: "Doctor Salary", href: "/us/salary/doctor" },
-        { label: "Registered Nurse Salary", href: "/us/salary/registered-nurse" },
-        { label: "Pharmacist Salary", href: "/us/tools/salary-calculator" },
-      ]},
-      { category: "Finance", items: [
-        { label: "Accountant Salary", href: "/us/salary/accountant" },
-        { label: "Financial Analyst Salary", href: "/us/tools/salary-calculator" },
-        { label: "Auditor Salary", href: "/us/tools/salary-calculator" },
-      ]},
-      { category: "Engineering", items: [
-        { label: "Mechanical Engineer Salary", href: "/us/salary/mechanical-engineer" },
-        { label: "Civil Engineer Salary", href: "/us/tools/salary-calculator" },
-        { label: "Electrical Engineer Salary", href: "/us/tools/salary-calculator" },
-      ]},
-      { category: "Business", items: [
-        { label: "Business Analyst Salary", href: "/us/tools/salary-calculator" },
-        { label: "Project Manager Salary", href: "/us/tools/salary-calculator" },
-        { label: "Human Resources Manager Salary", href: "/us/tools/salary-calculator" },
-      ]},
-    ],
+    professionGroups: [],
     careerPaths: [
       { title: "Technology Careers", desc: "Research compensation trends across software engineering, data science, cybersecurity and product management.", href: "/us/salary" },
       { title: "Healthcare Careers", desc: "Explore salaries for doctors, nurses, pharmacists and healthcare professionals.", href: "/us/salary" },
@@ -199,34 +171,7 @@ const COUNTRY_CONTENT: Record<string, {
       { title: "Income Tax and National Insurance", desc: "Understand how deductions affect take-home earnings.", href: "/uk/tools/tax-calculator" },
       { title: "Cost of Living Across the UK", desc: "Compare affordability, housing costs and purchasing power across major regions.", href: "/uk/guides" },
     ],
-    professionGroups: [
-      { category: "Technology", items: [
-        { label: "Software Engineer Salary", href: "/uk/salary/software-engineer" },
-        { label: "Data Scientist Salary", href: "/uk/salary/data-scientist" },
-        { label: "Product Manager Salary", href: "/uk/tools/salary-calculator" },
-        { label: "Cybersecurity Analyst Salary", href: "/uk/tools/salary-calculator" },
-      ]},
-      { category: "Healthcare", items: [
-        { label: "Doctor Salary", href: "/uk/salary/doctor" },
-        { label: "Registered Nurse Salary", href: "/uk/salary/registered-nurse" },
-        { label: "Pharmacist Salary", href: "/uk/tools/salary-calculator" },
-      ]},
-      { category: "Finance", items: [
-        { label: "Accountant Salary", href: "/uk/salary/accountant" },
-        { label: "Financial Analyst Salary", href: "/uk/tools/salary-calculator" },
-        { label: "Investment Analyst Salary", href: "/uk/tools/salary-calculator" },
-      ]},
-      { category: "Engineering", items: [
-        { label: "Mechanical Engineer Salary", href: "/uk/salary/mechanical-engineer" },
-        { label: "Civil Engineer Salary", href: "/uk/tools/salary-calculator" },
-        { label: "Electrical Engineer Salary", href: "/uk/tools/salary-calculator" },
-      ]},
-      { category: "Business", items: [
-        { label: "Business Analyst Salary", href: "/uk/tools/salary-calculator" },
-        { label: "Project Manager Salary", href: "/uk/tools/salary-calculator" },
-        { label: "Human Resources Manager Salary", href: "/uk/tools/salary-calculator" },
-      ]},
-    ],
+    professionGroups: [],
     careerPaths: [
       { title: "Technology Careers", desc: "Research compensation trends across software engineering, cybersecurity, product management and data science.", href: "/uk/salary" },
       { title: "Healthcare Careers", desc: "Compare salaries across medicine, nursing, pharmacy and healthcare support professions.", href: "/uk/salary" },
@@ -322,34 +267,7 @@ const COUNTRY_CONTENT: Record<string, {
       { title: "Income Tax and Superannuation", desc: "Understand how taxes and retirement contributions affect take-home earnings.", href: "/au/tools/tax-calculator" },
       { title: "Cost of Living Across Australia", desc: "Compare affordability, housing costs and purchasing power across major cities and states.", href: "/au/guides" },
     ],
-    professionGroups: [
-      { category: "Technology", items: [
-        { label: "Software Engineer Salary", href: "/au/salary/software-engineer" },
-        { label: "Data Scientist Salary", href: "/au/salary/data-scientist" },
-        { label: "Product Manager Salary", href: "/au/tools/salary-calculator" },
-        { label: "Cybersecurity Analyst Salary", href: "/au/tools/salary-calculator" },
-      ]},
-      { category: "Healthcare", items: [
-        { label: "Doctor Salary", href: "/au/salary/doctor" },
-        { label: "Registered Nurse Salary", href: "/au/salary/registered-nurse" },
-        { label: "Pharmacist Salary", href: "/au/tools/salary-calculator" },
-      ]},
-      { category: "Finance", items: [
-        { label: "Accountant Salary", href: "/au/salary/accountant" },
-        { label: "Financial Analyst Salary", href: "/au/tools/salary-calculator" },
-        { label: "Investment Analyst Salary", href: "/au/tools/salary-calculator" },
-      ]},
-      { category: "Engineering", items: [
-        { label: "Mechanical Engineer Salary", href: "/au/salary/mechanical-engineer" },
-        { label: "Civil Engineer Salary", href: "/au/tools/salary-calculator" },
-        { label: "Mining Engineer Salary", href: "/au/tools/salary-calculator" },
-      ]},
-      { category: "Business", items: [
-        { label: "Business Analyst Salary", href: "/au/tools/salary-calculator" },
-        { label: "Project Manager Salary", href: "/au/tools/salary-calculator" },
-        { label: "Human Resources Manager Salary", href: "/au/tools/salary-calculator" },
-      ]},
-    ],
+    professionGroups: [],
     careerPaths: [
       { title: "Technology Careers", desc: "Research compensation trends across software engineering, cybersecurity, data science and product management.", href: "/au/salary" },
       { title: "Healthcare Careers", desc: "Compare salaries across medicine, nursing, pharmacy and healthcare support professions.", href: "/au/salary" },
@@ -445,34 +363,7 @@ const COUNTRY_CONTENT: Record<string, {
       { title: "Federal and Provincial Taxes", desc: "Understand how Canada's layered tax system affects take-home earnings.", href: "/ca/tools/tax-calculator" },
       { title: "Cost of Living Across Canada", desc: "Compare affordability, housing costs and purchasing power across major cities and provinces.", href: "/ca/guides" },
     ],
-    professionGroups: [
-      { category: "Technology", items: [
-        { label: "Software Engineer Salary", href: "/ca/salary/software-engineer" },
-        { label: "Data Scientist Salary", href: "/ca/salary/data-scientist" },
-        { label: "Product Manager Salary", href: "/ca/tools/salary-calculator" },
-        { label: "Cybersecurity Analyst Salary", href: "/ca/tools/salary-calculator" },
-      ]},
-      { category: "Healthcare", items: [
-        { label: "Doctor Salary", href: "/ca/salary/doctor" },
-        { label: "Registered Nurse Salary", href: "/ca/salary/registered-nurse" },
-        { label: "Pharmacist Salary", href: "/ca/tools/salary-calculator" },
-      ]},
-      { category: "Finance", items: [
-        { label: "Accountant Salary", href: "/ca/salary/accountant" },
-        { label: "Financial Analyst Salary", href: "/ca/tools/salary-calculator" },
-        { label: "Investment Analyst Salary", href: "/ca/tools/salary-calculator" },
-      ]},
-      { category: "Engineering", items: [
-        { label: "Mechanical Engineer Salary", href: "/ca/salary/mechanical-engineer" },
-        { label: "Civil Engineer Salary", href: "/ca/tools/salary-calculator" },
-        { label: "Petroleum Engineer Salary", href: "/ca/tools/salary-calculator" },
-      ]},
-      { category: "Business", items: [
-        { label: "Business Analyst Salary", href: "/ca/tools/salary-calculator" },
-        { label: "Project Manager Salary", href: "/ca/tools/salary-calculator" },
-        { label: "Human Resources Manager Salary", href: "/ca/tools/salary-calculator" },
-      ]},
-    ],
+    professionGroups: [],
     careerPaths: [
       { title: "Technology Careers", desc: "Research compensation trends across software engineering, cybersecurity, product management and data science.", href: "/ca/salary" },
       { title: "Healthcare Careers", desc: "Compare salaries across medicine, nursing, pharmacy and healthcare support professions.", href: "/ca/salary" },
@@ -569,34 +460,7 @@ const COUNTRY_CONTENT: Record<string, {
       { title: "Income Tax and Take-Home Pay", desc: "Understand how taxes affect real earnings and financial outcomes.", href: "/nz/tools/tax-calculator" },
       { title: "Cost of Living Across New Zealand", desc: "Compare affordability, housing costs and purchasing power across major regions.", href: "/nz/guides" },
     ],
-    professionGroups: [
-      { category: "Technology", items: [
-        { label: "Software Engineer Salary", href: "/nz/salary/software-engineer" },
-        { label: "Data Scientist Salary", href: "/nz/salary/data-scientist" },
-        { label: "Product Manager Salary", href: "/nz/tools/salary-calculator" },
-        { label: "Cybersecurity Analyst Salary", href: "/nz/tools/salary-calculator" },
-      ]},
-      { category: "Healthcare", items: [
-        { label: "Doctor Salary", href: "/nz/salary/doctor" },
-        { label: "Registered Nurse Salary", href: "/nz/salary/registered-nurse" },
-        { label: "Pharmacist Salary", href: "/nz/tools/salary-calculator" },
-      ]},
-      { category: "Finance", items: [
-        { label: "Accountant Salary", href: "/nz/salary/accountant" },
-        { label: "Financial Analyst Salary", href: "/nz/tools/salary-calculator" },
-        { label: "Auditor Salary", href: "/nz/tools/salary-calculator" },
-      ]},
-      { category: "Engineering", items: [
-        { label: "Mechanical Engineer Salary", href: "/nz/salary/mechanical-engineer" },
-        { label: "Civil Engineer Salary", href: "/nz/tools/salary-calculator" },
-        { label: "Electrical Engineer Salary", href: "/nz/tools/salary-calculator" },
-      ]},
-      { category: "Business", items: [
-        { label: "Business Analyst Salary", href: "/nz/tools/salary-calculator" },
-        { label: "Project Manager Salary", href: "/nz/tools/salary-calculator" },
-        { label: "Human Resources Manager Salary", href: "/nz/tools/salary-calculator" },
-      ]},
-    ],
+    professionGroups: [],
     careerPaths: [
       { title: "Technology Careers", desc: "Research compensation trends across software engineering, cybersecurity, product management and data science.", href: "/nz/salary" },
       { title: "Healthcare Careers", desc: "Compare salaries across medicine, nursing, pharmacy and healthcare support professions.", href: "/nz/salary" },
@@ -697,34 +561,7 @@ const COUNTRY_CONTENT: Record<string, {
       { title: "Best Cities for High Earners", desc: "Compare compensation, affordability and purchasing power across India.", href: "/in/salary", cta: "Explore Report" },
       { title: "India Salary Intelligence Report 2026", desc: "Global analysis of salaries, taxes, affordability and purchasing power across India.", href: "/in/research", cta: "Explore Report" },
     ],
-    professionGroups: [
-      { category: "Technology", items: [
-        { label: "Software Engineer Salary", href: "/in/salary/software-engineer" },
-        { label: "Data Scientist Salary", href: "/in/salary/data-scientist" },
-        { label: "Product Manager Salary", href: "/in/tools/salary-calculator" },
-        { label: "Cybersecurity Analyst Salary", href: "/in/tools/salary-calculator" },
-      ]},
-      { category: "Healthcare", items: [
-        { label: "Doctor Salary", href: "/in/salary/doctor" },
-        { label: "Registered Nurse Salary", href: "/in/salary/registered-nurse" },
-        { label: "Pharmacist Salary", href: "/in/tools/salary-calculator" },
-      ]},
-      { category: "Finance", items: [
-        { label: "Accountant Salary", href: "/in/salary/accountant" },
-        { label: "Financial Analyst Salary", href: "/in/tools/salary-calculator" },
-        { label: "Investment Analyst Salary", href: "/in/tools/salary-calculator" },
-      ]},
-      { category: "Engineering", items: [
-        { label: "Mechanical Engineer Salary", href: "/in/salary/mechanical-engineer" },
-        { label: "Civil Engineer Salary", href: "/in/tools/salary-calculator" },
-        { label: "Electrical Engineer Salary", href: "/in/tools/salary-calculator" },
-      ]},
-      { category: "Business", items: [
-        { label: "Business Analyst Salary", href: "/in/tools/salary-calculator" },
-        { label: "Project Manager Salary", href: "/in/tools/salary-calculator" },
-        { label: "Human Resources Manager Salary", href: "/in/tools/salary-calculator" },
-      ]},
-    ],
+    professionGroups: [],
     careerPaths: [
       { title: "Technology Careers", desc: "Research compensation trends across software engineering, cybersecurity, artificial intelligence, cloud computing and data science.", href: "/in/salary" },
       { title: "Healthcare Careers", desc: "Compare salaries across medicine, nursing, pharmacy and healthcare support professions.", href: "/in/salary" },
@@ -819,35 +656,7 @@ const COUNTRY_CONTENT: Record<string, {
       { title: "Best Careers for High Earners", desc: "Compare long-term compensation growth across professions.", href: "/sg/rankings", cta: "Explore Report" },
       { title: "Singapore Salary Intelligence Report 2026", desc: "Rigorous analysis of salaries, taxes, affordability and purchasing power across Singapore.", href: "/sg/research", cta: "Explore Report" },
     ],
-    professionGroups: [
-      { category: "Technology", items: [
-        { label: "Software Engineer Salary", href: "/sg/salary/software-engineer" },
-        { label: "Data Scientist Salary", href: "/sg/salary/data-scientist" },
-        { label: "Product Manager Salary", href: "/sg/tools/salary-calculator" },
-        { label: "Cybersecurity Analyst Salary", href: "/sg/tools/salary-calculator" },
-      ]},
-      { category: "Finance", items: [
-        { label: "Financial Analyst Salary", href: "/sg/tools/salary-calculator" },
-        { label: "Investment Analyst Salary", href: "/sg/tools/salary-calculator" },
-        { label: "Accountant Salary", href: "/sg/salary/accountant" },
-        { label: "Risk Manager Salary", href: "/sg/tools/salary-calculator" },
-      ]},
-      { category: "Healthcare", items: [
-        { label: "Doctor Salary", href: "/sg/salary/doctor" },
-        { label: "Registered Nurse Salary", href: "/sg/salary/registered-nurse" },
-        { label: "Pharmacist Salary", href: "/sg/tools/salary-calculator" },
-      ]},
-      { category: "Business", items: [
-        { label: "Business Analyst Salary", href: "/sg/tools/salary-calculator" },
-        { label: "Project Manager Salary", href: "/sg/tools/salary-calculator" },
-        { label: "Operations Manager Salary", href: "/sg/tools/salary-calculator" },
-      ]},
-      { category: "Engineering", items: [
-        { label: "Mechanical Engineer Salary", href: "/sg/salary/mechanical-engineer" },
-        { label: "Civil Engineer Salary", href: "/sg/tools/salary-calculator" },
-        { label: "Electrical Engineer Salary", href: "/sg/tools/salary-calculator" },
-      ]},
-    ],
+    professionGroups: [],
     careerPaths: [
       { title: "Technology Careers", desc: "Research compensation trends across software engineering, cybersecurity, artificial intelligence and data science.", href: "/sg/salary" },
       { title: "Finance Careers", desc: "Compare salaries across investment banking, accounting, financial analysis and risk management.", href: "/sg/salary" },
@@ -921,21 +730,6 @@ function InsightCard({ title, desc, href }: { title: string; desc: string; href:
       <h3 className="mb-2 text-lg font-semibold text-zinc-950">{title}</h3>
       <p className="text-sm leading-6 text-zinc-600">{desc}</p>
     </a>
-  )
-}
-
-function ProfessionGroup({ category, items }: { category: string; items: { label: string; href: string }[] }) {
-  return (
-    <div>
-      <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-zinc-600">{category}</h4>
-      <ul className="space-y-1.5">
-        {items.map((item) => (
-          <li key={item.label}>
-            <a href={item.href} className="text-sm text-zinc-600 transition-colors hover:text-zinc-950">{item.label}</a>
-          </li>
-        ))}
-      </ul>
-    </div>
   )
 }
 
@@ -1057,17 +851,7 @@ export default async function LocalePage({ params }: Props) {
         </section>
       )}
 
-      {/* 5. POPULAR PROFESSION SALARIES */}
-      <section className="rounded-lg border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-8">
-        <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Popular Profession Salaries</h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {content.professionGroups.map((group) => (
-            <ProfessionGroup key={group.category} {...group} />
-          ))}
-        </div>
-      </section>
-
-      {/* 6. EXPLORE SALARIES BY CAREER PATH */}
+      {/* 5. EXPLORE SALARIES BY CAREER PATH */}
       {content.careerPaths && (
         <section>
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Explore Salaries by Career Path</h2>
