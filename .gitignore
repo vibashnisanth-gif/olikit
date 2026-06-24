@@ -51,3 +51,9 @@ audit-routes.txt
 
 # Generated reports
 stale-content-report.json
+
+# Crawlee / web scraper storage
+/storage
+
+# Salary sanity report (generated)
+salary-sanity-report.json
