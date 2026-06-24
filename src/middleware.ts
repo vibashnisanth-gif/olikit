@@ -70,18 +70,6 @@ export function middleware(request: NextRequest) {
 
   const locale = detectLocale(request)
 
-  if (pathname === "/") {
-    url.pathname = `/${locale}`
-    const res = NextResponse.redirect(url, 307)
-    res.cookies.set(COOKIE_NAME, locale, {
-      maxAge: 60 * 60 * 24 * 365,
-      path: "/",
-      sameSite: "lax",
-      secure: process.env.NODE_ENV === "production",
-    })
-    return res
-  }
-
   const response = NextResponse.next()
   response.cookies.set(COOKIE_NAME, locale, {
     maxAge: 60 * 60 * 24 * 365,
