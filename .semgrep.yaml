@@ -1,0 +1,105 @@
+rules:
+  - id: no-template-leak-country
+    pattern: '"{country}"'
+    message: "Template placeholder {country} leaked into rendered output"
+    severity: ERROR
+    languages: [ts, tsx]
+    paths:
+      exclude:
+        - "*.generated.*"
+        - node_modules/
+
+  - id: no-template-leak-locale
+    pattern: '"${locale.name}"'
+    message: "Template placeholder ${locale.name} leaked into rendered output"
+    severity: ERROR
+    languages: [ts, tsx]
+    paths:
+      exclude:
+        - node_modules/
+
+  - id: no-undefined-in-jsx
+    patterns:
+      - pattern-either:
+          - pattern: undefined
+          - pattern: '"{undefined}"'
+    message: "undefined leaked into rendered output"
+    severity: ERROR
+    languages: [ts, tsx]
+    paths:
+      exclude:
+        - node_modules/
+        - "*.d.ts"
+
+  - id: no-nan-in-jsx
+    pattern: NaN
+    message: "NaN leaked into rendered output"
+    severity: ERROR
+    languages: [ts, tsx]
+    paths:
+      exclude:
+        - node_modules/
+
+  - id: no-todo
+    pattern: TODO
+    message: "TODO found in code"
+    severity: WARNING
+    languages: [ts, tsx]
+    paths:
+      exclude:
+        - node_modules/
+
+  - id: no-fixme
+    pattern: FIXME
+    message: "FIXME found in code"
+    severity: WARNING
+    languages: [ts, tsx]
+    paths:
+      exclude:
+        - node_modules/
+
+  - id: no-placeholder-text
+    patterns:
+      - pattern-either:
+          - pattern: '"placeholder"'
+          - pattern: "'placeholder'"
+          - pattern: '"dummy"'
+          - pattern: "'dummy'"
+          - pattern: '"sample"'
+          - pattern: "'sample'"
+    message: "Placeholder/dummy/sample text found - will leak into production"
+    severity: ERROR
+    languages: [ts, tsx]
+    paths:
+      exclude:
+        - node_modules/
+        - test*/
+
+  - id: no-ai-fingerprints
+    patterns:
+      - pattern-either:
+          - pattern: '"According to Olikit research"'
+          - pattern: '"Our free"'
+          - pattern: '"Whether you are"'
+          - pattern: '"Make informed decisions"'
+    message: "AI fingerprint or boilerplate phrase detected"
+    severity: ERROR
+    languages: [ts, tsx]
+    paths:
+      exclude:
+        - node_modules/
+
+  - id: no-test-data-in-content
+    patterns:
+      - pattern-either:
+          - pattern: '"test"''
+          - pattern: "'test'"
+          - pattern: '"sample"''
+    message: "Test/lorem-ipsum style content may leak"
+    severity: WARNING
+    languages: [ts, tsx]
+    paths:
+      include:
+        - "src/app/**"
+        - "src/components/**"
+        - "src/lib/content/**"

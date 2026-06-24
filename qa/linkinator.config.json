@@ -1,0 +1,9 @@
+{
+  "recurse": true,
+  "skip": "^(?!https?://localhost)",
+  "concurrency": 4,
+  "directoryListing": false,
+  "timeout": 10000,
+  "silent": false,
+  "format": "json"
+}
