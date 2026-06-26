@@ -9,7 +9,11 @@ import { tools } from "@/lib/content/templates"
 import { guides } from "@/lib/content/guide-templates"
 import { stateDataSets } from "@/lib/content/state-data"
 import { professions } from "@/lib/content/professions-data"
+import { Shell } from "@/components/shell"
 import { AdUnit } from "@/components/ad-unit"
+import { NewsletterSignup } from "@/components/newsletter-signup"
+import { SourceFooter } from "@/components/source-footer"
+import { LastUpdated } from "@/components/last-updated"
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale: locale.slug }))
@@ -66,12 +70,18 @@ export default async function SalaryHubPage(props: { params: Promise<{ locale: s
   }
 
   return (
-    <>
+    <Shell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="max-w-4xl mx-auto px-4 py-12 space-y-10">
+        <nav className="text-sm text-zinc-500">
+          <Link href={`/${locale.slug}`} className="hover:text-zinc-800">Home</Link>
+          <span className="mx-2">/</span>
+          <span className="text-zinc-800">Salary</span>
+        </nav>
+
         <section>
           <h1 className="text-4xl font-bold mb-4">{content.h1}</h1>
-          <p className="text-lg text-zinc-600 dark:text-zinc-400">{content.intro}</p>
+          <p className="text-lg text-zinc-600">{content.intro}</p>
         </section>
 
         <section className="bg-blue-50 dark:bg-blue-900/30 rounded-lg p-6 space-y-3 border border-blue-100 dark:border-blue-800/30">
@@ -177,8 +187,8 @@ export default async function SalaryHubPage(props: { params: Promise<{ locale: s
           </div>
         </section>
 
-        <section className="text-sm text-zinc-500 dark:text-zinc-500">
-          <h2 className="text-lg font-semibold text-zinc-700 dark:text-zinc-300 mb-2">Sources</h2>
+        <section className="text-sm text-zinc-500">
+          <h2 className="text-lg font-semibold text-zinc-700 mb-2">Sources</h2>
           <ul className="list-disc pl-6 space-y-1">
             <li>Bureau of Labor Statistics - Occupational Employment and Wage Statistics</li>
             <li>US Census Bureau - American Community Survey</li>
@@ -186,7 +196,12 @@ export default async function SalaryHubPage(props: { params: Promise<{ locale: s
             <li>Last updated: {lastUpdated}</li>
           </ul>
         </section>
+
+        <NewsletterSignup locale={locale.slug} source="salary-hub" variant="banner" />
+
+        <LastUpdated />
+        <SourceFooter localeSlug={locale.slug} />
       </div>
-    </>
+    </Shell>
   )
 }

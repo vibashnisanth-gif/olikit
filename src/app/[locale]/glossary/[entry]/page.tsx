@@ -9,6 +9,7 @@ import { professions } from "@/lib/content/professions-data"
 import { SITE_URL } from "@/lib/seo/constants"
 import { SourceFooter } from "@/components/source-footer"
 import { LastUpdated } from "@/components/last-updated"
+import { NewsletterSignup } from "@/components/newsletter-signup"
 
 type Props = { params: Promise<{ locale: string; entry: string }> }
 
@@ -49,6 +50,13 @@ export default async function GlossaryEntryPage({ params }: Props) {
   return (
     <div className="space-y-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <nav className="text-sm text-zinc-500">
+        <Link href={`/${locale.slug}`} className="hover:text-zinc-800">Home</Link>
+        <span className="mx-2">/</span>
+        <Link href={`/${locale.slug}/glossary`} className="hover:text-zinc-800">Glossary</Link>
+        <span className="mx-2">/</span>
+        <span className="text-zinc-800">{entry.term}</span>
+      </nav>
       <div className="rounded-lg border border-zinc-200 bg-white px-5 py-7 shadow-sm sm:px-8">
         <p className="mb-2 text-xs font-semibold uppercase text-zinc-500">Financial Glossary</p>
         <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">{entry.term}</h1>
@@ -139,6 +147,8 @@ export default async function GlossaryEntryPage({ params }: Props) {
 
       <SourceFooter localeSlug={locale.slug} />
       <LastUpdated />
+
+      <NewsletterSignup locale={locale.slug} source="glossary" variant="banner" />
     </div>
   )
 }

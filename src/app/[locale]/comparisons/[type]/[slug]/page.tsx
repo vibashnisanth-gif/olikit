@@ -139,7 +139,7 @@ export default async function ComparisonPage({ params }: Props) {
             </thead>
             <tbody>
               {pc.comparisonTable.map((row, i) => (
-                <tr key={i} className="border-b border-zinc-100 last:border-0">
+              <tr key={i} className="border-b border-zinc-100 last:border-0 hover:bg-zinc-50 transition-colors">
                   <td className="px-4 py-3 font-medium text-zinc-700">{row.label}</td>
                   <td className="px-4 py-3 text-zinc-600">{row.valueA}</td>
                   <td className="px-4 py-3 text-zinc-600">{row.valueB}</td>
@@ -226,7 +226,9 @@ export default async function ComparisonPage({ params }: Props) {
       <nav className="text-sm text-zinc-500">
         <a href={`/${locale.slug}`} className="hover:text-zinc-800">Home</a>
         <span className="mx-2">/</span>
-        <span className="text-zinc-800">{typeLabel} Comparison</span>
+        <a href={`/${locale.slug}/comparisons`} className="hover:text-zinc-800">Comparisons</a>
+        <span className="mx-2">/</span>
+        <span className="text-zinc-800">{content.h1}</span>
       </nav>
 
       <div className="rounded-lg border border-zinc-200 bg-white px-6 py-8 shadow-sm">
@@ -251,6 +253,7 @@ export default async function ComparisonPage({ params }: Props) {
 
       <section className="overflow-x-auto rounded-lg border border-zinc-200 bg-white shadow-sm">
         <table className="w-full text-sm">
+          <caption className="sr-only">Comparison of {content.localeA.name} vs {content.localeB.name}</caption>
           <thead>
             <tr className="border-b border-zinc-200 bg-zinc-50">
               <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-700">Metric</th>
@@ -327,6 +330,8 @@ export default async function ComparisonPage({ params }: Props) {
             className="rounded-md bg-white px-4 py-2 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 hover:bg-zinc-50">Salary Guide</a>
         </div>
       </section>
+
+      <NewsletterSignup locale={locale.slug} source="comparison" variant="banner" />
 
       <AdUnit slot="COMPARISON_BOTTOM_SLOT" format="horizontal" />
 
