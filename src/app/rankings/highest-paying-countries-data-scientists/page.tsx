@@ -59,11 +59,11 @@ export default function HighestPayingCountriesDataScientists() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Global Rank</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Country</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Est. Base Salary (USD Eq.)</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Olikit PPP Score</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Olikit Reloc. Score</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Global Rank</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Country</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Est. Base Salary (USD Eq.)</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Olikit PPP Score</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Olikit Reloc. Score</th>
                 </tr>
               </thead>
               <tbody>

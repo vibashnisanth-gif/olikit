@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { Suspense } from "react"
 import { notFound } from "next/navigation"
 import { getLocale, locales } from "@/lib/seo/locales"
 import { buildMetadata } from "@/lib/seo/metadata"
@@ -14,6 +15,7 @@ import { AffiliateSidebar } from "@/components/affiliate-sidebar"
 import { NewsletterSignup } from "@/components/newsletter-signup"
 import { AdUnit } from "@/components/ad-unit"
 import { professions } from "@/lib/content/professions-data"
+import { SkeletonCard } from "@/components/ui/skeleton"
 
 type Props = {
   params: Promise<{ locale: string; tool: string }>
@@ -109,7 +111,9 @@ export default async function ToolPage({ params }: Props) {
       )}
 
       <div>
-        <CalculatorInteractive toolSlug={tool.slug} localeSlug={locale.slug} />
+        <Suspense fallback={<SkeletonCard />}>
+          <CalculatorInteractive toolSlug={tool.slug} localeSlug={locale.slug} />
+        </Suspense>
       </div>
 
       <div className="flex flex-wrap gap-3 rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">

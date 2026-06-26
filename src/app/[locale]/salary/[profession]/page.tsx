@@ -160,8 +160,8 @@ export default async function ProfessionPage({ params }: Props) {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-zinc-200">
-                    <th className="py-2 pr-4 text-left font-medium text-zinc-500">Level</th>
-                    <th className="py-2 pr-4 text-right font-medium text-zinc-500">Annual Salary ({symbol})</th>
+                    <th scope="col" className="py-2 pr-4 text-left font-medium text-zinc-500">Level</th>
+                    <th scope="col" className="py-2 pr-4 text-right font-medium text-zinc-500">Annual Salary ({symbol})</th>
                   </tr>
                 </thead>
                 <tbody>

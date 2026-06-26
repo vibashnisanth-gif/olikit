@@ -22,7 +22,13 @@ export const metadata: Metadata = {
     description: "Data-driven rankings of salaries, tax rates, and financial metrics across major economies. Highest-paying, lowest tax, most affordable.",
     url: `${SITE_URL}/rankings`,
     siteName: "Olikit",
+    locale: "en-US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Global Rankings — Salaries, Taxes & Financial Data",
+    description: "Data-driven rankings of salaries, tax rates, and financial metrics across major economies. Highest-paying, lowest tax, most affordable.",
   },
 }
 

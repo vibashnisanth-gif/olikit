@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { SITE_URL } from "@/lib/seo/constants"
 import { locales } from "@/lib/seo/locales"
 import { getSiteIntelligence } from "@/lib/site-intelligence"
 import { Shell } from "@/components/shell"
@@ -6,14 +7,19 @@ import { Shell } from "@/components/shell"
 export const metadata: Metadata = {
   title: "All Countries — Global Overview",
   description: "Browse financial calculators and guides across major economies. Compare tools, tax systems, and financial data globally.",
-  alternates: { canonical: "https://olikit.com/countries" },
+  alternates: { canonical: `${SITE_URL}/countries` },
   openGraph: {
     title: "All Countries — Global Overview",
-    description: "Browse financial calculators across major economies.",
-    url: "https://olikit.com/countries",
+    description: "Browse financial calculators and guides across major economies. Compare tools, tax systems, and financial data globally.",
+    url: `${SITE_URL}/countries`,
     siteName: "Olikit",
     locale: "en-US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "All Countries — Global Overview",
+    description: "Browse financial calculators and guides across major economies. Compare tools, tax systems, and financial data globally.",
   },
 }
 

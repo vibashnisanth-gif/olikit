@@ -16,7 +16,13 @@ export const metadata: Metadata = {
     description: "Compare salaries, tax systems, and cost-of-living across major economies. Side-by-side analysis from official government sources.",
     url: `${SITE_URL}/compare`,
     siteName: "Olikit",
+    locale: "en-US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Global Comparisons — Compare Countries",
+    description: "Compare salaries, tax systems, and cost-of-living across major economies. Side-by-side analysis from official government sources.",
   },
 }
 
@@ -151,9 +157,9 @@ export default function ComparePage() {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-zinc-200">
-                <th className="text-left py-3 pr-4 font-semibold text-zinc-950">Profession</th>
+                <th scope="col" className="text-left py-3 pr-4 font-semibold text-zinc-950">Profession</th>
                 {countries.map((c) => (
-                  <th key={c.slug} className="text-right px-3 py-3 font-semibold text-zinc-950 whitespace-nowrap">
+                  <th scope="col" key={c.slug} className="text-right px-3 py-3 font-semibold text-zinc-950 whitespace-nowrap">
                     {c.flag} {c.name}
                   </th>
                 ))}

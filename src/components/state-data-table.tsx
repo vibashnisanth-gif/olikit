@@ -21,9 +21,9 @@ export function StateDataTable({ dataPoints, stateName }: { dataPoints: StateDat
       <table className="w-full text-sm">
         <thead>
           <tr className="bg-surface-muted">
-            <th className="px-4 py-3 text-left font-semibold text-text-secondary">Metric</th>
-            <th className="px-4 py-3 text-left font-semibold text-text-secondary">{stateName} Value</th>
-            <th className="px-4 py-3 text-left font-semibold text-text-secondary">Notes</th>
+            <th scope="col" className="px-4 py-3 text-left font-semibold text-text-secondary">Metric</th>
+            <th scope="col" className="px-4 py-3 text-left font-semibold text-text-secondary">{stateName} Value</th>
+            <th scope="col" className="px-4 py-3 text-left font-semibold text-text-secondary">Notes</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-border-light">

@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next"
+import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { Shell } from "@/components/shell"
 import { FAQSection } from "@/components/faq-section"
@@ -221,7 +221,7 @@ export default function HighestPayingCitiesPage() {
                 </ul>
               </div>
               <div className="mt-6 border-t border-zinc-100 pt-3">
-                <p className="text-xs text-zinc-500">Updated June 2026 · Government Data Sources</p>
+                <p className="text-xs text-zinc-500">Updated June 2026 � Government Data Sources</p>
               </div>
             </div>
           </div>
@@ -259,7 +259,7 @@ export default function HighestPayingCitiesPage() {
               <thead>
                 <tr className="bg-zinc-50">
                   {rankingTableData.columns.map((col, i) => (
-                    <th key={i} className="px-4 py-3 text-left font-medium text-zinc-700">{col}</th>
+                    <th scope="col" key={i} className="px-4 py-3 text-left font-medium text-zinc-700">{col}</th>
                   ))}
                 </tr>
               </thead>

@@ -18,6 +18,11 @@ export const metadata: Metadata = {
     locale: "en-US",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy",
+    description: "Olikit privacy policy — how we handle data, cookies, analytics, and advertising.",
+  },
 }
 
 const jsonLd = {

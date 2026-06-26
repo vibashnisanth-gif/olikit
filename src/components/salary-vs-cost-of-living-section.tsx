@@ -15,10 +15,10 @@ export function SalaryVsCostOfLivingSection({ title = "Salary vs Cost of Living"
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-zinc-50">
-              <th className="px-4 py-3 text-left font-semibold text-zinc-900">City</th>
-              <th className="px-4 py-3 text-right font-semibold text-zinc-900">Avg Salary (USD)</th>
-              <th className="px-4 py-3 text-right font-semibold text-zinc-900">Cost of Living</th>
-              <th className="px-4 py-3 text-right font-semibold text-zinc-900">Cost of Living Index</th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-900">City</th>
+              <th scope="col" className="px-4 py-3 text-right font-semibold text-zinc-900">Avg Salary (USD)</th>
+              <th scope="col" className="px-4 py-3 text-right font-semibold text-zinc-900">Cost of Living</th>
+              <th scope="col" className="px-4 py-3 text-right font-semibold text-zinc-900">Cost of Living Index</th>
             </tr>
           </thead>
           <tbody>

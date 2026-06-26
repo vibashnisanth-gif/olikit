@@ -119,9 +119,9 @@ export default async function AverageSalaryPage(props: {
             <table className="w-full border-collapse">
               <thead>
                 <tr className="border-b-2">
-                  <th className="text-left py-3 px-4 font-semibold text-zinc-700 dark:text-zinc-300">Metric</th>
-                  <th className="text-right py-3 px-4 font-semibold text-zinc-700 dark:text-zinc-300">{subRegion.name}</th>
-                  <th className="text-right py-3 px-4 font-semibold text-zinc-500">US Average</th>
+                  <th scope="col" className="text-left py-3 px-4 font-semibold text-zinc-700 dark:text-zinc-300">Metric</th>
+                  <th scope="col" className="text-right py-3 px-4 font-semibold text-zinc-700 dark:text-zinc-300">{subRegion.name}</th>
+                  <th scope="col" className="text-right py-3 px-4 font-semibold text-zinc-500">US Average</th>
                 </tr>
               </thead>
               <tbody>

@@ -1,4 +1,4 @@
-﻿import type { ProfessionPageContent } from "@/types/profession-page"
+import type { ProfessionPageContent } from "@/types/profession-page"
 import { HeroSection } from "@/components/hero-section"
 import { FAQSection } from "@/components/faq-section"
 import { SourcesSection } from "@/components/sources-section"
@@ -56,7 +56,7 @@ function SalaryTableSection({ table }: { table: NonNullable<ProfessionPageConten
           <thead>
             <tr className="bg-zinc-100">
               {headers.map((h, i) => (
-                <th key={i} className={"px-4 py-3 font-semibold text-zinc-900 " + (i === 0 ? "text-left" : "text-right")}>{h}</th>
+                <th scope="col" key={i} className={"px-4 py-3 font-semibold text-zinc-900 " + (i === 0 ? "text-left" : "text-right")}>{h}</th>
               ))}
             </tr>
           </thead>
@@ -83,9 +83,9 @@ function ComparisonTableSection({ table }: { table: NonNullable<ProfessionPageCo
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-zinc-100">
-              <th className="px-4 py-3 text-left font-semibold text-zinc-900">Category</th>
-              <th className="px-4 py-3 text-right font-semibold text-zinc-900">Country A</th>
-              <th className="px-4 py-3 text-right font-semibold text-zinc-900">Country B</th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-900">Category</th>
+              <th scope="col" className="px-4 py-3 text-right font-semibold text-zinc-900">Country A</th>
+              <th scope="col" className="px-4 py-3 text-right font-semibold text-zinc-900">Country B</th>
             </tr>
           </thead>
           <tbody>
@@ -111,9 +111,9 @@ function CountryRankingSection({ ranking }: { ranking: NonNullable<ProfessionPag
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-zinc-100">
-              <th className="px-4 py-3 text-left font-semibold text-zinc-900">Rank</th>
-              <th className="px-4 py-3 text-left font-semibold text-zinc-900">Country</th>
-              <th className="px-4 py-3 text-right font-semibold text-zinc-900">Average Salary</th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-900">Rank</th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-900">Country</th>
+              <th scope="col" className="px-4 py-3 text-right font-semibold text-zinc-900">Average Salary</th>
             </tr>
           </thead>
           <tbody>

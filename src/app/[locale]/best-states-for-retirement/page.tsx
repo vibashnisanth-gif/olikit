@@ -44,9 +44,9 @@ export default async function BestStatesForRetirementPage({ params }: Props) {
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-zinc-200 bg-zinc-50">
-              <th className="px-4 py-3 text-left font-semibold text-zinc-700">Rank</th>
-              <th className="px-4 py-3 text-left font-semibold text-zinc-700">State</th>
-              <th className="px-4 py-3 text-left font-semibold text-zinc-700">Tax Friendly</th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-700">Rank</th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-700">State</th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-700">Tax Friendly</th>
             </tr>
           </thead>
           <tbody>

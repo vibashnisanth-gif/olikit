@@ -22,14 +22,14 @@ export function SalaryComparisonSection({ title = "Salary Comparison", countryA,
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-zinc-50">
-              <th className="px-4 py-3 text-left font-semibold text-zinc-900">Category</th>
-              <th className="px-4 py-3 text-right font-semibold text-zinc-900">
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-900">Category</th>
+              <th scope="col" className="px-4 py-3 text-right font-semibold text-zinc-900">
                 <span className="flex items-center justify-end gap-1">
                   <span>{countryA.flag}</span>
                   {countryA.name}
                 </span>
               </th>
-              <th className="px-4 py-3 text-right font-semibold text-zinc-900">
+              <th scope="col" className="px-4 py-3 text-right font-semibold text-zinc-900">
                 <span className="flex items-center justify-end gap-1">
                   <span>{countryB.flag}</span>
                   {countryB.name}

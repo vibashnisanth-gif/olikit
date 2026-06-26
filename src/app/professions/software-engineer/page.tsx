@@ -272,11 +272,11 @@ export default function SoftwareEngineerHub() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Rank</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Country</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Average Salary</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Entry Level</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Experienced</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Rank</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Country</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Average Salary</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Entry Level</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Experienced</th>
                 </tr>
               </thead>
               <tbody>

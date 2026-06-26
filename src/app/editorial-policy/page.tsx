@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: "Editorial Policy — Accuracy & Transparency",
   description: "Olikit's editorial policy covers our commitment to accuracy, transparency, and independence in financial data and calculations.",
   alternates: { canonical: `${SITE_URL}/editorial-policy` },
+  openGraph: {
+    title: "Editorial Policy — Accuracy & Transparency",
+    description: "Olikit's editorial policy covers our commitment to accuracy, transparency, and independence in financial data and calculations.",
+    url: `${SITE_URL}/editorial-policy`,
+    siteName: "Olikit",
+    locale: "en-US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Editorial Policy — Accuracy & Transparency",
+    description: "Olikit's editorial policy covers our commitment to accuracy, transparency, and independence in financial data and calculations.",
+  },
 }
 
 export default function EditorialPolicyPage() {

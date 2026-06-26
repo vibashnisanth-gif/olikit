@@ -243,7 +243,7 @@ function RankingTable({ table }: { table: SalaryIndexRankingTable }) {
             <thead>
               <tr className="border-b-2 border-zinc-200">
                 {table.headers.map((h, i) => (
-                  <th key={i} className="whitespace-nowrap px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wider text-zinc-600">
+                  <th scope="col" key={i} className="whitespace-nowrap px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wider text-zinc-600">
                     {h}
                   </th>
                 ))}

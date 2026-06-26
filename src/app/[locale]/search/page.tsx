@@ -1,10 +1,12 @@
 import type { Metadata } from "next"
+import { Suspense } from "react"
 import { notFound } from "next/navigation"
 import { locales, getLocale } from "@/lib/seo/locales"
 import { SITE_URL } from "@/lib/seo/constants"
 import { SearchClient } from "@/components/search-client"
 import { SourceFooter } from "@/components/source-footer"
 import { LastUpdated } from "@/components/last-updated"
+import { SkeletonCard } from "@/components/ui/skeleton"
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -35,7 +37,9 @@ export default async function SearchPage({ params }: Props) {
         <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Search Olikit</h1>
         <p className="mt-2 text-sm text-zinc-600">Search across calculators, guides, salary data, cost of living data, glossary terms, and research reports.</p>
       </div>
-      <SearchClient localeSlug={locale.slug} />
+      <Suspense fallback={<SkeletonCard />}>
+        <SearchClient localeSlug={locale.slug} />
+      </Suspense>
       <SourceFooter localeSlug={locale.slug} />
       <LastUpdated />
     </div>

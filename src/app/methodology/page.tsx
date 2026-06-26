@@ -6,6 +6,19 @@ export const metadata: Metadata = {
   title: "Methodology — How We Calculate Data",
   description: "Learn how Olikit calculates taxes, salaries, and financial metrics. Our methodology covers data collection, formulas, verification processes, and update frequency.",
   alternates: { canonical: `${SITE_URL}/methodology` },
+  openGraph: {
+    title: "Methodology — How We Calculate Data",
+    description: "Learn how Olikit calculates taxes, salaries, and financial metrics. Our methodology covers data collection, formulas, verification processes, and update frequency.",
+    url: `${SITE_URL}/methodology`,
+    siteName: "Olikit",
+    locale: "en-US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Methodology — How We Calculate Data",
+    description: "Learn how Olikit calculates taxes, salaries, and financial metrics. Our methodology covers data collection, formulas, verification processes, and update frequency.",
+  },
 }
 
 export default function MethodologyPage() {

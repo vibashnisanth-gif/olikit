@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { SITE_URL } from "@/lib/seo/constants"
 import { locales } from "@/lib/seo/locales"
 import { professions, getProfession } from "@/lib/content/professions-data"
 import { COUNTRY_FLAGS } from "@/lib/content/country-registry"
@@ -8,10 +9,19 @@ import { formatSalaryBySlug } from "@/lib/currency"
 export const metadata: Metadata = {
   title: "Browse Professions by Salary",
   description: "Browse salaries for software engineer, data scientist, doctor, nurse, teacher, accountant, and more across major economies. Compare highest paying professions.",
-  alternates: { canonical: "https://olikit.com/professions" },
+  alternates: { canonical: `${SITE_URL}/professions` },
   openGraph: {
     title: "Browse Professions by Salary",
-    description: "Compare salaries for professions across major economies.",
+    description: "Browse salaries for software engineer, data scientist, doctor, nurse, teacher, accountant, and more across major economies. Compare highest paying professions.",
+    url: `${SITE_URL}/professions`,
+    siteName: "Olikit",
+    locale: "en-US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Browse Professions by Salary",
+    description: "Browse salaries for software engineer, data scientist, doctor, nurse, teacher, accountant, and more across major economies. Compare highest paying professions.",
   },
 }
 
@@ -102,9 +112,9 @@ export default function ProfessionsPage() {
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-zinc-50">
-                <th className="px-4 py-3 text-left font-medium text-zinc-700">Profession</th>
-                <th className="px-4 py-3 text-left font-medium text-zinc-700">Category</th>
-                <th className="px-4 py-3 text-right font-medium text-zinc-700">US Salary</th>
+                <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Profession</th>
+                <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Category</th>
+                <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">US Salary</th>
               </tr>
             </thead>
             <tbody>

@@ -21,9 +21,9 @@ export function CostOfLivingComparisonSection({ title = "Cost of Living Comparis
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-zinc-50">
-              <th className="px-4 py-3 text-left font-semibold text-zinc-900">Category</th>
-              <th className="px-4 py-3 text-right font-semibold text-zinc-900">{countryA.name}</th>
-              <th className="px-4 py-3 text-right font-semibold text-zinc-900">{countryB.name}</th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-900">Category</th>
+              <th scope="col" className="px-4 py-3 text-right font-semibold text-zinc-900">{countryA.name}</th>
+              <th scope="col" className="px-4 py-3 text-right font-semibold text-zinc-900">{countryB.name}</th>
             </tr>
           </thead>
           <tbody>

@@ -150,9 +150,9 @@ export default function OlikitScoringSystemPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Input</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Definition</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Weight</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Input</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Definition</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Weight</th>
                 </tr>
               </thead>
               <tbody>
@@ -177,9 +177,9 @@ export default function OlikitScoringSystemPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Score Range</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Tier</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Interpretation</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Score Range</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Tier</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Interpretation</th>
                 </tr>
               </thead>
               <tbody>
@@ -208,9 +208,9 @@ export default function OlikitScoringSystemPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Input</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Definition</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Weight</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Input</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Definition</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Weight</th>
                 </tr>
               </thead>
               <tbody>
@@ -232,9 +232,9 @@ export default function OlikitScoringSystemPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Score Range</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Tier</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Interpretation</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Score Range</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Tier</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Interpretation</th>
                 </tr>
               </thead>
               <tbody>
@@ -260,9 +260,9 @@ export default function OlikitScoringSystemPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Input</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Definition</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Weight</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Input</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Definition</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Weight</th>
                 </tr>
               </thead>
               <tbody>
@@ -285,9 +285,9 @@ export default function OlikitScoringSystemPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Score Range</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Tier</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Interpretation</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Score Range</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Tier</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Interpretation</th>
                 </tr>
               </thead>
               <tbody>
@@ -313,9 +313,9 @@ export default function OlikitScoringSystemPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Input</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Definition</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Weight</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Input</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Definition</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Weight</th>
                 </tr>
               </thead>
               <tbody>
@@ -332,9 +332,9 @@ export default function OlikitScoringSystemPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Score Range</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Tier</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Interpretation</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Score Range</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Tier</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Interpretation</th>
                 </tr>
               </thead>
               <tbody>

@@ -18,6 +18,11 @@ export const metadata: Metadata = {
     locale: "en-US",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Disclaimer — Olikit",
+    description: "Olikit calculators are for educational purposes only. No financial, investment, tax, or legal advice is provided.",
+  },
 }
 
 const jsonLd = {

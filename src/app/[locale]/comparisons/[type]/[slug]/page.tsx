@@ -132,9 +132,9 @@ export default async function ComparisonPage({ params }: Props) {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-zinc-200 bg-zinc-50">
-                <th className="px-4 py-3 text-left font-semibold text-zinc-700">Metric</th>
-                <th className="px-4 py-3 text-left font-semibold text-blue-700">{pc.localeA.name}</th>
-                <th className="px-4 py-3 text-left font-semibold text-indigo-700">{pc.localeB.name}</th>
+                <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-700">Metric</th>
+                <th scope="col" className="px-4 py-3 text-left font-semibold text-blue-700">{pc.localeA.name}</th>
+                <th scope="col" className="px-4 py-3 text-left font-semibold text-indigo-700">{pc.localeB.name}</th>
               </tr>
             </thead>
             <tbody>
@@ -253,9 +253,9 @@ export default async function ComparisonPage({ params }: Props) {
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-zinc-200 bg-zinc-50">
-              <th className="px-4 py-3 text-left font-semibold text-zinc-700">Metric</th>
-              <th className="px-4 py-3 text-left font-semibold text-blue-700">{content.localeA.name}</th>
-              <th className="px-4 py-3 text-left font-semibold text-indigo-700">{content.localeB.name}</th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-700">Metric</th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-blue-700">{content.localeA.name}</th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-indigo-700">{content.localeB.name}</th>
             </tr>
           </thead>
           <tbody>

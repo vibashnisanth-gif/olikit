@@ -12,7 +12,13 @@ export const metadata: Metadata = {
     description: "In-depth research on tax systems, salary trends, and financial regulations across major economies. Analysis from official government sources.",
     url: `${SITE_URL}/research`,
     siteName: "Olikit",
+    locale: "en-US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Global Research — Tax Systems & Salary Trends",
+    description: "In-depth research on tax systems, salary trends, and financial regulations across major economies. Analysis from official government sources.",
   },
 }
 

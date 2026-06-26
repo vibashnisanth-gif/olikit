@@ -124,13 +124,13 @@ export function SalaryComparisonCalculator() {
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-zinc-200">
-              <th className="text-left py-3 pr-4 font-semibold text-zinc-950">Country</th>
-              <th className="text-right px-3 py-3 font-semibold text-zinc-950 whitespace-nowrap">Gross (Local)</th>
-              <th className="text-right px-3 py-3 font-semibold text-zinc-950 whitespace-nowrap">Gross (USD)</th>
-              <th className="text-right px-3 py-3 font-semibold text-zinc-950 whitespace-nowrap">Effective Tax</th>
-              <th className="text-right px-3 py-3 font-semibold text-zinc-950 whitespace-nowrap">Take-Home (USD)</th>
+              <th scope="col" className="text-left py-3 pr-4 font-semibold text-zinc-950">Country</th>
+              <th scope="col" className="text-right px-3 py-3 font-semibold text-zinc-950 whitespace-nowrap">Gross (Local)</th>
+              <th scope="col" className="text-right px-3 py-3 font-semibold text-zinc-950 whitespace-nowrap">Gross (USD)</th>
+              <th scope="col" className="text-right px-3 py-3 font-semibold text-zinc-950 whitespace-nowrap">Effective Tax</th>
+              <th scope="col" className="text-right px-3 py-3 font-semibold text-zinc-950 whitespace-nowrap">Take-Home (USD)</th>
               {showPPP && (
-                <th className="text-right pl-3 py-3 font-semibold text-zinc-950 whitespace-nowrap">PPP (USD)</th>
+                <th scope="col" className="text-right pl-3 py-3 font-semibold text-zinc-950 whitespace-nowrap">PPP (USD)</th>
               )}
             </tr>
           </thead>

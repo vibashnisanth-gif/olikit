@@ -18,6 +18,11 @@ export const metadata: Metadata = {
     locale: "en-US",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Service",
+    description: "Terms governing the use of Olikit's free financial calculators and services.",
+  },
 }
 
 const jsonLd = {

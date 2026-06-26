@@ -74,10 +74,10 @@ export default function DataScientistUSvsCanada() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Metric</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">United States</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Canada</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Edge</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Metric</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">United States</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Canada</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Edge</th>
                 </tr>
               </thead>
               <tbody>

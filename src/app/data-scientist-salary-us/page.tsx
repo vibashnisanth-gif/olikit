@@ -76,9 +76,9 @@ export default function DataScientistUS() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Experience Level</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Base Salary Estimate</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Target Equity/Bonus Impact</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Experience Level</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Base Salary Estimate</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Target Equity/Bonus Impact</th>
                 </tr>
               </thead>
               <tbody>
@@ -98,10 +98,10 @@ export default function DataScientistUS() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Location</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Federal + FICA Tax</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Est. State Tax</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Olikit Net Earning Power</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Location</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Federal + FICA Tax</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Est. State Tax</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Olikit Net Earning Power</th>
                 </tr>
               </thead>
               <tbody>
@@ -126,9 +126,9 @@ export default function DataScientistUS() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Tech Hub</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Olikit PPP Context</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Market Reality</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Tech Hub</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Olikit PPP Context</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Market Reality</th>
                 </tr>
               </thead>
               <tbody>

@@ -73,9 +73,9 @@ export default function DataScientistVsProductManager() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-100">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Level</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Data Scientist</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Product Manager</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Level</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Data Scientist</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Product Manager</th>
                 </tr>
               </thead>
               <tbody>

@@ -1,0 +1,7 @@
+export default function GuidesLoading() {
+  return (
+    <div className="flex items-center justify-center min-h-[60vh]">
+      <div className="h-8 w-8 animate-spin rounded-full border-2 border-zinc-200 border-t-zinc-950" />
+    </div>
+  )
+}

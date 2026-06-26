@@ -7,6 +7,19 @@ export const metadata: Metadata = {
   title: "Data Sources — Where We Get Our Data",
   description: "Official data sources used by Olikit including IRS, HMRC, ATO, CRA, IRD, Indian Income Tax Department, IRAS, and government labor statistics.",
   alternates: { canonical: `${SITE_URL}/data-sources` },
+  openGraph: {
+    title: "Data Sources — Where We Get Our Data",
+    description: "Official data sources used by Olikit including IRS, HMRC, ATO, CRA, IRD, Indian Income Tax Department, IRAS, and government labor statistics.",
+    url: `${SITE_URL}/data-sources`,
+    siteName: "Olikit",
+    locale: "en-US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Data Sources — Where We Get Our Data",
+    description: "Official data sources used by Olikit including IRS, HMRC, ATO, CRA, IRD, Indian Income Tax Department, IRAS, and government labor statistics.",
+  },
 }
 
 const sources = [

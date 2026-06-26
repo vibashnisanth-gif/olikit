@@ -80,9 +80,9 @@ export default async function SalaryVsColPage({ params }: Props) {
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-zinc-200 bg-zinc-50">
-              <th className="px-4 py-3 text-left font-semibold text-zinc-700">Metric</th>
-              <th className="px-4 py-3 text-left font-semibold text-zinc-700">{subRegion.name}</th>
-              <th className="px-4 py-3 text-left font-semibold text-zinc-700">National Average</th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-700">Metric</th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-700">{subRegion.name}</th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-700">National Average</th>
             </tr>
           </thead>
           <tbody>

@@ -19,6 +19,11 @@ export const metadata: Metadata = {
     locale: "en-US",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact — Get in Touch",
+    description: "Contact the Olikit team for feedback, questions, or support.",
+  },
 }
 
 const jsonLd = {

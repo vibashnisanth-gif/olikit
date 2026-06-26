@@ -63,10 +63,10 @@ export default function DataScientistVsSoftwareEngineer() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Metric</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Data Scientist</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Software Engineer</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Analysis</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Metric</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Data Scientist</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Software Engineer</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Analysis</th>
                 </tr>
               </thead>
               <tbody>
@@ -84,9 +84,9 @@ export default function DataScientistVsSoftwareEngineer() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Attribute</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Data Scientist</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Software Engineer</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Attribute</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Data Scientist</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Software Engineer</th>
                 </tr>
               </thead>
               <tbody>
@@ -105,9 +105,9 @@ export default function DataScientistVsSoftwareEngineer() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Metric</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Data Scientist (US)</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Software Engineer (US)</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Metric</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Data Scientist (US)</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Software Engineer (US)</th>
                 </tr>
               </thead>
               <tbody>

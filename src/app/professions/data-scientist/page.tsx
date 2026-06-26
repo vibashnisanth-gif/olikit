@@ -101,11 +101,11 @@ export default function DataScientistHub() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Country</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Est. Base Salary (USD Eq.)</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Olikit Comp. Score</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Olikit PPP Score</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Olikit Reloc. Score</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Country</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Est. Base Salary (USD Eq.)</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Olikit Comp. Score</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Olikit PPP Score</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Olikit Reloc. Score</th>
                 </tr>
               </thead>
               <tbody>
@@ -135,9 +135,9 @@ export default function DataScientistHub() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Level</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Defining Responsibility</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Global Range Estimate (USD Eq.)</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Level</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Defining Responsibility</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Global Range Estimate (USD Eq.)</th>
                 </tr>
               </thead>
               <tbody>
@@ -161,10 +161,10 @@ export default function DataScientistHub() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-zinc-50">
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Country</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">Primary Tech Visa Pathway</th>
-                  <th className="px-4 py-3 text-right font-medium text-zinc-700">Olikit Reloc. Score</th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-700">2026 Policy Note</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Country</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Primary Tech Visa Pathway</th>
+                  <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">Olikit Reloc. Score</th>
+                  <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">2026 Policy Note</th>
                 </tr>
               </thead>
               <tbody>

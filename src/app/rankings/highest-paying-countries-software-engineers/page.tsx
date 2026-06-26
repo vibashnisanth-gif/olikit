@@ -195,7 +195,7 @@ export default function HighestPayingCountriesPage() {
               <thead>
                 <tr className="bg-zinc-50">
                   {rankingTableData.columns.map((col, i) => (
-                    <th key={i} className="px-4 py-3 text-left font-medium text-zinc-700">{col}</th>
+                    <th scope="col" key={i} className="px-4 py-3 text-left font-medium text-zinc-700">{col}</th>
                   ))}
                 </tr>
               </thead>
