@@ -176,7 +176,7 @@ export default async function ToolPage({ params }: Props) {
                   <a
                     key={link.href}
                     href={link.href}
-                    className="block rounded-md px-2 py-1.5 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950"
+                    className="block rounded-md px-2 py-2 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950"
                   >
                     {link.label}
                   </a>
@@ -194,7 +194,7 @@ export default async function ToolPage({ params }: Props) {
                   <a
                     key={link.href}
                     href={link.href}
-                    className="block rounded-md px-2 py-1.5 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950"
+                    className="block rounded-md px-2 py-2 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950"
                   >
                     {link.label}
                   </a>
@@ -221,7 +221,7 @@ export default async function ToolPage({ params }: Props) {
                   <a
                     key={g.slug}
                     href={`/${locale.slug}/guides/${g.slug}`}
-                    className="block rounded-md px-2 py-1.5 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950"
+                    className="block rounded-md px-2 py-2 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950"
                   >
                     {g.name}
                   </a>
@@ -239,7 +239,7 @@ export default async function ToolPage({ params }: Props) {
                     <a
                       key={link.href}
                       href={link.href}
-                      className="block rounded-md px-2 py-1.5 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950"
+                      className="block rounded-md px-2 py-2 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950"
                     >
                       {link.label}
                     </a>
@@ -255,7 +255,7 @@ export default async function ToolPage({ params }: Props) {
                 <a
                   key={p.slug}
                   href={`/${locale.slug}/salary/${p.slug}`}
-                  className="block rounded-md px-2 py-1.5 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950"
+                  className="block rounded-md px-2 py-2 text-sm text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950"
                 >
                   {p.name}
                 </a>

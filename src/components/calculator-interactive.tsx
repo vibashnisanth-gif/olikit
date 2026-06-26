@@ -26,15 +26,18 @@ function CalculatorFieldInput({
   value,
   onChange,
   currencySymbol,
+  inputId,
 }: {
   field: CalculatorField
   value: number | string
   onChange: (name: string, value: number | string) => void
   currencySymbol: string
+  inputId?: string
 }) {
   if (field.type === 'select') {
     return (
       <select
+        id={inputId}
         className="h-10 w-full rounded-md border border-zinc-300 bg-white px-3 text-sm text-zinc-950 outline-none transition focus:border-zinc-900 focus:ring-2 focus:ring-zinc-200"
         value={String(value)}
         onChange={(e) => onChange(field.name, e.target.value)}
@@ -56,6 +59,7 @@ function CalculatorFieldInput({
         </span>
       )}
       <input
+        id={inputId}
         type="number"
         className={`h-10 w-full rounded-md border border-zinc-300 bg-white px-3 text-sm text-zinc-950 outline-none transition focus:border-zinc-900 focus:ring-2 focus:ring-zinc-200 ${field.type === 'currency' || field.type === 'percentage' ? 'pl-7' : ''}`}
         value={value}
@@ -151,7 +155,7 @@ export function CalculatorInteractive({ toolSlug, localeSlug }: Props) {
           <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-1">
             {config.fields.map((field) => (
               <div key={field.name}>
-                <label className="mb-1.5 block text-sm font-medium text-zinc-700">
+                <label htmlFor={`calc-${field.name}`} className="mb-1.5 block text-sm font-medium text-zinc-700">
                   {field.label}
                 </label>
                 <CalculatorFieldInput
@@ -159,6 +163,7 @@ export function CalculatorInteractive({ toolSlug, localeSlug }: Props) {
                   value={values[field.name] ?? field.defaultValue}
                   onChange={handleChange}
                   currencySymbol={currencySymbol}
+                  inputId={`calc-${field.name}`}
                 />
               </div>
             ))}
