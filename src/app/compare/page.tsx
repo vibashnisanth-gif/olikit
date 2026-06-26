@@ -1,11 +1,16 @@
 import type { Metadata } from "next"
+import dynamic from "next/dynamic"
 import { SITE_URL } from "@/lib/seo/constants"
 import { getAllCountries, COUNTRY_FLAGS } from "@/lib/content/country-registry"
 import { professions } from "@/lib/content/professions-data"
 import { Shell } from "@/components/shell"
 import { formatSalaryBySlug, formatSalary, slugToCurrency, convertSalary } from "@/lib/currency"
-import { SalaryComparisonCalculator } from "@/components/salary-comparison-calculator"
 import type { CurrencyCode } from "@/lib/currency"
+
+const SalaryComparisonCalculator = dynamic(
+  () => import("@/components/salary-comparison-calculator").then(m => m.SalaryComparisonCalculator),
+  { loading: () => <div className="h-64 animate-pulse rounded-lg bg-zinc-100" /> }
+)
 
 export const metadata: Metadata = {
   title: "Global Comparisons — Compare Countries",

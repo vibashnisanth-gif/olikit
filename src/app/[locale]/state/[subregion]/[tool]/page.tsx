@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import dynamic from "next/dynamic"
 import { notFound } from "next/navigation"
 import { getLocale, getSubRegion, getLocalesWithSubRegion, locales } from "@/lib/seo/locales"
 import { buildMetadata } from "@/lib/seo/metadata"
@@ -7,10 +8,14 @@ import { guides } from "@/lib/content/guide-templates"
 import { generatePageContent } from "@/lib/content/generators"
 import { buildBreadcrumbs, getAllInternalLinks, getSubRegionLinks } from "@/lib/linking/internal-links"
 import { buildAggregateJsonLd, buildDatasetJsonLd } from "@/lib/seo/json-ld"
-import { CalculatorInteractive } from "@/components/calculator-interactive"
 import { StateDataTable } from "@/components/state-data-table"
 import { SourceFooter } from "@/components/source-footer"
 import { LastUpdated } from "@/components/last-updated"
+
+const CalculatorInteractive = dynamic(
+  () => import("@/components/calculator-interactive").then(m => m.CalculatorInteractive),
+  { loading: () => <div className="h-64 animate-pulse rounded-lg bg-zinc-100" /> }
+)
 
 type Props = {
   params: Promise<{ locale: string; subregion: string; tool: string }>

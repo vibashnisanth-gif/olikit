@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Suspense } from "react"
+import dynamic from "next/dynamic"
 import { notFound } from "next/navigation"
 import { getLocale, locales } from "@/lib/seo/locales"
 import { buildMetadata } from "@/lib/seo/metadata"
@@ -8,7 +8,6 @@ import { guides } from "@/lib/content/guide-templates"
 import { generatePageContent } from "@/lib/content/generators"
 import { buildBreadcrumbs, getAllInternalLinks } from "@/lib/linking/internal-links"
 import { buildAggregateJsonLd } from "@/lib/seo/json-ld"
-import { CalculatorInteractive } from "@/components/calculator-interactive"
 import { SourceFooter } from "@/components/source-footer"
 import { LastUpdated } from "@/components/last-updated"
 import { AffiliateSidebar } from "@/components/affiliate-sidebar"
@@ -16,6 +15,11 @@ import { NewsletterSignup } from "@/components/newsletter-signup"
 import { AdUnit } from "@/components/ad-unit"
 import { professions } from "@/lib/content/professions-data"
 import { SkeletonCard } from "@/components/ui/skeleton"
+
+const CalculatorInteractive = dynamic(
+  () => import("@/components/calculator-interactive").then(m => m.CalculatorInteractive),
+  { loading: () => <SkeletonCard /> }
+)
 
 type Props = {
   params: Promise<{ locale: string; tool: string }>
@@ -111,9 +115,7 @@ export default async function ToolPage({ params }: Props) {
       )}
 
       <div>
-        <Suspense fallback={<SkeletonCard />}>
-          <CalculatorInteractive toolSlug={tool.slug} localeSlug={locale.slug} />
-        </Suspense>
+        <CalculatorInteractive toolSlug={tool.slug} localeSlug={locale.slug} />
       </div>
 
       <div className="flex flex-wrap gap-3 rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
