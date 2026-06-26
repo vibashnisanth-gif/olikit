@@ -6,22 +6,32 @@
     "dev": "next dev",
     "build": "node scripts/check-stale-content.mjs && npx tsx scripts/validate-salary-sanity.ts && next build",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "test": "playwright test",
+    "test:unit": "vitest run",
+    "test:a11y": "playwright test --project=accessibility",
+    "test:seo": "playwright test --project=seo",
+    "test:smoke": "playwright test --project=smoke",
     "db:apply": "wrangler d1 migrations apply olikit-datasets --local",
     "db:seed": "tsx db/seed/index.ts",
     "db:migrate": "node scripts/run-migrations.mjs",
     "pipeline:all": "tsx src/lib/pipeline/index.ts",
-    "typecheck": "tsc --noEmit"
+    "prepare": "husky"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.24.1",
     "next": "16.2.6",
-    "playwright": "^1.60.0",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.1",
     "@cloudflare/workers-types": "^4.20240501.0",
+    "@google/generative-ai": "^0.24.1",
+    "@lhci/cli": "^0.14.0",
     "@playwright/test": "^1.61.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
@@ -29,9 +39,23 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.3.0",
+    "prettier": "^3.4.2",
+    "schema-dts": "^1.1.2",
     "tailwindcss": "^4",
     "tsx": "^4.7.0",
     "typescript": "^5",
+    "vitest": "^3.0.4",
     "wrangler": "^3.50.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml,css}": [
+      "prettier --write"
+    ]
   }
 }

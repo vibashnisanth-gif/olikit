@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import { getLocale, locales } from "@/lib/seo/locales"
 import { SITE_URL } from "@/lib/seo/constants"
 import { getLastUpdated } from "@/lib/seo/freshness"
+import { buildFaqJsonLd } from "@/lib/seo/json-ld"
 import { professions, getProfession, getProfessionSalary } from "@/lib/content/professions-data"
 import { professionsContent } from "@/lib/content/profession-content"
 import { professionComparisonPairs } from "@/lib/content/profession-comparisons"
@@ -96,6 +97,12 @@ export default async function ProfessionPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd()) }}
       />
+      {content.faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFaqJsonLd(content.faqs)) }}
+        />
+      )}
 
       <nav className="text-sm text-zinc-500 mb-6">
         <a href={`/${locale.slug}`} className="hover:text-zinc-800">Home</a>
