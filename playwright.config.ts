@@ -17,29 +17,27 @@ export default defineConfig({
   projects: [
     {
       name: "smoke",
-      testMatch: /smoke/,
+      testMatch: /\.smoke\.ts$/,
       use: { ...devices["Desktop Chrome"] },
     },
     {
       name: "accessibility",
-      testMatch: /a11y/,
+      testMatch: /tests\/a11y\//,
       use: { ...devices["Desktop Chrome"] },
     },
     {
       name: "seo",
-      testMatch: /seo/,
+      testMatch: /tests\/seo\//,
       use: { ...devices["Desktop Chrome"] },
     },
     {
       name: "desktop",
-      testMatch: /\.spec\.ts$/,
-      exclude: [/smoke/, /a11y/, /seo/],
+      testMatch: /tests\/(?!a11y|seo).*\.spec\.ts$/,
       use: { ...devices["Desktop Chrome"] },
     },
     {
       name: "mobile",
-      testMatch: /\.spec\.ts$/,
-      exclude: [/smoke/, /a11y/, /seo/],
+      testMatch: /tests\/(?!a11y|seo).*\.spec\.ts$/,
       use: { ...devices["iPhone 14"] },
     },
   ],
