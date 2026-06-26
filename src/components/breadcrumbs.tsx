@@ -60,46 +60,29 @@ export function Breadcrumbs() {
     crumbs.push({ href: accumulated, label })
   }
 
-  const crumbsJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: crumbs.map((crumb, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: crumb.label.replace(/[^\w\s]/g, "").trim(),
-      item: `https://olikit.com${crumb.href}`,
-    })),
-  }
-
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbsJsonLd) }}
-      />
-      <nav aria-label="Breadcrumb" className="mb-4">
-        <ol className="flex flex-wrap items-center gap-1.5 text-xs text-text-muted">
-          {crumbs.map((crumb, i) => (
-            <li key={crumb.href} className="flex items-center gap-1.5">
-              {i > 0 && (
-                <svg className="h-3 w-3 shrink-0 text-border-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              )}
-              {i < crumbs.length - 1 ? (
-                <a
-                  href={crumb.href}
-                  className="hover:text-text-primary transition-colors"
-                >
-                  {crumb.label}
-                </a>
-              ) : (
-                <span className="font-medium text-text-secondary">{crumb.label}</span>
-              )}
-            </li>
-          ))}
-        </ol>
-      </nav>
-    </>
+    <nav aria-label="Breadcrumb" className="mb-4">
+      <ol className="flex flex-wrap items-center gap-1.5 text-xs text-text-muted">
+        {crumbs.map((crumb, i) => (
+          <li key={crumb.href} className="flex items-center gap-1.5">
+            {i > 0 && (
+              <svg className="h-3 w-3 shrink-0 text-border-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            )}
+            {i < crumbs.length - 1 ? (
+              <a
+                href={crumb.href}
+                className="hover:text-text-primary transition-colors"
+              >
+                {crumb.label}
+              </a>
+            ) : (
+              <span className="font-medium text-text-secondary">{crumb.label}</span>
+            )}
+          </li>
+        ))}
+      </ol>
+    </nav>
   )
 }

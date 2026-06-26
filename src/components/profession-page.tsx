@@ -1,6 +1,4 @@
-﻿"use client"
-
-import type { ProfessionPageContent } from "@/types/profession-page"
+﻿import type { ProfessionPageContent } from "@/types/profession-page"
 import { HeroSection } from "@/components/hero-section"
 import { FAQSection } from "@/components/faq-section"
 import { SourcesSection } from "@/components/sources-section"

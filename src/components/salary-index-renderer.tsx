@@ -1,5 +1,3 @@
-"use client"
-
 import type { SalaryIndexContent, SalaryIndexRankingTable, SalaryIndexCountryScorecard, SalaryIndexProfessionScorecard, SalaryIndexRelatedResearch } from "@/lib/content/salary-index-types"
 import { HeroSection } from "@/components/hero-section"
 import { MethodologySection } from "@/components/methodology-section"
