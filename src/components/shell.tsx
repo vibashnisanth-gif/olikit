@@ -1,8 +1,8 @@
 "use client"
 
+import { useEffect } from "react"
 import { usePathname } from "next/navigation"
 import { getCountry } from "@/lib/content/country-registry"
-import { getSiteIntelligence } from "@/lib/site-intelligence"
 import { ContextBar } from "./context-bar"
 import { Header } from "./header"
 import { Footer } from "./footer"
@@ -16,11 +16,13 @@ export function Shell({ children, localeSlug }: { children: React.ReactNode; loc
   const slug = localeSlug ?? (pathname?.split("/")[1] || null)
   const country = slug ? getCountry(slug) : null
 
-  if (slug && country && typeof window !== "undefined") {
-    try {
-      localStorage.setItem("olikit-last-locale", slug)
-    } catch {}
-  }
+  useEffect(() => {
+    if (slug && country) {
+      try {
+        localStorage.setItem("olikit-last-locale", slug)
+      } catch {}
+    }
+  }, [slug, country])
 
   return (
     <div className="flex flex-col min-h-full">

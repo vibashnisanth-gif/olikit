@@ -109,6 +109,7 @@ export function SearchClient({ localeSlug }: Props) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search calculators, guides, states, glossary..."
+          aria-label="Search calculators, guides, states, and glossary"
           className="w-full rounded-lg border border-zinc-200 bg-white px-4 py-3 pl-10 text-sm shadow-sm focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-100"
           autoFocus
         />

@@ -62,7 +62,7 @@ export function NewsletterSignup({ locale, source, variant = "sidebar", title }:
         <p className="mb-2 text-center text-lg font-semibold text-blue-900">{title ?? "Stay Updated"}</p>
         <p className="mb-4 text-center text-sm text-blue-700">Get monthly salary, tax & cost of living updates delivered to your inbox.</p>
         <form onSubmit={handleSubmit} className="mx-auto flex max-w-md gap-3">
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="your@email.com" required className={inputBase} />
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="your@email.com" required aria-label="Email address" className={inputBase} />
           <Button type="submit" disabled={status === "loading"} variant="primary">{status === "loading" ? "Subscribing..." : "Subscribe"}</Button>
         </form>
         {status === "error" && <p className="mt-2 text-center text-xs text-red-600">{message}</p>}
@@ -76,7 +76,7 @@ export function NewsletterSignup({ locale, source, variant = "sidebar", title }:
         <p className="mb-2 font-semibold text-blue-900">{title ?? "Monthly Salary & Tax Updates"}</p>
         <p className="mb-3 text-sm text-blue-700">Get the latest salary, tax, and cost of living data for your country.</p>
         <form onSubmit={handleSubmit} className="flex gap-2">
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="your@email.com" required className={`${inputBase} flex-1`} />
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="your@email.com" required aria-label="Email address" className={`${inputBase} flex-1`} />
           <Button type="submit" disabled={status === "loading"} variant="primary" size="md">{status === "loading" ? "..." : "Subscribe"}</Button>
         </form>
         {status === "error" && <p className="mt-2 text-xs text-red-600">{message}</p>}
@@ -89,7 +89,7 @@ export function NewsletterSignup({ locale, source, variant = "sidebar", title }:
       <h3 className="mb-2 font-semibold text-text-primary text-sm">{title ?? "Monthly Updates"}</h3>
       <p className="mb-3 text-xs text-text-muted">Get salary, tax & cost of living updates.</p>
       <form onSubmit={handleSubmit} className="space-y-2">
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="your@email.com" required className={`${inputBase} w-full`} />
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="your@email.com" required aria-label="Email address" className={`${inputBase} w-full`} />
         <Button type="submit" disabled={status === "loading"} variant="primary" className="w-full">{status === "loading" ? "Subscribing..." : "Subscribe"}</Button>
       </form>
       {status === "error" && <p className="mt-2 text-xs text-red-600">{message}</p>}

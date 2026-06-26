@@ -42,6 +42,7 @@ export function StateNav({ states, localeSlug, toolSlug }: StateNavProps) {
           value={search}
           onChange={(e) => { setSearch(e.target.value); setShowAll(true) }}
           placeholder="Search states..."
+          aria-label="Search states"
           className="w-full max-w-xs rounded-md border border-zinc-200 px-3 py-1.5 text-sm text-zinc-700 placeholder-zinc-400 focus:border-zinc-400 focus:outline-none"
         />
         {states.length > popular.length && !search && (
