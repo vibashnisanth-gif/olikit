@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { notFound } from "next/navigation"
 import { getLocale, locales } from "@/lib/seo/locales"
 import { tools } from "@/lib/content/templates"
@@ -54,7 +55,7 @@ export default async function RankingsPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <nav className="text-sm text-zinc-500">
-        <a href={`/${locale.slug}`} className="hover:text-zinc-800">Home</a>
+        <Link href={`/${locale.slug}`} className="hover:text-zinc-800">Home</Link>
         <span className="mx-2">/</span>
         <span className="text-zinc-800">Rankings</span>
       </nav>
@@ -75,7 +76,7 @@ export default async function RankingsPage({ params }: Props) {
         <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Calculator Rankings</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {rankingTools.map(tool => (
-            <a
+            <Link
               key={tool.slug}
               href={`/${locale.slug}/tools/${tool.slug}`}
               className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
@@ -84,7 +85,7 @@ export default async function RankingsPage({ params }: Props) {
               <p className="text-sm leading-6 text-zinc-600">
                 {tool.description || `Compare ${tool.name.toLowerCase()} data across countries and professions.`}
               </p>
-            </a>
+            </Link>
           ))}
         </div>
       </section>

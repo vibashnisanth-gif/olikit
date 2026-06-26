@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { SITE_URL } from "@/lib/seo/constants"
 import { locales } from "@/lib/seo/locales"
 import { getSiteIntelligence } from "@/lib/site-intelligence"
@@ -42,7 +43,7 @@ export default function CountriesPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="space-y-10">
         <nav className="text-sm text-zinc-500">
-          <a href="/" className="hover:text-zinc-800">Home</a>
+          <Link href="/" className="hover:text-zinc-800">Home</Link>
           <span className="mx-2">/</span>
           <span className="text-zinc-800">Countries</span>
         </nav>
@@ -63,7 +64,7 @@ export default function CountriesPage() {
         </section>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <a
+          <Link
             href="/"
             className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
           >
@@ -75,9 +76,9 @@ export default function CountriesPage() {
             <span className="mt-2 inline-block text-sm font-medium text-emerald-600">
               Browse Global &rarr;
             </span>
-          </a>
+          </Link>
           {si.countries.map((c) => (
-            <a
+            <Link
               key={c.slug}
               href={`/${c.slug}`}
               className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
@@ -90,7 +91,7 @@ export default function CountriesPage() {
               <span className="mt-2 inline-block text-sm font-medium text-emerald-600">
                 Browse {c.name} &rarr;
               </span>
-            </a>
+            </Link>
           ))}
         </div>
 
