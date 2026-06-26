@@ -31,6 +31,7 @@ const COUNTRY_CONTENT: Record<string, {
   aiQuickAnswers?: { q: string; a: string }[]
   keyTakeaways?: { title: string; desc: string }[]
   featuredInsights: { title: string; desc: string; href: string }[]
+  professionGroups: { category: string; items: { label: string; href: string }[] }[]
   careerPaths?: { title: string; desc: string; href: string }[]
   featuredResearch?: { title: string; desc: string; href: string; cta?: string }[]
   salaryLandscape?: { text: string[]; factors: string[]; sectorsIntro: string }
