@@ -46,7 +46,7 @@ export function NewsletterSignup({ locale, source, variant = "sidebar", title }:
 
   if (status === "success") {
     return (
-      <div className={`rounded-xl border border-emerald-200 bg-emerald-50 p-5 text-center ${variant === "banner" ? "px-6 py-8" : ""}`}>
+      <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5 text-center" role="status" aria-live="polite">
         <p className="font-semibold text-emerald-800">{message}</p>
         <p className="mt-1 text-sm text-emerald-600">We'll send you monthly salary, tax & cost of living updates.</p>
       </div>
@@ -65,7 +65,7 @@ export function NewsletterSignup({ locale, source, variant = "sidebar", title }:
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="your@email.com" required aria-label="Email address" className={inputBase} />
           <Button type="submit" disabled={status === "loading"} variant="primary">{status === "loading" ? "Subscribing..." : "Subscribe"}</Button>
         </form>
-        {status === "error" && <p className="mt-2 text-center text-xs text-red-600">{message}</p>}
+        {status === "error" && <p className="mt-2 text-center text-xs text-red-600" role="alert" aria-live="assertive">{message}</p>}
       </div>
     )
   }
@@ -79,7 +79,7 @@ export function NewsletterSignup({ locale, source, variant = "sidebar", title }:
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="your@email.com" required aria-label="Email address" className={`${inputBase} flex-1`} />
           <Button type="submit" disabled={status === "loading"} variant="primary" size="md">{status === "loading" ? "..." : "Subscribe"}</Button>
         </form>
-        {status === "error" && <p className="mt-2 text-xs text-red-600">{message}</p>}
+        {status === "error" && <p className="mt-2 text-xs text-red-600" role="alert" aria-live="assertive">{message}</p>}
       </div>
     )
   }
@@ -92,7 +92,7 @@ export function NewsletterSignup({ locale, source, variant = "sidebar", title }:
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="your@email.com" required aria-label="Email address" className={`${inputBase} w-full`} />
         <Button type="submit" disabled={status === "loading"} variant="primary" className="w-full">{status === "loading" ? "Subscribing..." : "Subscribe"}</Button>
       </form>
-      {status === "error" && <p className="mt-2 text-xs text-red-600">{message}</p>}
+      {status === "error" && <p className="mt-2 text-xs text-red-600" role="alert" aria-live="assertive">{message}</p>}
     </div>
   )
 }

@@ -39,7 +39,7 @@ export function ContextBar({ slug, name, currencyCode, taxAuthority }: Props) {
         <a
           href="/"
           onClick={() => trackCountrySwitch(slug, "global")}
-          className="text-[10px] font-medium opacity-60 hover:opacity-100 transition-opacity"
+          className="rounded px-2 py-1 text-xs font-medium opacity-80 hover:opacity-100 transition-opacity"
         >
           View Global
         </a>
