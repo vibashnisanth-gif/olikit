@@ -222,7 +222,7 @@ export default function HighestPayingCitiesDataScientistsPage() {
                 </ul>
               </div>
               <div className="mt-6 border-t border-zinc-100 pt-3">
-                <p className="text-xs text-zinc-500">Updated June 2026 · Government Data Sources</p>
+                <p className="text-xs text-zinc-500">Updated June 2026 Â· Government Data Sources</p>
               </div>
             </div>
           </div>
