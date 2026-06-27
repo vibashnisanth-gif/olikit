@@ -72,7 +72,7 @@ const COUNTRY_CONTENT: Record<string, {
       { title: "Highest Paying States", desc: "Compare compensation levels across California, Washington, Massachusetts, New York and Texas.", href: "/us/best-states-for-salary" },
       { title: "Software Engineer Salary Trends", desc: "Track compensation benchmarks across experience levels, industries and major technology hubs.", href: "/us/salary/software-engineer" },
       { title: "State Income Tax Differences", desc: "Understand how federal and state tax systems affect take-home income.", href: "/us/tools/tax-calculator" },
-      { title: "Cost of Living Across America", desc: "Compare affordability, housing costs and purchasing power across states.", href: "/us/cost-of-living" },
+      { title: "Cost of Living Across America", desc: "Compare affordability, housing costs and purchasing power across states.", href: "/us/best-states-for-cost-of-living" },
     ],
     professionGroups: [],
     careerPaths: [
