@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react"
 import { Button } from "./ui/button"
+import { trackNewsletterSignup } from "@/lib/analytics/events"
 
 type Props = {
   locale?: string
@@ -38,6 +39,7 @@ export function NewsletterSignup({ locale, source, variant = "sidebar", title }:
       setStatus("success")
       setMessage("Thanks! You're now subscribed.")
       setEmail("")
+      trackNewsletterSignup(locale ?? "unknown", source ?? "newsletter-signup")
     } catch (err) {
       setStatus("error")
       setMessage(err instanceof Error ? err.message : "Something went wrong")
