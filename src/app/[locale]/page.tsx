@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Link from "next/link"
+import Image from "next/image"
 import { locales, getLocale } from "@/lib/seo/locales"
 import { buildMetadata } from "@/lib/seo/metadata"
 import { tools } from "@/lib/content/templates"
@@ -785,21 +786,38 @@ export default async function LocalePage({ params }: Props) {
 
       {/* 1. HERO */}
       <section className="rounded-lg border border-zinc-200 bg-white px-5 py-10 shadow-sm sm:px-8 sm:py-12">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">
-          {name} &mdash; Financial Intelligence
-        </p>
-        <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
-          {content.heroH1}
-        </h1>
-        <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">
-          {content.heroDesc}
-        </p>
-        <p className="mt-3 text-xs text-zinc-500">Last updated: June 2026</p>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <a href={`/${slug}/tools/salary-calculator`} className="rounded-md bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800">Salary Calculator</a>
-          <a href={`/${slug}/tools/tax-calculator`} className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Tax Calculator</a>
-          <a href={`/${slug}/tools/mortgage-calculator`} className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Mortgage Calculator</a>
-          <a href={`/${slug}/tools/salary-calculator?mode=after-tax`} className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Salary After Tax</a>
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-7">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">
+              {name} &mdash; Financial Intelligence
+            </p>
+            <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
+              {content.heroH1}
+            </h1>
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">
+              {content.heroDesc}
+            </p>
+            <p className="mt-3 text-xs text-zinc-500">Last updated: June 2026</p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a href={`/${slug}/tools/salary-calculator`} className="rounded-md bg-zinc-950 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800">Salary Calculator</a>
+              <a href={`/${slug}/tools/tax-calculator`} className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Tax Calculator</a>
+              <a href={`/${slug}/tools/mortgage-calculator`} className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Mortgage Calculator</a>
+              <a href={`/${slug}/tools/salary-calculator?mode=after-tax`} className="rounded-md bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Salary After Tax</a>
+            </div>
+          </div>
+          <div className="hidden lg:block lg:col-span-5">
+            <div className="relative overflow-hidden rounded-xl">
+              <Image
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"
+                alt="Global financial data and city skyline"
+                width={800}
+                height={600}
+                className="h-auto w-full rounded-xl object-cover"
+                priority
+              />
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/20 to-transparent pointer-events-none" />
+            </div>
+          </div>
         </div>
       </section>
 
