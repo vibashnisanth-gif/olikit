@@ -1,63 +1,91 @@
-import type { Metadata } from "next"
-import { SITE_URL } from "@/lib/seo/constants"
-import { buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
-import type { SalaryIndexContent } from "@/lib/content/salary-index-types"
-import { Shell } from "@/components/shell"
-import { SalaryIndexRenderer } from "@/components/salary-index-renderer"
+import type {Metadata} from "next";
+import {SITE_URL} from "@/lib/seo/constants";
+import {buildBreadcrumbJsonLd} from "@/lib/seo/json-ld";
+import type {SalaryIndexContent} from "@/lib/content/salary-index-types";
+import {Shell} from "@/components/shell";
+import {SalaryIndexRenderer} from "@/components/salary-index-renderer";
 
-const pagePath = "/research/software-engineer-salary-index-2026"
+const pagePath = "/research/software-engineer-salary-index-2026";
 
 export const metadata: Metadata = {
   title: "Software Engineer Salary Index 2026 | Global Research Report",
-  description: "A detailed research report analyzing software engineer salaries, purchasing power, and career dynamics across the world's leading technology markets including the US, UK, Canada, Australia, Singapore, India, and New Zealand.",
-  alternates: { canonical: `${SITE_URL}${pagePath}` },
+  description:
+    "A detailed research report analyzing software engineer salaries, purchasing power, and career dynamics across the world's leading technology markets including the US, UK, Canada, Australia, Singapore, India, and New Zealand.",
+  alternates: {canonical: `${SITE_URL}${pagePath}`},
   openGraph: {
     title: "Software Engineer Salary Index 2026 | Global Research Report | Olikit",
-    description: "Flagship research report analyzing software engineer salaries across 7 major economies. Includes salary rankings, purchasing power analysis, and country profiles.",
+    description:
+      "Flagship research report analyzing software engineer salaries across 7 major economies. Includes salary rankings, purchasing power analysis, and country profiles.",
     url: `${SITE_URL}${pagePath}`,
     siteName: "Olikit",
     type: "article",
   },
-}
+};
 
 export default function SalaryIndexPage() {
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: "Software Engineer Salary Index 2026",
-    description: "A comprehensive research report analyzing software engineer salaries, purchasing power, and career dynamics across the world's leading technology markets.",
+    description:
+      "A comprehensive research report analyzing software engineer salaries, purchasing power, and career dynamics across the world's leading technology markets.",
     url: `${SITE_URL}${pagePath}`,
     datePublished: "2026-01-15",
     dateModified: new Date().toISOString().split("T")[0],
-    author: { "@type": "Organization", name: "Olikit", url: SITE_URL },
-    publisher: { "@type": "Organization", name: "Olikit", url: SITE_URL },
-    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${pagePath}` },
-  }
+    author: {"@type": "Organization", name: "Olikit", url: SITE_URL},
+    publisher: {"@type": "Organization", name: "Olikit", url: SITE_URL},
+    mainEntityOfPage: {"@type": "WebPage", "@id": `${SITE_URL}${pagePath}`},
+  };
 
   const breadcrumbSchema = buildBreadcrumbJsonLd([
-    { label: "Home", url: SITE_URL },
-    { label: "Research", url: `${SITE_URL}/research` },
-    { label: "Software Engineer Salary Index 2026", url: `${SITE_URL}${pagePath}` },
-  ])
+    {label: "Home", url: SITE_URL},
+    {label: "Research", url: `${SITE_URL}/research`},
+    {label: "Software Engineer Salary Index 2026", url: `${SITE_URL}${pagePath}`},
+  ]);
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: contentData.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
 
   return (
     <Shell>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{__html: JSON.stringify(articleSchema)}}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{__html: JSON.stringify(breadcrumbSchema)}}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{__html: JSON.stringify(faqSchema)}}
+      />
       <SalaryIndexRenderer content={contentData} />
     </Shell>
-  )
+  );
 }
 
 const contentData: SalaryIndexContent = {
   seo: {
     metaTitle: "Software Engineer Salary Index 2026 | Global Research Report",
-    metaDescription: "In-depth research report analyzing software engineer salaries across 7 major economies: US, UK, Canada, Australia, Singapore, India, and New Zealand. Includes salary rankings, purchasing power analysis, and country profiles.",
+    metaDescription:
+      "In-depth research report analyzing software engineer salaries across 7 major economies: US, UK, Canada, Australia, Singapore, India, and New Zealand. Includes salary rankings, purchasing power analysis, and country profiles.",
   },
   hero: {
     badge: "Olikit Research Report 2026",
     title: "Software Engineer Salary Index 2026",
-    description: "A detailed research report analyzing software engineer salaries, purchasing power, and career dynamics across the world's leading technology markets. This report covers salary benchmarks, tax analysis, cost of living comparisons, and career intelligence across 7 major economies.",
+    description:
+      "A detailed research report analyzing software engineer salaries, purchasing power, and career dynamics across the world's leading technology markets. This report covers salary benchmarks, tax analysis, cost of living comparisons, and career intelligence across 7 major economies.",
   },
   researchMetadata: {
     coverageYear: "2026",
@@ -68,11 +96,31 @@ const contentData: SalaryIndexContent = {
     dataStatus: "Published",
   },
   quickAnswers: [
-    { question: "Which country pays software engineers the most in 2026?", answer: "The United States offers the highest average software engineer salaries at approximately $120,000 per year. Australia and Canada follow with competitive compensation packages." },
-    { question: "Which country offers the best purchasing power for software engineers?", answer: "India offers the strongest purchasing power relative to local costs. While nominal salaries are lower, the cost of goods and services in India allows engineers to achieve a high standard of living relative to income." },
-    { question: "Which country has the most favorable tax environment?", answer: "Singapore has the most favorable personal income tax regime among the countries analyzed, with a top marginal rate of just 22% and no capital gains tax." },
-    { question: "Which country is best for career growth?", answer: "The United States offers the largest technology job market with the highest concentration of major tech employers, venture capital funding, and opportunities for career advancement." },
-    { question: "How does purchasing power vary across countries?", answer: "Purchasing power varies significantly. While the US and Australia offer high nominal salaries, higher living costs in major cities reduce real purchasing power. India offers strong local purchasing power despite lower nominal salaries." },
+    {
+      question: "Which country pays software engineers the most in 2026?",
+      answer:
+        "The United States offers the highest average software engineer salaries at approximately $120,000 per year. Australia and Canada follow with competitive compensation packages.",
+    },
+    {
+      question: "Which country offers the best purchasing power for software engineers?",
+      answer:
+        "India offers the strongest purchasing power relative to local costs. While nominal salaries are lower, the cost of goods and services in India allows engineers to achieve a high standard of living relative to income.",
+    },
+    {
+      question: "Which country has the most favorable tax environment?",
+      answer:
+        "Singapore has the most favorable personal income tax regime among the countries analyzed, with a top marginal rate of just 22% and no capital gains tax.",
+    },
+    {
+      question: "Which country is best for career growth?",
+      answer:
+        "The United States offers the largest technology job market with the highest concentration of major tech employers, venture capital funding, and opportunities for career advancement.",
+    },
+    {
+      question: "How does purchasing power vary across countries?",
+      answer:
+        "Purchasing power varies significantly. While the US and Australia offer high nominal salaries, higher living costs in major cities reduce real purchasing power. India offers strong local purchasing power despite lower nominal salaries.",
+    },
   ],
   executiveSummary: {
     paragraphs: [
@@ -88,9 +136,9 @@ const contentData: SalaryIndexContent = {
       "Australia and Canada balance competitive salaries with accessible immigration pathways and universal healthcare.",
     ],
     metrics: [
-      { label: "Countries Analyzed", value: "7" },
-      { label: "Highest Salary", value: "$120,000 (US)" },
-      { label: "Lowest Tax Burden", value: "Singapore (7% avg)" },
+      {label: "Countries Analyzed", value: "7"},
+      {label: "Highest Salary", value: "$120,000 (US)"},
+      {label: "Lowest Tax Burden", value: "Singapore (7% avg)"},
     ],
   },
   globalMarketOverview: {
@@ -142,86 +190,113 @@ const contentData: SalaryIndexContent = {
       flag: "\u{1F1FA}\u{1F1F8}",
       name: "United States",
       slug: "us",
-      summary: "The United States offers the highest software engineering salaries globally, driven by its large technology sector, venture capital ecosystem, and concentration of major employers. Challenges include high living costs in tech hubs, complex immigration, and employer-dependent healthcare.",
+      summary:
+        "The United States offers the highest software engineering salaries globally, driven by its large technology sector, venture capital ecosystem, and concentration of major employers. Challenges include high living costs in tech hubs, complex immigration, and employer-dependent healthcare.",
       metrics: [
-        { label: "Avg Salary", value: "$120,000" },
-        { label: "Tax Rate (Avg)", value: "~22%" },
-        { label: "PPP Score", value: "Strong" },
+        {label: "Avg Salary", value: "$120,000"},
+        {label: "Tax Rate (Avg)", value: "~22%"},
+        {label: "PPP Score", value: "Strong"},
       ],
     },
     {
       flag: "\u{1F1EC}\u{1F1E7}",
       name: "United Kingdom",
       slug: "uk",
-      summary: "The UK has a strong technology sector centered in London, particularly in fintech and financial services. Salaries are lower than the US and Australia but competitive within Europe. Universal healthcare and strong employment protections are significant advantages.",
+      summary:
+        "The UK has a strong technology sector centered in London, particularly in fintech and financial services. Salaries are lower than the US and Australia but competitive within Europe. Universal healthcare and strong employment protections are significant advantages.",
       metrics: [
-        { label: "Avg Salary", value: "£55,000" },
-        { label: "Tax Rate (Avg)", value: "~20%" },
-        { label: "PPP Score", value: "Moderate" },
+        {label: "Avg Salary", value: "£55,000"},
+        {label: "Tax Rate (Avg)", value: "~20%"},
+        {label: "PPP Score", value: "Moderate"},
       ],
     },
     {
       flag: "\u{1F1E6}\u{1F1FA}",
       name: "Australia",
       slug: "au",
-      summary: "Australia offers competitive software engineering salaries, a high quality of life, and a straightforward points-based immigration system. Sydney and Melbourne are the primary technology hubs, with growing startup ecosystems.",
+      summary:
+        "Australia offers competitive software engineering salaries, a high quality of life, and a straightforward points-based immigration system. Sydney and Melbourne are the primary technology hubs, with growing startup ecosystems.",
       metrics: [
-        { label: "Avg Salary", value: "A$110,000" },
-        { label: "Tax Rate (Avg)", value: "~25%" },
-        { label: "PPP Score", value: "Strong" },
+        {label: "Avg Salary", value: "A$110,000"},
+        {label: "Tax Rate (Avg)", value: "~25%"},
+        {label: "PPP Score", value: "Strong"},
       ],
     },
     {
       flag: "\u{1F1E8}\u{1F1E6}",
       name: "Canada",
       slug: "ca",
-      summary: "Canada's technology sector is growing rapidly, with Toronto, Vancouver, and Montreal emerging as major tech hubs. The country offers accessible immigration pathways, universal healthcare, and competitive salaries.",
+      summary:
+        "Canada's technology sector is growing rapidly, with Toronto, Vancouver, and Montreal emerging as major tech hubs. The country offers accessible immigration pathways, universal healthcare, and competitive salaries.",
       metrics: [
-        { label: "Avg Salary", value: "C$85,000" },
-        { label: "Tax Rate (Avg)", value: "~25%" },
-        { label: "PPP Score", value: "Strong" },
+        {label: "Avg Salary", value: "C$85,000"},
+        {label: "Tax Rate (Avg)", value: "~25%"},
+        {label: "PPP Score", value: "Strong"},
       ],
     },
     {
       flag: "\u{1F1F8}\u{1F1EC}",
       name: "Singapore",
       slug: "sg",
-      summary: "Singapore is a leading global technology and financial hub with competitive salaries and extremely favorable tax rates. High living costs are offset by tax efficiency and access to regional technology markets.",
+      summary:
+        "Singapore is a leading global technology and financial hub with competitive salaries and extremely favorable tax rates. High living costs are offset by tax efficiency and access to regional technology markets.",
       metrics: [
-        { label: "Avg Salary", value: "S$72,000" },
-        { label: "Tax Rate (Avg)", value: "~7%" },
-        { label: "PPP Score", value: "Moderate" },
+        {label: "Avg Salary", value: "S$72,000"},
+        {label: "Tax Rate (Avg)", value: "~7%"},
+        {label: "PPP Score", value: "Moderate"},
       ],
     },
     {
       flag: "\u{1F1F3}\u{1F1FF}",
       name: "New Zealand",
       slug: "nz",
-      summary: "New Zealand offers a compelling combination of technology career opportunities and exceptional quality of life. Auckland and Wellington are the primary technology employment markets. The country has a growing technology sector with increasing global investment.",
+      summary:
+        "New Zealand offers a compelling combination of technology career opportunities and exceptional quality of life. Auckland and Wellington are the primary technology employment markets. The country has a growing technology sector with increasing global investment.",
       metrics: [
-        { label: "Avg Salary", value: "NZ$95,000" },
-        { label: "Tax Rate (Avg)", value: "~25%" },
-        { label: "PPP Score", value: "Moderate" },
+        {label: "Avg Salary", value: "NZ$95,000"},
+        {label: "Tax Rate (Avg)", value: "~25%"},
+        {label: "PPP Score", value: "Moderate"},
       ],
     },
     {
       flag: "\u{1F1EE}\u{1F1F3}",
       name: "India",
       slug: "in",
-      summary: "India is one of the world's largest and fastest-growing technology talent markets. While nominal salaries are lower, India offers exceptional purchasing power relative to local costs and a massive domestic technology market.",
+      summary:
+        "India is one of the world's largest and fastest-growing technology talent markets. While nominal salaries are lower, India offers exceptional purchasing power relative to local costs and a massive domestic technology market.",
       metrics: [
-        { label: "Avg Salary", value: "₹12,00,000" },
-        { label: "Tax Rate (Avg)", value: "~10-20%" },
-        { label: "PPP Score", value: "Excellent" },
+        {label: "Avg Salary", value: "₹12,00,000"},
+        {label: "Tax Rate (Avg)", value: "~10-20%"},
+        {label: "PPP Score", value: "Excellent"},
       ],
     },
   ],
   relocationIntelligence: [
-    { heading: "US to UK Relocation", content: "UK Skilled Worker visa requires a job offer and meets points-based criteria. Salaries typically drop by 40-50% but are offset by universal healthcare, strong employment protections, and European travel access." },
-    { heading: "US to Canada Relocation", content: "Canada offers Express Entry for skilled workers and CUSMA for US citizens. Salaries are 30-40% lower but universal healthcare and easier PR pathways are significant advantages." },
-    { heading: "US to Australia Relocation", content: "Australia's skilled migration program offers clear PR pathways. Salaries are 30-40% lower but superannuation and work-life balance are strong benefits." },
-    { heading: "India to Singapore Relocation", content: "Singapore Employment Pass requires a job offer with minimum salary. The transition offers significant salary increases, extremely low taxes, and access to regional technology markets." },
-    { heading: "UK to Australia Relocation", content: "Australia offers higher salaries and a better climate. The skilled migration system provides clear pathways to permanent residency for software engineers." },
+    {
+      heading: "US to UK Relocation",
+      content:
+        "UK Skilled Worker visa requires a job offer and meets points-based criteria. Salaries typically drop by 40-50% but are offset by universal healthcare, strong employment protections, and European travel access.",
+    },
+    {
+      heading: "US to Canada Relocation",
+      content:
+        "Canada offers Express Entry for skilled workers and CUSMA for US citizens. Salaries are 30-40% lower but universal healthcare and easier PR pathways are significant advantages.",
+    },
+    {
+      heading: "US to Australia Relocation",
+      content:
+        "Australia's skilled migration program offers clear PR pathways. Salaries are 30-40% lower but superannuation and work-life balance are strong benefits.",
+    },
+    {
+      heading: "India to Singapore Relocation",
+      content:
+        "Singapore Employment Pass requires a job offer with minimum salary. The transition offers significant salary increases, extremely low taxes, and access to regional technology markets.",
+    },
+    {
+      heading: "UK to Australia Relocation",
+      content:
+        "Australia offers higher salaries and a better climate. The skilled migration system provides clear pathways to permanent residency for software engineers.",
+    },
   ],
   technologyEcosystemAnalysis: {
     title: "Technology Ecosystem Analysis",
@@ -234,11 +309,36 @@ const contentData: SalaryIndexContent = {
     ],
   },
   keyFindings: [
-    { title: "US Leads in Nominal Compensation", description: "The United States offers the highest average software engineer salaries at $120,000, with top-tier compensation exceeding $250,000 at major tech companies.", metric: "$120,000 avg" },
-    { title: "Singapore Offers Best Tax Efficiency", description: "Singapore's progressive tax system capped at 22% with no capital gains tax makes it the most tax-efficient market for software engineers.", metric: "7% avg tax" },
-    { title: "India Provides Strongest PPP", description: "When adjusted for local costs, India offers exceptional purchasing power, allowing software engineers to achieve a high standard of living relative to income.", metric: "4x PPP multiplier" },
-    { title: "Canada and Australia Balance Multiple Factors", description: "Both countries offer competitive salaries, universal healthcare, accessible immigration, and high quality of life, making them strong all-around choices.", metric: "Top 3 overall" },
-    { title: "Equity Compensation Concentrated in US", description: "Stock options and RSUs are significantly more common in US technology roles, often adding 20-50% to total compensation at major employers.", metric: "20-50% upside" },
+    {
+      title: "US Leads in Nominal Compensation",
+      description:
+        "The United States offers the highest average software engineer salaries at $120,000, with top-tier compensation exceeding $250,000 at major tech companies.",
+      metric: "$120,000 avg",
+    },
+    {
+      title: "Singapore Offers Best Tax Efficiency",
+      description:
+        "Singapore's progressive tax system capped at 22% with no capital gains tax makes it the most tax-efficient market for software engineers.",
+      metric: "7% avg tax",
+    },
+    {
+      title: "India Provides Strongest PPP",
+      description:
+        "When adjusted for local costs, India offers exceptional purchasing power, allowing software engineers to achieve a high standard of living relative to income.",
+      metric: "4x PPP multiplier",
+    },
+    {
+      title: "Canada and Australia Balance Multiple Factors",
+      description:
+        "Both countries offer competitive salaries, universal healthcare, accessible immigration, and high quality of life, making them strong all-around choices.",
+      metric: "Top 3 overall",
+    },
+    {
+      title: "Equity Compensation Concentrated in US",
+      description:
+        "Stock options and RSUs are significantly more common in US technology roles, often adding 20-50% to total compensation at major employers.",
+      metric: "20-50% upside",
+    },
   ],
   methodology: {
     overviews: [
@@ -287,39 +387,75 @@ const contentData: SalaryIndexContent = {
     ],
   },
   faq: [
-    { question: "Which country pays software engineers the highest salary in 2026?", answer: "The United States offers the highest average software engineer salaries at approximately $120,000 per year. When including equity compensation, total compensation at major US technology companies can exceed $250,000 for experienced engineers." },
-    { question: "Which country has the lowest taxes for software engineers?", answer: "Singapore has the lowest personal income tax burden among analyzed countries, with a top marginal rate of 22% and an effective rate of approximately 7% for average earners." },
-    { question: "Which country offers the best value when considering cost of living?", answer: "India offers the strongest purchasing power relative to local costs. Despite lower nominal salaries, the significantly lower cost of living allows software engineers to achieve a high standard of living." },
-    { question: "Which country is easiest to immigrate to as a software engineer?", answer: "Canada and Australia both offer accessible immigration pathways for skilled technology workers. Canada's Express Entry system processes applications in 6-12 months, while Australia's skilled migration program offers clear points-based pathways to permanent residency." },
-    { question: "How does equity compensation affect total compensation?", answer: "Equity compensation is most common in the United States, where stock options and RSUs can add 20-50% to total compensation at major technology companies. Equity is less common in other markets but is increasingly offered by growing technology companies." },
-    { question: "Which country has the strongest technology job market?", answer: "The United States has the largest technology job market with the highest concentration of major employers, venture capital funding, and opportunities for career advancement across all experience levels." },
+    {
+      question: "Which country pays software engineers the highest salary in 2026?",
+      answer:
+        "The United States offers the highest average software engineer salaries at approximately $120,000 per year. When including equity compensation, total compensation at major US technology companies can exceed $250,000 for experienced engineers.",
+    },
+    {
+      question: "Which country has the lowest taxes for software engineers?",
+      answer:
+        "Singapore has the lowest personal income tax burden among analyzed countries, with a top marginal rate of 22% and an effective rate of approximately 7% for average earners.",
+    },
+    {
+      question: "Which country offers the best value when considering cost of living?",
+      answer:
+        "India offers the strongest purchasing power relative to local costs. Despite lower nominal salaries, the significantly lower cost of living allows software engineers to achieve a high standard of living.",
+    },
+    {
+      question: "Which country is easiest to immigrate to as a software engineer?",
+      answer:
+        "Canada and Australia both offer accessible immigration pathways for skilled technology workers. Canada's Express Entry system processes applications in 6-12 months, while Australia's skilled migration program offers clear points-based pathways to permanent residency.",
+    },
+    {
+      question: "How does equity compensation affect total compensation?",
+      answer:
+        "Equity compensation is most common in the United States, where stock options and RSUs can add 20-50% to total compensation at major technology companies. Equity is less common in other markets but is increasingly offered by growing technology companies.",
+    },
+    {
+      question: "Which country has the strongest technology job market?",
+      answer:
+        "The United States has the largest technology job market with the highest concentration of major employers, venture capital funding, and opportunities for career advancement across all experience levels.",
+    },
   ],
   sources: [
-    { label: "US Bureau of Labor Statistics", url: "https://www.bls.gov" },
-    { label: "UK Office for National Statistics", url: "https://www.ons.gov.uk" },
-    { label: "Australian Bureau of Statistics", url: "https://www.abs.gov.au" },
-    { label: "Statistics Canada", url: "https://www.statcan.gc.ca" },
-    { label: "Singapore Ministry of Manpower", url: "https://www.mom.gov.sg" },
-    { label: "India Ministry of Statistics", url: "https://www.mospi.gov.in" },
-    { label: "OECD Tax Database", url: "https://www.oecd.org/tax/" },
-    { label: "Numbeo Cost of Living", url: "https://www.numbeo.com" },
-    { label: "World Bank PPP Data", url: "https://www.worldbank.org" },
+    {label: "US Bureau of Labor Statistics", url: "https://www.bls.gov"},
+    {label: "UK Office for National Statistics", url: "https://www.ons.gov.uk"},
+    {label: "Australian Bureau of Statistics", url: "https://www.abs.gov.au"},
+    {label: "Statistics Canada", url: "https://www.statcan.gc.ca"},
+    {label: "Singapore Ministry of Manpower", url: "https://www.mom.gov.sg"},
+    {label: "India Ministry of Statistics", url: "https://www.mospi.gov.in"},
+    {label: "OECD Tax Database", url: "https://www.oecd.org/tax/"},
+    {label: "Numbeo Cost of Living", url: "https://www.numbeo.com"},
+    {label: "World Bank PPP Data", url: "https://www.worldbank.org"},
   ],
   relatedPages: [
-    { label: "Software Engineer Hub", href: "/professions/software-engineer" },
-    { label: "Highest Paying Countries for Software Engineers", href: "/rankings/highest-paying-countries-software-engineers" },
-    { label: "Highest Paying Cities for Software Engineers", href: "/rankings/highest-paying-cities-software-engineers" },
-    { label: "Best Countries for Software Engineers", href: "/rankings/best-countries-for-software-engineers" },
-    { label: "Software Engineer Salary US", href: "/software-engineer-salary-us" },
-    { label: "Software Engineer Salary UK", href: "/software-engineer-salary-uk" },
-    { label: "Software Engineer Salary Australia", href: "/software-engineer-salary-australia" },
-    { label: "Software Engineer Salary Canada", href: "/software-engineer-salary-canada" },
-    { label: "Software Engineer Salary Singapore", href: "/software-engineer-salary-singapore" },
-    { label: "Software Engineer Salary New Zealand", href: "/software-engineer-salary-new-zealand" },
-    { label: "Software Engineer Salary India", href: "/software-engineer-salary-india" },
-    { label: "Software Engineer US vs UK", href: "/comparisons/software-engineer-us-vs-uk" },
-    { label: "Software Engineer US vs Canada", href: "/comparisons/software-engineer-us-vs-canada" },
-    { label: "Software Engineer US vs Australia", href: "/comparisons/software-engineer-us-vs-australia" },
-    { label: "Global Research", href: "/research" },
+    {label: "Software Engineer Hub", href: "/professions/software-engineer"},
+    {
+      label: "Highest Paying Countries for Software Engineers",
+      href: "/rankings/highest-paying-countries-software-engineers",
+    },
+    {
+      label: "Highest Paying Cities for Software Engineers",
+      href: "/rankings/highest-paying-cities-software-engineers",
+    },
+    {
+      label: "Best Countries for Software Engineers",
+      href: "/rankings/best-countries-for-software-engineers",
+    },
+    {label: "Software Engineer Salary US", href: "/software-engineer-salary-us"},
+    {label: "Software Engineer Salary UK", href: "/software-engineer-salary-uk"},
+    {label: "Software Engineer Salary Australia", href: "/software-engineer-salary-australia"},
+    {label: "Software Engineer Salary Canada", href: "/software-engineer-salary-canada"},
+    {label: "Software Engineer Salary Singapore", href: "/software-engineer-salary-singapore"},
+    {label: "Software Engineer Salary New Zealand", href: "/software-engineer-salary-new-zealand"},
+    {label: "Software Engineer Salary India", href: "/software-engineer-salary-india"},
+    {label: "Software Engineer US vs UK", href: "/comparisons/software-engineer-us-vs-uk"},
+    {label: "Software Engineer US vs Canada", href: "/comparisons/software-engineer-us-vs-canada"},
+    {
+      label: "Software Engineer US vs Australia",
+      href: "/comparisons/software-engineer-us-vs-australia",
+    },
+    {label: "Global Research", href: "/research"},
   ],
-}
+};
