@@ -7,14 +7,14 @@ import { TaxCalculator } from "@/calculators/tax"
 import { FlagImage } from "@/components/ui/flag-image"
 import type { CurrencyCode } from "@/lib/currency"
 
-const CURRENCIES: { code: CurrencyCode; label: string }[] = [
-  { code: "USD", label: "USD" },
-  { code: "GBP", label: "GBP" },
-  { code: "AUD", label: "AUD" },
-  { code: "CAD", label: "CAD" },
-  { code: "NZD", label: "NZD" },
-  { code: "INR", label: "INR" },
-  { code: "SGD", label: "SGD" },
+const CURRENCIES: { code: CurrencyCode; symbol: string; label: string }[] = [
+  { code: "USD", symbol: "$", label: "USD" },
+  { code: "GBP", symbol: "£", label: "GBP" },
+  { code: "AUD", symbol: "A$", label: "AUD" },
+  { code: "CAD", symbol: "C$", label: "CAD" },
+  { code: "NZD", symbol: "NZ$", label: "NZD" },
+  { code: "INR", symbol: "₹", label: "INR" },
+  { code: "SGD", symbol: "S$", label: "SGD" },
 ]
 
 function formatCompact(usd: number): string {
@@ -67,6 +67,8 @@ export function SalaryRankingChart() {
   const shareText = `Where does ${formatSalary(salary, currency)} go furthest?\n\n${results.map((r, i) => `${i + 1}. ${r.name}: ${formatSalary(r.takeHomeUSD, "USD")} after tax`).join("\n")}\n\nCompare at olikit.com`
   const shareUrl = "https://olikit.com/compare"
 
+  const selectedSymbol = CURRENCIES.find((c) => c.code === currency)?.symbol || "$"
+
   return (
     <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10">
       <div className="mb-6">
@@ -93,18 +95,21 @@ export function SalaryRankingChart() {
               className="rounded-l-lg border border-r-0 border-zinc-300 bg-zinc-50 px-3 py-2.5 text-sm font-medium text-zinc-700 outline-none focus:border-zinc-500"
             >
               {CURRENCIES.map((c) => (
-                <option key={c.code} value={c.code}>{c.label}</option>
+                <option key={c.code} value={c.code}>{c.symbol} {c.label}</option>
               ))}
             </select>
-            <input
-              id="salary-input"
-              type="number"
-              value={salary}
-              onChange={(e) => setSalary(Math.max(0, Number(e.target.value)))}
-              className="w-36 rounded-r-lg border border-zinc-300 px-3 py-2.5 text-sm font-medium text-zinc-950 outline-none focus:border-zinc-500 sm:w-44"
-              min={0}
-              step={1000}
-            />
+            <div className="relative">
+              <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-zinc-400">{selectedSymbol}</span>
+              <input
+                id="salary-input"
+                type="number"
+                value={salary}
+                onChange={(e) => setSalary(Math.max(0, Number(e.target.value)))}
+                className="w-36 rounded-r-lg border border-zinc-300 pl-7 pr-3 py-2.5 text-sm font-medium text-zinc-950 outline-none focus:border-zinc-500 sm:w-44"
+                min={0}
+                step={1000}
+              />
+            </div>
           </div>
         </div>
       </div>
