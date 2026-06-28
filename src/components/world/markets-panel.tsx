@@ -21,15 +21,15 @@ const DISPLAY: Record<string, string> = {
   "BTC-USD": "Bitcoin",
 };
 
-const CATEGORY: Record<string, string> = {
-  "^GSPC": "index",
-  "^DJI": "index",
-  "^IXIC": "index",
-  "^FTSE": "index",
-  "^N225": "index",
-  "GC=F": "commodity",
-  "CL=F": "commodity",
-  "BTC-USD": "crypto",
+const ICON: Record<string, string> = {
+  "^GSPC": "📈",
+  "^DJI": "🏦",
+  "^IXIC": "💻",
+  "^FTSE": "🇬🇧",
+  "^N225": "🇯🇵",
+  "GC=F": "🥇",
+  "CL=F": "🛢️",
+  "BTC-USD": "₿",
 };
 
 export function MarketsPanel() {
@@ -50,84 +50,57 @@ export function MarketsPanel() {
     return n.toLocaleString("en-US", {maximumFractionDigits: 2});
   };
 
-  const indices = quotes.filter((q) => CATEGORY[q.symbol] === "index");
-  const commodities = quotes.filter((q) => CATEGORY[q.symbol] === "commodity");
-  const crypto = quotes.filter((q) => CATEGORY[q.symbol] === "crypto");
-
-  const rows = (items: Quote[]) =>
-    items.map((q) => (
-      <div key={q.symbol} className="flex items-center justify-between py-2.5 px-1">
-        <div className="min-w-0">
-          <p className="text-[13px] font-semibold text-zinc-800 truncate">
-            {DISPLAY[q.symbol] ?? q.name}
-          </p>
-        </div>
-        <div className="text-right shrink-0 ml-3">
-          <p className="text-[13px] font-bold text-zinc-900 tabular-nums">
-            {fmt(q.price, q.symbol)}
-          </p>
-          <p
-            className={`text-[11px] font-semibold tabular-nums ${
-              q.pctChange >= 0 ? "text-emerald-600" : "text-red-500"
-            }`}
-          >
-            {q.pctChange >= 0 ? "+" : ""}
-            {q.pctChange.toFixed(2)}%
-          </p>
-        </div>
-      </div>
-    ));
+  const up = (q: Quote) => q.pctChange >= 0;
 
   return (
     <div className="flex flex-col h-full bg-white">
       <div className="flex items-center justify-between px-5 pt-4 pb-3">
         <div className="flex items-center gap-2">
-          <span className="relative flex h-2.5 w-2.5">
+          <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
           </span>
-          <h3 className="text-sm font-semibold text-zinc-900 tracking-tight">Markets</h3>
+          <h3 className="text-sm font-bold text-zinc-900 tracking-tight">Markets</h3>
         </div>
-        <span className="text-[10px] text-zinc-400 font-medium">Real-time</span>
       </div>
-      <div className="flex-1 overflow-y-auto border-t border-zinc-100 pt-3">
+      <div className="flex-1 overflow-y-auto">
         {loading ? (
-          <div className="px-5 space-y-3">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <div key={i} className="flex justify-between py-2">
-                <div className="h-3.5 bg-zinc-100 rounded w-20 animate-pulse" />
-                <div className="h-3.5 bg-zinc-100 rounded w-14 animate-pulse" />
-              </div>
+          <div className="p-5 grid grid-cols-2 gap-3">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className="h-20 bg-zinc-50 rounded-xl animate-pulse" />
             ))}
           </div>
         ) : quotes.length === 0 ? (
-          <div className="px-5 py-4 text-sm text-zinc-400">No market data</div>
+          <div className="p-5 text-sm text-zinc-400">No market data</div>
         ) : (
-          <div className="space-y-1">
-            {indices.length > 0 && (
-              <div className="px-5 pb-3">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-1">
-                  Indices
+          <div className="px-5 grid grid-cols-2 gap-2.5 pb-4">
+            {quotes.map((q) => (
+              <div
+                key={q.symbol}
+                className={`rounded-xl p-3.5 border transition-colors ${
+                  up(q)
+                    ? "bg-emerald-50/60 border-emerald-100 hover:bg-emerald-50"
+                    : "bg-red-50/60 border-red-100 hover:bg-red-50"
+                }`}
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-sm">{ICON[q.symbol] ?? "📊"}</span>
+                  <span className="text-[11px] font-bold text-zinc-600 uppercase tracking-wide truncate">
+                    {DISPLAY[q.symbol] ?? q.name}
+                  </span>
+                </div>
+                <p className="text-lg font-black tabular-nums text-zinc-900 leading-none">
+                  {fmt(q.price, q.symbol)}
                 </p>
-                <div className="divide-y divide-zinc-100">{rows(indices)}</div>
-              </div>
-            )}
-            {commodities.length > 0 && (
-              <div className="px-5 pb-3">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-1">
-                  Commodities
+                <p
+                  className={`text-xs font-bold tabular-nums mt-1 ${
+                    up(q) ? "text-emerald-600" : "text-red-500"
+                  }`}
+                >
+                  {up(q) ? "▲" : "▼"} {Math.abs(q.pctChange).toFixed(2)}%
                 </p>
-                <div className="divide-y divide-zinc-100">{rows(commodities)}</div>
               </div>
-            )}
-            {crypto.length > 0 && (
-              <div className="px-5 pb-3">
-                <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-1">
-                  Crypto
-                </p>
-                <div className="divide-y divide-zinc-100">{rows(crypto)}</div>
-              </div>
-            )}
+            ))}
           </div>
         )}
       </div>
