@@ -339,7 +339,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const city of localeCities) {
       for (const profession of professions) {
         entries.push({
-          url: `${SITE_URL}/${locale.slug}/city/${city.slug}/${profession.slug}-salary`,
+          url: `${SITE_URL}/${locale.slug}/city/${city.slug}/${profession.slug}`,
           lastModified: now,
           changeFrequency: "monthly",
           priority: 0.7,
