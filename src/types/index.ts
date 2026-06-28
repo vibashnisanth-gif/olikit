@@ -333,3 +333,36 @@ export interface CostOfLivingOutput {
   savingsDifference: number;
   expenseBreakdown: {category: string; source: number; target: number}[];
 }
+
+export interface SalaryComparisonInput {
+  salaryA: number;
+  salaryB: number;
+  cityACostOfLiving: number;
+  cityBCostOfLiving: number;
+  taxRateA: number;
+  taxRateB: number;
+}
+export interface SalaryComparisonOutput {
+  adjustedSalaryB: number;
+  salaryDifference: number;
+  percentDifference: number;
+  takeHomeA: number;
+  takeHomeB: number;
+  takeHomeDifference: number;
+  purchasingPowerA: number;
+  purchasingPowerB: number;
+  purchasingPowerDifference: number;
+  ratio: number;
+}
+
+export interface RemoteWorkSalaryInput {
+  baseSalary: number;
+  locationMultiplier: number;
+  taxRate: number;
+}
+export interface RemoteWorkSalaryOutput {
+  adjustedSalary: number;
+  taxAmount: number;
+  takeHome: number;
+  monthlyTakeHome: number;
+}
