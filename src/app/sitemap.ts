@@ -9,7 +9,7 @@ import {researchReports} from "@/lib/content/research";
 import {comparisonPairs} from "@/lib/content/comparison-engine";
 import {professions} from "@/lib/content/professions-data";
 import {professionComparisonPairs} from "@/lib/content/profession-comparisons";
-import {cities, getCitiesForCountry} from "@/lib/content/cities-data";
+import {getCitiesForCountry} from "@/lib/content/cities-data";
 import {SITE_URL} from "@/lib/seo/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -251,6 +251,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "research/data-scientist-salary-index-2026",
     "research/global-salary-index-2026",
     "research/product-manager-salary-index-2026",
+    "research/global-salary-report-2026",
     "rankings/highest-paying-cities-product-managers",
     "methodology/olikit-scoring-system",
   ];
