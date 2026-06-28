@@ -1,7 +1,5 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
-import { Shell } from "@/components/shell"
-
 export const metadata: Metadata = {
     title: "Salary Comparisons — Software Engineer, Data Scientist & Cross-Profession Analysis",
   description: "Compare software engineer, data scientist, and product manager salaries, taxes, and career opportunities across countries. Cross-profession and cross-country analysis.",
@@ -50,7 +48,6 @@ const crossProfessionComparisons = [
 
 export default function ComparisonsHubPage() {
   return (
-    <Shell>
       <div className="space-y-8">
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
           <h1 className="text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Salary Comparisons</h1>
@@ -155,6 +152,5 @@ export default function ComparisonsHubPage() {
           </div>
         </section>
       </div>
-    </Shell>
   )
 }

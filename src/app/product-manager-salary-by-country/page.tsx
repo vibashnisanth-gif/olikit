@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { Shell } from "@/components/shell"
 import { ProfessionPageRenderer } from "@/components/profession-page"
 import { buildProfessionMetadata } from "@/lib/seo/profession-metadata"
 import { buildBreadcrumbJsonLd, buildArticleJsonLd } from "@/lib/seo/json-ld"
@@ -79,10 +78,10 @@ export default function Page() {
   }
 
   return (
-    <Shell>
+      <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <ProfessionPageRenderer content={content} />
-    </Shell>
+      </>
   )
 }

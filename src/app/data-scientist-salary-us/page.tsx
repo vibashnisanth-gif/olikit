@@ -1,8 +1,6 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { buildArticleJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
-import { Shell } from "@/components/shell"
-
 const pagePath = "/data-scientist-salary-us"
 
 export const metadata: Metadata = {
@@ -33,7 +31,7 @@ export default function DataScientistUS() {
   ])
 
   return (
-    <Shell>
+      <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
@@ -155,6 +153,6 @@ export default function DataScientistUS() {
           </div>
         </section>
       </div>
-    </Shell>
+      </>
   )
 }

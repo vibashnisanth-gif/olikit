@@ -4,7 +4,6 @@ import { getProfession } from "@/lib/content/professions-data"
 import { COUNTRY_FLAGS, COUNTRY_NAMES } from "@/lib/content/country-registry"
 import { SITE_URL } from "@/lib/seo/constants"
 import { buildArticleJsonLd, buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/seo/json-ld"
-import { Shell } from "@/components/shell"
 import { formatSalary as fmtSalary, formatSalaryFull as fmtSalaryFull, slugToCurrency } from "@/lib/currency"
 
 const se = getProfession("software-engineer")!
@@ -120,7 +119,7 @@ export default function SoftwareEngineerHub() {
   ])
 
   return (
-    <Shell>
+      <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
@@ -373,6 +372,6 @@ export default function SoftwareEngineerHub() {
           </div>
         </section>
       </div>
-    </Shell>
+      </>
   )
 }

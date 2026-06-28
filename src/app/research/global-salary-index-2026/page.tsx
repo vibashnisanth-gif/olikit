@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { Shell } from "@/components/shell"
 import { SalaryIndexRenderer } from "@/components/salary-index-renderer"
 import { buildProfessionMetadata } from "@/lib/seo/profession-metadata"
 import { SITE_URL } from "@/lib/seo/constants"
@@ -604,11 +603,11 @@ export default function GlobalSalaryIndexPage() {
   }
 
   return (
-    <Shell>
+      <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
       <SalaryIndexRenderer content={contentData} />
-    </Shell>
+      </>
   )
 }

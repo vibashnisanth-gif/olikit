@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { buildArticleJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
-import { Shell } from "@/components/shell"
 import { FAQSection } from "@/components/faq-section"
 
 const COUNTRY = { slug: "in", name: "India", flag: "\u{1F1EE}\u{1F1F3}", currency: "\u20b9", taxAuthority: "Income Tax Department of India" }
@@ -58,7 +57,7 @@ export default function SoftwareEngineerIN() {
   ])
 
   return (
-    <Shell localeSlug="in">
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
@@ -123,6 +122,6 @@ export default function SoftwareEngineerIN() {
           faqs={faqData}
         />
       </div>
-    </Shell>
+    </>
   )
 }

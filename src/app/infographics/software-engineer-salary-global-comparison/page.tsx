@@ -1,6 +1,5 @@
 import {Metadata} from "next";
 import Link from "next/link";
-import {Shell} from "@/components/shell";
 import {SITE_URL} from "@/lib/seo/constants";
 
 export const metadata: Metadata = {
@@ -87,7 +86,6 @@ const maxSalary = Math.max(...salaryData.map((d) => d.salary));
 
 export default function SalaryInfographicPage() {
   return (
-    <Shell>
       <div className="mx-auto max-w-4xl px-4 py-8">
         <nav className="mb-6 text-sm text-gray-500">
           <Link href="/" className="hover:text-gray-700">
@@ -274,6 +272,5 @@ export default function SalaryInfographicPage() {
           </p>
         </section>
       </div>
-    </Shell>
   );
 }

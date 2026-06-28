@@ -1,6 +1,5 @@
 import {Metadata} from "next";
 import Link from "next/link";
-import {Shell} from "@/components/shell";
 import {cities} from "@/lib/content/cities-data";
 
 export const metadata: Metadata = {
@@ -16,7 +15,6 @@ export default function EmbedPage() {
   const embedCode = `<iframe src="https://olikit.com/embed/cost-of-living-widget" width="100%" height="600" frameborder="0" title="Cost of Living Index by City"></iframe>`;
 
   return (
-    <Shell>
       <div className="mx-auto max-w-4xl px-4 py-8">
         <h1 className="mb-2 text-3xl font-bold text-gray-900">Cost of Living Index Widget</h1>
         <p className="mb-6 text-lg text-gray-600">
@@ -93,6 +91,5 @@ export default function EmbedPage() {
           </p>
         </div>
       </div>
-    </Shell>
   );
 }

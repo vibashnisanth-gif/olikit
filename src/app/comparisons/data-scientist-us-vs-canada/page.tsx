@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { buildBreadcrumbJsonLd, buildArticleJsonLd } from "@/lib/seo/json-ld"
-import { Shell } from "@/components/shell"
 import { HeroSection } from "@/components/hero-section"
 import { CountryComparisonSection } from "@/components/country-comparison-section"
 import { ExecutiveSummarySection } from "@/components/executive-summary-section"
@@ -58,7 +57,7 @@ export default function DataScientistUSvsCanada() {
   ]
 
   return (
-    <Shell>
+      <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
@@ -226,6 +225,6 @@ export default function DataScientistUSvsCanada() {
           ]}
         />
       </div>
-    </Shell>
+      </>
   )
 }

@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { SITE_URL } from "@/lib/seo/constants"
-import { Shell } from "@/components/shell"
 import { FAQSection } from "@/components/faq-section"
 import { RelatedPagesSection } from "@/components/related-pages-section"
 import { buildArticleJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
@@ -103,7 +102,7 @@ export default function HighestPayingCountriesPage() {
   ])
 
   return (
-    <Shell>
+      <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <div className="space-y-12">
@@ -575,6 +574,6 @@ export default function HighestPayingCountriesPage() {
           </ul>
         </section>
       </div>
-    </Shell>
+      </>
   )
 }

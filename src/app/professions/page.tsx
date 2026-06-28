@@ -3,7 +3,6 @@ import { SITE_URL } from "@/lib/seo/constants"
 import { locales } from "@/lib/seo/locales"
 import { professions, getProfession } from "@/lib/content/professions-data"
 import { COUNTRY_FLAGS } from "@/lib/content/country-registry"
-import { Shell } from "@/components/shell"
 import { formatSalaryBySlug } from "@/lib/currency"
 
 export const metadata: Metadata = {
@@ -27,7 +26,6 @@ export const metadata: Metadata = {
 
 export default function ProfessionsPage() {
   return (
-    <Shell>
       <div className="space-y-12">
       <section className="rounded-lg border border-zinc-200 bg-white px-5 py-8 shadow-sm sm:px-8 sm:py-10">
         <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">
@@ -165,6 +163,5 @@ export default function ProfessionsPage() {
         </div>
       </section>
     </div>
-    </Shell>
   )
 }

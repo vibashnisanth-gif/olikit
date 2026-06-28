@@ -1,8 +1,6 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { getAllCountries } from "@/lib/content/country-registry"
-import { Shell } from "@/components/shell"
-
 export const metadata: Metadata = {
   title: "Global Research — Tax Systems & Salary Trends",
   description: "In-depth research on tax systems, salary trends, and financial regulations across major economies. Country-by-country analysis of income tax, VAT/GST, and compensation data from official government sources.",
@@ -109,7 +107,6 @@ export default function ResearchPage() {
   ]
 
   return (
-    <Shell>
       <div className="space-y-8">
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
         <h1 className="text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Global Research</h1>
@@ -200,6 +197,5 @@ export default function ResearchPage() {
         </div>
       </section>
     </div>
-    </Shell>
   )
 }

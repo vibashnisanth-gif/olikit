@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { buildArticleJsonLd, buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/seo/json-ld"
-import { Shell } from "@/components/shell"
 import { FAQSection } from "@/components/faq-section"
 
 const pagePath = "/methodology/olikit-scoring-system"
@@ -101,7 +100,7 @@ export default function OlikitScoringSystemPage() {
   const faqSchema = buildFaqJsonLd(faqData)
 
   return (
-    <Shell>
+      <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
@@ -442,6 +441,6 @@ export default function OlikitScoringSystemPage() {
           </div>
         </section>
       </div>
-    </Shell>
+      </>
   )
 }

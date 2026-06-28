@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { buildArticleJsonLd, buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/seo/json-ld"
-import { Shell } from "@/components/shell"
 import { COUNTRY_FLAGS, COUNTRY_NAMES } from "@/lib/content/country-registry"
 import { locales } from "@/lib/seo/locales"
 
@@ -42,7 +41,7 @@ export default function DataScientistHub() {
   ])
 
   return (
-    <Shell>
+      <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
@@ -206,6 +205,6 @@ export default function DataScientistHub() {
           </div>
         </section>
       </div>
-    </Shell>
+      </>
   )
 }

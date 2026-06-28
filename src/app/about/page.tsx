@@ -2,7 +2,6 @@ import Link from "next/link"
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { getLastUpdated } from "@/lib/seo/freshness"
-import { Shell } from "@/components/shell"
 
 export const metadata: Metadata = {
     title: "About — Free Online Finance & Business Calculators",
@@ -56,7 +55,7 @@ const jsonLd = {
 export default function AboutPage() {
   const lastUpdated = getLastUpdated()
   return (
-    <Shell>
+      <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -189,6 +188,6 @@ export default function AboutPage() {
           </p>
         </section>
       </div>
-    </Shell>
+      </>
   )
 }

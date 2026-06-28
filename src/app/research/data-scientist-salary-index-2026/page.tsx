@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildArticleJsonLd } from "@/lib/seo/json-ld"
-import { Shell } from "@/components/shell"
 import { FAQSection } from "@/components/faq-section"
 import { SourcesSection } from "@/components/sources-section"
 import { RelatedPagesSection } from "@/components/related-pages-section"
@@ -45,7 +44,7 @@ export default function DataScientistIndexPage() {
   ]
 
   return (
-    <Shell>
+      <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
@@ -204,6 +203,6 @@ export default function DataScientistIndexPage() {
           ]}
         />
       </div>
-    </Shell>
+      </>
   )
 }

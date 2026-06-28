@@ -1,8 +1,6 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { buildArticleJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
-import { Shell } from "@/components/shell"
-
 const COUNTRY = { slug: "nz", name: "New Zealand", flag: "🇳🇿", currency: "NZ$" }
 const SALARY = { average: 58000, entryLevel: 38000, experienced: 88000 }
 
@@ -30,7 +28,7 @@ export default function business_analystSalaryNZ() {
   ])
 
   return (
-    <Shell>
+      <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
@@ -79,6 +77,6 @@ export default function business_analystSalaryNZ() {
           </div>
         </section>
       </div>
-    </Shell>
+      </>
   )
 }

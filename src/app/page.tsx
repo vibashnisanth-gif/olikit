@@ -3,7 +3,6 @@ import Link from "next/link"
 import { SITE_URL } from "@/lib/seo/constants"
 import { getDateModified } from "@/lib/seo/freshness"
 import { locales } from "@/lib/seo/locales"
-import { Shell } from "@/components/shell"
 import { FadeInSection } from "@/components/ui/fade-in-section"
 import { SalaryRankingChart } from "@/components/salary-ranking-chart"
 
@@ -250,7 +249,7 @@ const highestPayingProfessions = [
 export default function GlobalHomePage() {
 
   return (
-    <Shell>
+    <>
       <div className="space-y-12 lg:space-y-16">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }} />
@@ -927,7 +926,7 @@ export default function GlobalHomePage() {
       </section>
       </FadeInSection>
     </div>
-    <p className="text-xs text-zinc-400 mt-8">Some links on this page are affiliate links. We may earn a commission at no extra cost to you.</p>
-    </Shell>
+      <p className="text-xs text-zinc-400 mt-8">Some links on this page are affiliate links. We may earn a commission at no extra cost to you.</p>
+    </>
   )
 }

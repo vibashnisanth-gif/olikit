@@ -1,8 +1,6 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { buildArticleJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
-import { Shell } from "@/components/shell"
-
 const COUNTRY = { slug: "au", name: "Australia", flag: "🇦🇺", currency: "A$" }
 const SALARY = { average: 120000, entryLevel: 72000, experienced: 175000 }
 
@@ -30,7 +28,7 @@ export default function machine_learning_engineerSalaryAU() {
   ])
 
   return (
-    <Shell>
+      <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
@@ -79,6 +77,6 @@ export default function machine_learning_engineerSalaryAU() {
           </div>
         </section>
       </div>
-    </Shell>
+      </>
   )
 }

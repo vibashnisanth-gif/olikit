@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
-import { Shell } from "@/components/shell"
 import { FAQSection } from "@/components/faq-section"
 import { RelatedPagesSection } from "@/components/related-pages-section"
 import { buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
@@ -155,7 +154,7 @@ export default function HighestPayingCitiesPage() {
   ])
 
   return (
-    <Shell>
+      <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <div className="space-y-12">
@@ -381,6 +380,6 @@ export default function HighestPayingCitiesPage() {
           ]}
         />
       </div>
-    </Shell>
+      </>
   )
 }

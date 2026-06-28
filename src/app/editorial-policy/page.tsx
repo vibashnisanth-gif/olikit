@@ -1,7 +1,5 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
-import { Shell } from "@/components/shell"
-
 export const metadata: Metadata = {
   title: "Editorial Policy — Accuracy & Transparency",
   description: "Olikit's editorial policy covers our commitment to accuracy, transparency, and independence in financial data and calculations.",
@@ -23,7 +21,6 @@ export const metadata: Metadata = {
 
 export default function EditorialPolicyPage() {
   return (
-    <Shell>
       <div className="space-y-8 max-w-3xl">
       <section className="rounded-lg border border-zinc-200 bg-white px-5 py-8 shadow-sm sm:px-8 sm:py-10">
         <h1 className="text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Editorial Policy</h1>
@@ -67,6 +64,5 @@ export default function EditorialPolicyPage() {
         </p>
       </section>
     </div>
-    </Shell>
   )
 }

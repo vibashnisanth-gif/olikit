@@ -1,7 +1,6 @@
 import {Metadata} from "next";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import {Shell} from "@/components/shell";
 import {SITE_URL} from "@/lib/seo/constants";
 import {SkeletonCard} from "@/components/ui/skeleton";
 
@@ -37,7 +36,6 @@ export default function SalaryComparisonPage() {
   };
 
   return (
-    <Shell>
       <div className="mx-auto max-w-4xl px-4 py-8">
         <script
           type="application/ld+json"
@@ -45,7 +43,7 @@ export default function SalaryComparisonPage() {
         />
 
         <nav className="mb-6 text-sm text-gray-500">
-          <Link href="/us" className="hover:text-blue-600">
+          <Link href="/" className="hover:text-blue-600">
             Home
           </Link>
           <span className="mx-2">/</span>
@@ -164,6 +162,5 @@ export default function SalaryComparisonPage() {
           </div>
         </section>
       </div>
-    </Shell>
   );
 }

@@ -1,6 +1,5 @@
 import type {Metadata} from "next";
 import Link from "next/link";
-import {Shell} from "@/components/shell";
 import {WorldDashboard} from "./world-dashboard";
 import {SITE_URL} from "@/lib/seo/constants";
 
@@ -162,7 +161,7 @@ const jsonLd = [
 
 export default function WorldPage() {
   return (
-    <Shell>
+    <>
       <div className="-mx-4 sm:-mx-4">
         {/* Breadcrumb */}
         <nav className="px-5 sm:px-8 pt-4 pb-2" aria-label="Breadcrumb">
@@ -271,6 +270,6 @@ export default function WorldPage() {
           dangerouslySetInnerHTML={{__html: JSON.stringify(schema)}}
         />
       ))}
-    </Shell>
+    </>
   );
 }

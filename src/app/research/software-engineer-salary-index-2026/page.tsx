@@ -2,7 +2,6 @@ import type {Metadata} from "next";
 import {SITE_URL} from "@/lib/seo/constants";
 import {buildBreadcrumbJsonLd} from "@/lib/seo/json-ld";
 import type {SalaryIndexContent} from "@/lib/content/salary-index-types";
-import {Shell} from "@/components/shell";
 import {SalaryIndexRenderer} from "@/components/salary-index-renderer";
 
 const pagePath = "/research/software-engineer-salary-index-2026";
@@ -57,7 +56,7 @@ export default function SalaryIndexPage() {
   };
 
   return (
-    <Shell>
+      <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{__html: JSON.stringify(articleSchema)}}
@@ -71,7 +70,7 @@ export default function SalaryIndexPage() {
         dangerouslySetInnerHTML={{__html: JSON.stringify(faqSchema)}}
       />
       <SalaryIndexRenderer content={contentData} />
-    </Shell>
+      </>
   );
 }
 

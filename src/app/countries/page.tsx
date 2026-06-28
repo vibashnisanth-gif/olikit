@@ -3,7 +3,6 @@ import Link from "next/link"
 import { SITE_URL } from "@/lib/seo/constants"
 import { locales } from "@/lib/seo/locales"
 import { getSiteIntelligence } from "@/lib/site-intelligence"
-import { Shell } from "@/components/shell"
 import { NewsletterSignup } from "@/components/newsletter-signup"
 import { SourceFooter } from "@/components/source-footer"
 import { LastUpdated } from "@/components/last-updated"
@@ -40,7 +39,7 @@ export default function CountriesPage() {
   }
 
   return (
-    <Shell>
+      <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="space-y-10">
         <nav className="text-sm text-zinc-500">
@@ -115,6 +114,6 @@ export default function CountriesPage() {
         <LastUpdated />
         <SourceFooter localeSlug="us" />
       </div>
-    </Shell>
+      </>
   )
 }
