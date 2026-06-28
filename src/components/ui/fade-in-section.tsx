@@ -11,8 +11,10 @@ type Props = {
 export function FadeInSection({ children, className = "", as: Tag = "section" }: Props) {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
+  const [hasJs, setHasJs] = useState(false)
 
   useEffect(() => {
+    setHasJs(true)
     const el = ref.current
     if (!el) return
 
@@ -34,7 +36,7 @@ export function FadeInSection({ children, className = "", as: Tag = "section" }:
     <Tag
       ref={ref as never}
       className={`transition-all duration-350 ease-out will-change-transform ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+        hasJs ? (visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2") : "opacity-100 translate-y-0"
       } ${className}`}
     >
       {children}

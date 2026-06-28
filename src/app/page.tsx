@@ -299,7 +299,7 @@ export default function GlobalHomePage() {
           </div>
 
           {/* RIGHT COLUMN — HERO IMAGE */}
-          <div className="hidden lg:block">
+          <div className="hidden sm:block">
             <div className="relative overflow-hidden rounded-3xl shadow-lg">
               <img
                 src="/images/hero/hero-global-career-intelligence.jpg"

@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { SiteScripts } from "@/components/site-scripts"
+import { Shell } from "@/components/shell"
 import { CurrencyProvider } from "@/lib/currency/currency-context"
 import { SITE_URL } from "@/lib/seo/constants"
 import "./globals.css"
@@ -30,6 +31,12 @@ export const metadata: Metadata = {
     apple: "/icon.svg",
   },
   manifest: "/manifest.json",
+  other: {
+    "theme-color": "#18181b",
+    ...(process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID
+      ? { "google-adsense-account": process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID }
+      : {}),
+  },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
@@ -50,11 +57,6 @@ export const metadata: Metadata = {
       "Global salary intelligence, research, and data-driven compensation comparisons across 7 countries.",
     images: [`${SITE_URL}/api/og?title=Global+Salary+Intelligence&type=website&year=2026`],
   },
-  other: process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID
-    ? {
-        "google-adsense-account": process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID,
-      }
-    : undefined,
 }
 
 export default function RootLayout({
@@ -67,12 +69,21 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="preconnect" href="https://flagcdn.com" />
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="anonymous" />
+        <noscript>
+          <style>{`.fade-section { opacity: 1 !important; transform: none !important; }`}</style>
+        </noscript>
+      </head>
       <body className="min-h-full flex flex-col">
         <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:rounded-md focus:bg-zinc-950 focus:px-4 focus:py-2 focus:text-sm focus:text-white focus:outline-none">
           Skip to main content
         </a>
         <CurrencyProvider>
+        <Shell>
         {children}
+        </Shell>
         {process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID && (
           <script
             async

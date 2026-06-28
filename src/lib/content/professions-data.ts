@@ -27,7 +27,7 @@ export const professions: ProfessionData[] = [
     shortName: "Software Engineer",
     description:
       "Software engineers design, develop, and maintain software systems and applications.",
-    metaTitleTemplate: "Software Engineer Salary in {country} (2025) | Average Pay",
+    metaTitleTemplate: "Software Engineer Salary in {country} (2025-2026) | Average Pay",
     metaDescriptionTemplate:
       "What is the average software engineer salary in {country}? Get the latest salary data, tax information, and compare pay across experience levels for software engineers in {country}.",
     keywords: [
@@ -53,7 +53,7 @@ export const professions: ProfessionData[] = [
     shortName: "Data Scientist",
     description:
       "Data scientists analyze complex data sets to help organizations make better decisions.",
-    metaTitleTemplate: "Data Scientist Salary in {country} (2025) | Average Pay",
+    metaTitleTemplate: "Data Scientist Salary in {country} (2025-2026) | Average Pay",
     metaDescriptionTemplate:
       "What is the average data scientist salary in {country}? Get up-to-date salary data, tax information, and career outlook for data scientists in {country}.",
     keywords: [
@@ -79,7 +79,7 @@ export const professions: ProfessionData[] = [
     shortName: "Doctor",
     description:
       "Doctors diagnose and treat medical conditions, performing examinations and prescribing treatments.",
-    metaTitleTemplate: "Doctor Salary in {country} (2025) | Average Physician Pay",
+    metaTitleTemplate: "Doctor Salary in {country} (2025-2026) | Average Physician Pay",
     metaDescriptionTemplate:
       "What is the average doctor salary in {country}? Compare physician pay across specialties and experience levels, including tax information for doctors in {country}.",
     keywords: [
@@ -105,7 +105,7 @@ export const professions: ProfessionData[] = [
     shortName: "Registered Nurse",
     description:
       "Registered nurses provide patient care, administer medications, and coordinate treatment plans.",
-    metaTitleTemplate: "Registered Nurse Salary in {country} (2025) | Average RN Pay",
+    metaTitleTemplate: "Registered Nurse Salary in {country} (2025-2026) | Average RN Pay",
     metaDescriptionTemplate:
       "What is the average registered nurse salary in {country}? Get the latest RN salary data, including hourly rates, shift differentials, and tax information for nurses in {country}.",
     keywords: [
@@ -131,7 +131,7 @@ export const professions: ProfessionData[] = [
     shortName: "Teacher",
     description:
       "Teachers educate students in primary and secondary schools, developing lesson plans and assessing progress.",
-    metaTitleTemplate: "Teacher Salary in {country} (2025) | Average Teacher Pay",
+    metaTitleTemplate: "Teacher Salary in {country} (2025-2026) | Average Teacher Pay",
     metaDescriptionTemplate:
       "What is the average teacher salary in {country}? Compare primary and secondary teacher pay, including salary schedules and tax information for teachers in {country}.",
     keywords: [
@@ -157,7 +157,7 @@ export const professions: ProfessionData[] = [
     shortName: "Accountant",
     description:
       "Accountants prepare financial records, ensure tax compliance, and provide financial advice.",
-    metaTitleTemplate: "Accountant Salary in {country} (2025) | Average Accountant Pay",
+    metaTitleTemplate: "Accountant Salary in {country} (2025-2026) | Average Accountant Pay",
     metaDescriptionTemplate:
       "What is the average accountant salary in {country}? Get CPA and chartered accountant salary data, including tax information and career outlook for accountants in {country}.",
     keywords: [
@@ -183,7 +183,7 @@ export const professions: ProfessionData[] = [
     shortName: "Marketing Manager",
     description:
       "Marketing managers develop and execute marketing strategies to promote products and services.",
-    metaTitleTemplate: "Marketing Manager Salary in {country} (2025) | Average Pay",
+    metaTitleTemplate: "Marketing Manager Salary in {country} (2025-2026) | Average Pay",
     metaDescriptionTemplate:
       "What is the average marketing manager salary in {country}? Compare marketing leadership pay across industries, experience levels, and locations in {country}.",
     keywords: [
@@ -209,7 +209,7 @@ export const professions: ProfessionData[] = [
     shortName: "Mechanical Engineer",
     description:
       "Mechanical engineers design, develop, and test mechanical devices and systems.",
-    metaTitleTemplate: "Mechanical Engineer Salary in {country} (2025) | Average Pay",
+    metaTitleTemplate: "Mechanical Engineer Salary in {country} (2025-2026) | Average Pay",
     metaDescriptionTemplate:
       "What is the average mechanical engineer salary in {country}? Compare engineering pay across experience levels and industries in {country}.",
     keywords: [
@@ -235,7 +235,7 @@ export const professions: ProfessionData[] = [
     shortName: "Electrician",
     description:
       "Electricians install, maintain, and repair electrical systems in homes and businesses.",
-    metaTitleTemplate: "Electrician Salary in {country} (2025) | Average Electrician Pay",
+    metaTitleTemplate: "Electrician Salary in {country} (2025-2026) | Average Electrician Pay",
     metaDescriptionTemplate:
       "What is the average electrician salary in {country}? Get hourly rates, apprentice pay, and experienced electrician wages with tax information for {country}.",
     keywords: [
@@ -261,7 +261,7 @@ export const professions: ProfessionData[] = [
     shortName: "Construction Worker",
     description:
       "Construction workers perform physical labor on construction sites, including building and renovation projects.",
-    metaTitleTemplate: "Construction Worker Salary in {country} (2025) | Average Pay",
+    metaTitleTemplate: "Construction Worker Salary in {country} (2025-2026) | Average Pay",
     metaDescriptionTemplate:
       "What is the average construction worker salary in {country}? Get hourly wages, overtime rates, and tax information for construction workers in {country}.",
     keywords: [

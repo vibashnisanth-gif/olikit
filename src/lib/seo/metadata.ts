@@ -119,8 +119,8 @@ export function buildSeoMetadata(
       description,
       canonical: `${baseUrl}${path}`,
       openGraph: {
-        title: `${tool.name} ${subRegion.name} ${locale.name}`,
-        description: `Free ${tool.name.toLowerCase()} for ${subRegion.name}, ${locale.name}`,
+        title,
+        description,
         url: `${baseUrl}${path}`,
         siteName: "Olikit",
         locale: locale.code,
@@ -155,8 +155,8 @@ export function buildSeoMetadata(
       description,
       canonical: `${baseUrl}${path}`,
       openGraph: {
-        title: `${tool.name} - ${locale.name}`,
-        description: `Free ${tool.name.toLowerCase()} for ${locale.name}`,
+        title,
+        description,
         url: `${baseUrl}${path}`,
         siteName: "Olikit",
         locale: locale.code,

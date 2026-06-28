@@ -12,23 +12,31 @@ const SIZE_MAP: Record<string, string> = {
   "3xl": "w-16 h-12",
 }
 
+const COUNTRY_NAMES: Record<string, string> = {
+  us: "United States", uk: "United Kingdom", au: "Australia", ca: "Canada",
+  nz: "New Zealand", in: "India", sg: "Singapore",
+}
+
 export function FlagImage({
   code,
   size = "md",
   className = "",
+  alt,
 }: {
   code: string
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl"
   className?: string
+  alt?: string
 }) {
   const slug = code.toLowerCase().split("-").pop() || code.toLowerCase()
   const cc = SLUG_TO_ISO[slug] || slug
   const sizeClass = SIZE_MAP[size] || SIZE_MAP.md
+  const countryName = alt || COUNTRY_NAMES[slug] || slug
 
   return (
     <img
       src={`https://flagcdn.com/32x24/${cc}.webp`}
-      alt=""
+      alt={`${countryName} flag`}
       width={32}
       height={24}
       className={`inline-block rounded-[2px] object-cover ${sizeClass} ${className}`}

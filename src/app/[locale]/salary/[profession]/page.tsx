@@ -34,8 +34,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const profession = getProfession(professionSlug)
   if (!locale || !profession) return {}
 
-  const title = profession.metaTitleTemplate.replace("{country}", locale.name)
-  const description = profession.metaDescriptionTemplate.replace("{country}", locale.name)
+  const title = profession.metaTitleTemplate.replaceAll("{country}", locale.name)
+  const description = profession.metaDescriptionTemplate.replaceAll("{country}", locale.name)
 
   return {
     title,
@@ -48,6 +48,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: "Olikit",
       locale: locale.code,
       type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   }
 }

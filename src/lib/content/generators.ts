@@ -86,10 +86,6 @@ function generateSections(
   const sectionMap: Record<string, {heading: string; body: string}[]> = {
     "salary-calculator": [
       {
-        heading: `How to Use the ${tool.name}`,
-        body: `Enter your gross annual salary in ${currencySymbol} to calculate your take-home pay after ${locale.taxTerms.incomeTaxYear} income tax and deductions in ${locationName}. Adjust for superannuation, social security, and other deductions specific to ${locationName}.`,
-      },
-      {
         heading: `${locationName} Tax Brackets`,
         body: `${locationName} uses a progressive tax system. Our calculator applies the correct tax brackets for ${locale.taxTerms.incomeTaxYear}, including marginal tax rates, tax-free thresholds, and applicable deductions.`,
       },

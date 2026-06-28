@@ -32,8 +32,8 @@ export function Header({currentSlug}: Props) {
   const navLinks = [
     {label: "Home", href: isGlobal ? "/" : `/${currentSlug}`},
     {label: "Professions", href: "/professions"},
-    {label: "Calculators", href: "/compare"},
-    {label: "Comparisons", href: "/compare"},
+    {label: "Calculators", href: `/${currentSlug || "us"}/tools`},
+    {label: "Comparisons", href: "/comparisons"},
     {label: "Rankings", href: "/rankings"},
     {label: "Research", href: "/research"},
     {label: "World", href: "/world"},
