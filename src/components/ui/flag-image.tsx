@@ -1,3 +1,7 @@
+const SLUG_TO_ISO: Record<string, string> = {
+  us: "us", uk: "gb", au: "au", ca: "ca", nz: "nz", in: "in", sg: "sg",
+}
+
 const SIZE_MAP: Record<string, string> = {
   xs: "w-4 h-3",
   sm: "w-5 h-[15px]",
@@ -17,7 +21,8 @@ export function FlagImage({
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl"
   className?: string
 }) {
-  const cc = code.toLowerCase().split("-").pop() || code.toLowerCase()
+  const slug = code.toLowerCase().split("-").pop() || code.toLowerCase()
+  const cc = SLUG_TO_ISO[slug] || slug
   const sizeClass = SIZE_MAP[size] || SIZE_MAP.md
 
   return (
