@@ -127,6 +127,81 @@ export const tools: Tool[] = [
     ],
     relatedTools: ["salary-calculator", "tax-calculator", "mortgage-calculator"],
   },
+  {
+    id: "loan-calculator",
+    slug: "loan-calculator",
+    name: "Loan Calculator",
+    shortName: "Loan",
+    category: "loan",
+    description:
+      "Calculate monthly loan payments, total interest, and amortization schedule for any loan type.",
+    metaTitleTemplate: "{tool} {country} - Free Loan Payment Calculator",
+    metaDescriptionTemplate:
+      "Calculate your monthly loan payments in {country}. Free loan calculator with amortization schedule, interest rates, and total cost breakdown.",
+    keywords: [
+      "loan calculator",
+      "loan payment calculator",
+      "loan amortization",
+      "monthly loan payment",
+    ],
+    relatedTools: ["mortgage-calculator", "business-loan-calculator", "tax-calculator"],
+  },
+  {
+    id: "auto-loan-calculator",
+    slug: "auto-loan-calculator",
+    name: "Auto Loan Calculator",
+    shortName: "Auto Loan",
+    category: "loan",
+    description: "Calculate monthly car payments, total interest, and compare auto loan scenarios.",
+    metaTitleTemplate: "Auto Loan Calculator {country} - Free Car Payment Calculator",
+    metaDescriptionTemplate:
+      "Calculate your monthly car payments in {country}. Free auto loan calculator with amortization schedule, trade-in value, and down payment comparison.",
+    keywords: [
+      "auto loan calculator",
+      "car payment calculator",
+      "auto financing",
+      "car loan payment",
+    ],
+    relatedTools: ["loan-calculator", "mortgage-calculator", "salary-calculator"],
+  },
+  {
+    id: "401k-calculator",
+    slug: "401k-calculator",
+    name: "401(k) Calculator",
+    shortName: "401(k)",
+    category: "retirement",
+    description:
+      "Calculate your 401(k) retirement savings growth with employer match and compound interest.",
+    metaTitleTemplate: "401(k) Calculator {country} - Free Retirement Savings Estimator",
+    metaDescriptionTemplate:
+      "Calculate your 401(k) retirement savings in {country}. Free 401(k) calculator with employer match, compound growth, and withdrawal projections.",
+    keywords: [
+      "401k calculator",
+      "401k match calculator",
+      "retirement savings calculator",
+      "401k growth",
+    ],
+    relatedTools: ["retirement-calculator", "investment-calculator", "salary-calculator"],
+  },
+  {
+    id: "house-affordability-calculator",
+    slug: "house-affordability-calculator",
+    name: "House Affordability Calculator",
+    shortName: "House Affordability",
+    category: "mortgage",
+    description:
+      "Calculate how much house you can afford based on your income, debts, and down payment.",
+    metaTitleTemplate: "How Much House Can I Afford in {country}? - Free Calculator",
+    metaDescriptionTemplate:
+      "Find out how much house you can afford in {country}. Free calculator based on income, debts, credit score, and down payment with monthly payment breakdown.",
+    keywords: [
+      "how much house can i afford",
+      "house affordability calculator",
+      "home buying calculator",
+      "mortgage affordability",
+    ],
+    relatedTools: ["mortgage-calculator", "salary-calculator", "tax-calculator"],
+  },
 ];
 
 export const tierAToolSlugs = [
@@ -136,6 +211,10 @@ export const tierAToolSlugs = [
   "retirement-calculator",
   "business-loan-calculator",
   "cost-of-living-calculator",
+  "loan-calculator",
+  "auto-loan-calculator",
+  "401k-calculator",
+  "house-affordability-calculator",
 ];
 
 export const stateSeoToolSlugs = ["salary-calculator", "mortgage-calculator", "tax-calculator"];

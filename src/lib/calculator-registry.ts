@@ -564,6 +564,281 @@ const calculatorConfigs: Record<string, SupportedCalculatorConfig> = {
       ];
     },
   }),
+  "loan-calculator": defineCalculatorConfig<LoanAmortizationInput, LoanAmortizationOutput>({
+    calculator: new LoanAmortizationCalculator(),
+    fields: [
+      {name: "loanAmount", label: "Loan Amount", type: "currency", defaultValue: 25000, min: 0},
+      {
+        name: "annualRate",
+        label: "Annual Interest Rate",
+        type: "percentage",
+        defaultValue: 6.5,
+        min: 0,
+        max: 30,
+        step: 0.1,
+      },
+      {
+        name: "termYears",
+        label: "Loan Term (Years)",
+        type: "number",
+        defaultValue: 5,
+        min: 1,
+        max: 30,
+        step: 1,
+      },
+      {
+        name: "paymentsPerYear",
+        label: "Payments per Year",
+        type: "select",
+        defaultValue: 12,
+        options: [
+          {label: "Monthly (12)", value: 12},
+          {label: "Bi-weekly (26)", value: 26},
+          {label: "Weekly (52)", value: 52},
+        ],
+      },
+    ],
+    formatResult(output: LoanAmortizationOutput, locale: CalculatorLocale): ResultGroup[] {
+      return [
+        {
+          title: "Loan Payment Summary",
+          items: [
+            {
+              label: "Monthly Payment",
+              value: fmtCurrency(output.monthlyPayment, locale),
+              highlight: true,
+            },
+            {label: "Total Payment", value: fmtCurrency(output.totalPayment, locale)},
+            {label: "Total Interest", value: fmtCurrency(output.totalInterest, locale)},
+            {label: "Payoff Date", value: output.payoffDate},
+          ],
+        },
+      ];
+    },
+  }),
+  "auto-loan-calculator": defineCalculatorConfig<LoanAmortizationInput, LoanAmortizationOutput>({
+    calculator: new LoanAmortizationCalculator(),
+    fields: [
+      {name: "loanAmount", label: "Vehicle Price", type: "currency", defaultValue: 35000, min: 0},
+      {
+        name: "annualRate",
+        label: "Annual Interest Rate (APR)",
+        type: "percentage",
+        defaultValue: 6.9,
+        min: 0,
+        max: 30,
+        step: 0.1,
+      },
+      {
+        name: "termYears",
+        label: "Loan Term (Years)",
+        type: "number",
+        defaultValue: 5,
+        min: 1,
+        max: 7,
+        step: 1,
+      },
+      {
+        name: "paymentsPerYear",
+        label: "Payments per Year",
+        type: "select",
+        defaultValue: 12,
+        options: [
+          {label: "Monthly (12)", value: 12},
+          {label: "Bi-weekly (26)", value: 26},
+        ],
+      },
+    ],
+    formatResult(output: LoanAmortizationOutput, locale: CalculatorLocale): ResultGroup[] {
+      return [
+        {
+          title: "Auto Loan Payment Summary",
+          items: [
+            {
+              label: "Monthly Payment",
+              value: fmtCurrency(output.monthlyPayment, locale),
+              highlight: true,
+            },
+            {label: "Total Payment", value: fmtCurrency(output.totalPayment, locale)},
+            {label: "Total Interest", value: fmtCurrency(output.totalInterest, locale)},
+            {label: "Payoff Date", value: output.payoffDate},
+          ],
+        },
+      ];
+    },
+  }),
+  "401k-calculator": defineCalculatorConfig<RetirementSavingsInput, RetirementSavingsOutput>({
+    calculator: new RetirementSavingsCalculator(),
+    fields: [
+      {
+        name: "currentAge",
+        label: "Current Age",
+        type: "number",
+        defaultValue: 30,
+        min: 18,
+        max: 80,
+        step: 1,
+      },
+      {
+        name: "retirementAge",
+        label: "Retirement Age",
+        type: "number",
+        defaultValue: 65,
+        min: 30,
+        max: 90,
+        step: 1,
+      },
+      {
+        name: "lifeExpectancy",
+        label: "Life Expectancy",
+        type: "number",
+        defaultValue: 90,
+        min: 50,
+        max: 120,
+        step: 1,
+      },
+      {
+        name: "currentSavings",
+        label: "Current 401(k) Balance",
+        type: "currency",
+        defaultValue: 50000,
+        min: 0,
+      },
+      {
+        name: "monthlyContribution",
+        label: "Your Monthly Contribution",
+        type: "currency",
+        defaultValue: 500,
+        min: 0,
+      },
+      {
+        name: "expectedReturnRate",
+        label: "Expected Annual Return",
+        type: "percentage",
+        defaultValue: 7,
+        min: 0,
+        max: 30,
+        step: 0.1,
+      },
+      {
+        name: "currentAnnualIncome",
+        label: "Annual Salary",
+        type: "currency",
+        defaultValue: 80000,
+        min: 0,
+      },
+      {
+        name: "desiredReplacementRate",
+        label: "Employer Match (%)",
+        type: "percentage",
+        defaultValue: 4,
+        min: 0,
+        max: 100,
+        step: 1,
+      },
+      {
+        name: "inflationRate",
+        label: "Inflation Rate",
+        type: "percentage",
+        defaultValue: 3,
+        min: 0,
+        max: 20,
+        step: 0.1,
+      },
+    ],
+    formatResult(output: RetirementSavingsOutput, locale: CalculatorLocale): ResultGroup[] {
+      return [
+        {
+          title: "401(k) Projection",
+          items: [
+            {
+              label: "Balance at Retirement",
+              value: fmtCurrency(output.savingsAtRetirement, locale),
+              highlight: true,
+            },
+            {
+              label: "Monthly Retirement Income",
+              value: fmtCurrency(output.monthlyRetirementIncome, locale),
+            },
+            {label: "Target Savings Needed", value: fmtCurrency(output.targetSavings, locale)},
+            {label: "Savings Gap", value: fmtCurrency(output.savingsGap, locale)},
+            {
+              label: "Status",
+              value: output.isOnTrack ? "On Track" : "Behind Target",
+              highlight: output.isOnTrack,
+            },
+            {label: "Withdrawal Rate", value: fmtPct(output.withdrawalRate)},
+          ],
+        },
+      ];
+    },
+  }),
+  "house-affordability-calculator": defineCalculatorConfig<MortgageInput, MortgageOutput>({
+    calculator: new MortgageCalculator(),
+    fields: [
+      {
+        name: "homePrice",
+        label: "Annual Gross Income",
+        type: "currency",
+        defaultValue: 100000,
+        min: 0,
+      },
+      {name: "downPayment", label: "Down Payment", type: "currency", defaultValue: 50000, min: 0},
+      {
+        name: "annualRate",
+        label: "Mortgage Interest Rate",
+        type: "percentage",
+        defaultValue: 6.5,
+        min: 0,
+        max: 20,
+        step: 0.1,
+      },
+      {
+        name: "termYears",
+        label: "Loan Term (Years)",
+        type: "number",
+        defaultValue: 30,
+        min: 10,
+        max: 30,
+        step: 5,
+      },
+      {
+        name: "annualPropertyTax",
+        label: "Annual Property Tax Estimate",
+        type: "currency",
+        defaultValue: 3000,
+        min: 0,
+      },
+      {
+        name: "annualInsurance",
+        label: "Annual Home Insurance",
+        type: "currency",
+        defaultValue: 1500,
+        min: 0,
+      },
+      {name: "monthlyHOA", label: "Monthly HOA Fees", type: "currency", defaultValue: 0, min: 0},
+    ],
+    formatResult(output: MortgageOutput, locale: CalculatorLocale): ResultGroup[] {
+      return [
+        {
+          title: "Affordability Estimate",
+          items: [
+            {
+              label: "Max Loan Amount",
+              value: fmtCurrency(output.loanAmount, locale),
+              highlight: true,
+            },
+            {
+              label: "Monthly Payment",
+              value: fmtCurrency(output.totalMonthlyPayment, locale),
+            },
+            {label: "Total Interest", value: fmtCurrency(output.totalInterest, locale)},
+            {label: "Total Payment", value: fmtCurrency(output.totalPayment, locale)},
+          ],
+        },
+      ];
+    },
+  }),
   "cost-of-living-calculator": defineCalculatorConfig<CostOfLivingInput, CostOfLivingOutput>({
     calculator: new CostOfLivingCalculator(),
     fields: [

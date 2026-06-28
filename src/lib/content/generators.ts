@@ -238,6 +238,114 @@ function generateSections(
         body: `Life expectancy data comes from World Health Organization and national statistics agencies. State pension amounts and eligibility ages are sourced from official government pension authority publications. Historical investment return assumptions are based on long-term market averages from major indices. Inflation assumptions use central bank target rates and historical averages. Our methodology follows standard retirement planning principles used by financial planners, including Monte Carlo-style sensitivity analysis through adjustable return assumptions.`,
       },
     ],
+    "loan-calculator": [
+      {
+        heading: `Loan Payments in ${locationName}`,
+        body: `Calculate monthly loan payments for any loan type in ${locationName}. Enter the loan amount, interest rate, and term to see your monthly payment, total interest, and amortization schedule.`,
+      },
+      {
+        heading: `How Loan Payments Are Calculated`,
+        body: `The loan calculator uses the standard amortization formula to compute equal monthly payments over the loan term. Each payment covers both principal and interest. Early payments are weighted toward interest, while later payments primarily reduce the principal. The calculator generates a complete amortization schedule showing the remaining balance and cumulative interest paid.`,
+      },
+      {
+        heading: `Loan Payment Formula`,
+        body: `Monthly Payment = P × [r(1+r)^n] / [(1+r)^n - 1], where P = loan principal, r = monthly interest rate (annual rate ÷ 12), and n = total number of payments (term in years × 12). Total Interest = (Monthly Payment × n) - P. The relationship between rate, term, and payment is non-linear — small rate changes have large effects on total cost.`,
+      },
+      {
+        heading: `Worked Example: Loan Calculation`,
+        body: `A ${locationName} borrower takes a ${currencySymbol}25,000 personal loan at 6.5% annual interest for 5 years. Monthly payment = ${currencySymbol}489. Total payments over 5 years = ${currencySymbol}29,340. Total interest = ${currencySymbol}4,340. With a 3-year term at the same rate, monthly payments rise to ${currencySymbol}769 but total interest drops to ${currencySymbol}2,684, saving ${currencySymbol}1,656 in financing costs.`,
+      },
+      {
+        heading: `Types of Loans Available in ${locationName}`,
+        body: `${locationName} offers various loan types including personal loans, auto loans, student loans, home equity loans, and business loans. Each type has different interest rates, terms, and eligibility requirements. Secured loans (backed by collateral) typically offer lower rates than unsecured loans. Our calculator works for all loan types — simply enter your specific loan details.`,
+      },
+      {
+        heading: `Factors That Affect Your Loan Rate in ${locationName}`,
+        body: `Your interest rate depends on credit score, debt-to-income ratio, loan amount, loan term, and whether the loan is secured or unsecured. A higher credit score typically qualifies you for lower rates. Shorter loan terms usually have lower interest rates but higher monthly payments. Shopping around for the best rate can save thousands over the life of the loan.`,
+      },
+      {
+        heading: `Loan Methodology and Data Sources`,
+        body: `Interest rate data is sourced from central bank publications and commercial lender rate sheets. Our amortization calculations follow standard financial mathematics consistent with lending industry practices. All rates are reviewed quarterly and updated when central banks adjust monetary policy.`,
+      },
+    ],
+    "auto-loan-calculator": [
+      {
+        heading: `Auto Loan Payments in ${locationName}`,
+        body: `Calculate monthly car payments in ${locationName}. Enter the vehicle price, down payment, interest rate, and loan term to see your monthly payment and total cost of ownership.`,
+      },
+      {
+        heading: `How Auto Loan Payments Are Calculated`,
+        body: `The auto loan calculator uses the standard amortization formula. Your loan amount (vehicle price minus down payment) is divided into equal monthly payments over the loan term. Each payment includes both principal and interest. The calculator also shows total interest paid and the true cost of the vehicle over the loan term.`,
+      },
+      {
+        heading: `Auto Loan Payment Formula`,
+        body: `Monthly Payment = P × [r(1+r)^n] / [(1+r)^n - 1], where P = loan principal (vehicle price - down payment), r = monthly interest rate, n = total monthly payments. Total Interest = (Monthly Payment × n) - P. A larger down payment reduces both monthly payments and total interest.`,
+      },
+      {
+        heading: `Worked Example: Auto Loan`,
+        body: `A ${locationName} buyer purchases a ${currencySymbol}35,000 vehicle with a ${currencySymbol}5,000 down payment. Loan principal = ${currencySymbol}30,000 at 6.9% APR for 5 years. Monthly payment = ${currencySymbol}596. Total payments = ${currencySymbol}35,760. Total interest = ${currencySymbol}5,760. With a ${currencySymbol}10,000 down payment, monthly drops to ${currencySymbol}497 and total interest to ${currencySymbol}4,820, saving ${currencySymbol}940.`,
+      },
+      {
+        heading: `Tips for Lower Auto Loan Rates in ${locationName}`,
+        body: `Improve your credit score before applying, make a larger down payment (20% recommended), choose a shorter loan term, get pre-approved from your bank or credit union, and compare offers from multiple lenders. Avoid dealer financing markups — dealers often add 1-3% to the rate. Consider certified pre-owned vehicles for lower rates and slower depreciation.`,
+      },
+      {
+        heading: `Auto Loan Methodology and Data Sources`,
+        body: `Interest rate data is sourced from central bank publications and major auto lender rate sheets. Our calculations follow standard amortization mathematics. Rates are reviewed quarterly and reflect current market conditions for prime and subprime auto lending.`,
+      },
+    ],
+    "401k-calculator": [
+      {
+        heading: `401(k) Retirement Savings in ${locationName}`,
+        body: `Calculate how much your 401(k) will grow by retirement. Factor in your current balance, monthly contributions, employer match, expected returns, and inflation to see your projected retirement savings.`,
+      },
+      {
+        heading: `How 401(k) Growth Is Calculated`,
+        body: `The 401(k) calculator projects your account balance using compound growth on your existing balance plus regular contributions. Employer matching contributions are added to your monthly contributions. The calculator shows year-by-year growth and estimates how long your savings will last in retirement based on withdrawal rates.`,
+      },
+      {
+        heading: `401(k) Calculation Formula`,
+        body: `Balance at Retirement = FV of Current Balance + FV of Monthly Contributions + FV of Employer Match, where FV uses the compound interest formula with monthly compounding. Annual Retirement Income = (Balance × Withdrawal Rate) + Social Security. The 4% rule suggests withdrawing 4% of initial retirement savings annually, adjusted for inflation.`,
+      },
+      {
+        heading: `Worked Example: 401(k) Growth`,
+        body: `A 30-year-old in ${locationName} has ${currencySymbol}50,000 in their 401(k) and contributes ${currencySymbol}500/month. With a 4% employer match (${currencySymbol}200/month), total monthly input = ${currencySymbol}700. At 7% annual return, retiring at 65: projected balance = approximately ${currencySymbol}1,050,000. This provides ${currencySymbol}42,000/year using the 4% rule, plus Social Security benefits.`,
+      },
+      {
+        heading: `Maximizing Your 401(k) in ${locationName}`,
+        body: `The 2025 401(k) contribution limit is ${currencySymbol}23,500 (${currencySymbol}31,000 if over 50). Always contribute enough to get the full employer match — it's free money. Increase contributions by 1% each year. Consider Roth 401(k) if you expect higher taxes in retirement. Avoid 401(k) loans unless absolutely necessary.`,
+      },
+      {
+        heading: `401(k) Methodology and Data Sources`,
+        body: `Contribution limits are sourced from IRS publications. Employer match data is based on typical U.S. employer plans. Historical return assumptions use long-term S&P 500 averages. Inflation assumptions use Federal Reserve target rates. Our methodology follows standard retirement planning principles.`,
+      },
+    ],
+    "house-affordability-calculator": [
+      {
+        heading: `How Much House Can You Afford in ${locationName}?`,
+        body: `Find out how much house you can afford based on your income, existing debts, down payment, and current mortgage rates. The calculator uses the 28/36 rule — the standard guideline lenders use to determine affordability.`,
+      },
+      {
+        heading: `The 28/36 Rule Explained`,
+        body: `Lenders generally follow two rules: (1) Your monthly housing payment should not exceed 28% of gross monthly income (front-end ratio). (2) Your total monthly debt payments should not exceed 36% of gross monthly income (back-end ratio). These rules help ensure you can comfortably afford your home without becoming house-poor.`,
+      },
+      {
+        heading: `House Affordability Formula`,
+        body: `Max Home Price = (Monthly Income × 0.28 - Property Tax - Insurance - HOA) × [(1+r)^n - 1] / [r(1+r)^n], where r = monthly mortgage rate and n = total payments. The maximum affordable home price depends on your income, the interest rate, property taxes, insurance, and your down payment amount.`,
+      },
+      {
+        heading: `Worked Example: House Affordability`,
+        body: `A ${locationName} household earns ${currencySymbol}100,000 annually (${currencySymbol}8,333/month). At 28% housing ratio: max monthly housing cost = ${currencySymbol}2,333. Minus ${currencySymbol}250 property tax and ${currencySymbol}125 insurance = ${currencySymbol}1,958 for principal and interest. At 6.5% over 30 years, this supports a mortgage of approximately ${currencySymbol}305,000. With a ${currencySymbol}50,000 down payment, max home price = ${currencySymbol}355,000.`,
+      },
+      {
+        heading: `Factors That Affect What You Can Afford`,
+        body: `Your credit score (higher = lower rate), existing debts (car loans, student loans, credit cards), down payment amount, current mortgage rates, property tax rates in your area, homeowner's insurance costs, HOA fees, and your employment stability all affect how much home you can afford. Getting pre-approved gives you an exact number based on your financial situation.`,
+      },
+      {
+        heading: `House Affordability Methodology`,
+        body: `We use the 28/36 DTI rule as the primary affordability metric, which is the standard used by most conventional lenders. Property tax and insurance estimates are based on national averages. Mortgage rates reflect current market conditions. For a personalized assessment, we recommend getting pre-approved with a local lender who can evaluate your complete financial profile.`,
+      },
+    ],
     "business-loan-calculator": [
       {
         heading: `Business Loan Costs in ${locationName}`,
@@ -575,6 +683,82 @@ function generateFaqs(
       {
         question: `When should I start claiming my state pension in ${locationName}?`,
         answer: `State pension claiming age varies by country and your birth year. Delaying your claim typically increases your monthly benefit. In many systems, claiming before full retirement age results in permanently reduced benefits, while delaying past full retirement age increases them. Our calculator models different claiming strategies to optimize your lifetime retirement income.`,
+      },
+    ],
+    "loan-calculator": [
+      {
+        question: `What is a good interest rate for a loan in ${locationName}?`,
+        answer: `Good loan rates in ${locationName} depend on the loan type and your credit score. Personal loans typically range from 6-12%, auto loans from 4-8%, and mortgages from 5-8%. A higher credit score qualifies you for lower rates.`,
+      },
+      {
+        question: `How much can I borrow with a personal loan in ${locationName}?`,
+        answer: `Personal loan amounts in ${locationName} typically range from ${currencySymbol}1,000 to ${currencySymbol}50,000 depending on your creditworthiness and income.`,
+      },
+      {
+        question: `Should I choose a shorter or longer loan term?`,
+        answer: `Shorter loan terms have higher monthly payments but lower total interest. Longer terms have lower payments but cost more in total. Use our calculator to compare different terms.`,
+      },
+      {
+        question: `What is the difference between APR and interest rate?`,
+        answer: `The interest rate is the cost of borrowing the principal. APR includes the interest rate plus additional fees, giving you the true total cost of the loan. Always compare APR when shopping for loans.`,
+      },
+    ],
+    "auto-loan-calculator": [
+      {
+        question: `What is the average auto loan rate in ${locationName}?`,
+        answer: `Auto loan rates in ${locationName} vary based on credit score, loan term, and whether the vehicle is new or used. New car rates typically range from 4-8% for good credit.`,
+      },
+      {
+        question: `How much should I put down on a car?`,
+        answer: `A 20% down payment is recommended to avoid being upside-down on your loan. A larger down payment reduces monthly payments and total interest.`,
+      },
+      {
+        question: `Should I finance through the dealer or my bank?`,
+        answer: `Get pre-approved from your bank or credit union first — they often offer lower rates than dealer financing. Dealers may match or beat the rate.`,
+      },
+      {
+        question: `How long should my auto loan term be?`,
+        answer: `36-60 months is ideal for most buyers. Longer terms lower monthly payments but increase total interest and risk of negative equity.`,
+      },
+    ],
+    "401k-calculator": [
+      {
+        question: `How much should I contribute to my 401(k) in ${locationName}?`,
+        answer: `Aim to contribute at least enough to get the full employer match — it's free money. A good target is 15% of gross income including employer match.`,
+      },
+      {
+        question: `What is the 401(k) employer match?`,
+        answer: `Many employers match a portion of your contributions, typically 50-100% of the first 3-6% you contribute. This is an instant return on your investment.`,
+      },
+      {
+        question: `What is the 401(k) contribution limit for 2025?`,
+        answer: `The 2025 401(k) contribution limit is ${currencySymbol}23,500 for employees under 50. If you're 50 or older, you can contribute an additional ${currencySymbol}7,500 catch-up contribution.`,
+      },
+      {
+        question: `Should I choose Roth or Traditional 401(k)?`,
+        answer: `Traditional contributions are pre-tax (reduce current taxes), while Roth contributions are after-tax (tax-free withdrawals in retirement). Choose Roth if you expect higher taxes in retirement.`,
+      },
+      {
+        question: `Can I withdraw from my 401(k) before retirement?`,
+        answer: `Early withdrawal before age 59½ typically incurs a 10% penalty plus income taxes. 401(k) loans let you borrow up to ${currencySymbol}50,000 and repay with interest to yourself.`,
+      },
+    ],
+    "house-affordability-calculator": [
+      {
+        question: `How much house can I afford on a ${currencySymbol}100,000 salary?`,
+        answer: `On a ${currencySymbol}100,000 salary, you can typically afford a home priced between ${currencySymbol}275,000 and ${currencySymbol}350,000 depending on your debts, credit score, and down payment.`,
+      },
+      {
+        question: `What is the 28/36 rule for house affordability?`,
+        answer: `The 28/36 rule states your monthly housing costs should not exceed 28% of gross monthly income, and total debt payments should not exceed 36%. This is the standard guideline most lenders use.`,
+      },
+      {
+        question: `How does my credit score affect house affordability?`,
+        answer: `A higher credit score qualifies you for lower mortgage rates, which increases the home you can afford. A difference of 1% in interest rate can mean ${currencySymbol}50,000+ more or less in purchasing power.`,
+      },
+      {
+        question: `What is the minimum down payment for a house?`,
+        answer: `Conventional loans require 3-20% down. FHA loans require as little as 3.5%. VA and USDA loans may require 0% down. Smaller down payments require Private Mortgage Insurance (PMI).`,
       },
     ],
     "business-loan-calculator": [
