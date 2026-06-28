@@ -1,0 +1,51 @@
+# Olikit — Global Salary Intelligence
+
+Olikit helps professionals compare salaries, taxes, compensation and living costs across 7 countries using government-sourced data and transparent methodologies.
+
+## Core Tools
+- /us/tools/salary-calculator — Calculate take-home pay after federal and state tax (US, UK, AU, CA, NZ, IN, SG)
+- /us/tools/tax-calculator — Income tax bracket calculator with marginal and effective rates
+- /us/tools/mortgage-calculator — Monthly mortgage payment and affordability estimator
+- /compare — Side-by-side country comparison for salary, cost of living, tax, and purchasing power
+
+## Salary Data
+- /us/salary/software-engineer — Software engineer salary by US state with tax-adjusted take-home
+- /us/salary/data-scientist — Data scientist salary by US state
+- /us/salary/product-manager — Product manager salary by US state
+- /us/salary — All 21 professions with salary, tax, and cost-of-living data
+- /professions — Browse all tracked professions by salary ranking
+
+## Country Pages
+- /us — United States: salary, tax, cost of living by state
+- /uk — United Kingdom: salary, tax, cost of living by region
+- /au — Australia: salary, tax, cost of living by state
+- /ca — Canada: salary, tax, cost of living by province
+- /nz — New Zealand: salary, tax, cost of living
+- /in — India: salary, tax, cost of living by city
+- /sg — Singapore: salary, tax, cost of living
+
+## Research & Rankings
+- /research/global-salary-index-2026 — Global salary comparison across 7 countries
+- /rankings/highest-paying-countries-software-engineers — Best countries for software engineer salary
+- /rankings/best-countries-for-data-scientists — Best countries for data scientist salary
+- /us/best-states-for-salary — US states ranked by salary and take-home pay
+- /us/best-states-for-cost-of-living — US states ranked by affordability
+
+## Comparisons
+- /comparisons/salary/us-vs-uk — US vs UK salary comparison
+- /comparisons/salary/us-vs-ca — US vs Canada salary comparison
+- /comparisons/cost-of-living/us-vs-uk — US vs UK cost of living
+
+## Guides
+- /us/guides/salary-after-tax-by-country — Complete guide to salary after tax
+- /us/guides/tax-brackets-by-country — Tax bracket guides for all countries
+- /us/guides/how-much-house-can-i-afford — Home affordability guide
+
+## World Monitor
+- /world — Live global dashboard: financial markets, world news, country risk rankings
+
+## Trust & Methodology
+- /methodology — How we calculate salaries, taxes, and cost of living
+- /data-sources — Government and institutional data sources
+- /editorial-policy — Editorial standards and fact-checking
+- /about — About Olikit and our mission
