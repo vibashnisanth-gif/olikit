@@ -38,6 +38,7 @@ function formatCurrency(amount: number, currency: string): string {
 
 export async function generateMetadata({params}: Props): Promise<Metadata> {
   const {locale, city, profession: professionSlug} = await params;
+  if (!professionSlug || !locale || !city) return {};
   const localeData = getLocale(locale);
   if (!localeData) return {};
 
@@ -73,6 +74,7 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
 
 export default async function CityProfessionSalaryPage({params}: Props) {
   const {locale, city, profession: professionSlug} = await params;
+  if (!professionSlug || !locale || !city) notFound();
   const localeData = getLocale(locale);
   if (!localeData) notFound();
 
