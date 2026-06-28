@@ -9,6 +9,7 @@ import {researchReports} from "@/lib/content/research";
 import {comparisonPairs} from "@/lib/content/comparison-engine";
 import {professions} from "@/lib/content/professions-data";
 import {professionComparisonPairs} from "@/lib/content/profession-comparisons";
+import {cities, getCitiesForCountry} from "@/lib/content/cities-data";
 import {SITE_URL} from "@/lib/seo/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -331,6 +332,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: "monthly",
         priority: 0.8,
       });
+    }
+
+    // City × Profession programmatic pages
+    const localeCities = getCitiesForCountry(locale.slug);
+    for (const city of localeCities) {
+      for (const profession of professions) {
+        entries.push({
+          url: `${SITE_URL}/${locale.slug}/city/${city.slug}/${profession.slug}-salary`,
+          lastModified: now,
+          changeFrequency: "monthly",
+          priority: 0.7,
+        });
+      }
     }
 
     entries.push({
