@@ -70,7 +70,7 @@ export function CountrySwitcher({ currentSlug, currentName, countries }: Props) 
                 }}
                 className={`flex w-full items-center gap-2.5 px-3 py-2 text-left text-sm transition-colors hover:bg-zinc-50 ${isActive ? "font-medium text-zinc-950 bg-zinc-50" : "text-zinc-700"}`}
               >
-                {opt.slug ? <FlagImage code={opt.slug} size="sm" /> : <span className="inline-block w-5 h-[15px]" />}
+                {opt.slug ? <FlagImage code={opt.slug} size="sm" /> : <span className="inline-flex items-center justify-center w-5 h-[15px] text-xs" role="img" aria-label="Global">🌍</span>}
                 {opt.name}
               </button>
             )
