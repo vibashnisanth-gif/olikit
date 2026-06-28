@@ -32,21 +32,25 @@ function parseRss(xml: string): RssItem[] {
 }
 
 export async function GET() {
-  const results = await Promise.allSettled(
-    FEEDS.map(async (feed) => {
-      const res = await fetch(feed.url, {
-        next: {revalidate: 600},
-        headers: {"User-Agent": "Olikit/1.0"},
-      });
-      const xml = await res.text();
-      return {source: feed.name, items: parseRss(xml)};
-    })
-  );
-  const feeds = results
-    .filter(
-      (r): r is PromiseFulfilledResult<{source: string; items: RssItem[]}> =>
-        r.status === "fulfilled"
-    )
-    .map((r) => r.value);
-  return NextResponse.json({feeds});
+  try {
+    const results = await Promise.allSettled(
+      FEEDS.map(async (feed) => {
+        const res = await fetch(feed.url, {
+          next: {revalidate: 600},
+          headers: {"User-Agent": "Olikit/1.0"},
+        });
+        const text = await res.text();
+        return {source: feed.name, items: parseRss(text)};
+      })
+    );
+    const feeds = results
+      .filter(
+        (r): r is PromiseFulfilledResult<{source: string; items: RssItem[]}> =>
+          r.status === "fulfilled"
+      )
+      .map((r) => r.value);
+    return NextResponse.json({feeds});
+  } catch {
+    return NextResponse.json({feeds: []});
+  }
 }
