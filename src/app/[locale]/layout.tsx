@@ -7,6 +7,7 @@ import { Header } from "@/components/header"
 import { Breadcrumbs } from "@/components/breadcrumbs"
 import { Footer } from "@/components/footer"
 import { CookieConsent } from "@/components/cookie-consent"
+import { LocaleTracker } from "@/components/locale-tracker"
 
 type Props = {
   children: React.ReactNode
@@ -36,6 +37,7 @@ export default async function LocaleLayout({
     <div className="flex flex-col min-h-full">
       <ContextBar slug={slug} name={name} currencyCode={locale.currency.code} taxAuthority={locale.taxAuthority} />
       <Header currentSlug={slug} />
+      <LocaleTracker slug={slug} />
       <main id="main-content" className="flex-1 mx-auto w-full max-w-6xl px-4 py-8 sm:py-10">
         <Breadcrumbs />
         {children}

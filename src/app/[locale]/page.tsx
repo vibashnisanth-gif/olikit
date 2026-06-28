@@ -13,7 +13,6 @@ import { getLatestUpdates } from "@/lib/content/updates"
 import { getLastUpdated } from "@/lib/seo/freshness"
 import { buildWebSiteJsonLd, buildOrganizationJsonLd } from "@/lib/seo/json-ld"
 import { getAllCountries } from "@/lib/content/country-registry"
-import { Shell } from "@/components/shell"
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -778,7 +777,6 @@ export default async function LocalePage({ params }: Props) {
   }
 
   return (
-    <Shell localeSlug={slug}>
       <div className="space-y-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
@@ -1087,6 +1085,5 @@ export default async function LocalePage({ params }: Props) {
         </div>
       </section>
     </div>
-    </Shell>
   )
 }
