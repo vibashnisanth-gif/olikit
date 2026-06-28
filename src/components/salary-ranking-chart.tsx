@@ -26,6 +26,8 @@ function formatCompact(usd: number): string {
 type Result = {
   slug: string
   name: string
+  grossLocal: number
+  takeHomeLocal: number
   takeHomeUSD: number
   effectiveTaxRate: number
 }
@@ -37,11 +39,16 @@ export function SalaryRankingChart() {
   const taxCalc = useMemo(() => new TaxCalculator(), [])
 
   const results: Result[] = useMemo(() => {
+    // Step 1: Convert input salary to USD as the baseline
+    const grossUSD = convertSalary(salary, currency, "USD")
+
     return countries
       .map((c) => {
         const localCurr = slugToCurrency(c.slug)
-        const grossLocal = convertSalary(salary, currency, localCurr)
+        // Step 2: Convert USD baseline to each country's local currency
+        const grossLocal = convertSalary(grossUSD, "USD", localCurr)
 
+        // Step 3: Compute tax in local currency
         const taxResult = taxCalc.calculate({
           annualIncome: grossLocal,
           deductions: 0,
@@ -50,11 +57,14 @@ export function SalaryRankingChart() {
         } as never)
 
         const takeHomeLocal = grossLocal - taxResult.totalTax
+        // Step 4: Convert take-home back to USD for comparison
         const takeHomeUSD = convertSalary(Math.round(takeHomeLocal), localCurr, "USD")
 
         return {
           slug: c.slug,
           name: c.name,
+          grossLocal: Math.round(grossLocal),
+          takeHomeLocal: Math.round(takeHomeLocal),
           takeHomeUSD,
           effectiveTaxRate: taxResult.effectiveTaxRate,
         }
@@ -117,6 +127,7 @@ export function SalaryRankingChart() {
       <div className="space-y-3">
         {results.map((r, i) => {
           const pct = maxTakeHome > 0 ? (r.takeHomeUSD / maxTakeHome) * 100 : 0
+          const localCurr = slugToCurrency(r.slug)
           return (
             <div key={r.slug}>
               <div className="mb-1 flex items-center justify-between text-sm">
@@ -140,9 +151,12 @@ export function SalaryRankingChart() {
                     backgroundColor: i === 0 ? "#10b981" : i === results.length - 1 ? "#ef4444" : "#6366f1",
                   }}
                 />
-                <div className="absolute inset-0 flex items-center pl-3">
+                <div className="absolute inset-0 flex items-center justify-between px-3">
                   <span className="text-xs font-semibold text-white drop-shadow">
                     {formatCompact(r.takeHomeUSD)} after tax
+                  </span>
+                  <span className="text-[11px] font-medium text-white/70 drop-shadow">
+                    {formatSalary(r.takeHomeLocal, localCurr)}
                   </span>
                 </div>
               </div>
