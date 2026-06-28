@@ -5,7 +5,7 @@ import {WorldDashboard} from "./world-dashboard";
 import {SITE_URL} from "@/lib/seo/constants";
 
 export const metadata: Metadata = {
-  title: "World Monitor — Live Global Markets, News & Country Risk | Olikit",
+  title: "World Monitor — Live Global Markets, News & Country Risk",
   description:
     "Track S&P 500, Dow Jones, NASDAQ, Gold, Bitcoin and 20 country risk rankings. Live news from Al Jazeera, BBC World, and Reuters.",
   keywords: [
