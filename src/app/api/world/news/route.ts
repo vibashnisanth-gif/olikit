@@ -13,9 +13,10 @@ interface RssItem {
   link?: string;
   pubDate?: string;
   source?: string;
+  image?: string;
 }
 
-function parseRss(xml: string): RssItem[] {
+function parseRss(xml: string, source: string): RssItem[] {
   const items: RssItem[] = [];
   const matches = xml.matchAll(/<item>([\s\S]*?)<\/item>/g);
   for (const m of matches) {
@@ -25,10 +26,22 @@ function parseRss(xml: string): RssItem[] {
       block.match(/<title>(.*?)<\/title>/)?.[1];
     const link = block.match(/<link>(.*?)<\/link>/)?.[1];
     const pubDate = block.match(/<pubDate>(.*?)<\/pubDate>/)?.[1];
+    const image =
+      block.match(/<media:content[^>]*url="([^"]+)"/)?.[1] ??
+      block.match(/<enclosure[^>]*url="([^"]+)"/)?.[1] ??
+      block.match(/<media:thumbnail[^>]*url="([^"]+)"/)?.[1] ??
+      block.match(/<image><url>(.*?)<\/url>/)?.[1] ??
+      undefined;
     if (title)
-      items.push({title: title.replace(/&amp;/g, "&").replace(/&#39;/g, "'"), link, pubDate});
+      items.push({
+        title: title.replace(/&amp;/g, "&").replace(/&#39;/g, "'"),
+        link,
+        pubDate,
+        source,
+        image,
+      });
   }
-  return items.slice(0, 8);
+  return items.slice(0, 10);
 }
 
 export async function GET() {
@@ -40,17 +53,19 @@ export async function GET() {
           headers: {"User-Agent": "Olikit/1.0"},
         });
         const text = await res.text();
-        return {source: feed.name, items: parseRss(text)};
+        return parseRss(text, feed.name);
       })
     );
-    const feeds = results
-      .filter(
-        (r): r is PromiseFulfilledResult<{source: string; items: RssItem[]}> =>
-          r.status === "fulfilled"
-      )
-      .map((r) => r.value);
-    return NextResponse.json({feeds});
+    const allItems = results
+      .filter((r): r is PromiseFulfilledResult<RssItem[]> => r.status === "fulfilled")
+      .flatMap((r) => r.value)
+      .sort((a, b) => {
+        if (!a.pubDate || !b.pubDate) return 0;
+        return new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime();
+      })
+      .slice(0, 30);
+    return NextResponse.json({items: allItems});
   } catch {
-    return NextResponse.json({feeds: []});
+    return NextResponse.json({items: []});
   }
 }
