@@ -14,6 +14,7 @@ interface RssItem {
   pubDate?: string;
   source?: string;
   image?: string;
+  description?: string;
 }
 
 function parseRss(xml: string, source: string): RssItem[] {
@@ -26,12 +27,28 @@ function parseRss(xml: string, source: string): RssItem[] {
       block.match(/<title>(.*?)<\/title>/)?.[1];
     const link = block.match(/<link>(.*?)<\/link>/)?.[1];
     const pubDate = block.match(/<pubDate>(.*?)<\/pubDate>/)?.[1];
+
     const image =
       block.match(/<media:content[^>]*url="([^"]+)"/)?.[1] ??
-      block.match(/<enclosure[^>]*url="([^"]+)"/)?.[1] ??
       block.match(/<media:thumbnail[^>]*url="([^"]+)"/)?.[1] ??
+      block.match(/<enclosure[^>]*url="([^"]+)"/)?.[1] ??
       block.match(/<image><url>(.*?)<\/url>/)?.[1] ??
       undefined;
+
+    const rawDesc =
+      block.match(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/)?.[1] ??
+      block.match(/<description>([\s\S]*?)<\/description>/)?.[1] ??
+      block.match(/<content:encoded><!\[CDATA\[([\s\S]*?)\]\]><\/content:encoded>/)?.[1] ??
+      undefined;
+    const description = rawDesc
+      ?.replace(/<[^>]+>/g, "")
+      .replace(/&amp;/g, "&")
+      .replace(/&#39;/g, "'")
+      .replace(/&quot;/g, '"')
+      .replace(/\s+/g, " ")
+      .trim()
+      .slice(0, 200);
+
     if (title)
       items.push({
         title: title.replace(/&amp;/g, "&").replace(/&#39;/g, "'"),
@@ -39,6 +56,7 @@ function parseRss(xml: string, source: string): RssItem[] {
         pubDate,
         source,
         image,
+        description: description || undefined,
       });
   }
   return items.slice(0, 10);
