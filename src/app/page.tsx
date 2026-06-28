@@ -245,7 +245,7 @@ export default function GlobalHomePage() {
 
       {/* SECTION 1 — HERO */}
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-8 sm:py-10 lg:px-10">
-        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-start">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
 
           {/* LEFT COLUMN — HEADLINE, CTAs, TRUST METRICS */}
           <div className="space-y-6">
@@ -281,6 +281,20 @@ export default function GlobalHomePage() {
               </a>
             </div>
 
+          </div>
+
+          {/* RIGHT COLUMN — HERO IMAGE */}
+          <div className="hidden lg:block">
+            <div className="relative overflow-hidden rounded-3xl shadow-lg">
+              <img
+                src="/images/hero/hero-global-career-intelligence.jpg"
+                alt="Global career intelligence workspace with worldwide salary and financial analytics"
+                width={800}
+                height={600}
+                className="h-auto w-full object-cover"
+                loading="eager"
+              />
+            </div>
           </div>
         </div>
       </section>
