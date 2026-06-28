@@ -40,6 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "infographics/best-countries-software-engineers-2026",
     "infographics/software-engineer-salary-global-comparison",
     "embed",
+    "infographics",
     "software-engineer",
     "software-engineer-salary",
     "software-engineer-salary-us",
