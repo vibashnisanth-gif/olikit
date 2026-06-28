@@ -2,8 +2,9 @@
 
 import { usePathname } from "next/navigation"
 import { getAllCountries } from "@/lib/content/country-registry"
+import { FlagImage } from "@/components/ui/flag-image"
 
-const GLOBAL = { label: "🌍 Global", href: "/" }
+const GLOBAL = { label: "Global", href: "/", slug: "" }
 
 const LABEL_MAP: Record<string, string> = {
   countries: "Countries",
@@ -37,27 +38,31 @@ function isCountrySlug(slug: string): boolean {
   return getAllCountries().some((c) => c.slug === slug)
 }
 
+type Crumb = { href: string; label: string; slug: string }
+
 export function Breadcrumbs() {
   const pathname = usePathname()
   if (!pathname || pathname === "/") return null
 
   const segments = pathname.split("/").filter(Boolean)
-  const crumbs: { href: string; label: string }[] = [{ href: "/", label: "🌍 Global" }]
+  const crumbs: Crumb[] = [{ href: "/", label: "Global", slug: "" }]
 
   let accumulated = ""
 
   for (const seg of segments) {
     accumulated += `/${seg}`
     let label = humanize(seg)
+    let slug = ""
 
     if (isCountrySlug(seg)) {
       const country = getAllCountries().find((c) => c.slug === seg)
       if (country) {
-        label = `${country.flag} ${country.name}`
+        label = country.name
+        slug = country.slug
       }
     }
 
-    crumbs.push({ href: accumulated, label })
+    crumbs.push({ href: accumulated, label, slug })
   }
 
   return (
@@ -73,12 +78,16 @@ export function Breadcrumbs() {
             {i < crumbs.length - 1 ? (
               <a
                 href={crumb.href}
-                className="hover:text-text-primary transition-colors"
+                className="flex items-center gap-1 hover:text-text-primary transition-colors"
               >
+                {crumb.slug ? <FlagImage code={crumb.slug} size="xs" /> : <span className="text-[10px]" role="img" aria-label="Global">🌍</span>}
                 {crumb.label}
               </a>
             ) : (
-              <span className="font-medium text-text-secondary">{crumb.label}</span>
+              <span className="flex items-center gap-1 font-medium text-text-secondary">
+                {crumb.slug ? <FlagImage code={crumb.slug} size="xs" /> : <span className="text-[10px]" role="img" aria-label="Global">🌍</span>}
+                {crumb.label}
+              </span>
             )}
           </li>
         ))}
