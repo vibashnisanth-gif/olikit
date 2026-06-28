@@ -5,17 +5,6 @@ import { getAllCountries } from "@/lib/content/country-registry"
 import { convertSalary, slugToCurrency, formatSalary } from "@/lib/currency"
 import { TaxCalculator } from "@/calculators/tax"
 import { FlagImage } from "@/components/ui/flag-image"
-import type { CurrencyCode } from "@/lib/currency"
-
-const CURRENCIES: { code: CurrencyCode; symbol: string; label: string }[] = [
-  { code: "USD", symbol: "$", label: "USD" },
-  { code: "GBP", symbol: "£", label: "GBP" },
-  { code: "AUD", symbol: "A$", label: "AUD" },
-  { code: "CAD", symbol: "C$", label: "CAD" },
-  { code: "NZD", symbol: "NZ$", label: "NZD" },
-  { code: "INR", symbol: "₹", label: "INR" },
-  { code: "SGD", symbol: "S$", label: "SGD" },
-]
 
 type Result = {
   slug: string
@@ -25,47 +14,31 @@ type Result = {
 
 export function SalaryRankingChart() {
   const [salary, setSalary] = useState(100000)
-  const [currency, setCurrency] = useState<CurrencyCode>("USD")
   const countries = useMemo(() => getAllCountries(), [])
   const taxCalc = useMemo(() => new TaxCalculator(), [])
 
   const results: Result[] = useMemo(() => {
-    // Step 1: Convert input salary to USD as the baseline
-    const grossUSD = convertSalary(salary, currency, "USD")
-
     return countries
       .map((c) => {
         const localCurr = slugToCurrency(c.slug)
-        // Step 2: Convert USD baseline to each country's local currency
-        const grossLocal = convertSalary(grossUSD, "USD", localCurr)
-
-        // Step 3: Compute tax in local currency
+        const grossLocal = convertSalary(salary, "USD", localCurr)
         const taxResult = taxCalc.calculate({
           annualIncome: grossLocal,
           deductions: 0,
           filingStatus: "single",
           locale: c.slug,
         } as never)
-
         const takeHomeLocal = grossLocal - taxResult.totalTax
-        // Step 4: Convert take-home back to USD for comparison
         const takeHomeUSD = convertSalary(Math.round(takeHomeLocal), localCurr, "USD")
-
-        return {
-          slug: c.slug,
-          name: c.name,
-          takeHomeUSD,
-        }
+        return { slug: c.slug, name: c.name, takeHomeUSD }
       })
       .sort((a, b) => b.takeHomeUSD - a.takeHomeUSD)
-  }, [salary, currency, countries, taxCalc])
+  }, [salary, countries, taxCalc])
 
   const maxTakeHome = results[0]?.takeHomeUSD || 1
 
-  const shareText = `Where does ${formatSalary(salary, currency)} go furthest?\n\n${results.map((r, i) => `${i + 1}. ${r.name}: ${formatSalary(r.takeHomeUSD, "USD")} after tax`).join("\n")}\n\nCompare at olikit.com`
+  const shareText = `Where does $${salary.toLocaleString()} USD go furthest?\n\n${results.map((r, i) => `${i + 1}. ${r.name}: ${formatSalary(r.takeHomeUSD, "USD")} after tax`).join("\n")}\n\nCompare at olikit.com`
   const shareUrl = "https://olikit.com/compare"
-
-  const selectedSymbol = CURRENCIES.find((c) => c.code === currency)?.symbol || "$"
 
   return (
     <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10">
@@ -81,40 +54,19 @@ export function SalaryRankingChart() {
         </p>
       </div>
 
-      <div className="mb-8 flex flex-wrap items-end gap-3">
-        <div>
-          <label htmlFor="salary-input" className="mb-1 block text-xs font-medium text-zinc-500">
-            Annual gross salary
-          </label>
-          <div className="flex items-center">
-            <select
-              value={currency}
-              onChange={(e) => setCurrency(e.target.value as CurrencyCode)}
-              className="rounded-l-lg border border-r-0 border-zinc-300 bg-zinc-50 px-3 py-2.5 text-sm font-medium text-zinc-700 outline-none focus:border-zinc-500"
-            >
-              {CURRENCIES.map((c) => (
-                <option key={c.code} value={c.code}>{c.symbol} {c.label}</option>
-              ))}
-            </select>
-            <div className="relative">
-              <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-zinc-400">{selectedSymbol}</span>
-              <input
-                id="salary-input"
-                type="number"
-                value={salary}
-                onChange={(e) => setSalary(Math.max(0, Number(e.target.value)))}
-                className="w-36 rounded-r-lg border border-zinc-300 pl-7 pr-3 py-2.5 text-sm font-medium text-zinc-950 outline-none focus:border-zinc-500 sm:w-44"
-                min={0}
-                step={1000}
-              />
-            </div>
-          </div>
-        </div>
+      <div className="mb-6 flex items-center gap-2">
+        <label htmlFor="salary-input" className="text-sm text-zinc-500">$</label>
+        <input
+          id="salary-input"
+          type="number"
+          value={salary}
+          onChange={(e) => setSalary(Math.max(0, Number(e.target.value)))}
+          className="w-32 rounded-lg border border-zinc-300 px-3 py-2 text-sm font-semibold text-zinc-950 outline-none focus:border-zinc-500 sm:w-40"
+          min={0}
+          step={1000}
+        />
+        <span className="text-sm text-zinc-400">USD per year</span>
       </div>
-
-      <p className="mb-4 text-sm text-zinc-500">
-        {formatSalary(salary, currency)} USD. Approximate annual take-home, ranked.
-      </p>
 
       <div className="divide-y divide-zinc-200">
         {results.map((r, i) => {
@@ -138,7 +90,7 @@ export function SalaryRankingChart() {
       </div>
 
       <div className="mt-6 flex flex-wrap items-center gap-2">
-        <span className="text-xs text-zinc-400">Share this comparison:</span>
+        <span className="text-xs text-zinc-400">Share:</span>
         <a
           href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`}
           target="_blank"
