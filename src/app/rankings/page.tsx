@@ -4,6 +4,7 @@ import { getAllCountries, toUSD } from "@/lib/content/country-registry"
 import { professions } from "@/lib/content/professions-data"
 import { getLocale } from "@/lib/seo/locales"
 import { Shell } from "@/components/shell"
+import { FlagImage } from "@/components/ui/flag-image"
 
 function getCurrencyCode(slug: string): string {
   return getLocale(slug)?.currency.code ?? "USD"
@@ -105,7 +106,7 @@ export default function RankingsPage() {
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-lg">{getRank(i + 1)}</span>
-                <span className="text-2xl">{c.flag}</span>
+                <FlagImage code={c.slug} size="lg" />
                 <h3 className="font-semibold text-zinc-950">{c.name}</h3>
               </div>
               <p className="text-2xl font-bold tracking-tight text-zinc-950">
@@ -127,7 +128,7 @@ export default function RankingsPage() {
                 <div key={c.slug} className="flex items-center justify-between py-3 first:pt-0 last:pb-0">
                   <div className="flex items-center gap-3">
                     <span className="text-xs font-bold text-zinc-500 w-4">{getRank(i + 1)}</span>
-                    <span className="text-base">{c.flag}</span>
+                    <FlagImage code={c.slug} size="md" />
                     <a href={`/${c.slug}/salary/software-engineer`} className="text-sm font-medium text-zinc-950 hover:text-emerald-700 transition-colors">
                       {c.name}
                     </a>
@@ -146,7 +147,7 @@ export default function RankingsPage() {
                 <div key={c.slug} className="flex items-center justify-between py-3 first:pt-0 last:pb-0">
                   <div className="flex items-center gap-3">
                     <span className="text-xs font-bold text-zinc-500 w-4">{getRank(i + 1)}</span>
-                    <span className="text-base">{c.flag}</span>
+                    <FlagImage code={c.slug} size="md" />
                     <a href={`/${c.slug}/salary/doctor`} className="text-sm font-medium text-zinc-950 hover:text-emerald-700 transition-colors">
                       {c.name}
                     </a>
@@ -225,7 +226,7 @@ export default function RankingsPage() {
               className="group rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300"
             >
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-2xl">{c.flag}</span>
+                <FlagImage code={c.slug} size="lg" />
                 <div>
                   <h3 className="font-semibold text-sm text-zinc-950 group-hover:text-zinc-800 transition-colors">{c.name}</h3>
                   <p className="text-xs text-zinc-500">{c.taxAuthorityAbbr} &middot; {c.currencyCode}</p>

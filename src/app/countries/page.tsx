@@ -7,6 +7,7 @@ import { Shell } from "@/components/shell"
 import { NewsletterSignup } from "@/components/newsletter-signup"
 import { SourceFooter } from "@/components/source-footer"
 import { LastUpdated } from "@/components/last-updated"
+import { FlagImage } from "@/components/ui/flag-image"
 
 export const metadata: Metadata = {
   title: "All Countries — Global Overview",
@@ -83,7 +84,7 @@ export default function CountriesPage() {
               href={`/${c.slug}`}
               className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
             >
-              <p className="mb-2 text-2xl">{c.flag}</p>
+              <FlagImage code={c.slug} size="2xl" />
               <h3 className="mb-2 text-lg font-semibold text-zinc-950">{c.name}</h3>
               <p className="text-sm leading-6 text-zinc-600">
                 Free financial calculators, tax information, and guides for {c.name}.

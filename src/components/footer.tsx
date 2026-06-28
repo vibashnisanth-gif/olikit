@@ -1,7 +1,8 @@
 import Link from "next/link"
-import { getAllCountries, COUNTRY_FLAGS } from "@/lib/content/country-registry"
+import { getAllCountries } from "@/lib/content/country-registry"
 import { getSiteIntelligence } from "@/lib/site-intelligence"
 import { locales } from "@/lib/seo/locales"
+import { FlagImage } from "@/components/ui/flag-image"
 
 type Props = {
   currentSlug: string | null
@@ -37,7 +38,7 @@ export function Footer({ currentSlug }: Props) {
                   <a href={`/${c.slug}`} className={`flex items-center gap-2 py-1 text-sm transition-colors hover:text-zinc-950 ${
                     c.slug === currentSlug ? "font-medium text-zinc-950" : "text-zinc-700"
                   }`}>
-                    <span>{c.flag}</span>
+                    <FlagImage code={c.slug} size="xs" />
                     <span>{c.name}</span>
                   </a>
                   {stateCountrySlugs.includes(c.slug) && (
