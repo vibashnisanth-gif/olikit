@@ -1,38 +1,44 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { getAllCountries } from "@/lib/content/country-registry"
-import { CountrySwitcher } from "./country-switcher"
+import {useState} from "react";
+import {getAllCountries} from "@/lib/content/country-registry";
+import {CountrySwitcher} from "./country-switcher";
 
 type Props = {
-  currentSlug: string | null
-}
+  currentSlug: string | null;
+};
 
-export function Header({ currentSlug }: Props) {
-  const [open, setOpen] = useState(false)
-  const [searchOpen, setSearchOpen] = useState(false)
-  const [searchQuery, setSearchQuery] = useState("")
-  const isGlobal = !currentSlug
+export function Header({currentSlug}: Props) {
+  const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const isGlobal = !currentSlug;
 
   const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!searchQuery.trim()) return
-    const slug = currentSlug || (typeof window !== "undefined" ? localStorage.getItem("olikit-last-locale") : null) || "us"
-    window.location.href = `/${slug}/search?q=${encodeURIComponent(searchQuery.trim())}`
-  }
+    e.preventDefault();
+    if (!searchQuery.trim()) return;
+    const slug =
+      currentSlug ||
+      (typeof window !== "undefined" ? localStorage.getItem("olikit-last-locale") : null) ||
+      "us";
+    window.location.href = `/${slug}/search?q=${encodeURIComponent(searchQuery.trim())}`;
+  };
 
-  const countries = getAllCountries()
-  const label = isGlobal ? "Global" : (countries.find((c) => c.slug === currentSlug)?.name ?? "Global")
+  const countries = getAllCountries();
+  const label = isGlobal
+    ? "Global"
+    : (countries.find((c) => c.slug === currentSlug)?.name ?? "Global");
 
   const navLinks = [
-    { label: "Home", href: isGlobal ? "/" : `/${currentSlug}` },
-    { label: "Professions", href: "/professions" },
-    { label: "Calculators", href: "/compare" },
-    { label: "Comparisons", href: "/compare" },
-    { label: "Rankings", href: "/rankings" },
-    { label: "Research", href: "/research" },
-    { label: "About", href: "/about" },
-  ]
+    {label: "Home", href: isGlobal ? "/" : `/${currentSlug}`},
+    {label: "Professions", href: "/professions"},
+    {label: "Calculators", href: "/compare"},
+    {label: "Comparisons", href: "/compare"},
+    {label: "Rankings", href: "/rankings"},
+    {label: "Research", href: "/research"},
+    {label: "World", href: "/world"},
+    {label: "About", href: "/about"},
+  ];
 
   return (
     <header className="sticky top-0 z-30 border-b border-zinc-200/80 bg-white/95 backdrop-blur">
@@ -61,7 +67,7 @@ export function Header({ currentSlug }: Props) {
           <CountrySwitcher
             currentSlug={currentSlug}
             currentName={label}
-            countries={countries.map((c) => ({ slug: c.slug, name: c.name, flag: c.flag }))}
+            countries={countries.map((c) => ({slug: c.slug, name: c.name, flag: c.flag}))}
           />
         </div>
 
@@ -71,8 +77,18 @@ export function Header({ currentSlug }: Props) {
             className="rounded-md p-3 text-zinc-600 hover:bg-zinc-100 hover:text-zinc-950"
             aria-label="Search"
           >
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            <svg
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
             </svg>
           </button>
 
@@ -82,7 +98,14 @@ export function Header({ currentSlug }: Props) {
             aria-label={open ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={open}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
               {open ? (
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               ) : (
@@ -117,7 +140,10 @@ export function Header({ currentSlug }: Props) {
 
       {open && (
         <>
-          <div className="fixed inset-0 z-40 bg-black/20 lg:hidden" onClick={() => setOpen(false)} />
+          <div
+            className="fixed inset-0 z-40 bg-black/20 lg:hidden"
+            onClick={() => setOpen(false)}
+          />
           <div className="absolute left-0 right-0 top-full z-50 max-h-[80vh] overflow-y-auto border-b border-zinc-200 bg-white shadow-lg lg:hidden">
             <div className="flex flex-col gap-1 px-4 py-3">
               {navLinks.map((link) => (
@@ -138,7 +164,7 @@ export function Header({ currentSlug }: Props) {
                   <CountrySwitcher
                     currentSlug={currentSlug}
                     currentName={label}
-                    countries={countries.map((c) => ({ slug: c.slug, name: c.name, flag: c.flag }))}
+                    countries={countries.map((c) => ({slug: c.slug, name: c.name, flag: c.flag}))}
                   />
                 </div>
               </div>
@@ -147,5 +173,5 @@ export function Header({ currentSlug }: Props) {
         </>
       )}
     </header>
-  )
+  );
 }

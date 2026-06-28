@@ -33,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "professions/data-scientist",
     "rankings",
     "research",
+    "world",
     "software-engineer",
     "software-engineer-salary",
     "software-engineer-salary-us",
