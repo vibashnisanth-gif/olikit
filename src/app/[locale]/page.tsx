@@ -814,6 +814,7 @@ export default async function LocalePage({ params }: Props) {
                 height={600}
                 sizes="(max-width:768px) 100vw, 50vw"
                 className="h-auto w-full object-cover"
+                unoptimized
                 priority
               />
             </div>
