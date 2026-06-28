@@ -14,14 +14,14 @@ export default function WorldPage() {
           <p className="text-xs text-zinc-400 mt-0.5">Live global intelligence</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 bg-zinc-50">
-          <div className="bg-white border-r border-zinc-100 h-[520px] overflow-hidden">
+        <div className="bg-zinc-50">
+          <div className="bg-white border-b border-zinc-100">
             <NewsPanel />
           </div>
-          <div className="bg-white border-r border-zinc-100 h-[520px] overflow-hidden">
+          <div className="bg-white border-b border-zinc-100">
             <MarketsPanel />
           </div>
-          <div className="bg-white h-[520px] overflow-hidden">
+          <div className="bg-white">
             <RiskPanel />
           </div>
         </div>

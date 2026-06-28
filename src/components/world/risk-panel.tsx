@@ -8,29 +8,6 @@ interface Country {
   rank: number;
 }
 
-const FLAGS: Record<string, string> = {
-  SG: "🇸🇬",
-  HK: "🇭🇰",
-  NZ: "🇳🇿",
-  DK: "🇩🇰",
-  KR: "🇰🇷",
-  US: "🇺🇸",
-  GB: "🇬🇧",
-  NO: "🇳🇴",
-  SE: "🇸🇪",
-  DE: "🇩🇪",
-  AU: "🇦🇺",
-  CA: "🇨🇦",
-  FR: "🇫🇷",
-  JP: "🇯🇵",
-  CN: "🇨🇳",
-  IN: "🇮🇳",
-  BR: "🇧🇷",
-  RU: "🇷🇺",
-  UA: "🇺🇦",
-  NG: "🇳🇬",
-};
-
 export function RiskPanel() {
   const [countries, setCountries] = useState<Country[]>([]);
   const [loading, setLoading] = useState(true);
@@ -97,7 +74,14 @@ export function RiskPanel() {
               return (
                 <div key={c.code} className="px-5 py-3 hover:bg-zinc-50/50 transition-colors">
                   <div className="flex items-center gap-2.5 mb-2">
-                    <span className="text-base leading-none">{FLAGS[c.code] ?? "🏳️"}</span>
+                    <img
+                      src={`https://flagcdn.com/24x18/${c.code.toLowerCase()}.webp`}
+                      alt={`${c.name} flag`}
+                      width={24}
+                      height={18}
+                      className="rounded-sm object-cover"
+                      loading="lazy"
+                    />
                     <span className="text-[13px] font-semibold text-zinc-800 flex-1 truncate">
                       {c.name}
                     </span>
