@@ -459,6 +459,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
           priority: 0.7,
         });
 
+        entries.push({
+          url: `${SITE_URL}/${locale.slug}/state/${state.slug}/take-home-pay`,
+          lastModified: now,
+          changeFrequency: "weekly",
+          priority: 0.8,
+        });
+
         for (const tool of stateSeoTools) {
           entries.push({
             url: `${SITE_URL}/${locale.slug}/state/${state.slug}/${tool.slug}`,
