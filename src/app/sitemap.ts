@@ -33,7 +33,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "professions/data-scientist",
     "rankings",
     "research",
-    "world",
     "software-engineer",
     "software-engineer-salary",
     "software-engineer-salary-us",
@@ -270,6 +269,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     });
   }
+
+  entries.push({
+    url: `${SITE_URL}/world`,
+    lastModified: now,
+    changeFrequency: "daily",
+    priority: 0.7,
+  });
 
   for (const locale of locales) {
     entries.push({
