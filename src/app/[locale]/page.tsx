@@ -806,16 +806,16 @@ export default async function LocalePage({ params }: Props) {
             </div>
           </div>
           <div className="hidden lg:block lg:col-span-5">
-            <div className="relative overflow-hidden rounded-xl">
+            <div className="relative overflow-hidden rounded-3xl shadow-lg">
               <Image
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"
-                alt="Global financial data and city skyline"
+                src="/images/hero/hero-global-career-intelligence.webp"
+                alt="Global career intelligence workspace with worldwide salary and financial analytics"
                 width={800}
                 height={600}
-                className="h-auto w-full rounded-xl object-cover"
+                sizes="(max-width:768px) 100vw, 50vw"
+                className="h-auto w-full object-cover"
                 priority
               />
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-white/20 to-transparent pointer-events-none" />
             </div>
           </div>
         </div>
