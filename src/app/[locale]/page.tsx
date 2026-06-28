@@ -808,7 +808,7 @@ export default async function LocalePage({ params }: Props) {
           <div className="hidden lg:block lg:col-span-5">
             <div className="relative overflow-hidden rounded-3xl shadow-lg">
               <img
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"
+                src="/images/hero/hero-global-career-intelligence.jpg"
                 alt="Global career intelligence workspace with worldwide salary and financial analytics"
                 width={800}
                 height={600}
