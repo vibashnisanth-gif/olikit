@@ -5,6 +5,7 @@ import { getDateModified } from "@/lib/seo/freshness"
 import { locales } from "@/lib/seo/locales"
 import { Shell } from "@/components/shell"
 import { FadeInSection } from "@/components/ui/fade-in-section"
+import { SalaryRankingChart } from "@/components/salary-ranking-chart"
 
 const hreflangTags: Record<string, string> = {
   "x-default": SITE_URL,
@@ -298,6 +299,11 @@ export default function GlobalHomePage() {
           </div>
         </div>
       </section>
+
+      {/* SECTION 1B — SALARY RANKING CHART (Interactive) */}
+      <FadeInSection>
+        <SalaryRankingChart />
+      </FadeInSection>
 
       {/* SECTION 2 — HOW WE CALCULATE */}
       <FadeInSection>
