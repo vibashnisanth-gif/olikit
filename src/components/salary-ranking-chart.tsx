@@ -17,19 +17,10 @@ const CURRENCIES: { code: CurrencyCode; symbol: string; label: string }[] = [
   { code: "SGD", symbol: "S$", label: "SGD" },
 ]
 
-function formatCompact(usd: number): string {
-  if (usd >= 1_000_000) return `$${(usd / 1_000_000).toFixed(1)}M`
-  if (usd >= 1_000) return `$${(usd / 1_000).toFixed(0)}k`
-  return `$${usd.toFixed(0)}`
-}
-
 type Result = {
   slug: string
   name: string
-  grossLocal: number
-  takeHomeLocal: number
   takeHomeUSD: number
-  effectiveTaxRate: number
 }
 
 export function SalaryRankingChart() {
@@ -63,10 +54,7 @@ export function SalaryRankingChart() {
         return {
           slug: c.slug,
           name: c.name,
-          grossLocal: Math.round(grossLocal),
-          takeHomeLocal: Math.round(takeHomeLocal),
           takeHomeUSD,
-          effectiveTaxRate: taxResult.effectiveTaxRate,
         }
       })
       .sort((a, b) => b.takeHomeUSD - a.takeHomeUSD)
@@ -124,42 +112,26 @@ export function SalaryRankingChart() {
         </div>
       </div>
 
-      <div className="space-y-3">
+      <p className="mb-4 text-sm text-zinc-500">
+        {formatSalary(salary, currency)} USD. Approximate annual take-home, ranked.
+      </p>
+
+      <div className="divide-y divide-zinc-200">
         {results.map((r, i) => {
           const pct = maxTakeHome > 0 ? (r.takeHomeUSD / maxTakeHome) * 100 : 0
-          const localCurr = slugToCurrency(r.slug)
           return (
-            <div key={r.slug}>
-              <div className="mb-1 flex items-center justify-between text-sm">
-                <div className="flex items-center gap-2">
-                  <span className="w-5 text-right text-xs font-semibold text-zinc-400">{i + 1}</span>
-                  <FlagImage code={r.slug} size="sm" />
-                  <span className="font-medium text-zinc-900">{r.name}</span>
-                </div>
-                <div className="flex items-center gap-3 text-xs">
-                  <span className="text-zinc-400">tax {r.effectiveTaxRate.toFixed(1)}%</span>
-                  <span className="font-semibold text-zinc-950">
-                    {formatSalary(r.takeHomeUSD, "USD")}
-                  </span>
-                </div>
-              </div>
-              <div className="relative h-8 overflow-hidden rounded-lg bg-zinc-100">
+            <div key={r.slug} className="flex items-center gap-4 py-2.5">
+              <FlagImage code={r.slug} size="sm" />
+              <span className="min-w-0 flex-1 text-sm">{r.name}</span>
+              <div className="h-1 w-24 shrink-0 overflow-hidden rounded-full bg-zinc-200" aria-hidden="true">
                 <div
-                  className="absolute inset-y-0 left-0 rounded-lg transition-all duration-500"
-                  style={{
-                    width: `${pct}%`,
-                    backgroundColor: i === 0 ? "#10b981" : i === results.length - 1 ? "#ef4444" : "#6366f1",
-                  }}
+                  className="h-full bg-zinc-900 transition-all"
+                  style={{ width: `${pct}%` }}
                 />
-                <div className="absolute inset-0 flex items-center justify-between px-3">
-                  <span className="text-xs font-semibold text-white drop-shadow">
-                    {formatCompact(r.takeHomeUSD)} after tax
-                  </span>
-                  <span className="text-[11px] font-medium text-white/70 drop-shadow">
-                    {formatSalary(r.takeHomeLocal, localCurr)}
-                  </span>
-                </div>
               </div>
+              <span className="w-20 shrink-0 text-right text-sm font-semibold tabular-nums">
+                {formatSalary(r.takeHomeUSD, "USD")}
+              </span>
             </div>
           )
         })}
