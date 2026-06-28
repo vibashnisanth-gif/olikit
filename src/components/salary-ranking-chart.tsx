@@ -10,7 +10,14 @@ type Result = {
   slug: string
   name: string
   takeHomeUSD: number
+  effectiveTaxRate: number
 }
+
+const RANK_STYLES = [
+  "bg-emerald-50 text-emerald-700 ring-emerald-200",
+  "bg-blue-50 text-blue-700 ring-blue-200",
+  "bg-amber-50 text-amber-700 ring-amber-200",
+]
 
 export function SalaryRankingChart() {
   const [salary, setSalary] = useState(100000)
@@ -30,7 +37,7 @@ export function SalaryRankingChart() {
         } as never)
         const takeHomeLocal = grossLocal - taxResult.totalTax
         const takeHomeUSD = convertSalary(Math.round(takeHomeLocal), localCurr, "USD")
-        return { slug: c.slug, name: c.name, takeHomeUSD }
+        return { slug: c.slug, name: c.name, takeHomeUSD, effectiveTaxRate: taxResult.effectiveTaxRate }
       })
       .sort((a, b) => b.takeHomeUSD - a.takeHomeUSD)
   }, [salary, countries, taxCalc])
@@ -50,7 +57,7 @@ export function SalaryRankingChart() {
           Same Salary. Wildly Different Outcomes.
         </h2>
         <p className="mt-2 text-sm leading-6 text-zinc-500">
-          See how much you actually keep after tax in each country.
+          Enter your annual salary in USD and see how much you would keep after income tax in each country.
         </p>
       </div>
 
@@ -68,20 +75,26 @@ export function SalaryRankingChart() {
         <span className="text-sm text-zinc-400">USD per year</span>
       </div>
 
-      <div className="divide-y divide-zinc-200">
+      <div className="divide-y divide-zinc-100">
         {results.map((r, i) => {
           const pct = maxTakeHome > 0 ? (r.takeHomeUSD / maxTakeHome) * 100 : 0
           return (
-            <div key={r.slug} className="flex items-center gap-4 py-2.5">
+            <div key={r.slug} className="group flex items-center gap-3 py-3 transition-colors hover:bg-zinc-50 -mx-3 px-3 rounded-lg">
+              <span className={`inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold ring-1 ring-inset ${i < 3 ? RANK_STYLES[i] : "bg-zinc-50 text-zinc-500 ring-zinc-200"}`}>
+                {i + 1}
+              </span>
               <FlagImage code={r.slug} size="sm" />
-              <span className="min-w-0 flex-1 text-sm">{r.name}</span>
-              <div className="h-1 w-24 shrink-0 overflow-hidden rounded-full bg-zinc-200" aria-hidden="true">
+              <span className="min-w-0 flex-1 text-sm font-medium text-zinc-800">{r.name}</span>
+              <span className="shrink-0 rounded-full bg-zinc-100 px-2 py-0.5 text-[11px] font-medium text-zinc-500 tabular-nums">
+                {r.effectiveTaxRate.toFixed(1)}% tax
+              </span>
+              <div className="h-1.5 w-20 shrink-0 overflow-hidden rounded-full bg-zinc-100 sm:w-24" aria-hidden="true">
                 <div
-                  className="h-full bg-zinc-900 transition-all"
+                  className="h-full rounded-full bg-zinc-900 transition-all duration-300"
                   style={{ width: `${pct}%` }}
                 />
               </div>
-              <span className="w-20 shrink-0 text-right text-sm font-semibold tabular-nums">
+              <span className="w-20 shrink-0 text-right text-sm font-bold tabular-nums text-zinc-950">
                 {formatSalary(r.takeHomeUSD, "USD")}
               </span>
             </div>
@@ -123,8 +136,17 @@ export function SalaryRankingChart() {
         </button>
       </div>
 
+      <div className="mt-6 rounded-lg bg-zinc-50 px-4 py-3 text-xs leading-5 text-zinc-500">
+        <p>
+          <strong className="font-semibold text-zinc-700">How it works:</strong> Each country applies its own income tax brackets to your salary. Singapore has no personal income tax on the first S$20,000. The US applies a standard deduction of $14,600 before tax. The UK allows £12,570 tax-free. This tool computes your estimated take-home pay using 2025-2026 statutory tax brackets for single filers.
+        </p>
+        <p className="mt-2">
+          Compare countries: <a href="/compare" className="font-medium text-emerald-600 hover:text-emerald-700">Salary Comparison</a> · <a href="/rankings" className="font-medium text-emerald-600 hover:text-emerald-700">Salary Rankings</a> · <a href="/us/tools/tax-calculator" className="font-medium text-emerald-600 hover:text-emerald-700">Tax Calculator</a>
+        </p>
+      </div>
+
       <p className="mt-4 text-[11px] text-zinc-400">
-        2025-2026 statutory tax brackets, single filer. Estimates only — consult a tax professional for binding advice.
+        Estimates only — consult a tax professional for binding advice. Tax brackets sourced from IRS, HMRC, ATO, CRA, IRD, IRAS.
       </p>
     </section>
   )

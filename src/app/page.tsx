@@ -161,6 +161,20 @@ const organizationJsonLd = {
     "Salary, tax, take-home pay and cost-of-living platform that helps users compare financial outcomes across multiple countries using calculators, compensation data and government-sourced information.",
 }
 
+const salaryRankingJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  name: "Salary Take-Home Ranking by Country",
+  description: "Rankings of estimated annual take-home pay after income tax for a $100,000 USD salary across 7 countries: Singapore, United States, Canada, United Kingdom, Australia, India, and New Zealand.",
+  url: SITE_URL,
+  dateModified: dateModified,
+  variableMeasured: [
+    { "@type": "PropertyValue", name: "Country", unitText: "Country" },
+    { "@type": "PropertyValue", name: "Take-Home Pay", unitText: "USD" },
+    { "@type": "PropertyValue", name: "Effective Tax Rate", unitText: "%" },
+  ],
+}
+
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -242,7 +256,8 @@ export default function GlobalHomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(salaryRankingJsonLd) }} />
 
       {/* SECTION 1 — HERO */}
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-8 sm:py-10 lg:px-10">
