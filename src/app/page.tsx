@@ -8,6 +8,7 @@ import { AnimatedCounter } from "@/components/ui/animated-counter"
 import { SalaryRankingChart } from "@/components/salary-ranking-chart"
 import { TaxBreakdownBar } from "@/components/tax-breakdown-bar"
 import { CountryCards } from "@/components/country-cards"
+import { QuickCompare } from "@/components/quick-compare"
 
 const hreflangTags: Record<string, string> = {
   "x-default": SITE_URL,
@@ -825,6 +826,21 @@ export default function GlobalHomePage() {
           </p>
         </div>
         <CountryCards />
+      </section>
+      </FadeInSection>
+
+      {/* SECTION 13C — QUICK COMPARE */}
+      <FadeInSection>
+      <section>
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold text-zinc-950 sm:text-2xl">
+            Quick Country Compare
+          </h2>
+          <p className="mt-2 text-sm leading-6 text-zinc-500">
+            Pick two countries and a salary. See which one leaves more in your pocket.
+          </p>
+        </div>
+        <QuickCompare />
       </section>
       </FadeInSection>
 
