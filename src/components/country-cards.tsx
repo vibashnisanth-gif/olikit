@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo } from "react"
+import { useState, useMemo, useEffect, useRef } from "react"
 import { getAllCountries } from "@/lib/content/country-registry"
 import { convertSalary, slugToCurrency } from "@/lib/currency"
 import { TaxCalculator } from "@/calculators/tax"
@@ -28,6 +28,19 @@ const COUNTRY_META: Record<string, { topRegion: string; highlights: string }> = 
 export function CountryCards() {
   const countries = useMemo(() => getAllCountries(), [])
   const taxCalc = useMemo(() => new TaxCalculator(), [])
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect() } },
+      { threshold: 0.1 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   const cards: CountryCard[] = useMemo(() => {
     return countries.map((c) => {
@@ -54,15 +67,16 @@ export function CountryCards() {
   }, [countries, taxCalc])
 
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {cards.map((c) => {
+    <div ref={ref} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {cards.map((c, i) => {
         const meta = COUNTRY_META[c.slug] || { topRegion: "", highlights: "" }
         const barPct = c.takeHomeUSD / 100000 * 100
         return (
           <a
             key={c.slug}
             href={`/${c.slug}`}
-            className="card-hover group flex flex-col rounded-xl border border-zinc-200 bg-white p-5 shadow-sm"
+            className="card-hover group flex flex-col rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition-all duration-350 ease-out"
+            style={visible ? { opacity: 1, transform: "translateY(0)" } : { opacity: 0, transform: "translateY(8px)", transitionDelay: `${i * 60}ms` }}
           >
             <div className="mb-3 flex items-center gap-2.5">
               <FlagImage code={c.slug} size="md" />
