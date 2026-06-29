@@ -9,7 +9,7 @@ import { tools } from "@/lib/content/templates"
 import { guides } from "@/lib/content/guide-templates"
 import { stateDataSets } from "@/lib/content/state-data"
 import { professions } from "@/lib/content/professions-data"
-import { Shell } from "@/components/shell"
+
 import { AdUnit } from "@/components/ad-unit"
 import { NewsletterSignup } from "@/components/newsletter-signup"
 import { SourceFooter } from "@/components/source-footer"
@@ -70,7 +70,7 @@ export default async function SalaryHubPage(props: { params: Promise<{ locale: s
   }
 
   return (
-    <Shell>
+      <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="max-w-4xl mx-auto px-4 py-12 space-y-10">
         <nav className="text-sm text-zinc-500">
@@ -202,6 +202,6 @@ export default async function SalaryHubPage(props: { params: Promise<{ locale: s
         <LastUpdated />
         <SourceFooter localeSlug={locale.slug} />
       </div>
-    </Shell>
+      </>
   )
 }
