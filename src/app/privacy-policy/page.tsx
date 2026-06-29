@@ -72,7 +72,7 @@ export default function PrivacyPolicyPage() {
             anonymized data including pages visited, time on site, browser type, and general geographic
             location (country level). This data helps us improve our calculators and content. Google
             Analytics uses cookies. You can opt out via the{" "}
-            <a href="https://tools.google.com/dlpage/gaoptout" className="text-emerald-600 hover:text-emerald-700" target="_blank" rel="noopener noreferrer">
+            <a href="https://tools.google.com/dlpage/gaoptout" className="text-blue-600 hover:text-blue-700" target="_blank" rel="noopener noreferrer">
               Google Analytics opt-out browser add-on
             </a>.
           </p>
@@ -84,7 +84,7 @@ export default function PrivacyPolicyPage() {
             We use Google AdSense to display advertisements. AdSense uses cookies to serve
             relevant ads based on your browsing history. Google may use interest-based
             advertising data. You can manage your ad personalization settings at{" "}
-            <a href="https://adssettings.google.com" className="text-emerald-600 hover:text-emerald-700" target="_blank" rel="noopener noreferrer">
+            <a href="https://adssettings.google.com" className="text-blue-600 hover:text-blue-700" target="_blank" rel="noopener noreferrer">
               adssettings.google.com
             </a>.
           </p>
@@ -137,7 +137,7 @@ export default function PrivacyPolicyPage() {
           <h2 className="text-xl font-semibold text-zinc-950 mb-3">Contact</h2>
           <p className="text-zinc-600 leading-relaxed">
             For questions about this privacy policy, contact us at{" "}
-            <a href="mailto:support@olikit.com" className="text-emerald-600 hover:text-emerald-700">support@olikit.com</a>.
+            <a href="mailto:support@olikit.com" className="text-blue-600 hover:text-blue-700">support@olikit.com</a>.
           </p>
         </section>
       </div>

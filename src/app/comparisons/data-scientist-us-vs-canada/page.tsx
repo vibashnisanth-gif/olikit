@@ -80,10 +80,10 @@ export default function DataScientistUSvsCanada() {
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Olikit Comp. Score</td><td className="px-4 py-3 text-right text-zinc-950">98/100</td><td className="px-4 py-3 text-right text-zinc-950">75/100</td><td className="px-4 py-3 text-right font-semibold text-emerald-600">US</td></tr>
-                <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Olikit PPP Score</td><td className="px-4 py-3 text-right text-zinc-950">85/100</td><td className="px-4 py-3 text-right text-zinc-950">68/100</td><td className="px-4 py-3 text-right font-semibold text-emerald-600">US</td></tr>
-                <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Olikit Reloc. Score</td><td className="px-4 py-3 text-right text-zinc-950">65/100</td><td className="px-4 py-3 text-right text-zinc-950">92/100</td><td className="px-4 py-3 text-right font-semibold text-emerald-600">Canada</td></tr>
-                <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Olikit Career Score</td><td className="px-4 py-3 text-right text-zinc-950">99/100</td><td className="px-4 py-3 text-right text-zinc-950">80/100</td><td className="px-4 py-3 text-right font-semibold text-emerald-600">US</td></tr>
+                <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Olikit Comp. Score</td><td className="px-4 py-3 text-right text-zinc-950">98/100</td><td className="px-4 py-3 text-right text-zinc-950">75/100</td><td className="px-4 py-3 text-right font-semibold text-blue-600">US</td></tr>
+                <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Olikit PPP Score</td><td className="px-4 py-3 text-right text-zinc-950">85/100</td><td className="px-4 py-3 text-right text-zinc-950">68/100</td><td className="px-4 py-3 text-right font-semibold text-blue-600">US</td></tr>
+                <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Olikit Reloc. Score</td><td className="px-4 py-3 text-right text-zinc-950">65/100</td><td className="px-4 py-3 text-right text-zinc-950">92/100</td><td className="px-4 py-3 text-right font-semibold text-blue-600">Canada</td></tr>
+                <tr className="border-t border-zinc-100"><td className="px-4 py-3 font-medium text-zinc-950">Olikit Career Score</td><td className="px-4 py-3 text-right text-zinc-950">99/100</td><td className="px-4 py-3 text-right text-zinc-950">80/100</td><td className="px-4 py-3 text-right font-semibold text-blue-600">US</td></tr>
               </tbody>
             </table>
           </div>

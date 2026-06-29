@@ -127,7 +127,7 @@ export default function SoftwareEngineerHub() {
       <div className="space-y-16">
         {/* HERO */}
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-700">
             Olikit Global &mdash; Profession Intelligence
           </p>
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
@@ -258,7 +258,7 @@ export default function SoftwareEngineerHub() {
             {careerLevels.map((cl) => (
               <div key={cl.level} className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm">
                 <h3 className="mb-1 text-base font-semibold text-zinc-950">{cl.level}</h3>
-                <p className="mb-2 text-xs font-medium uppercase tracking-wider text-emerald-600">{cl.exp}</p>
+                <p className="mb-2 text-xs font-medium uppercase tracking-wider text-blue-600">{cl.exp}</p>
                 <p className="text-sm leading-6 text-zinc-600">{cl.desc}</p>
               </div>
             ))}
@@ -287,7 +287,7 @@ export default function SoftwareEngineerHub() {
                     <tr key={c.slug} className="border-t border-zinc-100">
                       <td className="px-4 py-3 text-zinc-500">{i === 0 ? "\u{1F947}" : i === 1 ? "\u{1F948}" : i === 2 ? "\u{1F949}" : `#${i + 1}`}</td>
                       <td className="px-4 py-3">
-                        <a href={`/software-engineer-salary-${COUNTRY_ROUTES[c.slug]}`} className="font-medium text-zinc-950 hover:text-emerald-600">
+                        <a href={`/software-engineer-salary-${COUNTRY_ROUTES[c.slug]}`} className="font-medium text-zinc-950 hover:text-blue-600">
                           <FlagImage code={data.slug} size="lg" /> {data.name}
                         </a>
                       </td>

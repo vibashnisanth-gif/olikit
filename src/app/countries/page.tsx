@@ -49,7 +49,7 @@ export default function CountriesPage() {
         </nav>
 
         <section className="rounded-lg border border-zinc-200 bg-white px-5 py-8 shadow-sm sm:px-8 sm:py-10">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-700">
             Olikit Global
           </p>
           <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
@@ -73,7 +73,7 @@ export default function CountriesPage() {
             <p className="text-sm leading-6 text-zinc-600">
               Homepage — explore all tools, guides, and global financial comparisons.
             </p>
-            <span className="mt-2 inline-block text-sm font-medium text-emerald-600">
+            <span className="mt-2 inline-block text-sm font-medium text-blue-600">
               Browse Global &rarr;
             </span>
           </Link>
@@ -88,7 +88,7 @@ export default function CountriesPage() {
               <p className="text-sm leading-6 text-zinc-600">
                 Free financial calculators, tax information, and guides for {c.name}.
               </p>
-              <span className="mt-2 inline-block text-sm font-medium text-emerald-600">
+              <span className="mt-2 inline-block text-sm font-medium text-blue-600">
                 Browse {c.name} &rarr;
               </span>
             </Link>

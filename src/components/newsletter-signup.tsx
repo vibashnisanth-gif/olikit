@@ -48,9 +48,9 @@ export function NewsletterSignup({ locale, source, variant = "sidebar", title }:
 
   if (status === "success") {
     return (
-      <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5 text-center" role="status" aria-live="polite">
-        <p className="font-semibold text-emerald-800">{message}</p>
-        <p className="mt-1 text-sm text-emerald-600">We'll send you monthly salary, tax & cost of living updates.</p>
+      <div className="rounded-xl border border-blue-200 bg-blue-50 p-5 text-center" role="status" aria-live="polite">
+        <p className="font-semibold text-blue-800">{message}</p>
+        <p className="mt-1 text-sm text-blue-600">We'll send you monthly salary, tax & cost of living updates.</p>
       </div>
     )
   }

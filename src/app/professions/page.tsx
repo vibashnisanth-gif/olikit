@@ -29,7 +29,7 @@ export default function ProfessionsPage() {
   return (
       <div className="space-y-12">
       <section className="rounded-lg border border-zinc-200 bg-white px-5 py-8 shadow-sm sm:px-8 sm:py-10">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-700">
           Olikit Global
         </p>
         <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
@@ -57,7 +57,7 @@ export default function ProfessionsPage() {
               <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Rankings</span>
               <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Comparisons</span>
             </div>
-            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 group-hover:text-emerald-700">Explore Hub &rarr;</span>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600 group-hover:text-blue-700">Explore Hub &rarr;</span>
           </a>
           <a
             href="/data-scientist"
@@ -70,7 +70,7 @@ export default function ProfessionsPage() {
               <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Rankings</span>
               <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Comparisons</span>
             </div>
-            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 group-hover:text-emerald-700">Explore Hub &rarr;</span>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600 group-hover:text-blue-700">Explore Hub &rarr;</span>
           </a>
           <a
             href="/product-manager"
@@ -83,7 +83,7 @@ export default function ProfessionsPage() {
               <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Rankings</span>
               <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Comparisons</span>
             </div>
-            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 group-hover:text-emerald-700">Explore Hub &rarr;</span>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600 group-hover:text-blue-700">Explore Hub &rarr;</span>
           </a>
         </div>
       </section>
@@ -99,7 +99,7 @@ export default function ProfessionsPage() {
             >
               <h3 className="mb-2 text-lg font-semibold text-zinc-950">{prof.name}</h3>
               <p className="text-sm leading-6 text-zinc-600">{prof.description}</p>
-              <span className="mt-2 inline-block text-sm font-medium text-emerald-600">View salaries →</span>
+              <span className="mt-2 inline-block text-sm font-medium text-blue-600">View salaries →</span>
             </a>
           ))}
         </div>
@@ -123,7 +123,7 @@ export default function ProfessionsPage() {
                 .map((prof) => (
                 <tr key={prof.id} className="border-t border-zinc-100">
                   <td className="px-4 py-3">
-                    <a href={`/us/salary/${prof.slug}`} className="font-medium text-zinc-950 hover:text-emerald-600">
+                    <a href={`/us/salary/${prof.slug}`} className="font-medium text-zinc-950 hover:text-blue-600">
                       {prof.name}
                     </a>
                   </td>

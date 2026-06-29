@@ -10,7 +10,7 @@ export function MethodologySection({ title = "Methodology", methodology, dataSou
       <h2 className="mb-4 text-2xl font-semibold text-zinc-950">{title}</h2>
       <ul className="space-y-3 text-sm leading-7 text-zinc-700">
         {methodology.map((item, i) => (
-          <li key={i} className="flex items-start gap-3 border-l-2 border-emerald-400 pl-4">
+          <li key={i} className="flex items-start gap-3 border-l-2 border-blue- pl-4">
             <span>{item}</span>
           </li>
         ))}
@@ -22,7 +22,7 @@ export function MethodologySection({ title = "Methodology", methodology, dataSou
             <ul className="list-disc space-y-1 pl-5 text-sm text-zinc-700">
               {dataSources.map((ds, i) => (
                 <li key={i}>
-                  {ds.url ? <a href={ds.url} className="font-medium text-emerald-700 underline underline-offset-2 hover:text-emerald-800">{ds.label}</a> : ds.label}
+                  {ds.url ? <a href={ds.url} className="font-medium text-blue-700 underline underline-offset-2 hover:text-blue-800">{ds.label}</a> : ds.label}
                 </li>
               ))}
             </ul>

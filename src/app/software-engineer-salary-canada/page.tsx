@@ -58,7 +58,7 @@ export default function SoftwareEngineerCA() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700"><FlagImage code={COUNTRY.slug} size="lg" /> {COUNTRY.name} &mdash; Salary Intelligence</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-700"><FlagImage code={COUNTRY.slug} size="lg" /> {COUNTRY.name} &mdash; Salary Intelligence</p>
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Software Engineer Salary in Canada</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">Canada's technology sector continues to grow rapidly, with Toronto, Vancouver, Montreal and Calgary emerging as major technology employment centres. Software engineers benefit from strong demand and competitive compensation across fintech, enterprise software, gaming and artificial intelligence.</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
@@ -109,8 +109,8 @@ export default function SoftwareEngineerCA() {
             <a href="/ca/salary/software-engineer" className="rounded-md bg-zinc-100 px-3 py-1.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Full Salary Page</a>
             <a href="/ca/tools/salary-calculator" className="rounded-md bg-zinc-100 px-3 py-1.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Salary Calculator</a>
             <a href="/ca/tools/tax-calculator" className="rounded-md bg-zinc-100 px-3 py-1.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Tax Calculator</a>
-            <a href="/research/software-engineer-salary-index-2026" className="rounded-md bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-700 transition hover:bg-emerald-100">Salary Index 2026 Research</a>
-            <a href="/rankings/best-countries-for-software-engineers" className="rounded-md bg-emerald-50 px-3 py-1.5 text-sm font-medium text-emerald-700 transition hover:bg-emerald-100">Best Countries Ranking</a>
+            <a href="/research/software-engineer-salary-index-2026" className="rounded-md bg-blue-50 px-3 py-1.5 text-sm font-medium text-blue-700 transition hover:bg-blue-100">Salary Index 2026 Research</a>
+            <a href="/rankings/best-countries-for-software-engineers" className="rounded-md bg-blue-50 px-3 py-1.5 text-sm font-medium text-blue-700 transition hover:bg-blue-100">Best Countries Ranking</a>
             <a href="/rankings" className="rounded-md bg-zinc-100 px-3 py-1.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200">Global Rankings</a>
           </div>
         </section>

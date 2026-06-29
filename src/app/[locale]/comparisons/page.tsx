@@ -36,7 +36,7 @@ export default async function ComparisonsPage({ params }: Props) {
   return (
     <div className="space-y-12">
       <section className="rounded-lg border border-zinc-200 bg-white px-5 py-10 shadow-sm sm:px-8 sm:py-12">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-">
           Olikit Global — {locale.name}
         </p>
         <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
@@ -61,7 +61,7 @@ export default async function ComparisonsPage({ params }: Props) {
               <p className="text-sm leading-6 text-zinc-600">
                 Compare {tool.name.toLowerCase()} across major economies.
               </p>
-              <span className="mt-2 inline-block text-sm font-medium text-emerald-600">Compare &rarr;</span>
+              <span className="mt-2 inline-block text-sm font-medium text-blue-">Compare &rarr;</span>
             </a>
           ))}
         </div>

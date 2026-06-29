@@ -52,7 +52,7 @@ function QuickAnswersSection({ items }: { items: SalaryIndexContent["quickAnswer
     <Section id="quick-answers">
       <div className="rounded-xl border border-zinc-200 bg-white shadow-sm">
         <div className="flex">
-          <div className="w-1 shrink-0 rounded-l-xl bg-emerald-500" />
+          <div className="w-1 shrink-0 rounded-l-xl bg-blue-500" />
           <div className="min-w-0 flex-1 p-6 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Quick Answers</p>
             {items.map((qa, i) => (
@@ -96,7 +96,7 @@ function ExecutiveSummaryRenderer({ data }: { data: SalaryIndexContent["executiv
     <Section id="executive-summary">
       <div className="rounded-xl border border-zinc-200 bg-white shadow-sm">
         <div className="flex">
-          <div className="w-1 shrink-0 rounded-l-xl bg-emerald-500" />
+          <div className="w-1 shrink-0 rounded-l-xl bg-blue-500" />
           <div className="min-w-0 flex-1 p-6 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Executive Summary</p>
 
@@ -108,7 +108,7 @@ function ExecutiveSummaryRenderer({ data }: { data: SalaryIndexContent["executiv
             )}
 
             {hasInsights && (
-              <p className="mt-4 text-base font-semibold text-emerald-700">
+              <p className="mt-4 text-base font-semibold text-blue-700">
                 {comparisonArrow(allInsights[0])} {allInsights[0]}
               </p>
             )}
@@ -178,7 +178,7 @@ function KeyFindingsRenderer({ items }: { items: SalaryIndexContent["keyFindings
       <div className="grid gap-4 sm:grid-cols-2">
         {items.map((f, i) => (
           <div key={i} className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm">
-            {f.metric && <p className="mb-2 text-3xl font-bold text-emerald-700">{f.metric}</p>}
+            {f.metric && <p className="mb-2 text-3xl font-bold text-blue-700">{f.metric}</p>}
             <h3 className="mb-2 text-base font-semibold text-zinc-950">{f.title}</h3>
             <p className="text-sm leading-6 text-zinc-700">{f.description}</p>
           </div>
@@ -260,7 +260,7 @@ function RankingTable({ table }: { table: SalaryIndexRankingTable }) {
                   </td>
                   {row.ogssScore !== undefined && (
                     <td className="px-3 py-2.5">
-                      <span className="inline-flex items-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-semibold text-emerald-800">
+                      <span className="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-semibold text-blue-800">
                         {row.ogssScore.toFixed(1)}
                       </span>
                     </td>
@@ -312,7 +312,7 @@ function CountryScorecardCard({ card }: { card: SalaryIndexCountryScorecard }) {
           </div>
         </div>
         <div className="mb-4">
-          <p className="mb-1 text-xs font-semibold uppercase text-emerald-700">Strengths</p>
+          <p className="mb-1 text-xs font-semibold uppercase text-blue-700">Strengths</p>
           <ul className="list-disc space-y-0.5 pl-5 text-sm text-zinc-700">
             {card.strengths.map((s, i) => <li key={i}>{s}</li>)}
           </ul>
@@ -381,9 +381,9 @@ function RelatedResearchSection({ items }: { items: SalaryIndexRelatedResearch[]
             <a
               key={i}
               href={r.href}
-              className="group rounded-lg border border-zinc-200 bg-zinc-50 p-4 transition hover:border-emerald-200 hover:bg-emerald-50"
+              className="group rounded-lg border border-zinc-200 bg-zinc-50 p-4 transition hover:border-blue-200 hover:bg-blue-50"
             >
-              <h3 className="mb-1 text-base font-semibold text-zinc-950 group-hover:text-emerald-800">{r.title}</h3>
+              <h3 className="mb-1 text-base font-semibold text-zinc-950 group-hover:text-blue-800">{r.title}</h3>
               <p className="text-sm leading-6 text-zinc-600">{r.description}</p>
             </a>
           ))}
@@ -403,7 +403,7 @@ function StickyToc({ items }: { items: SalaryIndexContent["toc"] }) {
           <li key={i}>
             <a
               href={`#${item.id}`}
-              className="block text-sm leading-5 text-zinc-600 transition hover:text-emerald-700 hover:underline"
+              className="block text-sm leading-5 text-zinc-600 transition hover:text-blue-700 hover:underline"
             >
               {item.label}
             </a>
@@ -431,7 +431,7 @@ function MobileToc({ items }: { items: SalaryIndexContent["toc"] }) {
               <li key={i}>
                 <a
                   href={`#${item.id}`}
-                  className="block text-sm text-zinc-600 transition hover:text-emerald-700"
+                  className="block text-sm text-zinc-600 transition hover:text-blue-700"
                 >
                   {item.label}
                 </a>

@@ -40,7 +40,7 @@ export default async function GuidesPage({ params }: Props) {
   return (
     <div className="space-y-12">
       <section className="rounded-lg border border-zinc-200 bg-white px-5 py-10 shadow-sm sm:px-8 sm:py-12">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-">
           Free financial guides for {name}
         </p>
         <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">

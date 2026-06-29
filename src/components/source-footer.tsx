@@ -30,7 +30,7 @@ export function SourceFooter({ localeSlug }: SourceFooterProps) {
                 href={source.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-medium text-emerald-700 hover:text-emerald-800 hover:underline"
+                className="font-medium text-blue-700 hover:text-blue-800 hover:underline"
               >
                 {source.name}
               </a>

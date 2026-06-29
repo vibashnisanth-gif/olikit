@@ -47,7 +47,7 @@ export default function HighestPayingCountriesDataScientists() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">Olikit Ranking 2026</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-700">Olikit Ranking 2026</p>
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">The Highest Paying Countries for Data Scientists in 2026</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">Determining the absolute "highest paying" market requires moving beyond gross nominal figures. High-tax jurisdictions and extreme housing costs can quickly erode a premier salary. This institutional ranking utilizes the Olikit Compensation Score and Olikit Purchasing Power Score to determine the true financial yield of international tech hubs.</p>
         </section>

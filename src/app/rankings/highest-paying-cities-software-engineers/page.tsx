@@ -180,7 +180,7 @@ export default function HighestPayingCitiesPage() {
 
         {/* Hero */}
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">2026 City Compensation Research</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-700">2026 City Compensation Research</p>
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Highest Paying Cities for Software Engineers</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">An empirical analysis of city-level software engineering compensation, measuring nominal salaries against cost of living, housing affordability, and purchasing power across global technology hubs.</p>
         </section>
@@ -188,7 +188,7 @@ export default function HighestPayingCitiesPage() {
         {/* Quick Answers */}
         <section className="rounded-xl border border-zinc-200 bg-white shadow-sm">
           <div className="flex">
-            <div className="w-1 shrink-0 rounded-l-xl bg-emerald-500" />
+            <div className="w-1 shrink-0 rounded-l-xl bg-blue-500" />
             <div className="min-w-0 flex-1">
               <div className="border-b border-zinc-100 px-6 py-5 sm:px-8">
                 <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Quick Answers</p>
@@ -209,7 +209,7 @@ export default function HighestPayingCitiesPage() {
         {/* Executive Summary */}
         <section className="rounded-xl border border-zinc-200 bg-white shadow-sm">
           <div className="flex">
-            <div className="w-1 shrink-0 rounded-l-xl bg-emerald-500" />
+            <div className="w-1 shrink-0 rounded-l-xl bg-blue-500" />
             <div className="min-w-0 flex-1 p-6 sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Executive Summary</p>
               <p className="mt-4 text-sm leading-7 text-zinc-600">San Francisco remains a global leader in nominal compensation for software engineers in 2026, though cities like Austin, Seattle, and Singapore offer favorable environments for tax-optimized wealth retention and housing affordability.</p>

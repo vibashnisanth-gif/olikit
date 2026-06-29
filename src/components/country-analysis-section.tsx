@@ -24,7 +24,7 @@ export function CountryAnalysisSection({ title = "Country Analysis", countries }
             <div>
               <h3 className="text-lg font-semibold text-zinc-950">{c.name}</h3>
               {c.href && (
-                <a href={c.href} className="text-xs text-emerald-700 underline underline-offset-2 hover:text-emerald-800">
+                <a href={c.href} className="text-xs text-blue-700 underline underline-offset-2 hover:text-blue-800">
                   View salary data →
                 </a>
               )}

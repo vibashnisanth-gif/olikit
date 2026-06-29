@@ -47,7 +47,7 @@ export default function SoftwareEngineerVsCybersecurityAnalyst() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">Career Comparison</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-700">Career Comparison</p>
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Software Engineer vs Cybersecurity Analyst</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">A detailed comparison of compensation, education requirements, skills, career progression, and job outlook for software engineers and cybersecurity analysts across major global markets.</p>
           <div className="mt-6 flex flex-wrap gap-3">

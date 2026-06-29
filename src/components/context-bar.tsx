@@ -15,7 +15,7 @@ const BAR_STYLES: Record<string, string> = {
   global: "bg-zinc-100 text-zinc-700 border-b border-zinc-200",
   us: "bg-blue-50 text-blue-800 border-b border-blue-200",
   uk: "bg-red-50 text-red-800 border-b border-red-200",
-  au: "bg-emerald-50 text-emerald-800 border-b border-emerald-200",
+  au: "bg-blue-50 text-blue-800 border-b border-blue-200",
   ca: "bg-red-50 text-red-800 border-b border-red-200",
   nz: "bg-indigo-50 text-indigo-800 border-b border-indigo-200",
   in: "bg-orange-50 text-orange-800 border-b border-orange-200",

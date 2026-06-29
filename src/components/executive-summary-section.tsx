@@ -12,7 +12,7 @@ export function ExecutiveSummarySection({ title = "Executive Summary", summary, 
   return (
     <section className="rounded-xl border border-zinc-200 bg-white shadow-sm">
       <div className="flex">
-        <div className="w-1 shrink-0 rounded-l-xl bg-emerald-500" />
+        <div className="w-1 shrink-0 rounded-l-xl bg-blue-500" />
         <div className="min-w-0 flex-1 p-6 sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">{title}</p>
 

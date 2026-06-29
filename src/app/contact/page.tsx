@@ -62,7 +62,7 @@ export default function ContactPage() {
           <h2 className="text-xl font-semibold text-zinc-950 mb-3">Email</h2>
           <p className="text-zinc-600">
             Send us an email at{" "}
-            <a href="mailto:support@olikit.com" className="text-emerald-600 hover:text-emerald-700 font-medium">
+            <a href="mailto:support@olikit.com" className="text-blue-600 hover:text-blue-700 font-medium">
                 support@olikit.com
             </a>
           </p>
@@ -103,11 +103,11 @@ export default function ContactPage() {
           <h2 className="text-xl font-semibold text-zinc-950 mb-3">Our Calculators</h2>
           <p className="text-zinc-600">
             Browse our free calculators:{" "}
-            <Link href="/compare" className="text-emerald-600 hover:text-emerald-700">Compare Salaries</Link>,{" "}
-            <Link href="/rankings" className="text-emerald-600 hover:text-emerald-700">Salary Rankings</Link>,{" "}
-            <Link href="/countries" className="text-emerald-600 hover:text-emerald-700">Country Guides</Link>,{" "}
-            <Link href="/research" className="text-emerald-600 hover:text-emerald-700">Research Reports</Link>,{" "}
-            <Link href="/professions" className="text-emerald-600 hover:text-emerald-700">Profession Hubs</Link>.
+            <Link href="/compare" className="text-blue-600 hover:text-blue-700">Compare Salaries</Link>,{" "}
+            <Link href="/rankings" className="text-blue-600 hover:text-blue-700">Salary Rankings</Link>,{" "}
+            <Link href="/countries" className="text-blue-600 hover:text-blue-700">Country Guides</Link>,{" "}
+            <Link href="/research" className="text-blue-600 hover:text-blue-700">Research Reports</Link>,{" "}
+            <Link href="/professions" className="text-blue-600 hover:text-blue-700">Profession Hubs</Link>.
           </p>
         </section>
       </div>

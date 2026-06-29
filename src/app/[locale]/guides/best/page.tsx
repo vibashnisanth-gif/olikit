@@ -57,7 +57,7 @@ export default async function BestGuidesPage({ params }: Props) {
                 className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
                 <h3 className="text-lg font-semibold text-zinc-950">{p.name}</h3>
                 <p className="mt-1 text-sm text-zinc-600">{p.description}</p>
-                <span className="mt-2 inline-block text-sm font-medium text-emerald-600">Learn more →</span>
+                <span className="mt-2 inline-block text-sm font-medium text-blue-">Learn more →</span>
               </TrackedLink>
             ))}
           </div>
@@ -74,7 +74,7 @@ export default async function BestGuidesPage({ params }: Props) {
                 className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
                 <h3 className="text-lg font-semibold text-zinc-950">{p.name}</h3>
                 <p className="mt-1 text-sm text-zinc-600">{p.description}</p>
-                <span className="mt-2 inline-block text-sm font-medium text-emerald-600">Learn more →</span>
+                <span className="mt-2 inline-block text-sm font-medium text-blue-">Learn more →</span>
               </TrackedLink>
             ))}
           </div>
@@ -91,7 +91,7 @@ export default async function BestGuidesPage({ params }: Props) {
                 className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
                 <h3 className="text-lg font-semibold text-zinc-950">{p.name}</h3>
                 <p className="mt-1 text-sm text-zinc-600">{p.description}</p>
-                <span className="mt-2 inline-block text-sm font-medium text-emerald-600">Learn more →</span>
+                <span className="mt-2 inline-block text-sm font-medium text-blue-">Learn more →</span>
               </TrackedLink>
             ))}
           </div>

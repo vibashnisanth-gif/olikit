@@ -57,8 +57,8 @@ export function MarketsPanel() {
       <div className="flex items-center justify-between px-5 pt-4 pb-3">
         <div className="flex items-center gap-2">
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue- opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500" />
           </span>
           <h3 className="text-sm font-bold text-zinc-900 tracking-tight">Markets</h3>
         </div>
@@ -79,7 +79,7 @@ export function MarketsPanel() {
                 key={q.symbol}
                 className={`rounded-xl p-3.5 border transition-colors ${
                   up(q)
-                    ? "bg-emerald-50/60 border-emerald-100 hover:bg-emerald-50"
+                    ? "bg-blue-50/60 border-blue-100 hover:bg-blue-50"
                     : "bg-red-50/60 border-red-100 hover:bg-red-50"
                 }`}
               >
@@ -94,7 +94,7 @@ export function MarketsPanel() {
                 </p>
                 <p
                   className={`text-xs font-bold tabular-nums mt-1 ${
-                    up(q) ? "text-emerald-600" : "text-red-500"
+                    up(q) ? "text-blue-600" : "text-red-500"
                   }`}
                 >
                   {up(q) ? "▲" : "▼"} {Math.abs(q.pctChange).toFixed(2)}%

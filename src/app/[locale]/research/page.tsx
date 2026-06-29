@@ -44,7 +44,7 @@ export default async function ResearchPage({ params }: Props) {
             <p className="mb-3 text-sm text-zinc-600">{report.metaDescription}</p>
             <div className="mb-3 flex flex-wrap gap-2">
               {report.keyFindings.slice(0, 3).map((finding, i) => (
-                <span key={i} className="rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs text-emerald-700">{finding.substring(0, 60)}...</span>
+                <span key={i} className="rounded-full bg-blue- px-2.5 py-0.5 text-xs text-blue-">{finding.substring(0, 60)}...</span>
               ))}
             </div>
             <div className="flex items-center gap-4 text-xs text-zinc-500">

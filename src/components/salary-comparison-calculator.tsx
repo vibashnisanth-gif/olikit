@@ -85,7 +85,7 @@ export function SalaryComparisonCalculator() {
             id="profession-select"
             value={selectedProfession}
             onChange={(e) => setSelectedProfession(e.target.value)}
-            className="block rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+            className="block rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
           >
             {professions.map((p) => (
               <option key={p.id} value={p.id}>
@@ -103,7 +103,7 @@ export function SalaryComparisonCalculator() {
             id="filing-select"
             value={filingStatus}
             onChange={(e) => setFilingStatus(e.target.value as "single" | "married")}
-            className="block rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+            className="block rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
           >
             <option value="single">Single</option>
             <option value="married">Married (US)</option>
@@ -115,7 +115,7 @@ export function SalaryComparisonCalculator() {
             type="checkbox"
             checked={showPPP}
             onChange={(e) => setShowPPP(e.target.checked)}
-            className="rounded border-zinc-300 text-emerald-600 focus:ring-emerald-500"
+            className="rounded border-zinc-300 text-blue-600 focus:ring-blue-500"
           />
           Show PPP-adjusted
         </label>
@@ -153,7 +153,7 @@ export function SalaryComparisonCalculator() {
                         ? "bg-red-50 text-red-700 ring-1 ring-red-200"
                         : r.effectiveRate > 10
                           ? "bg-amber-50 text-amber-700 ring-1 ring-amber-200"
-                          : "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200"
+                          : "bg-blue-50 text-blue-700 ring-1 ring-blue-200"
                     }`}
                   >
                     {r.effectiveRate.toFixed(1)}%

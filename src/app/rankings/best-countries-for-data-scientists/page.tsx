@@ -152,7 +152,7 @@ export default function BestCountriesDataScientistsPage() {
 
         {/* Hero */}
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">2026 Multi-Factor Country Evaluation</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-700">2026 Multi-Factor Country Evaluation</p>
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Best Countries for Data Scientists</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">Multi-factor evaluation of countries for data scientists in 2026, considering salary, taxation, purchasing power, career growth, immigration accessibility, AI ecosystem strength, and quality of life.</p>
         </section>
@@ -160,7 +160,7 @@ export default function BestCountriesDataScientistsPage() {
         {/* Quick Answers */}
         <section className="rounded-xl border border-zinc-200 bg-white shadow-sm">
           <div className="flex">
-            <div className="w-1 shrink-0 rounded-l-xl bg-emerald-500" />
+            <div className="w-1 shrink-0 rounded-l-xl bg-blue-500" />
             <div className="min-w-0 flex-1">
               <div className="border-b border-zinc-100 px-6 py-5 sm:px-8">
                 <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Quick Answers</p>
@@ -181,7 +181,7 @@ export default function BestCountriesDataScientistsPage() {
         {/* Executive Summary */}
         <section className="rounded-xl border border-zinc-200 bg-white shadow-sm">
           <div className="flex">
-            <div className="w-1 shrink-0 rounded-l-xl bg-emerald-500" />
+            <div className="w-1 shrink-0 rounded-l-xl bg-blue-500" />
             <div className="min-w-0 flex-1 p-6 sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Executive Summary</p>
               <p className="mt-4 text-sm leading-7 text-zinc-600">the United States leads in career potential and AI compensation, while Singapore offers tax-adjusted wealth accumulation advantages. Canada and Australia have accessible immigration pathways. India offers purchasing power dynamics. New Zealand offers lifestyle and stability.</p>

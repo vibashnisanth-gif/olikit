@@ -142,7 +142,7 @@ export default function ComparePage() {
                 </div>
                 <a
                   href={`/${fromSlug}/comparisons`}
-                  className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-emerald-600 hover:text-emerald-700 transition-colors"
+                  className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-blue-600 hover:text-blue-700 transition-colors"
                 >
                   Full comparison →
                 </a>
@@ -176,7 +176,7 @@ export default function ComparePage() {
                 return (
                   <tr key={id} className="hover:bg-white/80 transition-colors">
                     <td className="py-3 pr-4 font-medium text-zinc-950">
-                      <a href={`/us/salary/${p.slug}`} className="hover:text-emerald-700 transition-colors">{p.name}</a>
+                      <a href={`/us/salary/${p.slug}`} className="hover:text-blue-700 transition-colors">{p.name}</a>
                     </td>
                     {countries.map((c) => {
                       const salaryData = p.salaries[c.slug]

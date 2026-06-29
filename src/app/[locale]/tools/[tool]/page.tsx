@@ -79,7 +79,7 @@ export default async function ToolPage({ params }: Props) {
       </nav>
 
       <div className="rounded-lg border border-zinc-200 bg-white px-5 py-7 shadow-sm sm:px-8">
-        <p className="mb-3 text-sm font-semibold uppercase text-emerald-700">
+        <p className="mb-3 text-sm font-semibold uppercase text-blue-">
           {locale.name} calculator
         </p>
         <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
@@ -104,7 +104,7 @@ export default async function ToolPage({ params }: Props) {
       {content.aiAnswer && (
         <div className="quick-answer rounded-xl border border-zinc-200 bg-white shadow-sm">
           <div className="flex">
-            <div className="w-1 shrink-0 rounded-l-xl bg-emerald-500" />
+            <div className="w-1 shrink-0 rounded-l-xl bg-blue-" />
             <div className="min-w-0 flex-1 p-6">
               <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Quick Answer</p>
               <p className="mt-2 text-base font-semibold text-zinc-950">{content.aiAnswer.question}</p>
@@ -139,7 +139,7 @@ export default async function ToolPage({ params }: Props) {
           <ol className="space-y-5">
             {content.steps.map((step, i) => (
               <li key={i} className="flex gap-4">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue- text-sm font-semibold text-blue-">
                   {i + 1}
                 </span>
                 <div>

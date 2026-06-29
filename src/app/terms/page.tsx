@@ -116,7 +116,7 @@ export default function TermsPage() {
           <h2 className="text-xl font-semibold text-zinc-950 mb-3">Contact</h2>
           <p className="text-zinc-600 leading-relaxed">
             For questions about these terms, contact us at{" "}
-            <a href="mailto:support@olikit.com" className="text-emerald-600 hover:text-emerald-700">support@olikit.com</a>.
+            <a href="mailto:support@olikit.com" className="text-blue-600 hover:text-blue-700">support@olikit.com</a>.
           </p>
         </section>
       </div>

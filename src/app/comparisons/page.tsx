@@ -72,7 +72,7 @@ export default function ComparisonsHubPage() {
                   <span className="text-sm font-semibold text-zinc-500">vs</span>
                   <FlagImage code={c.slugB} size="xl" />
                 </div>
-                <h3 className="text-center text-sm font-semibold text-zinc-950 group-hover:text-emerald-700 transition-colors">
+                <h3 className="text-center text-sm font-semibold text-zinc-950 group-hover:text-blue-700 transition-colors">
                   {c.nameA} vs {c.nameB}
                 </h3>
                 <p className="mt-2 text-center text-xs text-zinc-500">
@@ -97,7 +97,7 @@ export default function ComparisonsHubPage() {
                   <span className="text-sm font-semibold text-zinc-500">vs</span>
                   <FlagImage code={c.slugB} size="xl" />
                 </div>
-                <h3 className="text-center text-sm font-semibold text-zinc-950 group-hover:text-emerald-700 transition-colors">
+                <h3 className="text-center text-sm font-semibold text-zinc-950 group-hover:text-blue-700 transition-colors">
                   {c.nameA} vs {c.nameB}
                 </h3>
                 <p className="mt-2 text-center text-xs text-zinc-500">
@@ -122,7 +122,7 @@ export default function ComparisonsHubPage() {
                   <span className="text-sm font-semibold text-zinc-500">vs</span>
                   <FlagImage code={c.slugB} size="xl" />
                 </div>
-                <h3 className="text-center text-sm font-semibold text-zinc-950 group-hover:text-emerald-700 transition-colors">
+                <h3 className="text-center text-sm font-semibold text-zinc-950 group-hover:text-blue-700 transition-colors">
                   {c.nameA} vs {c.nameB}
                 </h3>
                 <p className="mt-2 text-center text-xs text-zinc-500">
@@ -142,7 +142,7 @@ export default function ComparisonsHubPage() {
                 href={c.href}
                 className="group rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300"
               >
-                <h3 className="text-center text-sm font-semibold text-zinc-950 group-hover:text-emerald-700 transition-colors mb-2">
+                <h3 className="text-center text-sm font-semibold text-zinc-950 group-hover:text-blue-700 transition-colors mb-2">
                   {c.nameA} vs {c.nameB}
                 </h3>
                 <p className="text-center text-xs text-zinc-500">

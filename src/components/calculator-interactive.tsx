@@ -82,10 +82,10 @@ function ResultCard({ group }: { group: ResultGroup }) {
         {group.items.map((item, i) => (
           <div
             key={i}
-            className={`flex items-start justify-between gap-4 px-4 py-2.5 text-sm ${item.highlight ? 'bg-emerald-50 font-semibold' : ''}`}
+            className={`flex items-start justify-between gap-4 px-4 py-2.5 text-sm ${item.highlight ? 'bg-blue-50 font-semibold' : ''}`}
           >
             <span className="text-zinc-600">{item.label}</span>
-            <span className={`text-right tabular-nums ${item.highlight ? 'text-emerald-800' : 'text-zinc-950'}`}>
+            <span className={`text-right tabular-nums ${item.highlight ? 'text-blue-800' : 'text-zinc-950'}`}>
               {item.value}
             </span>
           </div>

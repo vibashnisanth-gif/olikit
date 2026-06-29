@@ -55,9 +55,9 @@ const registry: CountryData[] = [
     taxAuthority: "Australian Taxation Office",
     taxAuthorityAbbr: "ATO",
     themeColor: "emerald",
-    themeBg: "bg-emerald-50",
-    themeBorder: "border-emerald-200",
-    themeText: "text-emerald-800",
+    themeBg: "bg-blue-",
+    themeBorder: "border-blue-",
+    themeText: "text-blue-",
     description: "Salary, tax and cost-of-living information for Australia.",
   },
   {

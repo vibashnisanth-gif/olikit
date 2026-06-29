@@ -36,7 +36,7 @@ export default function DataScientistUS() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">{"\u{1F1FA}\u{1F1F8}"} United States &mdash; Salary Intelligence</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-700">{"\u{1F1FA}\u{1F1F8}"} United States &mdash; Salary Intelligence</p>
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Data Scientist Salary in the United States: 2026 Intelligence Report</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">The United States remains the apex market for data science compensation, driving the global baseline for AI and machine learning remuneration. Characterized by aggressive base salaries and highly lucrative equity grants (Restricted Stock Units), the US market rewards specialized talent over generalized analytics. This report details the financial realities, tax implications, and localized purchasing power for Data Scientists operating in the US.</p>
           <div className="mt-6 flex flex-wrap gap-3">

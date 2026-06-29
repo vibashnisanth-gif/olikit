@@ -272,15 +272,15 @@ export default async function ComparisonPage({ params }: Props) {
       </section>
 
       {type === "purchasing-power" && (
-        <section className="rounded-lg border border-emerald-200 bg-emerald-50 px-6 py-5">
-          <h2 className="text-xl font-semibold text-emerald-900 mb-3">Purchasing Power Analysis</h2>
-          <p className="text-emerald-800 leading-relaxed">
+        <section className="rounded-lg border border-blue- bg-blue- px-6 py-5">
+          <h2 className="text-xl font-semibold text-blue- mb-3">Purchasing Power Analysis</h2>
+          <p className="text-blue- leading-relaxed">
             A salary {content.regionA ? `in ${content.regionA.name}` : `in ${content.localeA.name}`} has different real-world value when adjusted for local costs.
             The effective purchasing power tells you what your salary is actually worth.
           </p>
-          {content.salaryDiff && <p className="mt-2 text-emerald-800"><strong>Salary:</strong> {content.salaryDiff}</p>}
-          {content.colDiff && <p className="mt-2 text-emerald-800"><strong>Cost of Living:</strong> {content.colDiff}</p>}
-          {content.purchasingPowerDiff && <p className="mt-2 text-emerald-800"><strong>Purchasing Power:</strong> {content.purchasingPowerDiff}</p>}
+          {content.salaryDiff && <p className="mt-2 text-blue-"><strong>Salary:</strong> {content.salaryDiff}</p>}
+          {content.colDiff && <p className="mt-2 text-blue-"><strong>Cost of Living:</strong> {content.colDiff}</p>}
+          {content.purchasingPowerDiff && <p className="mt-2 text-blue-"><strong>Purchasing Power:</strong> {content.purchasingPowerDiff}</p>}
         </section>
       )}
 

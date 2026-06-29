@@ -48,7 +48,7 @@ export default function DataScientistHub() {
       <div className="space-y-16">
         {/* HERO */}
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-700">
             Olikit Global &mdash; Profession Intelligence
           </p>
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
@@ -88,7 +88,7 @@ export default function DataScientistHub() {
             </div>
           </div>
           <div className="mt-4 text-right">
-            <a href="/methodology/olikit-scoring-system" className="text-sm font-medium text-emerald-700 hover:text-emerald-600">View full scoring methodology &rarr;</a>
+            <a href="/methodology/olikit-scoring-system" className="text-sm font-medium text-blue-700 hover:text-blue-600">View full scoring methodology &rarr;</a>
           </div>
         </section>
 

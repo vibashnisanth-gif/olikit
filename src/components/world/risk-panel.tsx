@@ -26,10 +26,10 @@ export function RiskPanel() {
     const pct = rank / maxRank;
     if (pct <= 0.15)
       return {
-        color: "bg-emerald-500",
-        text: "text-emerald-700",
-        bg: "bg-emerald-50",
-        ring: "ring-emerald-200",
+        color: "bg-blue-500",
+        text: "text-blue-700",
+        bg: "bg-blue-50",
+        ring: "ring-blue-200",
         label: "Easy",
       };
     if (pct <= 0.3)

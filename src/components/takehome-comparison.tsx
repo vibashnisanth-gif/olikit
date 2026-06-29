@@ -89,7 +89,7 @@ export function TakeHomeComparison({ localeSlug }: TakeHomeComparisonProps) {
           id="profession-select"
           value={selectedProfession}
           onChange={(e) => setSelectedProfession(e.target.value)}
-          className="block rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+          className="block rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
         >
           {professions.map((p) => (
             <option key={p.id} value={p.id}>
@@ -100,12 +100,12 @@ export function TakeHomeComparison({ localeSlug }: TakeHomeComparisonProps) {
       </div>
 
       {currentRow && (
-        <div className="mb-6 rounded-lg border border-emerald-200 bg-emerald-50 px-5 py-4">
-          <p className="text-sm font-medium text-emerald-900">
+        <div className="mb-6 rounded-lg border border-blue-200 bg-blue-50 px-5 py-4">
+          <p className="text-sm font-medium text-blue-900">
             {currentCountry?.flag} {currentCountry?.name}: {currentRow.grossLocalFormatted} gross &rarr;{" "}
             <strong>{currentRow.takeHomeFormatted} take-home</strong> ({currentRow.takeHomePct}% retention, {currentRow.effectiveRate.toFixed(1)}% effective tax)
           </p>
-          <p className="mt-1 text-xs text-emerald-700">
+          <p className="mt-1 text-xs text-blue-700">
             Take-home: {currentRow.takeHomeUsdFormatted} USD &middot; PPP-adjusted: {currentRow.pppAdjustedFormatted}
           </p>
         </div>
@@ -131,16 +131,16 @@ export function TakeHomeComparison({ localeSlug }: TakeHomeComparisonProps) {
                 <tr
                   key={r.slug}
                   className={`transition-colors ${
-                    isCurrent ? "bg-emerald-50/60" : "hover:bg-zinc-50"
+                    isCurrent ? "bg-blue-50/60" : "hover:bg-zinc-50"
                   }`}
                 >
                   <td className="py-3 pr-4 whitespace-nowrap">
                     <span className="flex items-center gap-2">
                       <span className="text-lg"><FlagImage code={r.slug} size="lg" /></span>
-                      <span className={`font-medium ${isCurrent ? "text-emerald-900" : "text-zinc-900"}`}>
+                      <span className={`font-medium ${isCurrent ? "text-blue-900" : "text-zinc-900"}`}>
                         {r.name}
                         {isCurrent && (
-                          <span className="ml-1.5 inline-flex items-center rounded-full bg-emerald-100 px-1.5 py-0.5 text-[10px] font-medium text-emerald-700 ring-1 ring-emerald-200">
+                          <span className="ml-1.5 inline-flex items-center rounded-full bg-blue-100 px-1.5 py-0.5 text-[10px] font-medium text-blue-700 ring-1 ring-blue-200">
                             You are here
                           </span>
                         )}
@@ -157,7 +157,7 @@ export function TakeHomeComparison({ localeSlug }: TakeHomeComparisonProps) {
                           ? "bg-red-50 text-red-700 ring-1 ring-red-200"
                           : r.effectiveRate > 10
                             ? "bg-amber-50 text-amber-700 ring-1 ring-amber-200"
-                            : "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200"
+                            : "bg-blue-50 text-blue-700 ring-1 ring-blue-200"
                       }`}
                     >
                       {r.takeHomePct}%

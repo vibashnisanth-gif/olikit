@@ -13,7 +13,7 @@ export function KeyTakeaways({ items, title = "Key Takeaways" }: Props) {
       <ul className="space-y-2.5">
         {items.map((item, i) => (
           <li key={i} className="flex items-start gap-2.5 text-sm text-zinc-700">
-            <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
+            <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" />
             <span>{item}</span>
           </li>
         ))}

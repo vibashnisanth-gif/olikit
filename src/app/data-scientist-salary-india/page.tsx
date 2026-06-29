@@ -37,7 +37,7 @@ export default function DataScientistIN() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700"><FlagImage code={COUNTRY.slug} size="lg" /> {COUNTRY.name} &mdash; Salary Intelligence</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-700"><FlagImage code={COUNTRY.slug} size="lg" /> {COUNTRY.name} &mdash; Salary Intelligence</p>
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Data Scientist Salary in India</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">India is one of the world's largest and fastest-growing technology talent markets. Bengaluru, Hyderabad, Pune and Gurgaon are major technology hubs offering competitive compensation for data scientists across product development, services, fintech and enterprise software.</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">

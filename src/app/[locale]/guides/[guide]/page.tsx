@@ -70,7 +70,7 @@ export default async function GuidePage({ params }: Props) {
       />
 
       <div className="rounded-lg border border-zinc-200 bg-white px-5 py-7 shadow-sm sm:px-8 sm:py-10">
-        <p className="mb-3 text-sm font-semibold uppercase text-emerald-700">
+        <p className="mb-3 text-sm font-semibold uppercase text-blue-">
           {locale.name} guide
         </p>
         <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
@@ -132,7 +132,7 @@ export default async function GuidePage({ params }: Props) {
           <ol className="space-y-5">
             {content.steps.map((step, i) => (
               <li key={i} className="flex gap-4">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-sm font-semibold text-emerald-700">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue- text-sm font-semibold text-blue-">
                   {i + 1}
                 </span>
                 <div>
@@ -141,7 +141,7 @@ export default async function GuidePage({ params }: Props) {
                   {step.url && (
                     <a
                       href={step.url}
-                      className="mt-1 inline-block text-sm font-medium text-emerald-600 hover:text-emerald-700"
+                      className="mt-1 inline-block text-sm font-medium text-blue- hover:text-blue-"
                     >
                       Use the calculator &rarr;
                     </a>
@@ -164,14 +164,14 @@ export default async function GuidePage({ params }: Props) {
             </section>
           ))}
           {content.keyTakeaways && content.keyTakeaways.length > 0 && (
-            <section className="rounded-lg border border-emerald-200 bg-emerald-50 p-5 shadow-sm">
+            <section className="rounded-lg border border-blue- bg-blue- p-5 shadow-sm">
               <h2 className="mb-3 text-xl font-semibold text-zinc-950">
                 Key Takeaways
               </h2>
               <ul className="space-y-2">
                 {content.keyTakeaways.map((takeaway, i) => (
                   <li key={i} className="flex gap-2 text-sm text-zinc-700">
-                    <span className="mt-0.5 shrink-0 text-emerald-600">&#10003;</span>
+                    <span className="mt-0.5 shrink-0 text-blue-">&#10003;</span>
                     <span>{takeaway}</span>
                   </li>
                 ))}
@@ -207,7 +207,7 @@ export default async function GuidePage({ params }: Props) {
                   href={`/${locale.slug}/guides/${g.slug}`}
                   className={`block rounded-md px-2 py-1.5 text-sm hover:bg-zinc-100 ${
                     g.slug === guide.slug
-                      ? "font-medium text-emerald-700 bg-emerald-50"
+                      ? "font-medium text-blue- bg-blue-"
                       : "text-zinc-700 hover:text-zinc-950"
                   }`}
                 >

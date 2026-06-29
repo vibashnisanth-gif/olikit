@@ -49,7 +49,7 @@ export default function DataScientistIndexPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">Olikit Research Report 2026</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-700">Olikit Research Report 2026</p>
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">The Olikit Global Data Scientist Index 2026</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">Institutional-grade intelligence on the economic realities of data science professionals. The defining trend of 2026 is the divergence between nominal compensation and localized purchasing power. While the United States continues to dictate maximum absolute compensation, aggressive tax structures and housing costs in primary tech hubs have driven specialized talent to optimize for Olikit Net Earning Power in jurisdictions like Singapore and regional Australia.</p>
         </section>

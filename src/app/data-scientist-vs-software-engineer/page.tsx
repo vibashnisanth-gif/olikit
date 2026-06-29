@@ -47,7 +47,7 @@ export default function DataScientistVsSoftwareEngineer() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">Career Comparison</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-700">Career Comparison</p>
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Data Scientist vs. Software Engineer: 2026 Institutional Comparison</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">The distinction between Data Scientists and Software Engineers is narrowing in 2026. As AI models move from research to production, Data Scientists are required to write scalable code, while Software Engineers increasingly integrate machine learning APIs into their system architectures. This analysis evaluates the compensation, trajectory, and skill divergence between these two premier tech disciplines.</p>
           <div className="mt-6 flex flex-wrap gap-3">

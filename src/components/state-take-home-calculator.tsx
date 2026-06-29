@@ -234,7 +234,7 @@ export function StateTakeHomeCalculator({stateSlug}: {stateSlug: string}) {
         )}
         <div className="flex items-center justify-between bg-zinc-50 px-4 py-3">
           <span className="text-sm font-semibold text-zinc-950">Take-home pay</span>
-          <span className="text-sm font-bold tabular-nums text-emerald-600">
+          <span className="text-sm font-bold tabular-nums text-blue-600">
             {formatSalary(result.takeHome, "USD")}
           </span>
         </div>

@@ -48,8 +48,8 @@ export default function DataSourcesPage() {
               <FlagImage code={s.slug} size="xl" />
               <div>
                 <p className="text-sm font-semibold text-zinc-950">{COUNTRY_NAMES[s.slug]}</p>
-                <p className="text-xs text-zinc-500">Tax: <a href={s.taxUrl} target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700">{s.tax}</a></p>
-                <p className="text-xs text-zinc-500">Labor: <a href={s.laborUrl} target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700">{s.labor}</a></p>
+                <p className="text-xs text-zinc-500">Tax: <a href={s.taxUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700">{s.tax}</a></p>
+                <p className="text-xs text-zinc-500">Labor: <a href={s.laborUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700">{s.labor}</a></p>
               </div>
             </div>
           </div>

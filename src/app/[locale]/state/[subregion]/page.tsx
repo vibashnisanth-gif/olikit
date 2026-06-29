@@ -90,12 +90,12 @@ export default async function SubRegionPage({params}: Props) {
       <section>
         <a
           href={`/${slug}/state/${subRegion.slug}/take-home-pay`}
-          className="block rounded-lg border-2 border-emerald-200 bg-emerald-50 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-md"
+          className="block rounded-lg border-2 border-blue- bg-blue- p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-blue- hover:shadow-md"
         >
-          <h2 className="text-lg font-bold text-emerald-900 mb-1">
+          <h2 className="text-lg font-bold text-blue- mb-1">
             {name} Take-Home Pay Calculator
           </h2>
-          <p className="text-sm text-emerald-700">
+          <p className="text-sm text-blue-">
             See exactly how much you take home after federal, state, and FICA taxes for {name}.
           </p>
         </a>
@@ -142,7 +142,7 @@ export default async function SubRegionPage({params}: Props) {
           </div>
           <a
             href={`/${slug}/states`}
-            className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 hover:text-emerald-700"
+            className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue- hover:text-blue-"
           >
             View all <FlagImage code={slug} size="lg" /> {countryName} states & regions →
           </a>

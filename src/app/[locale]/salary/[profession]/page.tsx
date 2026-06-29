@@ -118,7 +118,7 @@ export default async function ProfessionPage({ params }: Props) {
       </nav>
 
       <div className="rounded-lg border border-zinc-200 bg-white px-5 py-7 shadow-sm sm:px-8">
-        <p className="mb-3 text-sm font-semibold uppercase text-emerald-700">
+        <p className="mb-3 text-sm font-semibold uppercase text-blue-">
           {locale.name} salary guide
         </p>
         <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
@@ -210,7 +210,7 @@ export default async function ProfessionPage({ params }: Props) {
             </p>
             <a
               href={`/${locale.slug}/tools/salary-calculator`}
-              className="inline-block rounded-md bg-emerald-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-emerald-700 transition-colors"
+              className="inline-block rounded-md bg-blue- px-5 py-2.5 text-sm font-medium text-white hover:bg-blue- transition-colors"
             >
               Calculate Take-Home Pay
             </a>
@@ -300,7 +300,7 @@ export default async function ProfessionPage({ params }: Props) {
           </section>
 
           <section className="rounded-lg border border-zinc-200 bg-zinc-50 p-5 text-sm text-zinc-500 leading-relaxed">
-            Salary figures represent averages from government labor statistics and industry surveys. Individual compensation varies by experience, employer, location, and qualifications. Tax calculations use official brackets from {locale.name}&apos;s tax authority. Figures updated {lastUpdated}. See <a href="/methodology" className="text-emerald-700 hover:text-emerald-600 font-medium">methodology</a> for details.
+            Salary figures represent averages from government labor statistics and industry surveys. Individual compensation varies by experience, employer, location, and qualifications. Tax calculations use official brackets from {locale.name}&apos;s tax authority. Figures updated {lastUpdated}. See <a href="/methodology" className="text-blue- hover:text-blue- font-medium">methodology</a> for details.
           </section>
 
           {content.faqs.length > 0 && (

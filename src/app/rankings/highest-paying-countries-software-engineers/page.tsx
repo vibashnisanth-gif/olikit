@@ -121,7 +121,7 @@ export default function HighestPayingCountriesPage() {
 
         {/* Hero */}
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">2026 Global Compensation Research</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-700">2026 Global Compensation Research</p>
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Highest Paying Countries for Software Engineers</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">
             Compare software engineer salaries, taxes, purchasing power and career opportunities across major economies.
@@ -133,7 +133,7 @@ export default function HighestPayingCountriesPage() {
         <section className="rounded-lg border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-8">
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Introduction</h2>
           <p className="mb-3 text-sm leading-7 text-zinc-600">
-            <Link href="/professions/software-engineer" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">Software engineering</Link> continues to be one of the most globally competitive and financially rewarding professions. As organizations increase investment in artificial intelligence, cloud computing, cybersecurity, enterprise software and digital transformation, demand for experienced software engineers remains strong across major economies.
+            <Link href="/professions/software-engineer" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">Software engineering</Link> continues to be one of the most globally competitive and financially rewarding professions. As organizations increase investment in artificial intelligence, cloud computing, cybersecurity, enterprise software and digital transformation, demand for experienced software engineers remains strong across major economies.
           </p>
           <p className="mb-3 text-sm leading-7 text-zinc-600">
             However, comparing software engineering salaries internationally is more complicated than simply looking at headline compensation figures. Taxes, housing costs, healthcare expenses, purchasing power and long-term career opportunities all influence the real value of earnings.
@@ -217,7 +217,7 @@ export default function HighestPayingCountriesPage() {
         <section className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm sm:p-8">
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">United States</h2>
           <p className="mb-3 text-sm leading-7 text-zinc-600">
-            The United States remains the benchmark for <Link href="/software-engineer-salary-us" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">software engineering compensation</Link> globally. Major technology hubs such as San Francisco, Seattle, New York, Austin and Boston continue attracting engineering talent from around the world.
+            The United States remains the benchmark for <Link href="/software-engineer-salary-us" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">software engineering compensation</Link> globally. Major technology hubs such as San Francisco, Seattle, New York, Austin and Boston continue attracting engineering talent from around the world.
           </p>
           <p className="mb-3 text-sm leading-7 text-zinc-600">
             Demand remains particularly strong across artificial intelligence, machine learning, cloud infrastructure, cybersecurity and large-scale distributed systems. Software engineers in the United States benefit from access to some of the world&rsquo;s largest technology companies as well as one of the most active startup ecosystems.
@@ -229,8 +229,8 @@ export default function HighestPayingCountriesPage() {
             The primary challenge is cost of living. Housing costs in leading technology hubs can significantly reduce the value of higher salaries. Healthcare costs and taxation also influence take-home outcomes.
           </p>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-md border border-emerald-200 bg-emerald-50 p-4">
-              <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-800">Advantages</h3>
+            <div className="rounded-md border border-blue-200 bg-blue-50 p-4">
+              <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-blue-800">Advantages</h3>
               <ul className="list-disc space-y-1 pl-4 text-sm text-zinc-700">
                 <li>Highest compensation potential globally</li>
                 <li>Largest technology ecosystem</li>
@@ -259,14 +259,14 @@ export default function HighestPayingCountriesPage() {
             Sydney and Melbourne remain the country&rsquo;s primary technology hubs, while Brisbane and Perth continue expanding their digital economies. Demand is particularly strong in cloud computing, enterprise software, cybersecurity and financial technology.
           </p>
           <p className="mb-3 text-sm leading-7 text-zinc-600">
-            Australia offers competitive <Link href="/software-engineer-salary-australia" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">compensation levels</Link> alongside a high standard of living. Many engineers benefit from strong earnings, stable employment conditions and attractive quality-of-life factors.
+            Australia offers competitive <Link href="/software-engineer-salary-australia" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">compensation levels</Link> alongside a high standard of living. Many engineers benefit from strong earnings, stable employment conditions and attractive quality-of-life factors.
           </p>
           <p className="mb-3 text-sm leading-7 text-zinc-600">
             While housing affordability remains a challenge in major metropolitan areas, Australia continues to offer one of the strongest overall value propositions for experienced software engineers.
           </p>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-md border border-emerald-200 bg-emerald-50 p-4">
-              <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-800">Advantages</h3>
+            <div className="rounded-md border border-blue-200 bg-blue-50 p-4">
+              <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-blue-800">Advantages</h3>
               <ul className="list-disc space-y-1 pl-4 text-sm text-zinc-700">
                 <li>Competitive salaries</li>
                 <li>Strong work-life balance</li>
@@ -294,11 +294,11 @@ export default function HighestPayingCountriesPage() {
             The country&rsquo;s immigration policies continue attracting highly skilled professionals from around the world. Combined with growing technology investment, this has helped strengthen Canada&rsquo;s position as a major software engineering market.
           </p>
           <p className="mb-3 text-sm leading-7 text-zinc-600">
-            Although <Link href="/software-engineer-salary-canada" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">salaries</Link> typically remain below those offered in the United States, Canada offers a compelling combination of career opportunities, quality of life and long-term residency pathways.
+            Although <Link href="/software-engineer-salary-canada" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">salaries</Link> typically remain below those offered in the United States, Canada offers a compelling combination of career opportunities, quality of life and long-term residency pathways.
           </p>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-md border border-emerald-200 bg-emerald-50 p-4">
-              <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-800">Advantages</h3>
+            <div className="rounded-md border border-blue-200 bg-blue-50 p-4">
+              <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-blue-800">Advantages</h3>
               <ul className="list-disc space-y-1 pl-4 text-sm text-zinc-700">
                 <li>Strong technology sector growth</li>
                 <li>Immigration-friendly policies</li>
@@ -326,7 +326,7 @@ export default function HighestPayingCountriesPage() {
             Software engineers in Singapore benefit from strong demand across cloud computing, cybersecurity, fintech, artificial intelligence and enterprise software. The country&rsquo;s strategic location and business-friendly environment continue attracting international employers seeking access to Southeast Asian markets.
           </p>
           <p className="mb-3 text-sm leading-7 text-zinc-600">
-            One of Singapore&rsquo;s most significant advantages is its relatively favorable tax structure. Compared with many developed economies, lower income tax rates can improve take-home earnings and increase financial flexibility. View detailed <Link href="/software-engineer-salary-singapore" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">salary data for Singapore</Link>.
+            One of Singapore&rsquo;s most significant advantages is its relatively favorable tax structure. Compared with many developed economies, lower income tax rates can improve take-home earnings and increase financial flexibility. View detailed <Link href="/software-engineer-salary-singapore" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">salary data for Singapore</Link>.
           </p>
           <p className="mb-3 text-sm leading-7 text-zinc-600">
             However, housing costs remain a major consideration. Accommodation expenses can significantly impact purchasing power, particularly for professionals relocating from lower-cost regions.
@@ -335,8 +335,8 @@ export default function HighestPayingCountriesPage() {
             Despite these challenges, Singapore continues to offer some of the strongest software engineering opportunities available in Asia.
           </p>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-md border border-emerald-200 bg-emerald-50 p-4">
-              <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-800">Advantages</h3>
+            <div className="rounded-md border border-blue-200 bg-blue-50 p-4">
+              <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-blue-800">Advantages</h3>
               <ul className="list-disc space-y-1 pl-4 text-sm text-zinc-700">
                 <li>Strong salaries</li>
                 <li>Low tax environment</li>
@@ -368,11 +368,11 @@ export default function HighestPayingCountriesPage() {
             The country&rsquo;s technology sector continues attracting investment despite economic uncertainty and changing global market conditions. Many multinational organizations maintain significant engineering operations throughout the UK.
           </p>
           <p className="mb-3 text-sm leading-7 text-zinc-600">
-            Compensation remains competitive, although <Link href="/software-engineer-salary-uk" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">salaries</Link> are generally lower than those found in leading North American technology hubs. Housing costs, particularly in London and the South East, can also influence overall purchasing power.
+            Compensation remains competitive, although <Link href="/software-engineer-salary-uk" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">salaries</Link> are generally lower than those found in leading North American technology hubs. Housing costs, particularly in London and the South East, can also influence overall purchasing power.
           </p>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-md border border-emerald-200 bg-emerald-50 p-4">
-              <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-800">Advantages</h3>
+            <div className="rounded-md border border-blue-200 bg-blue-50 p-4">
+              <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-blue-800">Advantages</h3>
               <ul className="list-disc space-y-1 pl-4 text-sm text-zinc-700">
                 <li>Mature technology ecosystem</li>
                 <li>Strong fintech industry</li>
@@ -404,11 +404,11 @@ export default function HighestPayingCountriesPage() {
             Many professionals value New Zealand&rsquo;s emphasis on work-life balance, outdoor lifestyle and overall quality of life. These factors can make the country particularly appealing to experienced professionals and families considering relocation.
           </p>
           <p className="mb-3 text-sm leading-7 text-zinc-600">
-            <Link href="/software-engineer-salary-new-zealand" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">Compensation levels</Link> generally trail larger technology markets, but many engineers view lifestyle benefits as an important part of the overall value proposition.
+            <Link href="/software-engineer-salary-new-zealand" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">Compensation levels</Link> generally trail larger technology markets, but many engineers view lifestyle benefits as an important part of the overall value proposition.
           </p>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-md border border-emerald-200 bg-emerald-50 p-4">
-              <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-800">Advantages</h3>
+            <div className="rounded-md border border-blue-200 bg-blue-50 p-4">
+              <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-blue-800">Advantages</h3>
               <ul className="list-disc space-y-1 pl-4 text-sm text-zinc-700">
                 <li>Excellent quality of life</li>
                 <li>Strong work-life balance</li>
@@ -437,14 +437,14 @@ export default function HighestPayingCountriesPage() {
             The country&rsquo;s software engineering workforce plays a central role in global software development, cloud computing, artificial intelligence and technology services. Demand remains particularly strong for engineers with expertise in modern development frameworks, cloud platforms and machine learning technologies.
           </p>
           <p className="mb-3 text-sm leading-7 text-zinc-600">
-            Although average <Link href="/software-engineer-salary-india" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">salaries</Link> remain below those found in developed economies, India&rsquo;s rapid economic growth and expanding technology sector continue creating significant opportunities for career advancement.
+            Although average <Link href="/software-engineer-salary-india" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">salaries</Link> remain below those found in developed economies, India&rsquo;s rapid economic growth and expanding technology sector continue creating significant opportunities for career advancement.
           </p>
           <p className="mb-3 text-sm leading-7 text-zinc-600">
             India&rsquo;s long-term trajectory suggests that software engineering demand will remain strong for many years, particularly as artificial intelligence and digital transformation initiatives accelerate.
           </p>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-md border border-emerald-200 bg-emerald-50 p-4">
-              <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-800">Advantages</h3>
+            <div className="rounded-md border border-blue-200 bg-blue-50 p-4">
+              <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-blue-800">Advantages</h3>
               <ul className="list-disc space-y-1 pl-4 text-sm text-zinc-700">
                 <li>Rapid market growth</li>
                 <li>Expanding AI ecosystem</li>
@@ -559,18 +559,18 @@ export default function HighestPayingCountriesPage() {
           <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Related Research</h2>
           <p className="mb-3 text-sm leading-7 text-zinc-600">Continue your research with:</p>
           <ul className="list-disc space-y-2 pl-5 text-sm leading-7 text-zinc-600">
-            <li><Link href="/research/software-engineer-salary-index-2026" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">Software Engineer Salary Index 2026</Link></li>
-            <li><Link href="/rankings/highest-paying-cities-software-engineers" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">Highest Paying Cities for Software Engineers</Link></li>
-            <li><Link href="/rankings/best-countries-for-software-engineers" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">Best Countries for Software Engineers</Link></li>
-            <li><Link href="/professions/software-engineer" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">Software Engineer Career Hub</Link></li>
-            <li><Link href="/rankings" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">Global Salary Rankings</Link></li>
-            <li><Link href="/software-engineer-salary-us" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">Software Engineer Salary US</Link></li>
-            <li><Link href="/software-engineer-salary-uk" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">Software Engineer Salary UK</Link></li>
-            <li><Link href="/software-engineer-salary-australia" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">Software Engineer Salary Australia</Link></li>
-            <li><Link href="/software-engineer-salary-canada" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">Software Engineer Salary Canada</Link></li>
-            <li><Link href="/software-engineer-salary-new-zealand" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">Software Engineer Salary New Zealand</Link></li>
-            <li><Link href="/software-engineer-salary-singapore" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">Software Engineer Salary Singapore</Link></li>
-            <li><Link href="/software-engineer-salary-india" className="text-emerald-700 underline underline-offset-2 hover:text-emerald-800">Software Engineer Salary India</Link></li>
+            <li><Link href="/research/software-engineer-salary-index-2026" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">Software Engineer Salary Index 2026</Link></li>
+            <li><Link href="/rankings/highest-paying-cities-software-engineers" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">Highest Paying Cities for Software Engineers</Link></li>
+            <li><Link href="/rankings/best-countries-for-software-engineers" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">Best Countries for Software Engineers</Link></li>
+            <li><Link href="/professions/software-engineer" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">Software Engineer Career Hub</Link></li>
+            <li><Link href="/rankings" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">Global Salary Rankings</Link></li>
+            <li><Link href="/software-engineer-salary-us" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">Software Engineer Salary US</Link></li>
+            <li><Link href="/software-engineer-salary-uk" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">Software Engineer Salary UK</Link></li>
+            <li><Link href="/software-engineer-salary-australia" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">Software Engineer Salary Australia</Link></li>
+            <li><Link href="/software-engineer-salary-canada" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">Software Engineer Salary Canada</Link></li>
+            <li><Link href="/software-engineer-salary-new-zealand" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">Software Engineer Salary New Zealand</Link></li>
+            <li><Link href="/software-engineer-salary-singapore" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">Software Engineer Salary Singapore</Link></li>
+            <li><Link href="/software-engineer-salary-india" className="text-blue-700 underline underline-offset-2 hover:text-blue-800">Software Engineer Salary India</Link></li>
           </ul>
         </section>
       </div>

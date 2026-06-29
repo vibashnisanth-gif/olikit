@@ -787,7 +787,7 @@ export default async function LocalePage({ params }: Props) {
       <section className="rounded-lg border border-zinc-200 bg-white px-5 py-10 shadow-sm sm:px-8 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-">
               {name} &mdash; Financial Intelligence
             </p>
             <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
@@ -839,7 +839,7 @@ export default async function LocalePage({ params }: Props) {
       {content.aiQuickAnswers && (
         <section className="rounded-xl border border-zinc-200 bg-white shadow-sm">
           <div className="flex">
-            <div className="w-1 shrink-0 rounded-l-xl bg-emerald-500" />
+            <div className="w-1 shrink-0 rounded-l-xl bg-blue-" />
             <div className="min-w-0 flex-1 p-6 sm:p-8">
               <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Quick Answers</p>
               {content.aiQuickAnswers.map((item, i) => (

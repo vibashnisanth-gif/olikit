@@ -98,9 +98,9 @@ export default async function GlossaryEntryPage({ params }: Props) {
         </section>
       )}
 
-      <div className="rounded-md border border-emerald-200 bg-emerald-50 p-5">
-        <h2 className="mb-2 text-sm font-semibold uppercase tracking-wider text-emerald-800">Example</h2>
-        <p className="text-sm leading-relaxed text-emerald-900">{entry.example}</p>
+      <div className="rounded-md border border-blue- bg-blue- p-5">
+        <h2 className="mb-2 text-sm font-semibold uppercase tracking-wider text-blue-">Example</h2>
+        <p className="text-sm leading-relaxed text-blue-">{entry.example}</p>
       </div>
 
       <section className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm">

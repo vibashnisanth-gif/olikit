@@ -161,7 +161,7 @@ function CountryCardsSection({ data }: { data: NonNullable<ProfessionPageContent
 
 function InsightsSection({ items }: { items: string[] }) {
   return (
-    <section className="rounded-lg border border-emerald-200 bg-emerald-50 px-5 py-6 shadow-sm sm:px-8">
+    <section className="rounded-lg border border-blue-200 bg-blue-50 px-5 py-6 shadow-sm sm:px-8">
       <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Key Insights</h2>
       <ul className="list-disc space-y-2 pl-5 text-sm leading-7 text-zinc-800">
         {items.map((item, i) => (

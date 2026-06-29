@@ -14,7 +14,7 @@ type Result = {
 }
 
 const RANK_STYLES = [
-  "bg-emerald-50 text-emerald-700 ring-emerald-200",
+  "bg-blue-50 text-blue-700 ring-blue-200",
   "bg-blue-50 text-blue-700 ring-blue-200",
   "bg-amber-50 text-amber-700 ring-amber-200",
 ]
@@ -141,7 +141,7 @@ export function SalaryRankingChart() {
           <strong className="font-semibold text-zinc-700">How it works:</strong> Each country applies its own income tax brackets to your salary. Singapore has no personal income tax on the first S$20,000. The US applies a standard deduction of $14,600 before tax. The UK allows £12,570 tax-free. This tool computes your estimated take-home pay using 2025-2026 statutory tax brackets for single filers.
         </p>
         <p className="mt-2">
-          Compare countries: <a href="/compare" className="font-medium text-emerald-600 hover:text-emerald-700">Salary Comparison</a> · <a href="/rankings" className="font-medium text-emerald-600 hover:text-emerald-700">Salary Rankings</a> · <a href="/us/tools/tax-calculator" className="font-medium text-emerald-600 hover:text-emerald-700">Tax Calculator</a>
+          Compare countries: <a href="/compare" className="font-medium text-blue-600 hover:text-blue-700">Salary Comparison</a> · <a href="/rankings" className="font-medium text-blue-600 hover:text-blue-700">Salary Rankings</a> · <a href="/us/tools/tax-calculator" className="font-medium text-blue-600 hover:text-blue-700">Tax Calculator</a>
         </p>
       </div>
 

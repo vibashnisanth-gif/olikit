@@ -26,7 +26,7 @@ export function SalaryVsPurchasingPowerSection({ title = "Salary vs Purchasing P
             {rows.map((r, i) => (
               <tr key={i} className="border-t border-zinc-100">
                 <td className="px-4 py-3">
-                  <span className={`inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold ${r.rank <= 3 ? "bg-emerald-100 text-emerald-800" : "bg-zinc-100 text-zinc-500"}`}>
+                  <span className={`inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold ${r.rank <= 3 ? "bg-blue-100 text-blue-800" : "bg-zinc-100 text-zinc-500"}`}>
                     {r.rank <= 3 ? ["🥇", "🥈", "🥉"][r.rank - 1] : `#${r.rank}`}
                   </span>
                 </td>
