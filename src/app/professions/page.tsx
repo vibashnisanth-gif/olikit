@@ -41,6 +41,39 @@ export default function ProfessionsPage() {
       </section>
 
       <section>
+        <h2 className="mb-4 text-xl font-semibold text-zinc-950">Highest Paying Professions (US)</h2>
+        <div className="overflow-hidden rounded-lg border border-zinc-200 shadow-sm">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="bg-zinc-50">
+                <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Profession</th>
+                <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Category</th>
+                <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">US Salary</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[...professions]
+                .sort((a, b) => b.salaries.us.average - a.salaries.us.average)
+                .slice(0, 5)
+                .map((prof) => (
+                <tr key={prof.id} className="border-t border-zinc-100">
+                  <td className="px-4 py-3">
+                    <a href={`/us/salary/${prof.slug}`} className="font-medium text-zinc-950 hover:text-blue-600">
+                      {prof.name}
+                    </a>
+                  </td>
+                  <td className="px-4 py-3 text-zinc-500 capitalize">{prof.id}</td>
+                  <td className="px-4 py-3 text-right font-medium text-zinc-950 tabular-nums">
+                    {formatSalaryBySlug(prof.salaries.us.average, "us", { showCode: true })}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
         <h2 className="mb-4 text-xl font-semibold text-zinc-950">Career Intelligence Hubs</h2>
         <p className="mb-6 text-sm leading-6 text-zinc-600 max-w-2xl">
           Dedicated hubs for the most-requested professions with country-by-country salary data, tax analysis, rankings, and career comparisons.
@@ -102,39 +135,6 @@ export default function ProfessionsPage() {
               <span className="mt-2 inline-block text-sm font-medium text-blue-600">View salaries →</span>
             </a>
           ))}
-        </div>
-      </section>
-
-      <section>
-        <h2 className="mb-4 text-xl font-semibold text-zinc-950">Highest Paying Professions (US)</h2>
-        <div className="overflow-hidden rounded-lg border border-zinc-200 shadow-sm">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="bg-zinc-50">
-                <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Profession</th>
-                <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Category</th>
-                <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">US Salary</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[...professions]
-                .sort((a, b) => b.salaries.us.average - a.salaries.us.average)
-                .slice(0, 5)
-                .map((prof) => (
-                <tr key={prof.id} className="border-t border-zinc-100">
-                  <td className="px-4 py-3">
-                    <a href={`/us/salary/${prof.slug}`} className="font-medium text-zinc-950 hover:text-blue-600">
-                      {prof.name}
-                    </a>
-                  </td>
-                  <td className="px-4 py-3 text-zinc-500 capitalize">{prof.id}</td>
-                  <td className="px-4 py-3 text-right font-medium text-zinc-950 tabular-nums">
-                    {formatSalaryBySlug(prof.salaries.us.average, "us", { showCode: true })}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </div>
       </section>
 

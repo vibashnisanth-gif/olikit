@@ -57,35 +57,51 @@ export default function ComparePage() {
         </div>
       </section>
 
-      <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10">
-        <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">Country-to-Country Comparisons</h2>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {countries.map((c) => {
-            const pairs = countries.filter((o) => o.slug !== c.slug).slice(0, 2)
-            return (
-              <a
-                key={c.slug}
-                href={`/${c.slug}/comparisons`}
-                className="group rounded-xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <FlagImage code={c.slug} size="xl" />
-                  <div>
-                    <h3 className="font-semibold text-zinc-950 group-hover:text-zinc-800 transition-colors">{c.name}</h3>
-                    <p className="text-xs text-zinc-500">{c.currencyCode} &middot; {c.taxAuthorityAbbr}</p>
-                  </div>
-                </div>
-                <p className="text-sm leading-6 text-zinc-500 mb-4">
-                  Salary benchmarks, tax rates, and cost-of-living data for {c.name}. Compare with {pairs.map((p) => p.name).join(" and ")}.
-                </p>
-                <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-600 group-hover:text-zinc-950 transition-colors">
-                  View {c.name} comparisons →
-                </span>
-              </a>
-            )
-          })}
+      <section className="rounded-xl border border-zinc-200 bg-zinc-50 px-6 py-8 sm:px-10">
+        <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">Salary Comparison by Profession</h2>
+        <p className="mb-6 text-sm leading-6 text-zinc-500">Annual average salaries across major economies for key professions (converted to USD for comparison).</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-zinc-200">
+                <th scope="col" className="text-left py-3 pr-4 font-semibold text-zinc-950">Profession</th>
+                {countries.map((c) => (
+                  <th scope="col" key={c.slug} className="text-right px-3 py-3 font-semibold text-zinc-950 whitespace-nowrap">
+                    <FlagImage code={c.slug} size="lg" /> {c.name}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-zinc-100">
+              {topProfessions.map((id) => {
+                const p = professionMap[id]
+                if (!p) return null
+                return (
+                  <tr key={id} className="hover:bg-white/80 transition-colors">
+                    <td className="py-3 pr-4 font-medium text-zinc-950">
+                      <a href={`/us/salary/${p.slug}`} className="hover:text-blue-700 transition-colors">{p.name}</a>
+                    </td>
+                    {countries.map((c) => {
+                      const salaryData = p.salaries[c.slug]
+                      const val = salaryData?.average
+                      return (
+                        <td key={c.slug} className="px-3 py-3 text-right text-zinc-600 tabular-nums">
+                          {val
+                            ? formatSalaryBySlug(val, c.slug, { compact: val >= 100000 })
+                            : "—"}
+                        </td>
+                      )
+                    })}
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
         </div>
+        <p className="mt-4 text-xs text-zinc-500">Data sourced from government labor statistics and industry surveys. All figures are annual averages.</p>
       </section>
+
+      <SalaryComparisonCalculator />
 
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10">
         <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">Salary Equivalent Comparisons</h2>
@@ -152,50 +168,34 @@ export default function ComparePage() {
         </div>
       </section>
 
-      <SalaryComparisonCalculator />
-
-      <section className="rounded-xl border border-zinc-200 bg-zinc-50 px-6 py-8 sm:px-10">
-        <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">Salary Comparison by Profession</h2>
-        <p className="mb-6 text-sm leading-6 text-zinc-500">Annual average salaries across major economies for key professions (converted to USD for comparison).</p>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-zinc-200">
-                <th scope="col" className="text-left py-3 pr-4 font-semibold text-zinc-950">Profession</th>
-                {countries.map((c) => (
-                  <th scope="col" key={c.slug} className="text-right px-3 py-3 font-semibold text-zinc-950 whitespace-nowrap">
-                    <FlagImage code={c.slug} size="lg" /> {c.name}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-zinc-100">
-              {topProfessions.map((id) => {
-                const p = professionMap[id]
-                if (!p) return null
-                return (
-                  <tr key={id} className="hover:bg-white/80 transition-colors">
-                    <td className="py-3 pr-4 font-medium text-zinc-950">
-                      <a href={`/us/salary/${p.slug}`} className="hover:text-blue-700 transition-colors">{p.name}</a>
-                    </td>
-                    {countries.map((c) => {
-                      const salaryData = p.salaries[c.slug]
-                      const val = salaryData?.average
-                      return (
-                        <td key={c.slug} className="px-3 py-3 text-right text-zinc-600 tabular-nums">
-                          {val
-                            ? formatSalaryBySlug(val, c.slug, { compact: val >= 100000 })
-                            : "—"}
-                        </td>
-                      )
-                    })}
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
+      <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10">
+        <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">Country-to-Country Comparisons</h2>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {countries.map((c) => {
+            const pairs = countries.filter((o) => o.slug !== c.slug).slice(0, 2)
+            return (
+              <a
+                key={c.slug}
+                href={`/${c.slug}/comparisons`}
+                className="group rounded-xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <FlagImage code={c.slug} size="xl" />
+                  <div>
+                    <h3 className="font-semibold text-zinc-950 group-hover:text-zinc-800 transition-colors">{c.name}</h3>
+                    <p className="text-xs text-zinc-500">{c.currencyCode} &middot; {c.taxAuthorityAbbr}</p>
+                  </div>
+                </div>
+                <p className="text-sm leading-6 text-zinc-500 mb-4">
+                  Salary benchmarks, tax rates, and cost-of-living data for {c.name}. Compare with {pairs.map((p) => p.name).join(" and ")}.
+                </p>
+                <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-600 group-hover:text-zinc-950 transition-colors">
+                  View {c.name} comparisons →
+                </span>
+              </a>
+            )
+          })}
         </div>
-        <p className="mt-4 text-xs text-zinc-500">Data sourced from government labor statistics and industry surveys. All figures are annual averages.</p>
       </section>
 
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10">

@@ -101,6 +101,10 @@ export default async function ToolPage({ params }: Props) {
         </div>
       )}
 
+      <div>
+        <CalculatorInteractive toolSlug={tool.slug} localeSlug={locale.slug} />
+      </div>
+
       {content.aiAnswer && (
         <div className="quick-answer rounded-xl border border-zinc-200 bg-white shadow-sm">
           <div className="flex">
@@ -113,10 +117,6 @@ export default async function ToolPage({ params }: Props) {
           </div>
         </div>
       )}
-
-      <div>
-        <CalculatorInteractive toolSlug={tool.slug} localeSlug={locale.slug} />
-      </div>
 
       <div className="flex flex-wrap gap-3 rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
         <span className="mr-1 self-center text-sm font-semibold text-zinc-600">Also explore:</span>

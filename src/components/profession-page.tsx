@@ -187,6 +187,10 @@ export function ProfessionPageRenderer({ content }: ProfessionPageRendererProps)
         secondaryCta={content.hero.secondaryCta}
       />
 
+      {content.salaryTable && (
+        <SalaryTableSection table={content.salaryTable} />
+      )}
+
       {content.salaryCards && content.salaryCards.length > 0 && (
         <SalaryCardsSection cards={content.salaryCards} />
       )}
@@ -202,10 +206,6 @@ export function ProfessionPageRenderer({ content }: ProfessionPageRendererProps)
       {content.proseSections && content.proseSections.map((section, i) => (
         <ProseSection key={i} title={section.title} paragraphs={section.paragraphs} />
       ))}
-
-      {content.salaryTable && (
-        <SalaryTableSection table={content.salaryTable} />
-      )}
 
       {content.comparisonTable && (
         <ComparisonTableSection table={content.comparisonTable} />
