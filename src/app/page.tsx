@@ -6,6 +6,8 @@ import { locales } from "@/lib/seo/locales"
 import { FadeInSection } from "@/components/ui/fade-in-section"
 import { AnimatedCounter } from "@/components/ui/animated-counter"
 import { SalaryRankingChart } from "@/components/salary-ranking-chart"
+import { TaxBreakdownBar } from "@/components/tax-breakdown-bar"
+import { CountryCards } from "@/components/country-cards"
 
 const hreflangTags: Record<string, string> = {
   "x-default": SITE_URL,
@@ -347,6 +349,28 @@ export default function GlobalHomePage() {
       {/* SECTION 1B — SALARY RANKING CHART (Interactive) */}
       <FadeInSection>
         <SalaryRankingChart />
+      </FadeInSection>
+
+      {/* SECTION 1C — TAX BREAKDOWN VISUAL */}
+      <FadeInSection>
+      <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10">
+        <div className="mb-6">
+          <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700 ring-1 ring-amber-200">
+            TAX BREAKDOWN
+          </span>
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-950 sm:text-3xl">
+            What You Earn vs. What You Keep
+          </h2>
+          <p className="mt-2 text-sm leading-6 text-zinc-500">
+            Blue shows take-home pay. Amber shows income tax. Same $100,000 USD salary — wildly different outcomes.
+          </p>
+        </div>
+        <TaxBreakdownBar salary={100000} />
+        <div className="mt-4 flex items-center gap-4 text-[11px] text-zinc-400">
+          <span className="inline-flex items-center gap-1"><span className="inline-block h-2.5 w-2.5 rounded-sm bg-blue-500" /> Take-home</span>
+          <span className="inline-flex items-center gap-1"><span className="inline-block h-2.5 w-2.5 rounded-sm bg-amber-400/70" /> Income tax</span>
+        </div>
+      </section>
       </FadeInSection>
 
       {/* SECTION 2 — HOW WE CALCULATE */}
@@ -786,6 +810,21 @@ export default function GlobalHomePage() {
             Browse All Professions &rarr;
           </a>
         </div>
+      </section>
+      </FadeInSection>
+
+      {/* SECTION 13B — EXPLORE BY COUNTRY */}
+      <FadeInSection>
+      <section>
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold text-zinc-950 sm:text-2xl">
+            Explore by Country
+          </h2>
+          <p className="mt-2 text-sm leading-6 text-zinc-500">
+            Salary, tax and financial intelligence for 7 major economies. Select a country to dive deeper.
+          </p>
+        </div>
+        <CountryCards />
       </section>
       </FadeInSection>
 
