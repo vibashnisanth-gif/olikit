@@ -50,7 +50,7 @@ export function SalaryRankingChart() {
   return (
     <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10 sm:py-10">
       <div className="mb-6">
-        <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-600">
+        <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-600">
           SALARY RANKING
         </span>
         <h2 className="text-2xl font-bold tracking-tight text-zinc-950 sm:text-3xl">
@@ -90,7 +90,7 @@ export function SalaryRankingChart() {
               </span>
               <div className="h-1.5 w-20 shrink-0 overflow-hidden rounded-full bg-zinc-100 sm:w-24" aria-hidden="true">
                 <div
-                  className="h-full rounded-full bg-zinc-900 transition-all duration-300"
+                  className="h-full rounded-full bg-blue-500 transition-all duration-500 ease-out"
                   style={{ width: `${pct}%` }}
                 />
               </div>
@@ -108,7 +108,7 @@ export function SalaryRankingChart() {
           href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-md bg-zinc-100 px-3 py-1.5 text-xs font-medium text-zinc-600 hover:bg-zinc-200 transition-colors"
+          className="rounded-md bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-600 hover:bg-blue-100 transition-colors"
         >
           Twitter / X
         </a>
@@ -116,7 +116,7 @@ export function SalaryRankingChart() {
           href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-md bg-zinc-100 px-3 py-1.5 text-xs font-medium text-zinc-600 hover:bg-zinc-200 transition-colors"
+          className="rounded-md bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-600 hover:bg-blue-100 transition-colors"
         >
           LinkedIn
         </a>
@@ -124,19 +124,19 @@ export function SalaryRankingChart() {
           href={`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + "\n" + shareUrl)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-md bg-zinc-100 px-3 py-1.5 text-xs font-medium text-zinc-600 hover:bg-zinc-200 transition-colors"
+          className="rounded-md bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-600 hover:bg-blue-100 transition-colors"
         >
           WhatsApp
         </a>
         <button
           onClick={() => navigator.clipboard?.writeText(shareText + "\n" + shareUrl)}
-          className="rounded-md bg-zinc-100 px-3 py-1.5 text-xs font-medium text-zinc-600 hover:bg-zinc-200 transition-colors"
+          className="rounded-md bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-600 hover:bg-blue-100 transition-colors"
         >
           Copy
         </button>
       </div>
 
-      <div className="mt-6 rounded-lg bg-zinc-50 px-4 py-3 text-xs leading-5 text-zinc-500">
+      <div className="mt-6 rounded-lg bg-blue-50 px-4 py-3 text-xs leading-5 text-zinc-600 ring-1 ring-blue-100">
         <p>
           <strong className="font-semibold text-zinc-700">How it works:</strong> Each country applies its own income tax brackets to your salary. Singapore has no personal income tax on the first S$20,000. The US applies a standard deduction of $14,600 before tax. The UK allows £12,570 tax-free. This tool computes your estimated take-home pay using 2025-2026 statutory tax brackets for single filers.
         </p>

@@ -4,6 +4,7 @@ import { SITE_URL } from "@/lib/seo/constants"
 import { getDateModified } from "@/lib/seo/freshness"
 import { locales } from "@/lib/seo/locales"
 import { FadeInSection } from "@/components/ui/fade-in-section"
+import { AnimatedCounter } from "@/components/ui/animated-counter"
 import { SalaryRankingChart } from "@/components/salary-ranking-chart"
 
 const hreflangTags: Record<string, string> = {
@@ -299,21 +300,30 @@ export default function GlobalHomePage() {
             {/* HERO STATS STRIP */}
             <div className="flex flex-wrap gap-6 pt-2">
               <div className="text-center">
-                <p className="text-2xl font-bold text-blue-600">7</p>
+                <p className="text-2xl font-bold text-blue-600"><AnimatedCounter target={7} /></p>
                 <p className="text-xs text-zinc-500">Countries</p>
               </div>
               <div className="text-center">
-                <p className="text-2xl font-bold text-blue-600">21</p>
+                <p className="text-2xl font-bold text-blue-600"><AnimatedCounter target={21} /></p>
                 <p className="text-xs text-zinc-500">Professions</p>
               </div>
               <div className="text-center">
-                <p className="text-2xl font-bold text-blue-600">12+</p>
+                <p className="text-2xl font-bold text-blue-600"><AnimatedCounter target={12} suffix="+" /></p>
                 <p className="text-xs text-zinc-500">Calculators</p>
               </div>
               <div className="text-center">
-                <p className="text-2xl font-bold text-blue-600">100%</p>
+                <p className="text-2xl font-bold text-blue-600"><AnimatedCounter target={100} suffix="%" /></p>
                 <p className="text-xs text-zinc-500">Free</p>
               </div>
+            </div>
+
+            {/* LIVE DATA BADGE */}
+            <div className="flex items-center gap-2 pt-1">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500"></span>
+              </span>
+              <span className="text-xs font-medium text-zinc-500">Live data from 12 government sources</span>
             </div>
 
           </div>
@@ -501,14 +511,15 @@ export default function GlobalHomePage() {
         </h2>
         <div className="grid gap-6 lg:gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            { title: "Compare Financial Outcomes", desc: "Understand how taxes, salaries and living costs differ between countries and professions." },
-            { title: "Evaluate Job Offers", desc: "See how much of your salary you keep after tax and mandatory deductions." },
-            { title: "Plan International Moves", desc: "Compare earning potential and affordability before relocating." },
-            { title: "Benchmark Careers", desc: "Research salary ranges, compensation trends and profession-specific earnings." },
-            { title: "Understand Taxes", desc: "Estimate take-home pay using country-specific tax rules and thresholds." },
-            { title: "Make Better Decisions", desc: "Use public data and transparent methodologies instead of guesswork." },
+            { title: "Compare Financial Outcomes", desc: "Understand how taxes, salaries and living costs differ between countries and professions.", icon: "🌍" },
+            { title: "Evaluate Job Offers", desc: "See how much of your salary you keep after tax and mandatory deductions.", icon: "💼" },
+            { title: "Plan International Moves", desc: "Compare earning potential and affordability before relocating.", icon: "✈️" },
+            { title: "Benchmark Careers", desc: "Research salary ranges, compensation trends and profession-specific earnings.", icon: "📊" },
+            { title: "Understand Taxes", desc: "Estimate take-home pay using country-specific tax rules and thresholds.", icon: "🧮" },
+            { title: "Make Better Decisions", desc: "Use public data and transparent methodologies instead of guesswork.", icon: "✅" },
           ].map((card) => (
             <div key={card.title} className="card-hover rounded-lg border border-zinc-200 bg-white p-5 shadow-sm flex flex-col">
+              <span className="mb-2 text-xl">{card.icon}</span>
               <h3 className="font-semibold text-zinc-950">{card.title}</h3>
               <p className="mt-1.5 text-sm leading-6 text-zinc-600 flex-1">{card.desc}</p>
             </div>
@@ -684,12 +695,23 @@ export default function GlobalHomePage() {
             <p className="mt-1.5 text-sm leading-6 text-zinc-600 flex-1">
               Salaries, taxes, PPP-adjusted income, and career comparisons across 7 major economies.
             </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-600">Salary by Country</span>
-              <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-600">Rankings</span>
-              <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-600">Comparisons</span>
+            <div className="mt-3 flex items-center gap-1">
+              <span className="text-[10px] font-medium text-zinc-400 mr-1">Avg:</span>
+              <div className="h-1.5 w-full overflow-hidden rounded-full bg-zinc-100">
+                <div className="h-full w-[85%] rounded-full bg-blue-500" />
+              </div>
+              <span className="text-[10px] font-bold text-zinc-700 ml-1">$127K</span>
             </div>
-            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600 group-hover:text-blue-700 transition-colors">
+            <div className="mt-2 flex items-center gap-1 text-[10px] text-zinc-400">
+              <img src="https://flagcdn.com/24x18/us.webp" alt="US" className="h-3 w-4 rounded-[1px]" />
+              <img src="https://flagcdn.com/24x18/gb.webp" alt="UK" className="h-3 w-4 rounded-[1px]" />
+              <img src="https://flagcdn.com/24x18/au.webp" alt="AU" className="h-3 w-4 rounded-[1px]" />
+              <img src="https://flagcdn.com/24x18/ca.webp" alt="CA" className="h-3 w-4 rounded-[1px]" />
+              <img src="https://flagcdn.com/24x18/nz.webp" alt="NZ" className="h-3 w-4 rounded-[1px]" />
+              <img src="https://flagcdn.com/24x18/in.webp" alt="IN" className="h-3 w-4 rounded-[1px]" />
+              <img src="https://flagcdn.com/24x18/sg.webp" alt="SG" className="h-3 w-4 rounded-[1px]" />
+            </div>
+            <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-blue-600 group-hover:text-blue-700 transition-colors">
               Explore Hub &rarr;
             </span>
           </a>
@@ -706,12 +728,22 @@ export default function GlobalHomePage() {
             <p className="mt-1.5 text-sm leading-6 text-zinc-600 flex-1">
               Data science compensation, salary rankings, and career analysis across global markets.
             </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-600">Salary by Country</span>
-              <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-600">Rankings</span>
-              <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-600">Comparisons</span>
+            <div className="mt-3 flex items-center gap-1">
+              <span className="text-[10px] font-medium text-zinc-400 mr-1">Avg:</span>
+              <div className="h-1.5 w-full overflow-hidden rounded-full bg-zinc-100">
+                <div className="h-full w-[78%] rounded-full bg-purple-500" />
+              </div>
+              <span className="text-[10px] font-bold text-zinc-700 ml-1">$118K</span>
             </div>
-            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600 group-hover:text-blue-700 transition-colors">
+            <div className="mt-2 flex items-center gap-1 text-[10px] text-zinc-400">
+              <img src="https://flagcdn.com/24x18/us.webp" alt="US" className="h-3 w-4 rounded-[1px]" />
+              <img src="https://flagcdn.com/24x18/gb.webp" alt="UK" className="h-3 w-4 rounded-[1px]" />
+              <img src="https://flagcdn.com/24x18/au.webp" alt="AU" className="h-3 w-4 rounded-[1px]" />
+              <img src="https://flagcdn.com/24x18/ca.webp" alt="CA" className="h-3 w-4 rounded-[1px]" />
+              <img src="https://flagcdn.com/24x18/in.webp" alt="IN" className="h-3 w-4 rounded-[1px]" />
+              <img src="https://flagcdn.com/24x18/sg.webp" alt="SG" className="h-3 w-4 rounded-[1px]" />
+            </div>
+            <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-blue-600 group-hover:text-blue-700 transition-colors">
               Explore Hub &rarr;
             </span>
           </a>
@@ -728,11 +760,20 @@ export default function GlobalHomePage() {
             <p className="mt-1.5 text-sm leading-6 text-zinc-600 flex-1">
               Product management compensation benchmarks and salary data across countries.
             </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-600">Salary by Country</span>
-              <span className="rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-600">Rankings</span>
+            <div className="mt-3 flex items-center gap-1">
+              <span className="text-[10px] font-medium text-zinc-400 mr-1">Avg:</span>
+              <div className="h-1.5 w-full overflow-hidden rounded-full bg-zinc-100">
+                <div className="h-full w-[72%] rounded-full bg-amber-500" />
+              </div>
+              <span className="text-[10px] font-bold text-zinc-700 ml-1">$108K</span>
             </div>
-            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600 group-hover:text-blue-700 transition-colors">
+            <div className="mt-2 flex items-center gap-1 text-[10px] text-zinc-400">
+              <img src="https://flagcdn.com/24x18/us.webp" alt="US" className="h-3 w-4 rounded-[1px]" />
+              <img src="https://flagcdn.com/24x18/gb.webp" alt="UK" className="h-3 w-4 rounded-[1px]" />
+              <img src="https://flagcdn.com/24x18/au.webp" alt="AU" className="h-3 w-4 rounded-[1px]" />
+              <img src="https://flagcdn.com/24x18/sg.webp" alt="SG" className="h-3 w-4 rounded-[1px]" />
+            </div>
+            <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-blue-600 group-hover:text-blue-700 transition-colors">
               Explore Hub &rarr;
             </span>
           </a>
