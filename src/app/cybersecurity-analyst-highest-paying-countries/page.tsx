@@ -36,13 +36,13 @@ export default function Page() {
     countryRanking: {
       title: "Highest Paying Countries Ranked",
       entries: [
-        { rank: 1, flag: "🇺🇸", name: "United States", salary: "$105,000", note: "Highest cybersecurity salaries" },
-        { rank: 2, flag: "🇦🇺", name: "Australia", salary: "A$100,000", note: "Competitive security pay" },
-        { rank: 3, flag: "🇨🇦", name: "Canada", salary: "C$78,000", note: "Growing cybersecurity demand" },
-        { rank: 4, flag: "🇳🇿", name: "New Zealand", salary: "NZ$80,000", note: "Emerging security sector" },
-        { rank: 5, flag: "🇬🇧", name: "United Kingdom", salary: "£48,000", note: "Strong security sector" },
-        { rank: 6, flag: "🇸🇬", name: "Singapore", salary: "S$65,000", note: "Regional security hub" },
-        { rank: 7, flag: "🇮🇳", name: "India", salary: "₹9.0L", note: "Growing cybersecurity workforce" },
+        { rank: 1, flag: "🇺🇸", name: "United States", slug: "us", salary: "$105,000", note: "Highest cybersecurity salaries" },
+        { rank: 2, flag: "🇦🇺", name: "Australia", slug: "au", salary: "A$100,000", note: "Competitive security pay" },
+        { rank: 3, flag: "🇨🇦", name: "Canada", slug: "ca", salary: "C$78,000", note: "Growing cybersecurity demand" },
+        { rank: 4, flag: "🇳🇿", name: "New Zealand", slug: "nz", salary: "NZ$80,000", note: "Emerging security sector" },
+        { rank: 5, flag: "🇬🇧", name: "United Kingdom", slug: "uk", salary: "£48,000", note: "Strong security sector" },
+        { rank: 6, flag: "🇸🇬", name: "Singapore", slug: "sg", salary: "S$65,000", note: "Regional security hub" },
+        { rank: 7, flag: "🇮🇳", name: "India", slug: "in", salary: "₹9.0L", note: "Growing cybersecurity workforce" },
       ],
     },
     faqs: [

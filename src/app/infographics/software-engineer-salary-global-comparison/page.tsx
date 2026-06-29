@@ -1,6 +1,7 @@
 import {Metadata} from "next";
 import Link from "next/link";
 import {SITE_URL} from "@/lib/seo/constants";
+import { FlagImage } from "@/components/ui/flag-image"
 
 export const metadata: Metadata = {
   title: "Software Engineer Salary: US vs UK vs Australia vs Canada (2026)",
@@ -112,7 +113,7 @@ export default function SalaryInfographicPage() {
             {salaryData.map((d) => (
               <div key={d.country} className="flex items-center gap-4">
                 <div className="w-32 text-right text-sm font-medium text-gray-700">
-                  {d.flag} {d.country}
+                  <FlagImage name={d.country} size="lg" /> {d.country}
                 </div>
                 <div className="flex-1">
                   <div className="relative h-8 rounded bg-gray-100">
@@ -177,7 +178,7 @@ export default function SalaryInfographicPage() {
                 {salaryData.map((d) => (
                   <tr key={d.country}>
                     <td className="px-4 py-3 font-medium text-gray-900">
-                      {d.flag} {d.country}
+                      <FlagImage name={d.country} size="lg" /> {d.country}
                     </td>
                     <td className="px-4 py-3">${d.salary.toLocaleString()}</td>
                     <td className="px-4 py-3">{d.taxRate}%</td>
@@ -210,7 +211,7 @@ export default function SalaryInfographicPage() {
               .map((d) => (
                 <div key={d.country} className="flex items-center gap-4">
                   <div className="w-32 text-right text-sm font-medium text-gray-700">
-                    {d.flag} {d.country}
+                    <FlagImage name={d.country} size="lg" /> {d.country}
                   </div>
                   <div className="flex-1">
                     <div className="relative h-6 rounded bg-gray-100">

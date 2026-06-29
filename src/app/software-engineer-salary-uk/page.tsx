@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { buildArticleJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
 import { FAQSection } from "@/components/faq-section"
+import { FlagImage } from "@/components/ui/flag-image"
 
 const COUNTRY = { slug: "uk", name: "United Kingdom", flag: "\u{1F1EC}\u{1F1E7}", currency: "\u00a3", taxAuthority: "HM Revenue & Customs (HMRC)" }
 const SALARY = { average: 55000, entryLevel: 30000, experienced: 85000 }
@@ -57,7 +58,7 @@ export default function SoftwareEngineerUK() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">{COUNTRY.flag} {COUNTRY.name} &mdash; Salary Intelligence</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700"><FlagImage code={COUNTRY.slug} size="lg" /> {COUNTRY.name} &mdash; Salary Intelligence</p>
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Software Engineer Salary in the United Kingdom</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">The United Kingdom, particularly London, remains a major technology and financial services hub offering competitive software engineering salaries. Cities such as London, Manchester, Edinburgh and Cambridge attract skilled engineers across fintech, enterprise software and startup environments.</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">

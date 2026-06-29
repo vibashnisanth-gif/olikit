@@ -3,6 +3,7 @@ import { SITE_URL } from "@/lib/seo/constants"
 import { FAQSection } from "@/components/faq-section"
 import { RelatedPagesSection } from "@/components/related-pages-section"
 import { buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
+import { FlagImage } from "@/components/ui/flag-image"
 
 const pagePath = "/rankings/best-countries-for-data-scientists"
 
@@ -261,7 +262,7 @@ export default function BestCountriesDataScientistsPage() {
           {countryAnalyses.map((c, i) => (
             <div key={i} className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm sm:p-8">
               <div className="mb-4 flex items-center gap-3">
-                <span className="text-3xl">{c.flag}</span>
+                <FlagImage name={c.country} size="xl" />
                 <h3 className="text-lg font-semibold text-zinc-950">{c.country}</h3>
               </div>
               <p className="mb-3 text-sm font-semibold text-zinc-700">{c.headline}</p>

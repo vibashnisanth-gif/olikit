@@ -29,7 +29,7 @@ export interface ProfessionPageContent {
   }
   countryRanking?: {
     title: string
-    entries: { rank: number; flag: string; name: string; salary: string; note?: string }[]
+    entries: { rank: number; slug?: string; flag: string; name: string; salary: string; note?: string }[]
   }
   countryCards?: {
     title: string

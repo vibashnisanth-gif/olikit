@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { getAllCountries, COUNTRY_FLAGS, COUNTRY_NAMES } from "@/lib/content/country-registry"
+import { FlagImage } from "@/components/ui/flag-image"
 export const metadata: Metadata = {
   title: "Data Sources — Where We Get Our Data",
   description: "Official data sources used by Olikit including IRS, HMRC, ATO, CRA, IRD, Indian Income Tax Department, IRAS, and government labor statistics.",
@@ -44,7 +45,7 @@ export default function DataSourcesPage() {
         {sources.map((s) => (
           <div key={s.slug} className="flex flex-col gap-2 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
             <div className="flex items-center gap-3">
-              <span className="text-xl">{COUNTRY_FLAGS[s.slug]}</span>
+              <FlagImage code={s.slug} size="xl" />
               <div>
                 <p className="text-sm font-semibold text-zinc-950">{COUNTRY_NAMES[s.slug]}</p>
                 <p className="text-xs text-zinc-500">Tax: <a href={s.taxUrl} target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700">{s.tax}</a></p>

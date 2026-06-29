@@ -17,21 +17,36 @@ const COUNTRY_NAMES: Record<string, string> = {
   nz: "New Zealand", in: "India", sg: "Singapore",
 }
 
+const NAME_TO_SLUG: Record<string, string> = {
+  "United States": "us", "USA": "us", "US": "us",
+  "United Kingdom": "uk", "UK": "uk",
+  "Australia": "au",
+  "Canada": "ca",
+  "New Zealand": "nz",
+  "India": "in",
+  "Singapore": "sg",
+}
+
 export function FlagImage({
   code,
+  name,
   size = "md",
   className = "",
   alt,
 }: {
-  code: string
+  code?: string
+  name?: string
   size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl"
   className?: string
   alt?: string
 }) {
-  const slug = code.toLowerCase().split("-").pop() || code.toLowerCase()
+  const rawCode = code || (name ? NAME_TO_SLUG[name] : "") || ""
+  const slug = rawCode.toLowerCase().split("-").pop() || rawCode.toLowerCase()
   const cc = SLUG_TO_ISO[slug] || slug
   const sizeClass = SIZE_MAP[size] || SIZE_MAP.md
-  const countryName = alt || COUNTRY_NAMES[slug] || slug
+  const countryName = alt || COUNTRY_NAMES[slug] || name || slug
+
+  if (!cc) return null
 
   return (
     <img

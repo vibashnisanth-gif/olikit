@@ -6,6 +6,7 @@ import { COUNTRY_FLAGS } from "@/lib/content/country-registry"
 import { StateNav } from "@/components/state-nav"
 import { SITE_URL } from "@/lib/seo/constants"
 import { buildWebPageJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
+import { FlagImage } from "@/components/ui/flag-image"
 
 type Props = {
   params: Promise<{ locale: string }>
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${locale.name} States & Regions — State-by-State Financial Tools | Olikit`,
     description: `Browse financial calculators and guides for all ${locale.states.length} states and regions in ${locale.name}. State-specific salary, tax, and mortgage calculators.`,
-    alternates: { canonical: `https://olikit.com/${locale.slug}/states` },
+    alternates: { canonical: `${SITE_URL}/${locale.slug}/states` },
     openGraph: {
       title: `${locale.name} States & Regions`,
       description: `State-by-state financial tools for ${locale.name}.`,
@@ -63,7 +64,7 @@ export default async function StatesHubPage({ params }: Props) {
       />
       <section className="rounded-lg border border-zinc-200 bg-white px-5 py-10 shadow-sm sm:px-8 sm:py-12">
         <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">
-          {flag} {name}
+          <FlagImage code={slug} size="lg" /> {name}
         </p>
         <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
           {name} States & Regions

@@ -4,6 +4,7 @@ import { FAQSection } from "@/components/faq-section"
 import { SourcesSection } from "@/components/sources-section"
 import { RelatedPagesSection } from "@/components/related-pages-section"
 import { MethodologySection } from "@/components/methodology-section"
+import { FlagImage } from "@/components/ui/flag-image"
 
 function KeyTakeawaysSection({ items }: { items: { title: string; description: string }[] }) {
   return (
@@ -120,7 +121,7 @@ function CountryRankingSection({ ranking }: { ranking: NonNullable<ProfessionPag
             {ranking.entries.map((entry, i) => (
               <tr key={i} className="border-t border-zinc-100">
                 <td className="px-4 py-3 font-medium text-zinc-500">{"#" + entry.rank}</td>
-                <td className="px-4 py-3 font-medium text-zinc-950">{entry.flag} {entry.name}</td>
+                <td className="px-4 py-3 font-medium text-zinc-950"><FlagImage code={entry.slug} name={entry.name} size="lg" /> {entry.name}</td>
                 <td className="px-4 py-3 text-right text-zinc-950">{entry.salary}</td>
               </tr>
             ))}
@@ -139,7 +140,7 @@ function CountryCardsSection({ data }: { data: NonNullable<ProfessionPageContent
         {data.countries.map((c, i) => (
           <div key={i} className="rounded-md border border-zinc-200 bg-white p-4">
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-lg">{c.flag}</span>
+              <FlagImage code={c.slug} size="xl" />
               <h3 className="font-semibold text-sm text-zinc-950">{c.name}</h3>
             </div>
             <p className="text-xs leading-5 text-zinc-600 mb-3">{c.summary}</p>

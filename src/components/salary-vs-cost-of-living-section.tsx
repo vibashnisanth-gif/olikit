@@ -1,7 +1,8 @@
+import { FlagImage } from "@/components/ui/flag-image"
 interface SalaryVsCostOfLivingSectionProps {
   title?: string
   description?: string
-  rows: { city: string; country: string; flag: string; salary: string; costOfLiving: string; colIndex: string }[]
+  rows: { city: string; country: string; slug: string; flag: string; salary: string; costOfLiving: string; colIndex: string }[]
 }
 
 export function SalaryVsCostOfLivingSection({ title = "Salary vs Cost of Living", description, rows }: SalaryVsCostOfLivingSectionProps) {
@@ -26,7 +27,7 @@ export function SalaryVsCostOfLivingSection({ title = "Salary vs Cost of Living"
               <tr key={i} className="border-t border-zinc-100">
                 <td className="px-4 py-3 font-medium text-zinc-950">
                   <span className="flex items-center gap-2">
-                    <span>{r.flag}</span>
+                    <span><FlagImage code={r.slug} name={r.country} size="lg" /></span>
                     {r.city}, {r.country}
                   </span>
                 </td>

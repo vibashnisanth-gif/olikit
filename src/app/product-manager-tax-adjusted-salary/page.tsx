@@ -33,13 +33,13 @@ export default function Page() {
     countryRanking: {
       title: "Tax-Adjusted Salary Rankings",
       entries: [
-        { rank: 1, flag: "\u{1F1FA}\u{1F1F8}", name: "United States", salary: "$85,800 (22% tax)" },
-        { rank: 2, flag: "\u{1F1E6}\u{1F1FA}", name: "Australia", salary: "A$90,000 (25% tax)" },
-        { rank: 3, flag: "\u{1F1F8}\u{1F1EC}", name: "Singapore", salary: "S$69,750 (7% tax)" },
-        { rank: 4, flag: "\u{1F1F3}\u{1F1FF}", name: "New Zealand", salary: "NZ$71,250 (25% tax)" },
-        { rank: 5, flag: "\u{1F1E8}\u{1F1E6}", name: "Canada", salary: "C$63,750 (25% tax)" },
-        { rank: 6, flag: "\u{1F1EC}\u{1F1E7}", name: "United Kingdom", salary: "\u00a344,000 (20% tax)" },
-        { rank: 7, flag: "\u{1F1EE}\u{1F1F3}", name: "India", salary: "\u20b916,00,000 (20% tax)" },
+        { rank: 1, flag: "\u{1F1FA}\u{1F1F8}", name: "United States", slug: "us", salary: "$85,800 (22% tax)" },
+        { rank: 2, flag: "\u{1F1E6}\u{1F1FA}", name: "Australia", slug: "au", salary: "A$90,000 (25% tax)" },
+        { rank: 3, flag: "\u{1F1F8}\u{1F1EC}", name: "Singapore", slug: "sg", salary: "S$69,750 (7% tax)" },
+        { rank: 4, flag: "\u{1F1F3}\u{1F1FF}", name: "New Zealand", slug: "nz", salary: "NZ$71,250 (25% tax)" },
+        { rank: 5, flag: "\u{1F1E8}\u{1F1E6}", name: "Canada", slug: "ca", salary: "C$63,750 (25% tax)" },
+        { rank: 6, flag: "\u{1F1EC}\u{1F1E7}", name: "United Kingdom", slug: "uk", salary: "\u00a344,000 (20% tax)" },
+        { rank: 7, flag: "\u{1F1EE}\u{1F1F3}", name: "India", slug: "in", salary: "\u20b916,00,000 (20% tax)" },
       ],
     },
     proseSections: [

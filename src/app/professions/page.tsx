@@ -4,6 +4,7 @@ import { locales } from "@/lib/seo/locales"
 import { professions, getProfession } from "@/lib/content/professions-data"
 import { COUNTRY_FLAGS } from "@/lib/content/country-registry"
 import { formatSalaryBySlug } from "@/lib/currency"
+import { FlagImage } from "@/components/ui/flag-image"
 
 export const metadata: Metadata = {
   title: "Browse Professions by Salary",
@@ -153,7 +154,7 @@ export default function ProfessionsPage() {
                       href={`/${loc.slug}/salary/${prof.slug}`}
                       className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-700 hover:bg-zinc-200 hover:text-zinc-950 transition-colors"
                     >
-                      {COUNTRY_FLAGS[loc.slug]} {loc.name}: {formatSalaryBySlug(salary.average, loc.slug, { showCode: true })}
+                      <FlagImage code={loc.slug} size="sm" /> {loc.name}: {formatSalaryBySlug(salary.average, loc.slug, { showCode: true })}
                     </a>
                   ) : null
                 })}

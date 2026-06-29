@@ -32,13 +32,13 @@ export default function Page() {
     countryRanking: {
       title: "Highest Paying Countries Ranked",
       entries: [
-        { rank: 1, flag: "\u{1F1FA}\u{1F1F8}", name: "United States", salary: "$120,000", note: "Highest nominal salaries. Strong tech ecosystem. Equity common." },
-        { rank: 2, flag: "\u{1F1E6}\u{1F1FA}", name: "Australia", salary: "A$110,000", note: "Competitive salaries. High quality of life. Strong PPP." },
-        { rank: 3, flag: "\u{1F1E8}\u{1F1E6}", name: "Canada", salary: "C$85,000", note: "Growing tech hubs. Accessible immigration." },
-        { rank: 4, flag: "\u{1F1F3}\u{1F1FF}", name: "New Zealand", salary: "NZ$95,000", note: "Excellent work-life balance." },
-        { rank: 5, flag: "\u{1F1EC}\u{1F1E7}", name: "United Kingdom", salary: "\u00a355,000", note: "Strong fintech sector. European access." },
-        { rank: 6, flag: "\u{1F1F8}\u{1F1EC}", name: "Singapore", salary: "S$72,000", note: "Lowest taxes. Regional tech hub." },
-        { rank: 7, flag: "\u{1F1EE}\u{1F1F3}", name: "India", salary: "\u20b912,00,000", note: "Strongest PPP. Large tech workforce." },
+        { rank: 1, flag: "\u{1F1FA}\u{1F1F8}", name: "United States", slug: "us", salary: "$120,000", note: "Highest nominal salaries. Strong tech ecosystem. Equity common." },
+        { rank: 2, flag: "\u{1F1E6}\u{1F1FA}", name: "Australia", slug: "au", salary: "A$110,000", note: "Competitive salaries. High quality of life. Strong PPP." },
+        { rank: 3, flag: "\u{1F1E8}\u{1F1E6}", name: "Canada", slug: "ca", salary: "C$85,000", note: "Growing tech hubs. Accessible immigration." },
+        { rank: 4, flag: "\u{1F1F3}\u{1F1FF}", name: "New Zealand", slug: "nz", salary: "NZ$95,000", note: "Excellent work-life balance." },
+        { rank: 5, flag: "\u{1F1EC}\u{1F1E7}", name: "United Kingdom", slug: "uk", salary: "\u00a355,000", note: "Strong fintech sector. European access." },
+        { rank: 6, flag: "\u{1F1F8}\u{1F1EC}", name: "Singapore", slug: "sg", salary: "S$72,000", note: "Lowest taxes. Regional tech hub." },
+        { rank: 7, flag: "\u{1F1EE}\u{1F1F3}", name: "India", slug: "in", salary: "\u20b912,00,000", note: "Strongest PPP. Large tech workforce." },
       ],
     },
     keyTakeaways: [

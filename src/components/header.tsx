@@ -47,7 +47,7 @@ export function Header({currentSlug}: Props) {
           href={isGlobal ? "/" : `/${currentSlug}`}
           className="flex items-center gap-2 font-bold text-lg text-zinc-950 shrink-0"
         >
-          <span className="grid h-8 w-8 place-items-center rounded-md bg-zinc-950 text-sm font-bold text-white">
+          <span className="grid h-8 w-8 place-items-center rounded-md bg-blue-600 text-sm font-bold text-white">
             O
           </span>
           <span>Olikit</span>
@@ -130,7 +130,7 @@ export function Header({currentSlug}: Props) {
             />
             <button
               type="submit"
-              className="rounded-md bg-zinc-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-zinc-800"
+              className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-700"
             >
               Search
             </button>
@@ -150,7 +150,7 @@ export function Header({currentSlug}: Props) {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="rounded-md px-4 py-3 text-sm font-medium text-zinc-700 hover:bg-zinc-100"
+                  className="rounded-md px-4 py-3 text-sm font-medium text-zinc-700 hover:bg-blue-50 hover:text-blue-700"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}

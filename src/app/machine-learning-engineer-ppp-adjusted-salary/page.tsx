@@ -33,13 +33,13 @@ export default function Page() {
     countryRanking: {
       title: "PPP-Adjusted Salary Rankings",
       entries: [
-        { rank: 1, flag: "🇮🇳", name: "India", salary: "₹16.0L", note: "" },
-        { rank: 2, flag: "🇦🇺", name: "Australia", salary: "A$120,000", note: "" },
-        { rank: 3, flag: "🇺🇸", name: "United States", salary: "$130,000", note: "" },
-        { rank: 4, flag: "🇨🇦", name: "Canada", salary: "C$90,000", note: "" },
-        { rank: 5, flag: "🇳🇿", name: "New Zealand", salary: "NZ$100,000", note: "" },
-        { rank: 6, flag: "🇸🇬", name: "Singapore", salary: "S$82,000", note: "" },
-        { rank: 7, flag: "🇬🇧", name: "United Kingdom", salary: "£60,000", note: "" },
+        { rank: 1, flag: "🇮🇳", name: "India", slug: "in", salary: "₹16.0L", note: "" },
+        { rank: 2, flag: "🇦🇺", name: "Australia", slug: "au", salary: "A$120,000", note: "" },
+        { rank: 3, flag: "🇺🇸", name: "United States", slug: "us", salary: "$130,000", note: "" },
+        { rank: 4, flag: "🇨🇦", name: "Canada", slug: "ca", salary: "C$90,000", note: "" },
+        { rank: 5, flag: "🇳🇿", name: "New Zealand", slug: "nz", salary: "NZ$100,000", note: "" },
+        { rank: 6, flag: "🇸🇬", name: "Singapore", slug: "sg", salary: "S$82,000", note: "" },
+        { rank: 7, flag: "🇬🇧", name: "United Kingdom", slug: "uk", salary: "£60,000", note: "" },
       ],
     },
     faqs: [

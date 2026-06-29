@@ -33,16 +33,16 @@
   --color-profession-research-bg: #f3eeff;
   --color-profession-research-border: #ddd1ff;
 
-  --color-primary: #111827;
-  --color-primary-hover: #0f172a;
-  --color-secondary: #f8fbff;
-  --color-secondary-hover: #eef5fc;
-  --color-secondary-border: #d1d5db;
-  --color-secondary-text: #111827;
-  --color-secondary-text-hover: #0f172a;
-  --color-muted: #fafafa;
-  --color-muted-text: #4b5563;
-  --color-muted-text-hover: #111827;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-secondary: #f0f7ff;
+  --color-secondary-hover: #e0efff;
+  --color-secondary-border: #bfdbfe;
+  --color-secondary-text: #1e40af;
+  --color-secondary-text-hover: #1e3a8a;
+  --color-muted: #f8fafc;
+  --color-muted-text: #475569;
+  --color-muted-text-hover: #1e293b;
 }
 
 html {
@@ -89,7 +89,7 @@ button {
 }
 .card-hover:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
 }
 
 .btn-primary {
@@ -97,7 +97,7 @@ button {
 }
 .btn-primary:hover {
   transform: scale(1.01);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.2);
 }
 .btn-primary:active {
   transform: scale(0.99);
@@ -108,8 +108,8 @@ button {
 }
 .btn-secondary:hover {
   transform: scale(1.01);
-  border-color: #9ca3af;
-  background-color: #f9fafb;
+  border-color: #93c5fd;
+  background-color: #eff6ff;
 }
 
 tr.row-hover {

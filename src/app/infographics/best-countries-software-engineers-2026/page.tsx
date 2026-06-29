@@ -2,6 +2,7 @@ import {Metadata} from "next";
 import Link from "next/link";
 import {professions} from "@/lib/content/professions-data";
 import {SITE_URL} from "@/lib/seo/constants";
+import { FlagImage } from "@/components/ui/flag-image"
 
 export const metadata: Metadata = {
   title: "Best Countries for Software Engineers 2026 - Salary, Quality of Life, Opportunities",
@@ -225,7 +226,7 @@ export default function BestCountriesInfographic() {
                 <tr key={r.country} className={`border-b ${i < 3 ? "bg-blue-50" : ""}`}>
                   <td className="py-3 pr-4 font-bold text-gray-900">{r.rank}</td>
                   <td className="py-3 pr-4">
-                    <span className="mr-2 text-lg">{r.flag}</span>
+                    <span className="mr-2 text-lg"><FlagImage name={r.country} size="lg" /></span>
                     <span className="font-medium text-gray-900">{r.country}</span>
                   </td>
                   <td className="py-3 pr-4 text-right font-mono text-gray-700">

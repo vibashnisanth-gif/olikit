@@ -1,0 +1,475 @@
+﻿
+> olikit@0.1.0 build
+> node scripts/check-stale-content.mjs && npx tsx scripts/validate-salary-sanity.ts && next build
+
+Scanning 434 files for year references...
+
+Stale Content Report: C:\Users\vibas\.paperclip\instances\default\workspaces\578b0ebe-0563-45d1-ac46-8231592d8210\olikit\stale-content-report.json
+  Total year references: 1322
+  Stale references: 144
+  Future references: 24
+
+  Warnings:
+    src\app\cybersecurity-analyst\page.tsx:62 ΓÇö Year 2031 ΓÇö o grow 35% by 2031." },
+    src\app\software-engineer-vs-cybersecurity-analyst\page.tsx:94 ΓÇö Year 2032 ΓÇö s through 2032, driven by increasing cyber threats and regulatory compliance requirements.</p>
+    src\components\calculator-share.tsx:31 ΓÇö Year 2000 ΓÇö opied(false), 2000)
+    src\components\calculator-share.tsx:40 ΓÇö Year 2000 ΓÇö opied(false), 2000)
+    src\components\header.tsx:102 ΓÇö Year 2000 ΓÇö 3.org/2000/svg"
+    src\components\ui\logo.tsx:17 ΓÇö Year 2000 ΓÇö ww.w3.org/2000/svg"
+    src\lib\content\generators.ts:1146 ΓÇö Year 2020 ΓÇö lly since 2020, though international immigration partially offsets these losses.",
+    src\lib\content\generators.ts:1191 ΓÇö Year 2023 ΓÇö w 6.1% in 2023, outpacing the national average of 2.5%. The state collected over $280 billion in tax revenues in fiscal
+    src\lib\content\generators.ts:1191 ΓÇö Year 2023 ΓÇö scal year 2023-2024, with personal income tax comprising over 68% of general fund revenue. California's top 1% of earner
+    src\lib\content\generators.ts:1234 ΓÇö Year 2020 ΓÇö passed in 2020, allows homeowners aged 55+ to transfer their property tax base to a new home of any value within Califor
+    src\lib\content\generators.ts:1279 ΓÇö Year 2010 ΓÇö nts since 2010, adding approximately 1,300 new residents daily, creating strong demand for workers across all sectors. T
+    src\lib\content\generators.ts:1283 ΓÇö Year 2010 ΓÇö % between 2010 and 2020, the fastest of any state, and continues to grow at approximately 1.5% annually, adding over 470
+    src\lib\content\generators.ts:1283 ΓÇö Year 2020 ΓÇö 2010 and 2020, the fastest of any state, and continues to grow at approximately 1.5% annually, adding over 470,000 new
+    src\lib\content\generators.ts:1283 ΓÇö Year 2023 ΓÇö idents in 2023 alone. The state's unemployment rate typically runs below the national average, hovering around 4.0-4.5%.
+    src\lib\content\generators.ts:1283 ΓÇö Year 2023 ΓÇö state in 2023, with over 440,000 new non-farm positions created. The energy sector still accounts for approximately 14%
+    src\lib\content\generators.ts:1283 ΓÇö Year 2020 ΓÇö obs since 2020. Texas has one of the highest uninsured rates in the nation at approximately 18.5% due to the state's dec
+    src\lib\content\generators.ts:1323 ΓÇö Year 2010 ΓÇö % between 2010 and 2020, the fastest of any state, and added over 470,000 new residents in 2023 alone, driven partly by
+    src\lib\content\generators.ts:1323 ΓÇö Year 2020 ΓÇö 2010 and 2020, the fastest of any state, and added over 470,000 new residents in 2023 alone, driven partly by its tax-f
+    src\lib\content\generators.ts:1323 ΓÇö Year 2023 ΓÇö idents in 2023 alone, driven partly by its tax-friendly environment and strong job market. The state's combined state an
+    src\lib\content\generators.ts:1323 ΓÇö Year 2023 ΓÇö in fiscal 2023, with sales tax accounting for about 59% and franchise tax accounting for about 10% of state tax collecti
+    ... and 124 more warnings
+
+ΓÜá Found 144 potentially stale year references.
+Γ£ô Salary sanity: 21 professions, 21 max values tracked, 0 errors
+Γû▓ Next.js 16.2.6 (Turbopack)
+- Environments: .env.local
+
+node.exe : ΓÜá The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: 
+https://nextjs.org/docs/messages/middleware-to-proxy
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ΓÜá The "middle...leware-to-proxy:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 19.5s
+  Running TypeScript ...
+  Finished TypeScript in 22.6s ...
+  Collecting page data using 7 workers ...
+ΓÜá Using edge runtime on a page currently disables static generation for that page
+  Generating static pages using 7 workers (0/2082) ...
+  Generating static pages using 7 workers (520/2082) 
+  Generating static pages using 7 workers (1040/2082) 
+  Generating static pages using 7 workers (1561/2082) 
+Γ£ô Generating static pages using 7 workers (2082/2082) in 35.8s
+  Finalizing page optimization ...
+
+Route (app)                                                Revalidate  Expire
+Γöî Γùï /
+Γö£ Γùï /_not-found
+Γö£ ΓùÅ /[locale]
+Γöé Γö£ /us
+Γöé Γö£ /uk
+Γöé Γö£ /au
+Γöé Γöö [+4 more paths]
+Γö£ ΓùÅ /[locale]/average-salary/[state]
+Γöé Γö£ /us/average-salary/california
+Γöé Γö£ /us/average-salary/texas
+Γöé Γö£ /us/average-salary/florida
+Γöé Γöö [+8 more paths]
+Γö£ ΓùÅ /[locale]/best-states-for-cost-of-living
+Γöé Γö£ /us/best-states-for-cost-of-living
+Γöé Γö£ /uk/best-states-for-cost-of-living
+Γöé Γö£ /au/best-states-for-cost-of-living
+Γöé Γöö [+4 more paths]
+Γö£ ΓùÅ /[locale]/best-states-for-home-affordability
+Γöé Γö£ /us/best-states-for-home-affordability
+Γöé Γö£ /uk/best-states-for-home-affordability
+Γöé Γö£ /au/best-states-for-home-affordability
+Γöé Γöö [+4 more paths]
+Γö£ ΓùÅ /[locale]/best-states-for-retirement
+Γöé Γö£ /us/best-states-for-retirement
+Γöé Γö£ /uk/best-states-for-retirement
+Γöé Γö£ /au/best-states-for-retirement
+Γöé Γöö [+4 more paths]
+Γö£ ΓùÅ /[locale]/best-states-for-salary
+Γöé Γö£ /us/best-states-for-salary
+Γöé Γö£ /uk/best-states-for-salary
+Γöé Γö£ /au/best-states-for-salary
+Γöé Γöö [+4 more paths]
+Γö£ ΓùÅ /[locale]/city/[city]/[profession]
+Γöé Γö£ /us/city/new-york/software-engineer
+Γöé Γö£ /us/city/new-york/data-scientist
+Γöé Γö£ /us/city/new-york/doctor
+Γöé Γöö [+711 more paths]
+Γö£ ΓùÅ /[locale]/city/[city]/[profession]-salary
+Γöé Γö£ /us/city/new-york/[profession]-salary
+Γöé Γö£ /us/city/san-francisco/[profession]-salary
+Γöé Γö£ /us/city/los-angeles/[profession]-salary
+Γöé Γöö [+31 more paths]
+Γö£ ΓùÅ /[locale]/comparisons
+Γöé Γö£ /us/comparisons
+Γöé Γö£ /uk/comparisons
+Γöé Γö£ /au/comparisons
+Γöé Γöö [+4 more paths]
+Γö£ ΓùÅ /[locale]/comparisons/[type]/[slug]
+Γöé Γö£ /us/comparisons/salary/us-vs-uk
+Γöé Γö£ /us/comparisons/salary/us-vs-ca
+Γöé Γö£ /us/comparisons/cost-of-living/us-vs-uk
+Γöé Γöö [+131 more paths]
+Γö£ ΓùÅ /[locale]/cost-of-living/[state]
+Γöé Γö£ /us/cost-of-living/california
+Γöé Γö£ /us/cost-of-living/texas
+Γöé Γö£ /us/cost-of-living/florida
+Γöé Γöö [+8 more paths]
+Γö£ ΓùÅ /[locale]/financial-data
+Γöé Γö£ /us/financial-data
+Γöé Γö£ /uk/financial-data
+Γöé Γö£ /au/financial-data
+Γöé Γöö [+4 more paths]
+Γö£ ΓùÅ /[locale]/glossary
+Γöé Γö£ /us/glossary
+Γöé Γö£ /uk/glossary
+Γöé Γö£ /au/glossary
+Γöé Γöö [+4 more paths]
+Γö£ ΓùÅ /[locale]/glossary/[entry]
+Γöé Γö£ /us/glossary/gross-salary
+Γöé Γö£ /us/glossary/net-salary
+Γöé Γö£ /us/glossary/effective-tax-rate
+Γöé Γöö [+67 more paths]
+Γö£ ΓùÅ /[locale]/guides
+Γöé Γö£ /us/guides
+Γöé Γö£ /uk/guides
+Γöé Γö£ /au/guides
+Γöé Γöö [+4 more paths]
+Γö£ ΓùÅ /[locale]/guides/[guide]
+Γöé Γö£ /us/guides/salary-after-tax-by-country
+Γöé Γö£ /us/guides/tax-brackets-by-country
+Γöé Γö£ /us/guides/how-much-house-can-i-afford
+Γöé Γöö [+53 more paths]
+Γö£ ΓùÅ /[locale]/guides/best
+Γöé Γö£ /us/guides/best
+Γöé Γö£ /uk/guides/best
+Γöé Γö£ /au/guides/best
+Γöé Γöö [+4 more paths]
+Γö£ ΓùÅ /[locale]/rankings
+Γöé Γö£ /us/rankings
+Γöé Γö£ /uk/rankings
+Γöé Γö£ /au/rankings
+Γöé Γöö [+4 more paths]
+Γö£ ΓùÅ /[locale]/research
+Γöé Γö£ /us/research
+Γöé Γö£ /uk/research
+Γöé Γö£ /au/research
+Γöé Γöö [+4 more paths]
+Γö£ ΓùÅ /[locale]/research/[report]
+Γöé Γö£ /us/research/highest-paying-states
+Γöé Γö£ /us/research/most-affordable-states
+Γöé Γö£ /us/research/states-with-lowest-income-tax
+Γöé Γöö [+32 more paths]
+Γö£ ΓùÅ /[locale]/salary
+Γöé Γö£ /us/salary
+Γöé Γö£ /uk/salary
+Γöé Γö£ /au/salary
+Γöé Γöö [+4 more paths]
+Γö£ ΓùÅ /[locale]/salary-vs-cost-of-living/[state]
+Γöé Γö£ /us/salary-vs-cost-of-living/california
+Γöé Γö£ /us/salary-vs-cost-of-living/texas
+Γöé Γö£ /us/salary-vs-cost-of-living/florida
+Γöé Γöö [+8 more paths]
+Γö£ ΓùÅ /[locale]/salary/[profession]
+Γöé Γö£ /us/salary/software-engineer
+Γöé Γö£ /us/salary/data-scientist
+Γöé Γö£ /us/salary/doctor
+Γöé Γöö [+144 more paths]
+Γö£ ΓùÅ /[locale]/search
+Γöé Γö£ /us/search
+Γöé Γö£ /uk/search
+Γöé Γö£ /au/search
+Γöé Γöö [+4 more paths]
+Γö£ ΓùÅ /[locale]/state/[subregion]
+Γöé Γö£ /us/state/alabama
+Γöé Γö£ /us/state/alaska
+Γöé Γö£ /us/state/arizona
+Γöé Γöö [+66 more paths]
+Γö£ ΓùÅ /[locale]/state/[subregion]/[tool]
+Γöé Γö£ /us/state/alabama/salary-calculator
+Γöé Γö£ /us/state/alabama/tax-calculator
+Γöé Γö£ /us/state/alabama/mortgage-calculator
+Γöé Γöö [+204 more paths]
+Γö£ ΓùÅ /[locale]/state/[subregion]/take-home-pay
+Γöé Γö£ /us/state/alabama/take-home-pay
+Γöé Γö£ /us/state/alaska/take-home-pay
+Γöé Γö£ /us/state/arizona/take-home-pay
+Γöé Γöö [+48 more paths]
+Γö£ ΓùÅ /[locale]/states
+Γöé Γö£ /us/states
+Γöé Γö£ /au/states
+Γöé Γö£ /ca/states
+Γöé Γöö /in/states
+Γö£ ΓùÅ /[locale]/tools
+Γöé Γö£ /us/tools
+Γöé Γö£ /uk/tools
+Γöé Γö£ /au/tools
+Γöé Γöö [+4 more paths]
+Γö£ ΓùÅ /[locale]/tools/[tool]
+Γöé Γö£ /us/tools/salary-calculator
+Γöé Γö£ /us/tools/tax-calculator
+Γöé Γö£ /us/tools/mortgage-calculator
+Γöé Γöö [+81 more paths]
+Γö£ ╞Æ /[locale]/tools/[tool]/compare
+Γö£ ΓùÅ /[locale]/updates
+Γöé Γö£ /us/updates
+Γöé Γö£ /uk/updates
+Γöé Γö£ /au/updates
+Γöé Γöö [+4 more paths]
+Γö£ Γùï /about
+Γö£ Γùï /ai-engineer
+Γö£ Γùï /ai-engineer-best-countries
+Γö£ Γùï /ai-engineer-highest-paying-countries
+Γö£ Γùï /ai-engineer-ppp-adjusted-salary
+Γö£ Γùï /ai-engineer-salary
+Γö£ Γùï /ai-engineer-salary-au
+Γö£ Γùï /ai-engineer-salary-by-country
+Γö£ Γùï /ai-engineer-salary-ca
+Γö£ Γùï /ai-engineer-salary-in
+Γö£ Γùï /ai-engineer-salary-nz
+Γö£ Γùï /ai-engineer-salary-sg
+Γö£ Γùï /ai-engineer-salary-uk
+Γö£ Γùï /ai-engineer-salary-us
+Γö£ Γùï /ai-engineer-tax-adjusted-salary
+Γö£ ╞Æ /api/col
+Γö£ ╞Æ /api/datasets
+Γö£ ╞Æ /api/datasets/seed-info
+Γö£ ╞Æ /api/health
+Γö£ ╞Æ /api/og
+Γö£ ╞Æ /api/salaries
+Γö£ ╞Æ /api/subscribe
+Γö£ ╞Æ /api/taxes
+Γö£ Γùï /api/world/markets                                             5m      1y
+Γö£ Γùï /api/world/news                                               10m      1y
+Γö£ Γùï /api/world/risk                                                1d      1y
+Γö£ Γùï /best-countries-for-product-managers
+Γö£ Γùï /business-analyst
+Γö£ Γùï /business-analyst-best-countries
+Γö£ Γùï /business-analyst-highest-paying-countries
+Γö£ Γùï /business-analyst-ppp-adjusted-salary
+Γö£ Γùï /business-analyst-salary
+Γö£ Γùï /business-analyst-salary-au
+Γö£ Γùï /business-analyst-salary-by-country
+Γö£ Γùï /business-analyst-salary-ca
+Γö£ Γùï /business-analyst-salary-in
+Γö£ Γùï /business-analyst-salary-nz
+Γö£ Γùï /business-analyst-salary-sg
+Γö£ Γùï /business-analyst-salary-uk
+Γö£ Γùï /business-analyst-salary-us
+Γö£ Γùï /business-analyst-tax-adjusted-salary
+Γö£ Γùï /cloud-engineer
+Γö£ Γùï /cloud-engineer-best-countries
+Γö£ Γùï /cloud-engineer-highest-paying-countries
+Γö£ Γùï /cloud-engineer-ppp-adjusted-salary
+Γö£ Γùï /cloud-engineer-salary
+Γö£ Γùï /cloud-engineer-salary-au
+Γö£ Γùï /cloud-engineer-salary-by-country
+Γö£ Γùï /cloud-engineer-salary-ca
+Γö£ Γùï /cloud-engineer-salary-in
+Γö£ Γùï /cloud-engineer-salary-nz
+Γö£ Γùï /cloud-engineer-salary-sg
+Γö£ Γùï /cloud-engineer-salary-uk
+Γö£ Γùï /cloud-engineer-salary-us
+Γö£ Γùï /cloud-engineer-tax-adjusted-salary
+Γö£ Γùï /compare
+Γö£ Γùï /comparisons
+Γö£ Γùï /comparisons/data-scientist-india-vs-singapore
+Γö£ Γùï /comparisons/data-scientist-uk-vs-australia
+Γö£ Γùï /comparisons/data-scientist-us-vs-australia
+Γö£ Γùï /comparisons/data-scientist-us-vs-canada
+Γö£ Γùï /comparisons/data-scientist-us-vs-uk
+Γö£ Γùï /contact
+Γö£ Γùï /countries
+Γö£ Γùï /cybersecurity-analyst
+Γö£ Γùï /cybersecurity-analyst-best-countries
+Γö£ Γùï /cybersecurity-analyst-highest-paying-countries
+Γö£ Γùï /cybersecurity-analyst-ppp-adjusted-salary
+Γö£ Γùï /cybersecurity-analyst-salary
+Γö£ Γùï /cybersecurity-analyst-salary-au
+Γö£ Γùï /cybersecurity-analyst-salary-by-country
+Γö£ Γùï /cybersecurity-analyst-salary-ca
+Γö£ Γùï /cybersecurity-analyst-salary-in
+Γö£ Γùï /cybersecurity-analyst-salary-nz
+Γö£ Γùï /cybersecurity-analyst-salary-sg
+Γö£ Γùï /cybersecurity-analyst-salary-uk
+Γö£ Γùï /cybersecurity-analyst-salary-us
+Γö£ Γùï /cybersecurity-analyst-tax-adjusted-salary
+Γö£ Γùï /data-engineer
+Γö£ Γùï /data-engineer-best-countries
+Γö£ Γùï /data-engineer-highest-paying-countries
+Γö£ Γùï /data-engineer-ppp-adjusted-salary
+Γö£ Γùï /data-engineer-salary
+Γö£ Γùï /data-engineer-salary-au
+Γö£ Γùï /data-engineer-salary-by-country
+Γö£ Γùï /data-engineer-salary-ca
+Γö£ Γùï /data-engineer-salary-in
+Γö£ Γùï /data-engineer-salary-nz
+Γö£ Γùï /data-engineer-salary-sg
+Γö£ Γùï /data-engineer-salary-uk
+Γö£ Γùï /data-engineer-salary-us
+Γö£ Γùï /data-engineer-tax-adjusted-salary
+Γö£ Γùï /data-scientist
+Γö£ Γùï /data-scientist-best-countries
+Γö£ Γùï /data-scientist-highest-paying-countries
+Γö£ Γùï /data-scientist-ppp-adjusted-salary
+Γö£ Γùï /data-scientist-salary
+Γö£ Γùï /data-scientist-salary-australia
+Γö£ Γùï /data-scientist-salary-by-country
+Γö£ Γùï /data-scientist-salary-canada
+Γö£ Γùï /data-scientist-salary-india
+Γö£ Γùï /data-scientist-salary-new-zealand
+Γö£ Γùï /data-scientist-salary-singapore
+Γö£ Γùï /data-scientist-salary-uk
+Γö£ Γùï /data-scientist-salary-us
+Γö£ Γùï /data-scientist-tax-adjusted-salary
+Γö£ Γùï /data-scientist-uk-vs-australia
+Γö£ Γùï /data-scientist-us-vs-canada
+Γö£ Γùï /data-scientist-us-vs-uk
+Γö£ Γùï /data-scientist-vs-data-analyst
+Γö£ Γùï /data-scientist-vs-product-manager
+Γö£ Γùï /data-scientist-vs-software-engineer
+Γö£ Γùï /data-sources
+Γö£ Γùï /devops-engineer
+Γö£ Γùï /devops-engineer-best-countries
+Γö£ Γùï /devops-engineer-highest-paying-countries
+Γö£ Γùï /devops-engineer-ppp-adjusted-salary
+Γö£ Γùï /devops-engineer-salary
+Γö£ Γùï /devops-engineer-salary-au
+Γö£ Γùï /devops-engineer-salary-by-country
+Γö£ Γùï /devops-engineer-salary-ca
+Γö£ Γùï /devops-engineer-salary-in
+Γö£ Γùï /devops-engineer-salary-nz
+Γö£ Γùï /devops-engineer-salary-sg
+Γö£ Γùï /devops-engineer-salary-uk
+Γö£ Γùï /devops-engineer-salary-us
+Γö£ Γùï /devops-engineer-tax-adjusted-salary
+Γö£ Γùï /disclaimer
+Γö£ Γùï /editorial-policy
+Γö£ Γùï /financial-analyst
+Γö£ Γùï /financial-analyst-best-countries
+Γö£ Γùï /financial-analyst-highest-paying-countries
+Γö£ Γùï /financial-analyst-ppp-adjusted-salary
+Γö£ Γùï /financial-analyst-salary
+Γö£ Γùï /financial-analyst-salary-au
+Γö£ Γùï /financial-analyst-salary-by-country
+Γö£ Γùï /financial-analyst-salary-ca
+Γö£ Γùï /financial-analyst-salary-in
+Γö£ Γùï /financial-analyst-salary-nz
+Γö£ Γùï /financial-analyst-salary-sg
+Γö£ Γùï /financial-analyst-salary-uk
+Γö£ Γùï /financial-analyst-salary-us
+Γö£ Γùï /financial-analyst-tax-adjusted-salary
+Γö£ Γùï /highest-paying-countries-for-product-managers
+Γö£ Γùï /machine-learning-engineer
+Γö£ Γùï /machine-learning-engineer-best-countries
+Γö£ Γùï /machine-learning-engineer-highest-paying-countries
+Γö£ Γùï /machine-learning-engineer-ppp-adjusted-salary
+Γö£ Γùï /machine-learning-engineer-salary
+Γö£ Γùï /machine-learning-engineer-salary-au
+Γö£ Γùï /machine-learning-engineer-salary-by-country
+Γö£ Γùï /machine-learning-engineer-salary-ca
+Γö£ Γùï /machine-learning-engineer-salary-in
+Γö£ Γùï /machine-learning-engineer-salary-nz
+Γö£ Γùï /machine-learning-engineer-salary-sg
+Γö£ Γùï /machine-learning-engineer-salary-uk
+Γö£ Γùï /machine-learning-engineer-salary-us
+Γö£ Γùï /machine-learning-engineer-tax-adjusted-salary
+Γö£ Γùï /methodology
+Γö£ Γùï /methodology/olikit-scoring-system
+Γö£ Γùï /privacy-policy
+Γö£ Γùï /product-manager
+Γö£ Γùï /product-manager-ppp-adjusted-salary
+Γö£ Γùï /product-manager-salary
+Γö£ Γùï /product-manager-salary-australia
+Γö£ Γùï /product-manager-salary-by-country
+Γö£ Γùï /product-manager-salary-canada
+Γö£ Γùï /product-manager-salary-india
+Γö£ Γùï /product-manager-salary-new-zealand
+Γö£ Γùï /product-manager-salary-singapore
+Γö£ Γùï /product-manager-salary-uk
+Γö£ Γùï /product-manager-salary-us
+Γö£ Γùï /product-manager-tax-adjusted-salary
+Γö£ Γùï /product-manager-uk-vs-australia
+Γö£ Γùï /product-manager-us-vs-canada
+Γö£ Γùï /product-manager-us-vs-uk
+Γö£ Γùï /product-manager-vs-data-scientist
+Γö£ Γùï /product-manager-vs-software-engineer
+Γö£ Γùï /professions
+Γö£ Γùï /professions/data-scientist
+Γö£ Γùï /professions/software-engineer
+Γö£ Γùï /project-manager
+Γö£ Γùï /project-manager-best-countries
+Γö£ Γùï /project-manager-highest-paying-countries
+Γö£ Γùï /project-manager-ppp-adjusted-salary
+Γö£ Γùï /project-manager-salary
+Γö£ Γùï /project-manager-salary-au
+Γö£ Γùï /project-manager-salary-by-country
+Γö£ Γùï /project-manager-salary-ca
+Γö£ Γùï /project-manager-salary-in
+Γö£ Γùï /project-manager-salary-nz
+Γö£ Γùï /project-manager-salary-sg
+Γö£ Γùï /project-manager-salary-uk
+Γö£ Γùï /project-manager-salary-us
+Γö£ Γùï /project-manager-tax-adjusted-salary
+Γö£ Γùï /rankings
+Γö£ Γùï /rankings/best-countries-for-data-scientists
+Γö£ Γùï /rankings/best-countries-for-software-engineers
+Γö£ Γùï /rankings/highest-paying-cities-data-scientists
+Γö£ Γùï /rankings/highest-paying-cities-product-managers
+Γö£ Γùï /rankings/highest-paying-cities-software-engineers
+Γö£ Γùï /rankings/highest-paying-countries-data-scientists
+Γö£ Γùï /rankings/highest-paying-countries-software-engineers
+Γö£ Γùï /research
+Γö£ Γùï /research/data-scientist-salary-index-2026
+Γö£ Γùï /research/global-salary-index-2026
+Γö£ Γùï /research/product-manager-salary-index-2026
+Γö£ Γùï /research/software-engineer-salary-index-2026
+Γö£ Γùï /robots.txt
+Γö£ Γùï /sitemap.xml
+Γö£ Γùï /software-engineer
+Γö£ Γùï /software-engineer-best-countries
+Γö£ Γùï /software-engineer-highest-paying-countries
+Γö£ Γùï /software-engineer-india-vs-singapore
+Γö£ Γùï /software-engineer-ppp-adjusted-salary
+Γö£ Γùï /software-engineer-salary
+Γö£ Γùï /software-engineer-salary-australia
+Γö£ Γùï /software-engineer-salary-by-country
+Γö£ Γùï /software-engineer-salary-canada
+Γö£ Γùï /software-engineer-salary-india
+Γö£ Γùï /software-engineer-salary-new-zealand
+Γö£ Γùï /software-engineer-salary-singapore
+Γö£ Γùï /software-engineer-salary-uk
+Γö£ Γùï /software-engineer-salary-us
+Γö£ Γùï /software-engineer-tax-adjusted-salary
+Γö£ Γùï /software-engineer-uk-vs-australia
+Γö£ Γùï /software-engineer-us-vs-australia
+Γö£ Γùï /software-engineer-us-vs-canada
+Γö£ Γùï /software-engineer-us-vs-uk
+Γö£ Γùï /software-engineer-vs-cybersecurity-analyst
+Γö£ Γùï /software-engineer-vs-data-scientist
+Γö£ Γùï /software-engineer-vs-product-manager
+Γö£ Γùï /solutions-architect
+Γö£ Γùï /solutions-architect-best-countries
+Γö£ Γùï /solutions-architect-highest-paying-countries
+Γö£ Γùï /solutions-architect-ppp-adjusted-salary
+Γö£ Γùï /solutions-architect-salary
+Γö£ Γùï /solutions-architect-salary-au
+Γö£ Γùï /solutions-architect-salary-by-country
+Γö£ Γùï /solutions-architect-salary-ca
+Γö£ Γùï /solutions-architect-salary-in
+Γö£ Γùï /solutions-architect-salary-nz
+Γö£ Γùï /solutions-architect-salary-sg
+Γö£ Γùï /solutions-architect-salary-uk
+Γö£ Γùï /solutions-architect-salary-us
+Γö£ Γùï /solutions-architect-tax-adjusted-salary
+Γö£ Γùï /terms
+Γöö Γùï /world
+
+
+╞Æ Proxy (Middleware)
+
+Γùï  (Static)   prerendered as static content
+ΓùÅ  (SSG)      prerendered as static HTML (uses generateStaticParams)
+╞Æ  (Dynamic)  server-rendered on demand
+

@@ -5,6 +5,7 @@ import { professions } from "@/lib/content/professions-data"
 import { getAllCountries } from "@/lib/content/country-registry"
 import { formatSalaryBySlug, slugToCurrency, convertSalary, formatSalary } from "@/lib/currency"
 import { TaxCalculator } from "@/calculators/tax"
+import { FlagImage } from "@/components/ui/flag-image"
 
 const COL_INDICES: Record<string, number> = {
   us: 100, uk: 100, au: 100, ca: 100, nz: 100, sg: 120, in: 100,
@@ -135,7 +136,7 @@ export function TakeHomeComparison({ localeSlug }: TakeHomeComparisonProps) {
                 >
                   <td className="py-3 pr-4 whitespace-nowrap">
                     <span className="flex items-center gap-2">
-                      <span className="text-lg">{r.flag}</span>
+                      <span className="text-lg"><FlagImage code={r.slug} size="lg" /></span>
                       <span className={`font-medium ${isCurrent ? "text-emerald-900" : "text-zinc-900"}`}>
                         {r.name}
                         {isCurrent && (

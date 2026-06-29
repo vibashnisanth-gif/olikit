@@ -1,3 +1,4 @@
+import { FlagImage } from "@/components/ui/flag-image"
 interface SalaryRow {
   label: string
   countryA: string
@@ -6,8 +7,8 @@ interface SalaryRow {
 
 interface SalaryComparisonSectionProps {
   title?: string
-  countryA: { flag: string; name: string }
-  countryB: { flag: string; name: string }
+  countryA: { slug: string; flag: string; name: string }
+  countryB: { slug: string; flag: string; name: string }
   rows: SalaryRow[]
   notes?: string
 }
@@ -25,13 +26,13 @@ export function SalaryComparisonSection({ title = "Salary Comparison", countryA,
               <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-900">Category</th>
               <th scope="col" className="px-4 py-3 text-right font-semibold text-zinc-900">
                 <span className="flex items-center justify-end gap-1">
-                  <span>{countryA.flag}</span>
+                  <span><FlagImage code={countryA.slug} size="lg" /></span>
                   {countryA.name}
                 </span>
               </th>
               <th scope="col" className="px-4 py-3 text-right font-semibold text-zinc-900">
                 <span className="flex items-center justify-end gap-1">
-                  <span>{countryB.flag}</span>
+                  <span><FlagImage code={countryB.slug} size="lg" /></span>
                   {countryB.name}
                 </span>
               </th>

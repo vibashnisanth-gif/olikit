@@ -1,3 +1,4 @@
+import { FlagImage } from "@/components/ui/flag-image"
 interface CountryProfileSectionProps {
   title?: string
   countries: { flag: string; name: string; slug: string; summary: string; metrics: { label: string; value: string }[] }[]
@@ -10,7 +11,7 @@ export function CountryProfileSection({ title = "Country Profiles", countries }:
       {countries.map((c, i) => (
         <div key={i} className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm sm:p-8">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">{c.flag}</span>
+            <FlagImage code={c.slug} size="xl" />
             <h3 className="text-lg font-semibold text-zinc-950">{c.name}</h3>
           </div>
           <p className="text-sm leading-7 text-zinc-700 mb-4">{c.summary}</p>

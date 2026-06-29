@@ -36,13 +36,13 @@ export default function Page() {
     countryRanking: {
       title: "Highest Paying Countries Ranked",
       entries: [
-        { rank: 1, flag: "🇺🇸", name: "United States", salary: "$75,000", note: "Highest finance salaries" },
-        { rank: 2, flag: "🇦🇺", name: "Australia", salary: "A$80,000", note: "Competitive finance pay" },
-        { rank: 3, flag: "🇨🇦", name: "Canada", salary: "C$62,000", note: "Growing finance sector" },
-        { rank: 4, flag: "🇳🇿", name: "New Zealand", salary: "NZ$62,000", note: "Smaller finance market" },
-        { rank: 5, flag: "🇬🇧", name: "United Kingdom", salary: "£40,000", note: "London finance hub" },
-        { rank: 6, flag: "🇸🇬", name: "Singapore", salary: "S$50,000", note: "Asian finance hub" },
-        { rank: 7, flag: "🇮🇳", name: "India", salary: "₹6.0L", note: "Growing finance sector" },
+        { rank: 1, flag: "🇺🇸", name: "United States", slug: "us", salary: "$75,000", note: "Highest finance salaries" },
+        { rank: 2, flag: "🇦🇺", name: "Australia", slug: "au", salary: "A$80,000", note: "Competitive finance pay" },
+        { rank: 3, flag: "🇨🇦", name: "Canada", slug: "ca", salary: "C$62,000", note: "Growing finance sector" },
+        { rank: 4, flag: "🇳🇿", name: "New Zealand", slug: "nz", salary: "NZ$62,000", note: "Smaller finance market" },
+        { rank: 5, flag: "🇬🇧", name: "United Kingdom", slug: "uk", salary: "£40,000", note: "London finance hub" },
+        { rank: 6, flag: "🇸🇬", name: "Singapore", slug: "sg", salary: "S$50,000", note: "Asian finance hub" },
+        { rank: 7, flag: "🇮🇳", name: "India", slug: "in", salary: "₹6.0L", note: "Growing finance sector" },
       ],
     },
     faqs: [

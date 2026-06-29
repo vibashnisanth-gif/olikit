@@ -1,3 +1,4 @@
+import { FlagImage } from "@/components/ui/flag-image"
 interface CountryAnalysis {
   flag: string
   name: string
@@ -19,7 +20,7 @@ export function CountryAnalysisSection({ title = "Country Analysis", countries }
       {countries.map((c, i) => (
         <div key={i} className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm sm:p-8">
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">{c.flag}</span>
+            <FlagImage code={c.slug} size="xl" />
             <div>
               <h3 className="text-lg font-semibold text-zinc-950">{c.name}</h3>
               {c.href && (

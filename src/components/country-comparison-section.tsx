@@ -1,3 +1,4 @@
+import { FlagImage } from "@/components/ui/flag-image"
 interface CountryComparisonSectionProps {
   title?: string
   countries: { flag: string; name: string; slug: string }[]
@@ -11,7 +12,7 @@ export function CountryComparisonSection({ title = "Country Comparison Overview"
       <div className="mb-4 flex flex-wrap items-center gap-4">
         {countries.map((c, i) => (
           <div key={i} className="flex items-center gap-2">
-            <span className="text-2xl">{c.flag}</span>
+            <FlagImage code={c.slug} size="xl" />
             <span className="text-sm font-semibold text-text-primary">{c.name}</span>
           </div>
         ))}

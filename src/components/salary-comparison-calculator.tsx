@@ -5,6 +5,7 @@ import { professions } from "@/lib/content/professions-data"
 import { getAllCountries } from "@/lib/content/country-registry"
 import { formatSalaryBySlug, slugToCurrency, convertSalary, formatSalary } from "@/lib/currency"
 import { TaxCalculator } from "@/calculators/tax"
+import { FlagImage } from "@/components/ui/flag-image"
 
 const COL_INDICES: Record<string, number> = {
   us: 100,
@@ -139,7 +140,7 @@ export function SalaryComparisonCalculator() {
               <tr key={r.slug} className="hover:bg-zinc-50 transition-colors">
                 <td className="py-3 pr-4 whitespace-nowrap">
                   <span className="flex items-center gap-2">
-                    <span className="text-lg">{r.flag}</span>
+                    <span className="text-lg"><FlagImage code={r.slug} size="lg" /></span>
                     <span className="font-medium text-zinc-900">{r.name}</span>
                   </span>
                 </td>

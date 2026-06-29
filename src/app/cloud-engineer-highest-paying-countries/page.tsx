@@ -36,13 +36,13 @@ export default function Page() {
     countryRanking: {
       title: "Highest Paying Countries Ranked",
       entries: [
-        { rank: 1, flag: "🇺🇸", name: "United States", salary: "$115,000", note: "Highest cloud salaries" },
-        { rank: 2, flag: "🇦🇺", name: "Australia", salary: "A$105,000", note: "Competitive cloud pay" },
-        { rank: 3, flag: "🇨🇦", name: "Canada", salary: "C$82,000", note: "Cloud migration demand" },
-        { rank: 4, flag: "🇳🇿", name: "New Zealand", salary: "NZ$85,000", note: "Emerging cloud sector" },
-        { rank: 5, flag: "🇬🇧", name: "United Kingdom", salary: "£50,000", note: "Growing cloud adoption" },
-        { rank: 6, flag: "🇸🇬", name: "Singapore", salary: "S$68,000", note: "Regional cloud hub" },
-        { rank: 7, flag: "🇮🇳", name: "India", salary: "₹10.0L", note: "Large cloud workforce" },
+        { rank: 1, flag: "🇺🇸", name: "United States", slug: "us", salary: "$115,000", note: "Highest cloud salaries" },
+        { rank: 2, flag: "🇦🇺", name: "Australia", slug: "au", salary: "A$105,000", note: "Competitive cloud pay" },
+        { rank: 3, flag: "🇨🇦", name: "Canada", slug: "ca", salary: "C$82,000", note: "Cloud migration demand" },
+        { rank: 4, flag: "🇳🇿", name: "New Zealand", slug: "nz", salary: "NZ$85,000", note: "Emerging cloud sector" },
+        { rank: 5, flag: "🇬🇧", name: "United Kingdom", slug: "uk", salary: "£50,000", note: "Growing cloud adoption" },
+        { rank: 6, flag: "🇸🇬", name: "Singapore", slug: "sg", salary: "S$68,000", note: "Regional cloud hub" },
+        { rank: 7, flag: "🇮🇳", name: "India", slug: "in", salary: "₹10.0L", note: "Large cloud workforce" },
       ],
     },
     faqs: [

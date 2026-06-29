@@ -33,13 +33,13 @@ export default function Page() {
     countryRanking: {
       title: "PPP-Adjusted Salary Rankings",
       entries: [
-        { rank: 1, flag: "\u{1F1EE}\u{1F1F3}", name: "India", salary: "\u20b920,00,000 (~$24,000 USD PPP)", note: "Exceptional local purchasing power" },
-        { rank: 2, flag: "\u{1F1E6}\u{1F1FA}", name: "Australia", salary: "A$120,000 (~$78,000 USD)" },
-        { rank: 3, flag: "\u{1F1FA}\u{1F1F8}", name: "United States", salary: "$110,000" },
-        { rank: 4, flag: "\u{1F1F3}\u{1F1FF}", name: "New Zealand", salary: "NZ$95,000 (~$57,000 USD)" },
-        { rank: 5, flag: "\u{1F1E8}\u{1F1E6}", name: "Canada", salary: "C$85,000 (~$62,000 USD)" },
-        { rank: 6, flag: "\u{1F1F8}\u{1F1EC}", name: "Singapore", salary: "S$75,000 (~$55,000 USD)" },
-        { rank: 7, flag: "\u{1F1EC}\u{1F1E7}", name: "United Kingdom", salary: "\u00a355,000 (~$70,000 USD)" },
+        { rank: 1, flag: "\u{1F1EE}\u{1F1F3}", name: "India", slug: "in", salary: "\u20b920,00,000 (~$24,000 USD PPP)", note: "Exceptional local purchasing power" },
+        { rank: 2, flag: "\u{1F1E6}\u{1F1FA}", name: "Australia", slug: "au", salary: "A$120,000 (~$78,000 USD)" },
+        { rank: 3, flag: "\u{1F1FA}\u{1F1F8}", name: "United States", slug: "us", salary: "$110,000" },
+        { rank: 4, flag: "\u{1F1F3}\u{1F1FF}", name: "New Zealand", slug: "nz", salary: "NZ$95,000 (~$57,000 USD)" },
+        { rank: 5, flag: "\u{1F1E8}\u{1F1E6}", name: "Canada", slug: "ca", salary: "C$85,000 (~$62,000 USD)" },
+        { rank: 6, flag: "\u{1F1F8}\u{1F1EC}", name: "Singapore", slug: "sg", salary: "S$75,000 (~$55,000 USD)" },
+        { rank: 7, flag: "\u{1F1EC}\u{1F1E7}", name: "United Kingdom", slug: "uk", salary: "\u00a355,000 (~$70,000 USD)" },
       ],
     },
     proseSections: [

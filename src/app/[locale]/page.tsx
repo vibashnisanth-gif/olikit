@@ -13,6 +13,7 @@ import { getLatestUpdates } from "@/lib/content/updates"
 import { getLastUpdated } from "@/lib/seo/freshness"
 import { buildWebSiteJsonLd, buildOrganizationJsonLd } from "@/lib/seo/json-ld"
 import { getAllCountries } from "@/lib/content/country-registry"
+import { FlagImage } from "@/components/ui/flag-image"
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -951,7 +952,7 @@ export default async function LocalePage({ params }: Props) {
         <div className="flex flex-wrap gap-2">
           {countries.filter((c) => c.slug !== slug).map((c) => (
             <a key={c.slug} href={`/${slug}/comparisons/salary/${slug}-vs-${c.slug}`} className="rounded-md bg-zinc-100 px-3 py-1.5 text-sm font-medium text-zinc-700 transition hover:bg-zinc-200 hover:text-zinc-950">
-              {c.flag} {name} vs {c.name}
+              <FlagImage code={c.slug} size="lg" /> {name} vs {c.name}
             </a>
           ))}
         </div>

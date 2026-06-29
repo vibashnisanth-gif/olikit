@@ -3,6 +3,7 @@ import Link from "next/link";
 import {cities, getCitiesForCountry} from "@/lib/content/cities-data";
 import {professions} from "@/lib/content/professions-data";
 import {SITE_URL} from "@/lib/seo/constants";
+import { FlagImage } from "@/components/ui/flag-image"
 
 export const metadata: Metadata = {
   title: "Salary by City - 30 Cities Across 7 Countries | Olikit",
@@ -64,7 +65,7 @@ export default function CityHubPage() {
             return (
               <div key={country.slug} className="rounded-xl border bg-white p-5">
                 <h2 className="mb-3 text-lg font-semibold text-gray-900">
-                  {country.flag} {country.name}
+                  <FlagImage code={country.slug} size="lg" /> {country.name}
                 </h2>
                 <ul className="space-y-2">
                   {countryCities.map((city) => (

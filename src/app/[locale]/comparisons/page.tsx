@@ -3,6 +3,8 @@ import { notFound } from "next/navigation"
 import { getLocale, locales } from "@/lib/seo/locales"
 import { tools } from "@/lib/content/templates"
 import { getSiteIntelligence } from "@/lib/site-intelligence"
+import { SITE_URL } from "@/lib/seo/constants"
+import { FlagImage } from "@/components/ui/flag-image"
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -17,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `Financial Comparisons for ${locale.name} | Olikit`,
     description: `Compare financial tools, tax rates, and calculators across countries. See how ${locale.name} compares to other countries.`,
-    alternates: { canonical: `https://olikit.com/${locale.slug}/comparisons` },
+    alternates: { canonical: `${SITE_URL}/${locale.slug}/comparisons` },
     openGraph: {
       title: `Financial Comparisons for ${locale.name}`,
       description: `Compare financial data across countries.`,
@@ -74,7 +76,7 @@ export default async function ComparisonsPage({ params }: Props) {
               href={`/${c.slug}`}
               className="rounded-md bg-white px-4 py-2 text-sm font-medium text-zinc-700 ring-1 ring-zinc-200 transition hover:bg-zinc-50"
             >
-              {c.flag} {c.name}
+              <FlagImage code={c.slug} size="lg" /> {c.name}
             </a>
           ))}
         </div>

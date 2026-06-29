@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { getAllCountries } from "@/lib/content/country-registry"
+import { FlagImage } from "@/components/ui/flag-image"
 export const metadata: Metadata = {
   title: "Global Research — Tax Systems & Salary Trends",
   description: "In-depth research on tax systems, salary trends, and financial regulations across major economies. Country-by-country analysis of income tax, VAT/GST, and compensation data from official government sources.",
@@ -153,7 +154,7 @@ export default function ResearchPage() {
               className="group rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300"
             >
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-2xl">{c.flag}</span>
+                <FlagImage code={c.slug} size="xl" />
                 <div>
                   <h3 className="font-semibold text-sm text-zinc-950 group-hover:text-zinc-800 transition-colors">{c.name}</h3>
                   <p className="text-xs text-zinc-500">{c.taxAuthorityAbbr} &middot; {c.currencyCode}</p>

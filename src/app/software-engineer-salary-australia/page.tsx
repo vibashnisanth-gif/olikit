@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { buildArticleJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
 import { FAQSection } from "@/components/faq-section"
+import { FlagImage } from "@/components/ui/flag-image"
 
 const COUNTRY = { slug: "au", name: "Australia", flag: "\u{1F1E6}\u{1F1FA}", currency: "A$", taxAuthority: "Australian Taxation Office (ATO)" }
 const SALARY = { average: 110000, entryLevel: 65000, experienced: 160000 }
@@ -57,7 +58,7 @@ export default function SoftwareEngineerAU() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">{COUNTRY.flag} {COUNTRY.name} &mdash; Salary Intelligence</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700"><FlagImage code={COUNTRY.slug} size="lg" /> {COUNTRY.name} &mdash; Salary Intelligence</p>
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Software Engineer Salary in Australia</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">Australia offers strong software engineering salaries driven by demand across financial services, technology and resources sectors. Sydney, Melbourne, Brisbane and Perth are the primary technology employment markets, with growing startup ecosystems in each city.</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">

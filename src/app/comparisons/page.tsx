@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
+import { FlagImage } from "@/components/ui/flag-image"
 export const metadata: Metadata = {
     title: "Salary Comparisons — Software Engineer, Data Scientist & Cross-Profession Analysis",
   description: "Compare software engineer, data scientist, and product manager salaries, taxes, and career opportunities across countries. Cross-profession and cross-country analysis.",
@@ -14,25 +15,25 @@ export const metadata: Metadata = {
 }
 
 const seComparisons = [
-  { flagA: "\u{1F1FA}\u{1F1F8}", nameA: "United States", flagB: "\u{1F1E8}\u{1F1E6}", nameB: "Canada", href: "/software-engineer-us-vs-canada" },
-  { flagA: "\u{1F1FA}\u{1F1F8}", nameA: "United States", flagB: "\u{1F1E6}\u{1F1FA}", nameB: "Australia", href: "/software-engineer-us-vs-australia" },
-  { flagA: "\u{1F1EC}\u{1F1E7}", nameA: "United Kingdom", flagB: "\u{1F1E6}\u{1F1FA}", nameB: "Australia", href: "/software-engineer-uk-vs-australia" },
-  { flagA: "\u{1F1EE}\u{1F1F3}", nameA: "India", flagB: "\u{1F1F8}\u{1F1EC}", nameB: "Singapore", href: "/software-engineer-india-vs-singapore" },
-  { flagA: "\u{1F1FA}\u{1F1F8}", nameA: "United States", flagB: "\u{1F1EC}\u{1F1E7}", nameB: "United Kingdom", href: "/software-engineer-us-vs-uk" },
+  { slugA: "us", nameA: "United States", slugB: "ca", nameB: "Canada", href: "/software-engineer-us-vs-canada" },
+  { slugA: "us", nameA: "United States", slugB: "au", nameB: "Australia", href: "/software-engineer-us-vs-australia" },
+  { slugA: "uk", nameA: "United Kingdom", slugB: "au", nameB: "Australia", href: "/software-engineer-uk-vs-australia" },
+  { slugA: "in", nameA: "India", slugB: "sg", nameB: "Singapore", href: "/software-engineer-india-vs-singapore" },
+  { slugA: "us", nameA: "United States", slugB: "uk", nameB: "United Kingdom", href: "/software-engineer-us-vs-uk" },
 ]
 
 const dsComparisons = [
-  { flagA: "\u{1F1FA}\u{1F1F8}", nameA: "United States", flagB: "\u{1F1E8}\u{1F1E6}", nameB: "Canada", href: "/comparisons/data-scientist-us-vs-canada" },
-  { flagA: "\u{1F1FA}\u{1F1F8}", nameA: "United States", flagB: "\u{1F1E6}\u{1F1FA}", nameB: "Australia", href: "/comparisons/data-scientist-us-vs-australia" },
-  { flagA: "\u{1F1EC}\u{1F1E7}", nameA: "United Kingdom", flagB: "\u{1F1E6}\u{1F1FA}", nameB: "Australia", href: "/comparisons/data-scientist-uk-vs-australia" },
-  { flagA: "\u{1F1EE}\u{1F1F3}", nameA: "India", flagB: "\u{1F1F8}\u{1F1EC}", nameB: "Singapore", href: "/comparisons/data-scientist-india-vs-singapore" },
-  { flagA: "\u{1F1FA}\u{1F1F8}", nameA: "United States", flagB: "\u{1F1EC}\u{1F1E7}", nameB: "United Kingdom", href: "/comparisons/data-scientist-us-vs-uk" },
+  { slugA: "us", nameA: "United States", slugB: "ca", nameB: "Canada", href: "/comparisons/data-scientist-us-vs-canada" },
+  { slugA: "us", nameA: "United States", slugB: "au", nameB: "Australia", href: "/comparisons/data-scientist-us-vs-australia" },
+  { slugA: "uk", nameA: "United Kingdom", slugB: "au", nameB: "Australia", href: "/comparisons/data-scientist-uk-vs-australia" },
+  { slugA: "in", nameA: "India", slugB: "sg", nameB: "Singapore", href: "/comparisons/data-scientist-india-vs-singapore" },
+  { slugA: "us", nameA: "United States", slugB: "uk", nameB: "United Kingdom", href: "/comparisons/data-scientist-us-vs-uk" },
 ]
 
 const pmComparisons = [
-  { flagA: "\u{1F1FA}\u{1F1F8}", nameA: "United States", flagB: "\u{1F1EC}\u{1F1E7}", nameB: "United Kingdom", href: "/product-manager-us-vs-uk" },
-  { flagA: "\u{1F1FA}\u{1F1F8}", nameA: "United States", flagB: "\u{1F1E8}\u{1F1E6}", nameB: "Canada", href: "/product-manager-us-vs-canada" },
-  { flagA: "\u{1F1EC}\u{1F1E7}", nameA: "United Kingdom", flagB: "\u{1F1E6}\u{1F1FA}", nameB: "Australia", href: "/product-manager-uk-vs-australia" },
+  { slugA: "us", nameA: "United States", slugB: "uk", nameB: "United Kingdom", href: "/product-manager-us-vs-uk" },
+  { slugA: "us", nameA: "United States", slugB: "ca", nameB: "Canada", href: "/product-manager-us-vs-canada" },
+  { slugA: "uk", nameA: "United Kingdom", slugB: "au", nameB: "Australia", href: "/product-manager-uk-vs-australia" },
 ]
 
 const crossProfessionComparisons = [
@@ -67,9 +68,9 @@ export default function ComparisonsHubPage() {
                 className="group rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300"
               >
                 <div className="flex items-center justify-center gap-4 mb-4">
-                  <span className="text-3xl">{c.flagA}</span>
+                  <FlagImage code={c.slugA} size="xl" />
                   <span className="text-sm font-semibold text-zinc-500">vs</span>
-                  <span className="text-3xl">{c.flagB}</span>
+                  <FlagImage code={c.slugB} size="xl" />
                 </div>
                 <h3 className="text-center text-sm font-semibold text-zinc-950 group-hover:text-emerald-700 transition-colors">
                   {c.nameA} vs {c.nameB}
@@ -92,9 +93,9 @@ export default function ComparisonsHubPage() {
                 className="group rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300"
               >
                 <div className="flex items-center justify-center gap-4 mb-4">
-                  <span className="text-3xl">{c.flagA}</span>
+                  <FlagImage code={c.slugA} size="xl" />
                   <span className="text-sm font-semibold text-zinc-500">vs</span>
-                  <span className="text-3xl">{c.flagB}</span>
+                  <FlagImage code={c.slugB} size="xl" />
                 </div>
                 <h3 className="text-center text-sm font-semibold text-zinc-950 group-hover:text-emerald-700 transition-colors">
                   {c.nameA} vs {c.nameB}
@@ -117,9 +118,9 @@ export default function ComparisonsHubPage() {
                 className="group rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300"
               >
                 <div className="flex items-center justify-center gap-4 mb-4">
-                  <span className="text-3xl">{c.flagA}</span>
+                  <FlagImage code={c.slugA} size="xl" />
                   <span className="text-sm font-semibold text-zinc-500">vs</span>
-                  <span className="text-3xl">{c.flagB}</span>
+                  <FlagImage code={c.slugB} size="xl" />
                 </div>
                 <h3 className="text-center text-sm font-semibold text-zinc-950 group-hover:text-emerald-700 transition-colors">
                   {c.nameA} vs {c.nameB}

@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { buildArticleJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
 import { FAQSection } from "@/components/faq-section"
+import { FlagImage } from "@/components/ui/flag-image"
 
 const COUNTRY = { slug: "sg", name: "Singapore", flag: "\u{1F1F8}\u{1F1EC}", currency: "S$", taxAuthority: "Inland Revenue Authority of Singapore (IRAS)" }
 const SALARY = { average: 72000, entryLevel: 42000, experienced: 110000 }
@@ -57,7 +58,7 @@ export default function SoftwareEngineerSG() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">{COUNTRY.flag} {COUNTRY.name} &mdash; Salary Intelligence</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700"><FlagImage code={COUNTRY.slug} size="lg" /> {COUNTRY.name} &mdash; Salary Intelligence</p>
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Software Engineer Salary in Singapore</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">Singapore is a leading global technology and financial hub, attracting software engineers with competitive salaries, a favourable tax environment and strong international career opportunities. The city-state continues to invest heavily in technology infrastructure and digital innovation.</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">

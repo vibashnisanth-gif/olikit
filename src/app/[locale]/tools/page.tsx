@@ -5,6 +5,7 @@ import { COUNTRY_FLAGS } from "@/lib/content/country-registry"
 import { tools } from "@/lib/content/templates"
 import { buildWebPageJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
 import { SITE_URL } from "@/lib/seo/constants"
+import { FlagImage } from "@/components/ui/flag-image"
 
 type Props = {
   params: Promise<{ locale: string }>
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `Financial Calculators for ${locale.name} | Olikit`,
     description: `Free financial calculators for ${locale.name}. Salary, tax, mortgage, investment, retirement, business loan, and break-even calculators with ${locale.name}-specific rates and regulations.`,
     alternates: {
-      canonical: `https://olikit.com/${locale.slug}/tools`,
+      canonical: `${SITE_URL}/${locale.slug}/tools`,
     },
     openGraph: {
       title: `Financial Calculators for ${locale.name}`,
@@ -64,7 +65,7 @@ export default async function ToolsHubPage({ params }: Props) {
       />
       <section className="rounded-lg border border-zinc-200 bg-white px-5 py-10 shadow-sm sm:px-8 sm:py-12">
         <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">
-          {flag} Free financial tools for {name}
+          <FlagImage code={slug} size="lg" /> Free financial tools for {name}
         </p>
         <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
           Financial Calculators for {name}

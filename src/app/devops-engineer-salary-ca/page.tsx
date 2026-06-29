@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { SITE_URL } from "@/lib/seo/constants"
 import { buildArticleJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
+import { FlagImage } from "@/components/ui/flag-image"
 const COUNTRY = { slug: "ca", name: "Canada", flag: "🇨🇦", currency: "C$" }
 const SALARY = { average: 88000, entryLevel: 52000, experienced: 135000 }
 
@@ -33,7 +34,7 @@ export default function devops_engineerSalaryCA() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <div className="space-y-12">
         <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700">{COUNTRY.flag} {COUNTRY.name} &mdash; Salary Intelligence</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-emerald-700"><FlagImage code={COUNTRY.slug} size="lg" /> {COUNTRY.name} &mdash; Salary Intelligence</p>
           <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">DevOps Engineer Salary in the Canada</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">The Canada offers competitive salaries for devops engineers across various industries and experience levels.</p>
             <div className="mt-6 grid gap-3 sm:grid-cols-3">

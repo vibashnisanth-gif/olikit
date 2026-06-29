@@ -6,6 +6,7 @@ import { CountryProfileSection } from "@/components/country-profile-section"
 import { FAQSection } from "@/components/faq-section"
 import { SourcesSection } from "@/components/sources-section"
 import { RelatedPagesSection } from "@/components/related-pages-section"
+import { FlagImage } from "@/components/ui/flag-image"
 
 function Section({ id, children, className = "" }: { id: string; children: React.ReactNode; className?: string }) {
   return (
@@ -254,7 +255,7 @@ function RankingTable({ table }: { table: SalaryIndexRankingTable }) {
                 <tr key={i} className="hover:bg-zinc-50">
                   <td className="px-3 py-2.5 text-zinc-800">{row.rank}</td>
                   <td className="px-3 py-2.5">
-                    <span className="mr-1.5">{row.flag}</span>
+                    <span className="mr-1.5"><FlagImage code={row.slug} name={row.country} size="lg" /></span>
                     <span className="text-zinc-800">{row.country}</span>
                   </td>
                   {row.ogssScore !== undefined && (
@@ -286,7 +287,7 @@ function CountryScorecardCard({ card }: { card: SalaryIndexCountryScorecard }) {
     <Section id={`country-${card.slug}`}>
       <div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm sm:p-8">
         <div className="mb-4 flex items-center gap-3">
-          <span className="text-3xl">{card.flag}</span>
+          <span className="text-3xl"><FlagImage code={card.slug} name={card.name} size="lg" /></span>
           <div>
             <h3 className="text-lg font-semibold text-zinc-950">{card.name}</h3>
             <p className="text-xs text-zinc-500">Rank #{card.overallRank} &middot; OGSS {card.ogssScore.toFixed(1)}</p>

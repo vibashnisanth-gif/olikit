@@ -76,6 +76,7 @@ export interface SalaryIndexRelatedPage {
 export interface SalaryIndexRankingRow {
   rank: number
   country: string
+  slug?: string
   flag: string
   ogssScore?: number
   nominalSalary?: string

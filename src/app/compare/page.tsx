@@ -5,6 +5,7 @@ import { getAllCountries, COUNTRY_FLAGS } from "@/lib/content/country-registry"
 import { professions } from "@/lib/content/professions-data"
 import { formatSalaryBySlug, formatSalary, slugToCurrency, convertSalary } from "@/lib/currency"
 import type { CurrencyCode } from "@/lib/currency"
+import { FlagImage } from "@/components/ui/flag-image"
 
 const SalaryComparisonCalculator = dynamic(
   () => import("@/components/salary-comparison-calculator").then(m => m.SalaryComparisonCalculator),
@@ -68,7 +69,7 @@ export default function ComparePage() {
                 className="group rounded-xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md hover:border-zinc-300"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-3xl">{c.flag}</span>
+                  <FlagImage code={c.slug} size="xl" />
                   <div>
                     <h3 className="font-semibold text-zinc-950 group-hover:text-zinc-800 transition-colors">{c.name}</h3>
                     <p className="text-xs text-zinc-500">{c.currencyCode} &middot; {c.taxAuthorityAbbr}</p>
@@ -115,8 +116,8 @@ export default function ComparePage() {
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="flex -space-x-1">
-                    <span className="text-2xl relative z-10">{COUNTRY_FLAGS[fromSlug]}</span>
-                    <span className="text-2xl">{COUNTRY_FLAGS[toSlug]}</span>
+                    <FlagImage code={fromSlug} size="xl" />
+                    <FlagImage code={toSlug} size="xl" />
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-zinc-950">
@@ -163,7 +164,7 @@ export default function ComparePage() {
                 <th scope="col" className="text-left py-3 pr-4 font-semibold text-zinc-950">Profession</th>
                 {countries.map((c) => (
                   <th scope="col" key={c.slug} className="text-right px-3 py-3 font-semibold text-zinc-950 whitespace-nowrap">
-                    {c.flag} {c.name}
+                    <FlagImage code={c.slug} size="lg" /> {c.name}
                   </th>
                 ))}
               </tr>
@@ -203,7 +204,7 @@ export default function ComparePage() {
           {countries.map((c) => (
             <div key={c.slug} className="rounded-lg border border-zinc-100 bg-zinc-50 p-4">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-lg">{c.flag}</span>
+                <FlagImage code={c.slug} size="xl" />
                 <span className="font-semibold text-sm text-zinc-950">{c.name}</span>
               </div>
               <ul className="space-y-1 text-xs text-zinc-500">

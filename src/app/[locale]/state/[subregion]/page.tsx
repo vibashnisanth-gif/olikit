@@ -7,6 +7,7 @@ import {SITE_URL} from "@/lib/seo/constants";
 import {getToolsBySlugs, stateSeoToolSlugs} from "@/lib/content/templates";
 import {buildWebPageJsonLd, buildBreadcrumbJsonLd} from "@/lib/seo/json-ld";
 import {SourceFooter} from "@/components/source-footer";
+import { FlagImage } from "@/components/ui/flag-image"
 
 type Props = {
   params: Promise<{locale: string; subregion: string}>;
@@ -121,7 +122,7 @@ export default async function SubRegionPage({params}: Props) {
       {locale.states && locale.states.length > 1 && (
         <section>
           <h2 className="text-xl font-semibold text-zinc-950 mb-4">
-            Other {countryFlag} {countryName} States & Regions
+            Other <FlagImage code={slug} size="lg" /> {countryName} States & Regions
           </h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {locale.states
@@ -143,7 +144,7 @@ export default async function SubRegionPage({params}: Props) {
             href={`/${slug}/states`}
             className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-emerald-600 hover:text-emerald-700"
           >
-            View all {countryFlag} {countryName} states & regions →
+            View all <FlagImage code={slug} size="lg" /> {countryName} states & regions →
           </a>
         </section>
       )}

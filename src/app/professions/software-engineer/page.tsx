@@ -5,6 +5,7 @@ import { COUNTRY_FLAGS, COUNTRY_NAMES } from "@/lib/content/country-registry"
 import { SITE_URL } from "@/lib/seo/constants"
 import { buildArticleJsonLd, buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/seo/json-ld"
 import { formatSalary as fmtSalary, formatSalaryFull as fmtSalaryFull, slugToCurrency } from "@/lib/currency"
+import { FlagImage } from "@/components/ui/flag-image"
 
 const se = getProfession("software-engineer")!
 
@@ -287,7 +288,7 @@ export default function SoftwareEngineerHub() {
                       <td className="px-4 py-3 text-zinc-500">{i === 0 ? "\u{1F947}" : i === 1 ? "\u{1F948}" : i === 2 ? "\u{1F949}" : `#${i + 1}`}</td>
                       <td className="px-4 py-3">
                         <a href={`/software-engineer-salary-${COUNTRY_ROUTES[c.slug]}`} className="font-medium text-zinc-950 hover:text-emerald-600">
-                          {data.flag} {data.name}
+                          <FlagImage code={data.slug} size="lg" /> {data.name}
                         </a>
                       </td>
                       <td className="px-4 py-3 text-right font-medium text-zinc-950">{formatSalaryFull(data.salary.average, c.slug)}</td>
@@ -322,7 +323,7 @@ export default function SoftwareEngineerHub() {
               const route = COUNTRY_ROUTES[loc.slug]
               return (
                 <a key={loc.slug} href={`/software-engineer-salary-${route}`} className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md">
-                  <p className="mb-1 text-2xl">{COUNTRY_FLAGS[loc.slug]}</p>
+                  <p className="mb-1 text-2xl"><FlagImage code={loc.slug} size="sm" /></p>
                   <h3 className="mb-2 text-lg font-semibold text-zinc-950">{loc.name}</h3>
                   <p className="text-sm leading-6 text-zinc-600">
                     Average: <strong>{formatSalaryFull(se.salaries[loc.slug].average, loc.slug)}</strong>
