@@ -89,6 +89,19 @@ export default async function ToolPage({params}: Props) {
           <p className="mt-4 max-w-3xl text-lg leading-8 text-zinc-600">{content.intro}</p>
         </div>
 
+        <section className="flex items-center gap-4 rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-4 shadow-sm sm:px-8">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-blue-700">
+            OR
+          </div>
+          <div className="min-w-0">
+            <p className="text-sm font-semibold text-zinc-950">Olikit Research Team</p>
+            <p className="text-xs text-zinc-500">
+              Reviewed for accuracy &mdash; Calculations use official {locale.name} tax brackets and
+              published exchange rates. Last reviewed: June 2026.
+            </p>
+          </div>
+        </section>
+
         {content.directAnswer && (
           <div className="direct-answer rounded-xl border border-zinc-200 bg-white shadow-sm">
             <div className="flex">

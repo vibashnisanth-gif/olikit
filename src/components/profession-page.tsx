@@ -6,6 +6,23 @@ import {RelatedPagesSection} from "@/components/related-pages-section";
 import {MethodologySection} from "@/components/methodology-section";
 import {FlagImage} from "@/components/ui/flag-image";
 
+function ReviewedBySection() {
+  return (
+    <section className="flex items-center gap-4 rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-4 shadow-sm sm:px-8">
+      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-blue-700">
+        OR
+      </div>
+      <div className="min-w-0">
+        <p className="text-sm font-semibold text-zinc-950">Olikit Research Team</p>
+        <p className="text-xs text-zinc-500">
+          Reviewed for accuracy &mdash; Data sourced from official tax authorities, national
+          statistics offices, and labor departments. Last reviewed: June 2026.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function KeyTakeawaysSection({items}: {items: {title: string; description: string}[]}) {
   return (
     <section>
@@ -235,6 +252,8 @@ export function ProfessionPageRenderer({content}: ProfessionPageRendererProps) {
         secondaryCta={content.hero.secondaryCta}
       />
 
+      <ReviewedBySection />
+
       {content.salaryTable && <SalaryTableSection table={content.salaryTable} />}
 
       {content.salaryCards && content.salaryCards.length > 0 && (
@@ -304,6 +323,62 @@ export function ProfessionPageRenderer({content}: ProfessionPageRendererProps) {
       {content.sources && content.sources.length > 0 && (
         <SourcesSection sources={content.sources} />
       )}
+
+      <section className="rounded-lg border border-zinc-200 bg-white p-6 shadow-sm">
+        <h2 className="mb-4 text-xl font-semibold text-zinc-950">Government Data Sources</h2>
+        <ul className="space-y-2 text-sm text-zinc-600">
+          <li>
+            <a
+              href="https://www.irs.gov/newsroom/irs-provides-tax-inflation-adjustments-for-tax-year-2026"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline decoration-blue-300 underline-offset-2 hover:text-blue-800"
+            >
+              IRS &mdash; Tax year 2026 inflation adjustments
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.gov.uk/government/publications/rates-and-allowances-income-tax/income-tax-rates-and-allowances"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline decoration-blue-300 underline-offset-2 hover:text-blue-800"
+            >
+              HMRC &mdash; Income tax rates and allowances
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.ato.gov.au/rates/key-superannuation-rates-and-thresholds/how-your-super-savings-are-taxed/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline decoration-blue-300 underline-offset-2 hover:text-blue-800"
+            >
+              ATO &mdash; Individual income tax rates
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/taxable-income/tax-rates-on-taxable-income.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline decoration-blue-300 underline-offset-2 hover:text-blue-800"
+            >
+              CRA &mdash; Federal and provincial tax rates
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.ird.govt.nz/income-tax/income-tax-for-individuals/tax-on-your-income/tax-rates-and-flags/tax-rates"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 underline decoration-blue-300 underline-offset-2 hover:text-blue-800"
+            >
+              IRD &mdash; New Zealand income tax rates
+            </a>
+          </li>
+        </ul>
+      </section>
 
       {content.relatedPages && content.relatedPages.length > 0 && (
         <RelatedPagesSection pages={content.relatedPages} />
