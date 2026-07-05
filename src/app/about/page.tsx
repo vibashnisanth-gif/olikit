@@ -108,6 +108,36 @@ export default function AboutPage() {
           </p>
         </section>
 
+        <section className="rounded-xl border border-blue-200 bg-blue-50 px-6 py-8">
+          <h2 className="text-2xl font-semibold mb-3">Why Olikit Exists</h2>
+          <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
+            Most salary sites show you a single number. Olikit shows you the full picture: what
+            you&apos;ll actually take home after taxes, what that salary buys in each city, and how
+            two job offers compare across borders. We exist because a $150K salary in Singapore is
+            not the same as $150K in London — and most tools ignore that.
+          </p>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            <div>
+              <h3 className="text-sm font-semibold text-zinc-950 mb-1">What others do</h3>
+              <ul className="space-y-1 text-sm text-zinc-600">
+                <li>Show gross salary only (no take-home)</li>
+                <li>Crowdsourced data with no verification</li>
+                <li>Single-country focus</li>
+                <li>Require accounts or paid subscriptions</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-zinc-950 mb-1">What Olikit does</h3>
+              <ul className="space-y-1 text-sm text-zinc-600">
+                <li>Calculate actual take-home pay with real tax brackets</li>
+                <li>Use government-sourced data (IRS, HMRC, ATO, CRA)</li>
+                <li>7 countries with cross-border comparison built-in</li>
+                <li>Free, no login, no paywall</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         <section>
           <h2 className="text-2xl font-semibold mb-3">Our Methodology</h2>
           <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
