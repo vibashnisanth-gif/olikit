@@ -1,33 +1,35 @@
-import type { Metadata } from "next"
-import Link from "next/link"
-import { notFound } from "next/navigation"
-import { getLocale, locales } from "@/lib/seo/locales"
-import { generateSalaryHubContent } from "@/lib/content/state-expansion"
-import { SITE_URL } from "@/lib/seo/constants"
-import { getLastUpdated } from "@/lib/seo/freshness"
-import { tools } from "@/lib/content/templates"
-import { guides } from "@/lib/content/guide-templates"
-import { stateDataSets } from "@/lib/content/state-data"
-import { professions } from "@/lib/content/professions-data"
+import type {Metadata} from "next";
+import Link from "next/link";
+import {notFound} from "next/navigation";
+import {getLocale, locales} from "@/lib/seo/locales";
+import {generateSalaryHubContent} from "@/lib/content/state-expansion";
+import {SITE_URL} from "@/lib/seo/constants";
+import {getLastUpdated} from "@/lib/seo/freshness";
+import {tools} from "@/lib/content/templates";
+import {guides} from "@/lib/content/guide-templates";
+import {stateDataSets} from "@/lib/content/state-data";
+import {professions} from "@/lib/content/professions-data";
 
-import { AdUnit } from "@/components/ad-unit"
-import { NewsletterSignup } from "@/components/newsletter-signup"
-import { SourceFooter } from "@/components/source-footer"
-import { LastUpdated } from "@/components/last-updated"
+import {AdUnit} from "@/components/ad-unit";
+import {NewsletterSignup} from "@/components/newsletter-signup";
+import {SourceFooter} from "@/components/source-footer";
+import {LastUpdated} from "@/components/last-updated";
 
 export async function generateStaticParams() {
-  return locales.map((locale) => ({ locale: locale.slug }))
+  return locales.map((locale) => ({locale: locale.slug}));
 }
 
-export async function generateMetadata(props: { params: Promise<{ locale: string }> }): Promise<Metadata> {
-  const { locale: localeSlug } = await props.params
-  const locale = getLocale(localeSlug)
-  if (!locale) return {}
+export async function generateMetadata(props: {
+  params: Promise<{locale: string}>;
+}): Promise<Metadata> {
+  const {locale: localeSlug} = await props.params;
+  const locale = getLocale(localeSlug);
+  if (!locale) return {};
 
   return {
     title: `Salary Guide and Resources for ${locale.name} | Olikit`,
     description: `Free salary resources for ${locale.name}. Calculate your take-home pay, explore average salaries by state, compare cost of living, and read expert guides on salary and tax planning.`,
-    alternates: { canonical: `${SITE_URL}/${locale.slug}/salary` },
+    alternates: {canonical: `${SITE_URL}/${locale.slug}/salary`},
     openGraph: {
       title: `${locale.name} Salary Guide and Resources`,
       description: `Free salary resources for ${locale.name}. Calculate take-home pay, explore salaries, and read guides.`,
@@ -36,23 +38,23 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
       locale: locale.code,
       type: "website",
     },
-  }
+  };
 }
 
-export default async function SalaryHubPage(props: { params: Promise<{ locale: string }> }) {
-  const { locale: localeSlug } = await props.params
-  const locale = getLocale(localeSlug)
-  if (!locale) notFound()
+export default async function SalaryHubPage(props: {params: Promise<{locale: string}>}) {
+  const {locale: localeSlug} = await props.params;
+  const locale = getLocale(localeSlug);
+  if (!locale) notFound();
 
-  const content = generateSalaryHubContent(locale)
-  const lastUpdated = getLastUpdated()
-  const salaryTool = tools.find((t) => t.slug === "salary-calculator")
-  const salaryGuide = guides.find((g) => g.slug === "salary-after-tax-by-country")
+  const content = generateSalaryHubContent(locale);
+  const lastUpdated = getLastUpdated();
+  const salaryTool = tools.find((t) => t.slug === "salary-calculator");
+  const salaryGuide = guides.find((g) => g.slug === "salary-after-tax-by-country");
 
   const salaryStates = stateDataSets.filter((s) => {
-    if (!locale.states) return false
-    return locale.states.some((st) => st.slug === s.stateSlug)
-  })
+    if (!locale.states) return false;
+    return locale.states.some((st) => st.slug === s.stateSlug);
+  });
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -63,18 +65,39 @@ export default async function SalaryHubPage(props: { params: Promise<{ locale: s
     mainEntity: {
       "@type": "ItemList",
       itemListElement: [
-        ...(salaryTool ? [{ "@type": "WebApplication", name: salaryTool.name, url: `${SITE_URL}/${locale.slug}/tools/salary-calculator` }] : []),
-        ...(salaryGuide ? [{ "@type": "Article", name: salaryGuide.name, url: `${SITE_URL}/${locale.slug}/guides/salary-after-tax-by-country` }] : []),
+        ...(salaryTool
+          ? [
+              {
+                "@type": "WebApplication",
+                name: salaryTool.name,
+                url: `${SITE_URL}/${locale.slug}/tools/salary-calculator`,
+              },
+            ]
+          : []),
+        ...(salaryGuide
+          ? [
+              {
+                "@type": "Article",
+                name: salaryGuide.name,
+                url: `${SITE_URL}/${locale.slug}/guides/salary-after-tax-by-country`,
+              },
+            ]
+          : []),
       ],
     },
-  }
+  };
 
   return (
-      <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
+      />
       <div className="max-w-4xl mx-auto px-4 py-12 space-y-10">
         <nav className="text-sm text-zinc-500">
-          <Link href={`/${locale.slug}`} className="hover:text-zinc-800">Home</Link>
+          <Link href={`/${locale.slug}`} className="hover:text-zinc-800">
+            Home
+          </Link>
           <span className="mx-2">/</span>
           <span className="text-zinc-800">Salary</span>
         </nav>
@@ -96,7 +119,10 @@ export default async function SalaryHubPage(props: { params: Promise<{ locale: s
         <section>
           <h2 className="text-2xl font-semibold mb-4">Quick Answer</h2>
           <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">
-            Use our free salary calculator to estimate your take-home pay after federal and state taxes, Social Security, and Medicare. Explore average salary data by state, compare cost of living across regions, and read our expert guides on salary negotiation and tax planning.
+            Use our free salary calculator to estimate your take-home pay after federal and state
+            taxes, Social Security, and Medicare. Explore average salary data by state, compare cost
+            of living across regions, and read our expert guides on salary negotiation and tax
+            planning.
           </p>
         </section>
 
@@ -151,7 +177,7 @@ export default async function SalaryHubPage(props: { params: Promise<{ locale: s
                 <Link
                   key={s.stateSlug}
                   href={`/${locale.slug}/average-salary/${s.stateSlug}`}
-                  className="border rounded-lg p-4 hover:border-blue-400 transition text-zinc-700 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400"
+                  className="border rounded-lg p-4 hover:border-blue-400 transition text-zinc-700 dark:text-zinc-300 hover:text-blue-700 dark:hover:text-blue-400"
                 >
                   {s.stateName}
                 </Link>
@@ -167,7 +193,7 @@ export default async function SalaryHubPage(props: { params: Promise<{ locale: s
               <Link
                 key={p.slug}
                 href={`/${locale.slug}/salary/${p.slug}`}
-                className="border rounded-lg p-4 hover:border-blue-400 transition text-zinc-700 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400"
+                className="border rounded-lg p-4 hover:border-blue-400 transition text-zinc-700 dark:text-zinc-300 hover:text-blue-700 dark:hover:text-blue-400"
               >
                 {p.name}
               </Link>
@@ -180,7 +206,9 @@ export default async function SalaryHubPage(props: { params: Promise<{ locale: s
           <div className="space-y-4">
             {content.faqs.map((faq, i) => (
               <div key={i} className="border-b pb-4">
-                <h3 className="font-medium text-zinc-800 dark:text-zinc-200 mb-2">{faq.question}</h3>
+                <h3 className="font-medium text-zinc-800 dark:text-zinc-200 mb-2">
+                  {faq.question}
+                </h3>
                 <p className="text-zinc-600 dark:text-zinc-400">{faq.answer}</p>
               </div>
             ))}
@@ -202,6 +230,6 @@ export default async function SalaryHubPage(props: { params: Promise<{ locale: s
         <LastUpdated />
         <SourceFooter localeSlug={locale.slug} />
       </div>
-      </>
-  )
+    </>
+  );
 }

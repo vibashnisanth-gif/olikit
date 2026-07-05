@@ -1,60 +1,91 @@
-import type { SalaryIndexContent, SalaryIndexRankingTable, SalaryIndexCountryScorecard, SalaryIndexProfessionScorecard, SalaryIndexRelatedResearch } from "@/lib/content/salary-index-types"
-import { HeroSection } from "@/components/hero-section"
-import { MethodologySection } from "@/components/methodology-section"
-import { MethodologyDeepDiveSection } from "@/components/methodology-deep-dive-section"
-import { CountryProfileSection } from "@/components/country-profile-section"
-import { FAQSection } from "@/components/faq-section"
-import { SourcesSection } from "@/components/sources-section"
-import { RelatedPagesSection } from "@/components/related-pages-section"
-import { FlagImage } from "@/components/ui/flag-image"
+import type {
+  SalaryIndexContent,
+  SalaryIndexRankingTable,
+  SalaryIndexCountryScorecard,
+  SalaryIndexProfessionScorecard,
+  SalaryIndexRelatedResearch,
+} from "@/lib/content/salary-index-types";
+import {HeroSection} from "@/components/hero-section";
+import {MethodologySection} from "@/components/methodology-section";
+import {MethodologyDeepDiveSection} from "@/components/methodology-deep-dive-section";
+import {CountryProfileSection} from "@/components/country-profile-section";
+import {FAQSection} from "@/components/faq-section";
+import {SourcesSection} from "@/components/sources-section";
+import {RelatedPagesSection} from "@/components/related-pages-section";
+import {FlagImage} from "@/components/ui/flag-image";
 
-function Section({ id, children, className = "" }: { id: string; children: React.ReactNode; className?: string }) {
+function Section({
+  id,
+  children,
+  className = "",
+}: {
+  id: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <section id={id} className={className}>
       {children}
     </section>
-  )
+  );
 }
 
-function ProseSection({ id, title, paragraphs }: { id: string; title: string; paragraphs: string[] }) {
+function ProseSection({id, title, paragraphs}: {id: string; title: string; paragraphs: string[]}) {
   return (
     <Section id={id}>
       <div className="rounded-lg border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-8">
         <h2 className="mb-4 text-2xl font-semibold text-zinc-950">{title}</h2>
         {paragraphs.map((p, i) => (
-          <p key={i} className="mb-3 text-base leading-7 text-zinc-700 last:mb-0">{p}</p>
+          <p key={i} className="mb-3 text-base leading-7 text-zinc-700 last:mb-0">
+            {p}
+          </p>
         ))}
       </div>
     </Section>
-  )
+  );
 }
 
-function ResearchMetadataBlock({ data }: { data: SalaryIndexContent["researchMetadata"] }) {
+function ResearchMetadataBlock({data}: {data: SalaryIndexContent["researchMetadata"]}) {
   return (
     <Section id="research-metadata">
       <div className="rounded-lg border border-zinc-200 bg-white px-5 py-5 text-sm text-zinc-600 shadow-sm sm:px-8">
         <div className="grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-4">
-          <div><span className="font-semibold text-zinc-800">Coverage Year:</span> {data.coverageYear}</div>
-          <div><span className="font-semibold text-zinc-800">Profession:</span> {data.profession}</div>
-          <div><span className="font-semibold text-zinc-800">Methodology:</span> {data.methodologyVersion}</div>
-          <div><span className="font-semibold text-zinc-800">Countries:</span> {data.countriesCount}</div>
-          <div><span className="font-semibold text-zinc-800">Last Updated:</span> {data.lastUpdated}</div>
-          <div><span className="font-semibold text-zinc-800">Data Status:</span> {data.dataStatus}</div>
+          <div>
+            <span className="font-semibold text-zinc-800">Coverage Year:</span> {data.coverageYear}
+          </div>
+          <div>
+            <span className="font-semibold text-zinc-800">Profession:</span> {data.profession}
+          </div>
+          <div>
+            <span className="font-semibold text-zinc-800">Methodology:</span>{" "}
+            {data.methodologyVersion}
+          </div>
+          <div>
+            <span className="font-semibold text-zinc-800">Countries:</span> {data.countriesCount}
+          </div>
+          <div>
+            <span className="font-semibold text-zinc-800">Last Updated:</span> {data.lastUpdated}
+          </div>
+          <div>
+            <span className="font-semibold text-zinc-800">Data Status:</span> {data.dataStatus}
+          </div>
         </div>
       </div>
     </Section>
-  )
+  );
 }
 
-function QuickAnswersSection({ items }: { items: SalaryIndexContent["quickAnswers"] }) {
-  if (!items || items.length === 0) return null
+function QuickAnswersSection({items}: {items: SalaryIndexContent["quickAnswers"]}) {
+  if (!items || items.length === 0) return null;
   return (
     <Section id="quick-answers">
       <div className="rounded-xl border border-zinc-200 bg-white shadow-sm">
         <div className="flex">
           <div className="w-1 shrink-0 rounded-l-xl bg-blue-500" />
           <div className="min-w-0 flex-1 p-6 sm:p-8">
-            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Quick Answers</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+              Quick Answers
+            </p>
             {items.map((qa, i) => (
               <div key={i} className={`${i > 0 ? "mt-6 border-t border-zinc-100 pt-6" : "mt-4"}`}>
                 <h3 className="text-base font-semibold text-zinc-950">{qa.question}</h3>
@@ -65,11 +96,11 @@ function QuickAnswersSection({ items }: { items: SalaryIndexContent["quickAnswer
         </div>
       </div>
     </Section>
-  )
+  );
 }
 
 function comparisonArrow(insight: string): string {
-  const lower = insight.toLowerCase()
+  const lower = insight.toLowerCase();
   if (
     lower.includes("below") ||
     lower.includes("lowest") ||
@@ -78,19 +109,19 @@ function comparisonArrow(insight: string): string {
     lower.includes("downside") ||
     lower.includes("disadvantage")
   ) {
-    return "↓"
+    return "↓";
   }
-  return "↑"
+  return "↑";
 }
 
-function ExecutiveSummaryRenderer({ data }: { data: SalaryIndexContent["executiveSummary"] }) {
-  const metrics = data.metrics
-  const hasMetrics = metrics && metrics.length > 0
-  const primaryMetric = hasMetrics ? metrics[0] : null
-  const supportingMetrics = hasMetrics ? metrics.slice(1) : []
-  const allInsights = data.insights
-  const hasInsights = allInsights && allInsights.length > 0
-  const showInsightList = hasInsights && allInsights.length > 1
+function ExecutiveSummaryRenderer({data}: {data: SalaryIndexContent["executiveSummary"]}) {
+  const metrics = data.metrics;
+  const hasMetrics = metrics && metrics.length > 0;
+  const primaryMetric = hasMetrics ? metrics[0] : null;
+  const supportingMetrics = hasMetrics ? metrics.slice(1) : [];
+  const allInsights = data.insights;
+  const hasInsights = allInsights && allInsights.length > 0;
+  const showInsightList = hasInsights && allInsights.length > 1;
 
   return (
     <Section id="executive-summary">
@@ -98,11 +129,15 @@ function ExecutiveSummaryRenderer({ data }: { data: SalaryIndexContent["executiv
         <div className="flex">
           <div className="w-1 shrink-0 rounded-l-xl bg-blue-500" />
           <div className="min-w-0 flex-1 p-6 sm:p-8">
-            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Executive Summary</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+              Executive Summary
+            </p>
 
             {primaryMetric && (
               <div className="mt-4">
-                <p className="max-sm:text-4xl sm:text-5xl font-bold text-zinc-950">{primaryMetric.value}</p>
+                <p className="max-sm:text-4xl sm:text-5xl font-bold text-zinc-950">
+                  {primaryMetric.value}
+                </p>
                 <p className="mt-1 text-lg font-medium text-zinc-800">{primaryMetric.label}</p>
               </div>
             )}
@@ -127,14 +162,18 @@ function ExecutiveSummaryRenderer({ data }: { data: SalaryIndexContent["executiv
             {data.paragraphs.length > 0 && (
               <div className="mt-6 space-y-3 border-t border-zinc-100 pt-6">
                 {data.paragraphs.map((p, i) => (
-                  <p key={i} className="text-base leading-7 text-zinc-700">{p}</p>
+                  <p key={i} className="text-base leading-7 text-zinc-700">
+                    {p}
+                  </p>
                 ))}
               </div>
             )}
 
             {showInsightList && (
               <div className="mt-6 rounded-lg border border-zinc-200 bg-white p-4">
-                <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Key Insights</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+                  Key Insights
+                </p>
                 <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm text-zinc-700">
                   {allInsights.slice(1).map((insight, i) => (
                     <li key={i}>{insight}</li>
@@ -150,10 +189,14 @@ function ExecutiveSummaryRenderer({ data }: { data: SalaryIndexContent["executiv
         </div>
       </div>
     </Section>
-  )
+  );
 }
 
-function RelocationIntelligenceGrid({ items }: { items: SalaryIndexContent["relocationIntelligence"] }) {
+function RelocationIntelligenceGrid({
+  items,
+}: {
+  items: SalaryIndexContent["relocationIntelligence"];
+}) {
   return (
     <Section id="relocation-intelligence">
       <div className="rounded-lg border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-8">
@@ -168,10 +211,10 @@ function RelocationIntelligenceGrid({ items }: { items: SalaryIndexContent["relo
         </div>
       </div>
     </Section>
-  )
+  );
 }
 
-function KeyFindingsRenderer({ items }: { items: SalaryIndexContent["keyFindings"] }) {
+function KeyFindingsRenderer({items}: {items: SalaryIndexContent["keyFindings"]}) {
   return (
     <Section id="key-findings">
       <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Key Findings</h2>
@@ -185,17 +228,14 @@ function KeyFindingsRenderer({ items }: { items: SalaryIndexContent["keyFindings
         ))}
       </div>
     </Section>
-  )
+  );
 }
 
-function MethodologyRenderer({ data }: { data: SalaryIndexContent["methodology"] }) {
+function MethodologyRenderer({data}: {data: SalaryIndexContent["methodology"]}) {
   return (
     <>
       <Section id="methodology">
-        <MethodologySection
-          title="Methodology"
-          methodology={data.overviews}
-        />
+        <MethodologySection title="Methodology" methodology={data.overviews} />
       </Section>
       {data.deepDives.length > 0 && (
         <Section id="methodology-deep-dives">
@@ -203,37 +243,47 @@ function MethodologyRenderer({ data }: { data: SalaryIndexContent["methodology"]
         </Section>
       )}
     </>
-  )
+  );
 }
 
-function ResearchLimitationsSection({ data }: { data: SalaryIndexContent["researchLimitations"] }) {
+function ResearchLimitationsSection({data}: {data: SalaryIndexContent["researchLimitations"]}) {
   return (
     <Section id="research-limitations">
       <div className="rounded-lg border border-amber-200 bg-amber-50 px-5 py-6 shadow-sm sm:px-8">
-        <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-amber-700">Important Note</p>
+        <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-amber-700">
+          Important Note
+        </p>
         <h2 className="mb-4 text-2xl font-semibold text-zinc-950">{data.title}</h2>
         {data.paragraphs.map((p, i) => (
-          <p key={i} className="mb-3 text-sm leading-7 text-zinc-800 last:mb-0">{p}</p>
+          <p key={i} className="mb-3 text-sm leading-7 text-zinc-800 last:mb-0">
+            {p}
+          </p>
         ))}
       </div>
     </Section>
-  )
+  );
 }
 
-function DataInterpretationSection({ data }: { data: SalaryIndexContent["dataInterpretationGuidance"] }) {
+function DataInterpretationSection({
+  data,
+}: {
+  data: SalaryIndexContent["dataInterpretationGuidance"];
+}) {
   return (
     <Section id="data-interpretation">
       <div className="rounded-lg border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-8">
         <h2 className="mb-4 text-2xl font-semibold text-zinc-950">{data.title}</h2>
         {data.paragraphs.map((p, i) => (
-          <p key={i} className="mb-3 text-base leading-7 text-zinc-700 last:mb-0">{p}</p>
+          <p key={i} className="mb-3 text-base leading-7 text-zinc-700 last:mb-0">
+            {p}
+          </p>
         ))}
       </div>
     </Section>
-  )
+  );
 }
 
-function RankingTable({ table }: { table: SalaryIndexRankingTable }) {
+function RankingTable({table}: {table: SalaryIndexRankingTable}) {
   return (
     <Section id={`table-${table.id}`}>
       <div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm sm:p-8">
@@ -244,7 +294,11 @@ function RankingTable({ table }: { table: SalaryIndexRankingTable }) {
             <thead>
               <tr className="border-b-2 border-zinc-200">
                 {table.headers.map((h, i) => (
-                  <th scope="col" key={i} className="whitespace-nowrap px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wider text-zinc-600">
+                  <th
+                    scope="col"
+                    key={i}
+                    className="whitespace-nowrap px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wider text-zinc-600"
+                  >
                     {h}
                   </th>
                 ))}
@@ -255,7 +309,9 @@ function RankingTable({ table }: { table: SalaryIndexRankingTable }) {
                 <tr key={i} className="hover:bg-zinc-50">
                   <td className="px-3 py-2.5 text-zinc-800">{row.rank}</td>
                   <td className="px-3 py-2.5">
-                    <span className="mr-1.5"><FlagImage code={row.slug} name={row.country} size="lg" /></span>
+                    <span className="mr-1.5">
+                      <FlagImage code={row.slug} name={row.country} size="lg" />
+                    </span>
                     <span className="text-zinc-800">{row.country}</span>
                   </td>
                   {row.ogssScore !== undefined && (
@@ -265,12 +321,24 @@ function RankingTable({ table }: { table: SalaryIndexRankingTable }) {
                       </span>
                     </td>
                   )}
-                  {row.nominalSalary && <td className="px-3 py-2.5 text-zinc-700">{row.nominalSalary}</td>}
-                  {row.pppMultiplier && <td className="px-3 py-2.5 text-zinc-700">{row.pppMultiplier}</td>}
-                  {row.taxEfficiency && <td className="px-3 py-2.5 text-zinc-700">{row.taxEfficiency}</td>}
-                  {row.growthClassification && <td className="px-3 py-2.5 text-zinc-700">{row.growthClassification}</td>}
-                  {row.dominantSkill && <td className="px-3 py-2.5 text-zinc-700">{row.dominantSkill}</td>}
-                  {row.primaryDriver && <td className="px-3 py-2.5 text-zinc-700">{row.primaryDriver}</td>}
+                  {row.nominalSalary && (
+                    <td className="px-3 py-2.5 text-zinc-700">{row.nominalSalary}</td>
+                  )}
+                  {row.pppMultiplier && (
+                    <td className="px-3 py-2.5 text-zinc-700">{row.pppMultiplier}</td>
+                  )}
+                  {row.taxEfficiency && (
+                    <td className="px-3 py-2.5 text-zinc-700">{row.taxEfficiency}</td>
+                  )}
+                  {row.growthClassification && (
+                    <td className="px-3 py-2.5 text-zinc-700">{row.growthClassification}</td>
+                  )}
+                  {row.dominantSkill && (
+                    <td className="px-3 py-2.5 text-zinc-700">{row.dominantSkill}</td>
+                  )}
+                  {row.primaryDriver && (
+                    <td className="px-3 py-2.5 text-zinc-700">{row.primaryDriver}</td>
+                  )}
                 </tr>
               ))}
             </tbody>
@@ -279,18 +347,22 @@ function RankingTable({ table }: { table: SalaryIndexRankingTable }) {
         {table.footnote && <p className="mt-3 text-xs leading-5 text-zinc-500">{table.footnote}</p>}
       </div>
     </Section>
-  )
+  );
 }
 
-function CountryScorecardCard({ card }: { card: SalaryIndexCountryScorecard }) {
+function CountryScorecardCard({card}: {card: SalaryIndexCountryScorecard}) {
   return (
     <Section id={`country-${card.slug}`}>
       <div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm sm:p-8">
         <div className="mb-4 flex items-center gap-3">
-          <span className="text-3xl"><FlagImage code={card.slug} name={card.name} size="lg" /></span>
+          <span className="text-3xl">
+            <FlagImage code={card.slug} name={card.name} size="lg" />
+          </span>
           <div>
             <h3 className="text-lg font-semibold text-zinc-950">{card.name}</h3>
-            <p className="text-xs text-zinc-500">Rank #{card.overallRank} &middot; OGSS {card.ogssScore.toFixed(1)}</p>
+            <p className="text-xs text-zinc-500">
+              Rank #{card.overallRank} &middot; OGSS {card.ogssScore.toFixed(1)}
+            </p>
           </div>
         </div>
         <div className="mb-4 grid gap-2 sm:grid-cols-4">
@@ -314,14 +386,18 @@ function CountryScorecardCard({ card }: { card: SalaryIndexCountryScorecard }) {
         <div className="mb-4">
           <p className="mb-1 text-xs font-semibold uppercase text-blue-700">Strengths</p>
           <ul className="list-disc space-y-0.5 pl-5 text-sm text-zinc-700">
-            {card.strengths.map((s, i) => <li key={i}>{s}</li>)}
+            {card.strengths.map((s, i) => (
+              <li key={i}>{s}</li>
+            ))}
           </ul>
         </div>
         {card.considerations.length > 0 && (
           <div className="mb-4">
             <p className="mb-1 text-xs font-semibold uppercase text-amber-700">Considerations</p>
             <ul className="list-disc space-y-0.5 pl-5 text-sm text-zinc-700">
-              {card.considerations.map((c, i) => <li key={i}>{c}</li>)}
+              {card.considerations.map((c, i) => (
+                <li key={i}>{c}</li>
+              ))}
             </ul>
           </div>
         )}
@@ -335,10 +411,10 @@ function CountryScorecardCard({ card }: { card: SalaryIndexCountryScorecard }) {
         </div>
       </div>
     </Section>
-  )
+  );
 }
 
-function ProfessionScorecardCard({ card }: { card: SalaryIndexProfessionScorecard }) {
+function ProfessionScorecardCard({card}: {card: SalaryIndexProfessionScorecard}) {
   return (
     <Section id={`profession-${card.slug}`}>
       <div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm sm:p-8">
@@ -368,10 +444,10 @@ function ProfessionScorecardCard({ card }: { card: SalaryIndexProfessionScorecar
         </div>
       </div>
     </Section>
-  )
+  );
 }
 
-function RelatedResearchSection({ items }: { items: SalaryIndexRelatedResearch[] }) {
+function RelatedResearchSection({items}: {items: SalaryIndexRelatedResearch[]}) {
   return (
     <Section id="related-research">
       <div className="rounded-lg border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-8">
@@ -381,23 +457,30 @@ function RelatedResearchSection({ items }: { items: SalaryIndexRelatedResearch[]
             <a
               key={i}
               href={r.href}
-              className="group rounded-lg border border-zinc-200 bg-zinc-50 p-4 transition hover:border-blue-200 hover:bg-blue-50"
+              className="group rounded-lg border border-zinc-200 bg-zinc-50 p-4 transition hover:border-blue-400 hover:bg-blue-100"
             >
-              <h3 className="mb-1 text-base font-semibold text-zinc-950 group-hover:text-blue-800">{r.title}</h3>
+              <h3 className="mb-1 text-base font-semibold text-zinc-950 group-hover:text-blue-800">
+                {r.title}
+              </h3>
               <p className="text-sm leading-6 text-zinc-600">{r.description}</p>
             </a>
           ))}
         </div>
       </div>
     </Section>
-  )
+  );
 }
 
-function StickyToc({ items }: { items: SalaryIndexContent["toc"] }) {
-  if (!items || items.length === 0) return null
+function StickyToc({items}: {items: SalaryIndexContent["toc"]}) {
+  if (!items || items.length === 0) return null;
   return (
-    <nav className="sticky top-8 max-h-[calc(100vh-4rem)] overflow-y-auto" aria-label="Table of contents">
-      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-500">On this page</p>
+    <nav
+      className="sticky top-8 max-h-[calc(100vh-4rem)] overflow-y-auto"
+      aria-label="Table of contents"
+    >
+      <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-zinc-500">
+        On this page
+      </p>
       <ul className="space-y-1.5 border-l-2 border-zinc-200 pl-3">
         {items.map((item, i) => (
           <li key={i}>
@@ -411,17 +494,23 @@ function StickyToc({ items }: { items: SalaryIndexContent["toc"] }) {
         ))}
       </ul>
     </nav>
-  )
+  );
 }
 
-function MobileToc({ items }: { items: SalaryIndexContent["toc"] }) {
-  if (!items || items.length === 0) return null
+function MobileToc({items}: {items: SalaryIndexContent["toc"]}) {
+  if (!items || items.length === 0) return null;
   return (
     <nav className="lg:hidden" aria-label="Mobile table of contents">
       <details className="rounded-lg border border-zinc-200 bg-white shadow-sm">
         <summary className="flex cursor-pointer items-center justify-between px-4 py-3 text-sm font-medium text-zinc-800">
           Jump to section
-          <svg className="h-4 w-4 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <svg
+            className="h-4 w-4 text-zinc-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
             <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
         </summary>
@@ -441,29 +530,30 @@ function MobileToc({ items }: { items: SalaryIndexContent["toc"] }) {
         </div>
       </details>
     </nav>
-  )
+  );
 }
-
 
 interface SalaryIndexRendererProps {
-  content: SalaryIndexContent
+  content: SalaryIndexContent;
 }
 
-export function SalaryIndexRenderer({ content }: SalaryIndexRendererProps) {
-  const hasLeftSidebar = content.toc && content.toc.length > 0
+export function SalaryIndexRenderer({content}: SalaryIndexRendererProps) {
+  const hasLeftSidebar = content.toc && content.toc.length > 0;
 
   return (
     <>
       <MobileToc items={content.toc} />
 
-      <div className={`mt-6 lg:mt-0 ${hasLeftSidebar ? 'lg:grid lg:grid-cols-[220px_1fr] lg:gap-10' : ''}`}>
+      <div
+        className={`mt-6 lg:mt-0 ${hasLeftSidebar ? "lg:grid lg:grid-cols-[220px_1fr] lg:gap-10" : ""}`}
+      >
         {hasLeftSidebar && (
           <aside className="hidden lg:block">
             <StickyToc items={content.toc} />
           </aside>
         )}
 
-        <div className={`space-y-12 ${hasLeftSidebar ? 'min-w-0' : ''}`}>
+        <div className={`space-y-12 ${hasLeftSidebar ? "min-w-0" : ""}`}>
           <Section id="hero">
             <HeroSection
               badge={content.hero.badge}
@@ -576,5 +666,5 @@ export function SalaryIndexRenderer({ content }: SalaryIndexRendererProps) {
         </div>
       </div>
     </>
-  )
+  );
 }

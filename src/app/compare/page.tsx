@@ -1,24 +1,28 @@
-import type { Metadata } from "next"
-import dynamic from "next/dynamic"
-import { SITE_URL } from "@/lib/seo/constants"
-import { getAllCountries, COUNTRY_FLAGS } from "@/lib/content/country-registry"
-import { professions } from "@/lib/content/professions-data"
-import { formatSalaryBySlug, formatSalary, slugToCurrency, convertSalary } from "@/lib/currency"
-import type { CurrencyCode } from "@/lib/currency"
-import { FlagImage } from "@/components/ui/flag-image"
+import type {Metadata} from "next";
+import dynamic from "next/dynamic";
+import {SITE_URL} from "@/lib/seo/constants";
+import {getAllCountries, COUNTRY_FLAGS} from "@/lib/content/country-registry";
+import {professions} from "@/lib/content/professions-data";
+import {formatSalaryBySlug, formatSalary, slugToCurrency, convertSalary} from "@/lib/currency";
+import type {CurrencyCode} from "@/lib/currency";
+import {FlagImage} from "@/components/ui/flag-image";
+import {buildFaqJsonLd} from "@/lib/seo/json-ld";
 
 const SalaryComparisonCalculator = dynamic(
-  () => import("@/components/salary-comparison-calculator").then(m => m.SalaryComparisonCalculator),
-  { loading: () => <div className="h-64 animate-pulse rounded-lg bg-zinc-100" /> }
-)
+  () =>
+    import("@/components/salary-comparison-calculator").then((m) => m.SalaryComparisonCalculator),
+  {loading: () => <div className="h-64 animate-pulse rounded-lg bg-zinc-100" />}
+);
 
 export const metadata: Metadata = {
   title: "Global Comparisons — Compare Countries",
-  description: "Compare financial metrics, tax systems, salary benchmarks, and cost-of-living across major economies. Side-by-side analysis of salaries, tax rates, and compensation data from official government sources.",
-  alternates: { canonical: `${SITE_URL}/compare` },
+  description:
+    "Compare financial metrics, tax systems, salary benchmarks, and cost-of-living across major economies. Side-by-side analysis of salaries, tax rates, and compensation data from official government sources.",
+  alternates: {canonical: `${SITE_URL}/compare`},
   openGraph: {
     title: "Global Comparisons — Compare Countries",
-    description: "Compare salaries, tax systems, and cost-of-living across major economies. Side-by-side analysis from official government sources.",
+    description:
+      "Compare salaries, tax systems, and cost-of-living across major economies. Side-by-side analysis from official government sources.",
     url: `${SITE_URL}/compare`,
     siteName: "Olikit",
     locale: "en-US",
@@ -27,22 +31,61 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Global Comparisons — Compare Countries",
-    description: "Compare salaries, tax systems, and cost-of-living across major economies. Side-by-side analysis from official government sources.",
+    description:
+      "Compare salaries, tax systems, and cost-of-living across major economies. Side-by-side analysis from official government sources.",
   },
-}
+};
 
 export default function ComparePage() {
-  const countries = getAllCountries()
+  const countries = getAllCountries();
 
-  const topProfessions = ["software-engineer", "doctor", "teacher", "registered-nurse", "accountant"] as const
-  const professionMap = Object.fromEntries(professions.map((p) => [p.id, p]))
+  const topProfessions = [
+    "software-engineer",
+    "doctor",
+    "teacher",
+    "registered-nurse",
+    "accountant",
+  ] as const;
+  const professionMap = Object.fromEntries(professions.map((p) => [p.id, p]));
+
+  const faqs = [
+    {
+      question: "How do I compare salaries between two countries?",
+      answer:
+        "Use the salary comparison tool above to select two countries and see side-by-side comparisons of average salaries, tax rates, and take-home pay for any profession.",
+    },
+    {
+      question: "Which country has the highest salaries?",
+      answer:
+        "The United States typically offers the highest nominal salaries across most professions, followed by Singapore and Australia. However, take-home pay depends on tax rates and cost of living.",
+    },
+    {
+      question: "How are tax rates calculated?",
+      answer:
+        "Tax rates are calculated using progressive tax brackets from each country's official tax authority (IRS, HMRC, ATO, CRA, IRD, IRAS, CBDT). Effective rates account for standard deductions and social contributions.",
+    },
+    {
+      question: "What is PPP-adjusted salary?",
+      answer:
+        "Purchasing Power Parity (PPP) adjustment accounts for differences in cost of living between countries. A PPP-adjusted salary shows what your income would be worth in terms of local purchasing power.",
+    },
+  ];
 
   return (
-      <div className="space-y-8">
+    <div className="space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{__html: JSON.stringify(buildFaqJsonLd(faqs))}}
+      />
+
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-10 shadow-sm sm:px-10 sm:py-14">
-        <h1 className="text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">Global Comparisons</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
+          Global Comparisons
+        </h1>
         <p className="mt-3 max-w-2xl text-base leading-7 text-zinc-500 sm:text-lg">
-          Compare salaries, tax systems, and cost-of-living across major economies. Side-by-side analysis sourced from official government authorities including IRS, HMRC, ATO, CRA, IRD, and IRAS.
+          Compare salaries, tax systems, and cost-of-living across major economies. Side-by-side
+          analysis sourced from official government authorities including IRS, HMRC, ATO, CRA, IRD,
+          and IRAS.
         </p>
       </section>
 
@@ -52,21 +95,43 @@ export default function ComparePage() {
             How to Interpret
           </span>
           <p className="text-sm leading-6 text-amber-900">
-            Salary figures are annual averages sourced from government labor statistics and industry surveys, converted to local currency. Tax calculations use official brackets from each country's tax authority. Direct salary comparisons do not account for purchasing power, benefits, equity compensation, or non-monetary factors. See individual country pages and <a href="/methodology" className="font-semibold text-amber-800 underline hover:text-amber-700">methodology</a> for details.
+            Salary figures are annual averages sourced from government labor statistics and industry
+            surveys, converted to local currency. Tax calculations use official brackets from each
+            country&apos;s tax authority. Direct salary comparisons do not account for purchasing
+            power, benefits, equity compensation, or non-monetary factors. See individual country
+            pages and{" "}
+            <a
+              href="/methodology"
+              className="font-semibold text-amber-800 underline hover:text-amber-700"
+            >
+              methodology
+            </a>{" "}
+            for details.
           </p>
         </div>
       </section>
 
       <section className="rounded-xl border border-zinc-200 bg-zinc-50 px-6 py-8 sm:px-10">
-        <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">Salary Comparison by Profession</h2>
-        <p className="mb-6 text-sm leading-6 text-zinc-500">Annual average salaries across major economies for key professions (converted to USD for comparison).</p>
+        <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">
+          Salary Comparison by Profession
+        </h2>
+        <p className="mb-6 text-sm leading-6 text-zinc-500">
+          Annual average salaries across major economies for key professions (converted to USD for
+          comparison).
+        </p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-zinc-200">
-                <th scope="col" className="text-left py-3 pr-4 font-semibold text-zinc-950">Profession</th>
+                <th scope="col" className="text-left py-3 pr-4 font-semibold text-zinc-950">
+                  Profession
+                </th>
                 {countries.map((c) => (
-                  <th scope="col" key={c.slug} className="text-right px-3 py-3 font-semibold text-zinc-950 whitespace-nowrap">
+                  <th
+                    scope="col"
+                    key={c.slug}
+                    className="text-right px-3 py-3 font-semibold text-zinc-950 whitespace-nowrap"
+                  >
                     <FlagImage code={c.slug} size="lg" /> {c.name}
                   </th>
                 ))}
@@ -74,57 +139,69 @@ export default function ComparePage() {
             </thead>
             <tbody className="divide-y divide-zinc-100">
               {topProfessions.map((id) => {
-                const p = professionMap[id]
-                if (!p) return null
+                const p = professionMap[id];
+                if (!p) return null;
                 return (
                   <tr key={id} className="hover:bg-white/80 transition-colors">
                     <td className="py-3 pr-4 font-medium text-zinc-950">
-                      <a href={`/us/salary/${p.slug}`} className="hover:text-blue-700 transition-colors">{p.name}</a>
+                      <a
+                        href={`/us/salary/${p.slug}`}
+                        className="hover:text-blue-700 transition-colors"
+                      >
+                        {p.name}
+                      </a>
                     </td>
                     {countries.map((c) => {
-                      const salaryData = p.salaries[c.slug]
-                      const val = salaryData?.average
+                      const salaryData = p.salaries[c.slug];
+                      const val = salaryData?.average;
                       return (
-                        <td key={c.slug} className="px-3 py-3 text-right text-zinc-600 tabular-nums">
-                          {val
-                            ? formatSalaryBySlug(val, c.slug, { compact: val >= 100000 })
-                            : "—"}
+                        <td
+                          key={c.slug}
+                          className="px-3 py-3 text-right text-zinc-600 tabular-nums"
+                        >
+                          {val ? formatSalaryBySlug(val, c.slug, {compact: val >= 100000}) : "—"}
                         </td>
-                      )
+                      );
                     })}
                   </tr>
-                )
+                );
               })}
             </tbody>
           </table>
         </div>
-        <p className="mt-4 text-xs text-zinc-500">Data sourced from government labor statistics and industry surveys. All figures are annual averages.</p>
+        <p className="mt-4 text-xs text-zinc-500">
+          Data sourced from government labor statistics and industry surveys. All figures are annual
+          averages.
+        </p>
       </section>
 
       <SalaryComparisonCalculator />
 
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10">
-        <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">Salary Equivalent Comparisons</h2>
+        <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">
+          Salary Equivalent Comparisons
+        </h2>
         <p className="mb-6 text-sm leading-6 text-zinc-500">
-          See how a Software Engineer salary in one country converts to another. All figures based on average annual salaries.
+          See how a Software Engineer salary in one country converts to another. All figures based
+          on average annual salaries.
         </p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            { from: "us", to: "uk" },
-            { from: "us", to: "au" },
-            { from: "us", to: "ca" },
-            { from: "uk", to: "au" },
-            { from: "ca", to: "au" },
-            { from: "sg", to: "au" },
+            {from: "us", to: "uk"},
+            {from: "us", to: "au"},
+            {from: "us", to: "ca"},
+            {from: "uk", to: "au"},
+            {from: "ca", to: "au"},
+            {from: "sg", to: "au"},
           ].map((pair) => {
-            const fromSlug = pair.from
-            const toSlug = pair.to
-            const fromCurr = slugToCurrency(fromSlug)
-            const toCurr = slugToCurrency(toSlug)
-            const se = professions.find((p) => p.id === "software-engineer")!
-            const fromSalary = se.salaries[fromSlug]?.average ?? 0
-            const converted = convertSalary(fromSalary, fromCurr, toCurr)
-            const convertedEur = convertSalary(fromSalary, fromCurr, "EUR")
+            const fromSlug = pair.from;
+            const toSlug = pair.to;
+            const fromCurr = slugToCurrency(fromSlug);
+            const toCurr = slugToCurrency(toSlug);
+            const se = professions.find((p) => p.id === "software-engineer")!;
+            const fromSalary = se.salaries[fromSlug]?.average ?? 0;
+            const converted = convertSalary(fromSalary, fromCurr, toCurr);
+            const convertedEur = convertSalary(fromSalary, fromCurr, "EUR");
             return (
               <div
                 key={`${fromSlug}-${toSlug}`}
@@ -137,7 +214,29 @@ export default function ComparePage() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-zinc-950">
-                      {fromSlug === "us" ? "USA" : fromSlug === "uk" ? "UK" : fromSlug === "au" ? "Australia" : fromSlug === "ca" ? "Canada" : fromSlug === "sg" ? "Singapore" : fromSlug.toUpperCase()} → {toSlug === "us" ? "USA" : toSlug === "uk" ? "UK" : toSlug === "au" ? "Australia" : toSlug === "ca" ? "Canada" : toSlug === "sg" ? "Singapore" : toSlug.toUpperCase()}
+                      {fromSlug === "us"
+                        ? "USA"
+                        : fromSlug === "uk"
+                          ? "UK"
+                          : fromSlug === "au"
+                            ? "Australia"
+                            : fromSlug === "ca"
+                              ? "Canada"
+                              : fromSlug === "sg"
+                                ? "Singapore"
+                                : fromSlug.toUpperCase()}{" "}
+                      →{" "}
+                      {toSlug === "us"
+                        ? "USA"
+                        : toSlug === "uk"
+                          ? "UK"
+                          : toSlug === "au"
+                            ? "Australia"
+                            : toSlug === "ca"
+                              ? "Canada"
+                              : toSlug === "sg"
+                                ? "Singapore"
+                                : toSlug.toUpperCase()}
                     </p>
                     <p className="text-xs text-zinc-500">Software Engineer</p>
                   </div>
@@ -145,15 +244,21 @@ export default function ComparePage() {
                 <div className="space-y-2">
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-zinc-500">Original</span>
-                    <span className="font-semibold text-zinc-950">{formatSalary(fromSalary, fromCurr, { showCode: true })}</span>
+                    <span className="font-semibold text-zinc-950">
+                      {formatSalary(fromSalary, fromCurr, {showCode: true})}
+                    </span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-zinc-500">Converted</span>
-                    <span className="font-medium text-zinc-700">{formatSalary(converted, toCurr, { showCode: true })}</span>
+                    <span className="font-medium text-zinc-700">
+                      {formatSalary(converted, toCurr, {showCode: true})}
+                    </span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-zinc-500">EUR Equivalent</span>
-                    <span className="font-medium text-zinc-700">{formatSalary(convertedEur, "EUR", { showCode: true })}</span>
+                    <span className="font-medium text-zinc-700">
+                      {formatSalary(convertedEur, "EUR", {showCode: true})}
+                    </span>
                   </div>
                 </div>
                 <a
@@ -163,16 +268,18 @@ export default function ComparePage() {
                   Full comparison →
                 </a>
               </div>
-            )
+            );
           })}
         </div>
       </section>
 
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10">
-        <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">Country-to-Country Comparisons</h2>
+        <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">
+          Country-to-Country Comparisons
+        </h2>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {countries.map((c) => {
-            const pairs = countries.filter((o) => o.slug !== c.slug).slice(0, 2)
+            const pairs = countries.filter((o) => o.slug !== c.slug).slice(0, 2);
             return (
               <a
                 key={c.slug}
@@ -182,18 +289,23 @@ export default function ComparePage() {
                 <div className="flex items-center gap-3 mb-4">
                   <FlagImage code={c.slug} size="xl" />
                   <div>
-                    <h3 className="font-semibold text-zinc-950 group-hover:text-zinc-800 transition-colors">{c.name}</h3>
-                    <p className="text-xs text-zinc-500">{c.currencyCode} &middot; {c.taxAuthorityAbbr}</p>
+                    <h3 className="font-semibold text-zinc-950 group-hover:text-zinc-800 transition-colors">
+                      {c.name}
+                    </h3>
+                    <p className="text-xs text-zinc-500">
+                      {c.currencyCode} &middot; {c.taxAuthorityAbbr}
+                    </p>
                   </div>
                 </div>
                 <p className="text-sm leading-6 text-zinc-500 mb-4">
-                  Salary benchmarks, tax rates, and cost-of-living data for {c.name}. Compare with {pairs.map((p) => p.name).join(" and ")}.
+                  Salary benchmarks, tax rates, and cost-of-living data for {c.name}. Compare with{" "}
+                  {pairs.map((p) => p.name).join(" and ")}.
                 </p>
                 <span className="inline-flex items-center gap-1 text-xs font-medium text-zinc-600 group-hover:text-zinc-950 transition-colors">
                   View {c.name} comparisons →
                 </span>
               </a>
-            )
+            );
           })}
         </div>
       </section>
@@ -208,16 +320,37 @@ export default function ComparePage() {
                 <span className="font-semibold text-sm text-zinc-950">{c.name}</span>
               </div>
               <ul className="space-y-1 text-xs text-zinc-500">
-                <li>Currency: {c.currencyCode} ({c.currencySymbol})</li>
+                <li>
+                  Currency: {c.currencyCode} ({c.currencySymbol})
+                </li>
                 <li>Tax Authority: {c.taxAuthorityAbbr}</li>
               </ul>
-              <a href={`/${c.slug}`} className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-zinc-600 hover:text-zinc-950 transition-colors">
+              <a
+                href={`/${c.slug}`}
+                className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-zinc-600 hover:text-zinc-950 transition-colors"
+              >
                 Browse {c.name} →
               </a>
             </div>
           ))}
         </div>
       </section>
+
+      <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10">
+        <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">
+          Frequently Asked Questions
+        </h2>
+        <div className="space-y-4">
+          {faqs.map((faq, i) => (
+            <details key={i} className="text-sm">
+              <summary className="cursor-pointer font-medium text-zinc-700 hover:text-zinc-900">
+                {faq.question}
+              </summary>
+              <p className="mt-2 text-zinc-500 leading-relaxed">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
     </div>
-  )
+  );
 }

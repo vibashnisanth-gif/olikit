@@ -258,7 +258,7 @@ export default async function StateTakeHomePayPage({params}: Props) {
                       </td>
                     )}
                     <td className="py-2 pr-4">~${Math.round(salary * 0.0765).toLocaleString()}</td>
-                    <td className="py-2 font-semibold text-blue-">
+                    <td className="py-2 font-semibold text-blue-600">
                       ~${Math.round(salary * 0.73).toLocaleString()}
                     </td>
                   </tr>
@@ -431,7 +431,7 @@ export default async function StateTakeHomePayPage({params}: Props) {
               </div>
             )}
             <div className="flex gap-3">
-              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue- text-xs font-bold text-white">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-50 text-xs font-bold text-white">
                 ✓
               </span>
               <div>
@@ -466,7 +466,7 @@ export default async function StateTakeHomePayPage({params}: Props) {
           </div>
           <Link
             href="/us/states"
-            className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-blue- hover:text-blue-"
+            className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700"
           >
             View all states →
           </Link>

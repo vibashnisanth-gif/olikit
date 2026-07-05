@@ -1,64 +1,84 @@
-import type { Metadata } from "next"
-import { notFound } from "next/navigation"
-import { getLocale, locales } from "@/lib/seo/locales"
-import { buildMetadata } from "@/lib/seo/metadata"
-import { SITE_URL } from "@/lib/seo/constants"
-import { getGuideBySlug, guides } from "@/lib/content/guide-templates"
-import { generateGuideContent } from "@/lib/content/guide-generators"
-import { buildBreadcrumbs } from "@/lib/linking/internal-links"
-import { buildFaqJsonLd, buildHowToJsonLd, buildBreadcrumbJsonLd, buildSpeakableJsonLd, buildWebPageJsonLd, buildArticleJsonLd } from "@/lib/seo/json-ld"
-import { SourceFooter } from "@/components/source-footer"
-import { LastUpdated } from "@/components/last-updated"
-import { TakeHomeComparison } from "@/components/takehome-comparison"
+import type {Metadata} from "next";
+import {notFound} from "next/navigation";
+import {getLocale, locales} from "@/lib/seo/locales";
+import {buildMetadata} from "@/lib/seo/metadata";
+import {SITE_URL} from "@/lib/seo/constants";
+import {getGuideBySlug, guides} from "@/lib/content/guide-templates";
+import {generateGuideContent} from "@/lib/content/guide-generators";
+import {buildBreadcrumbs} from "@/lib/linking/internal-links";
+import {
+  buildFaqJsonLd,
+  buildHowToJsonLd,
+  buildBreadcrumbJsonLd,
+  buildSpeakableJsonLd,
+  buildWebPageJsonLd,
+  buildArticleJsonLd,
+} from "@/lib/seo/json-ld";
+import {SourceFooter} from "@/components/source-footer";
+import {LastUpdated} from "@/components/last-updated";
+import {TakeHomeComparison} from "@/components/takehome-comparison";
 
 type Props = {
-  params: Promise<{ locale: string; guide: string }>
-}
+  params: Promise<{locale: string; guide: string}>;
+};
 
 export async function generateStaticParams() {
-  const params: { locale: string; guide: string }[] = []
+  const params: {locale: string; guide: string}[] = [];
   for (const locale of locales) {
     for (const guide of guides) {
-      params.push({ locale: locale.slug, guide: guide.slug })
+      params.push({locale: locale.slug, guide: guide.slug});
     }
   }
-  return params
+  return params;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale: localeSlug, guide: guideSlug } = await params
-  const locale = getLocale(localeSlug)
-  const guide = getGuideBySlug(guideSlug)
-  if (!locale || !guide) return {}
-  return buildMetadata(locale, null, `/${locale.slug}/guides/${guide.slug}`, undefined, undefined, guide)
+export async function generateMetadata({params}: Props): Promise<Metadata> {
+  const {locale: localeSlug, guide: guideSlug} = await params;
+  const locale = getLocale(localeSlug);
+  const guide = getGuideBySlug(guideSlug);
+  if (!locale || !guide) return {};
+  return buildMetadata(
+    locale,
+    null,
+    `/${locale.slug}/guides/${guide.slug}`,
+    undefined,
+    undefined,
+    guide
+  );
 }
 
-export default async function GuidePage({ params }: Props) {
-  const { locale: localeSlug, guide: guideSlug } = await params
-  const localeVal = getLocale(localeSlug)
-  const guideVal = getGuideBySlug(guideSlug)
-  if (!localeVal || !guideVal) notFound()
+export default async function GuidePage({params}: Props) {
+  const {locale: localeSlug, guide: guideSlug} = await params;
+  const localeVal = getLocale(localeSlug);
+  const guideVal = getGuideBySlug(guideSlug);
+  if (!localeVal || !guideVal) notFound();
 
-  const locale = localeVal
-  const guide = guideVal
-  const path = `/${locale.slug}/guides/${guide.slug}`
-  const content = generateGuideContent(guide, locale)
-  const breadcrumbs = buildBreadcrumbs(locale)
+  const locale = localeVal;
+  const guide = guideVal;
+  const path = `/${locale.slug}/guides/${guide.slug}`;
+  const content = generateGuideContent(guide, locale);
+  const breadcrumbs = buildBreadcrumbs(locale);
 
-  const guideName = guide.name
+  const guideName = guide.name;
   const schemas = [
     buildArticleJsonLd(content.h1, content.intro, path, locale),
     buildWebPageJsonLd(locale, path),
     buildBreadcrumbJsonLd([
-      { label: "Home", url: `${SITE_URL}/${locale.slug}` },
-      { label: guideName, url: `${SITE_URL}${path}` },
+      {label: "Home", url: `${SITE_URL}/${locale.slug}`},
+      {label: guideName, url: `${SITE_URL}${path}`},
     ]),
     buildSpeakableJsonLd(),
     ...(content.faqs.length > 0 ? [buildFaqJsonLd(content.faqs)] : []),
     ...(content.steps && content.steps.length > 0
-      ? [buildHowToJsonLd(guideName, guide.description, content.steps.map((s) => ({ name: s.name, text: s.text })))]
+      ? [
+          buildHowToJsonLd(
+            guideName,
+            guide.description,
+            content.steps.map((s) => ({name: s.name, text: s.text}))
+          ),
+        ]
       : []),
-  ]
+  ];
 
   return (
     <div className="space-y-10">
@@ -70,9 +90,7 @@ export default async function GuidePage({ params }: Props) {
       />
 
       <div className="rounded-lg border border-zinc-200 bg-white px-5 py-7 shadow-sm sm:px-8 sm:py-10">
-        <p className="mb-3 text-sm font-semibold uppercase text-blue-">
-          {locale.name} guide
-        </p>
+        <p className="mb-3 text-sm font-semibold uppercase text-blue-600">{locale.name} guide</p>
         <h1 className="max-w-4xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
           {content.h1}
         </h1>
@@ -104,9 +122,7 @@ export default async function GuidePage({ params }: Props) {
 
       {content.toolLinks.length > 0 && (
         <div className="rounded-lg border border-zinc-200 bg-white px-6 py-5 shadow-sm">
-          <h2 className="mb-3 text-xl font-semibold text-zinc-950">
-            Related Calculators
-          </h2>
+          <h2 className="mb-3 text-xl font-semibold text-zinc-950">Related Calculators</h2>
           <div className="flex flex-wrap gap-3">
             {content.toolLinks.map((link) => (
               <a
@@ -123,16 +139,14 @@ export default async function GuidePage({ params }: Props) {
 
       {content.steps && content.steps.length > 0 && (
         <section className="rounded-lg border border-zinc-200 bg-white px-6 py-7 shadow-sm">
-          <h2 className="mb-1 text-xl font-semibold text-zinc-950">
-            How to Use This Guide
-          </h2>
+          <h2 className="mb-1 text-xl font-semibold text-zinc-950">How to Use This Guide</h2>
           <p className="mb-6 text-sm text-zinc-500">
             Follow these steps to get the most out of this {guideName.toLowerCase()}.
           </p>
           <ol className="space-y-5">
             {content.steps.map((step, i) => (
               <li key={i} className="flex gap-4">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue- text-sm font-semibold text-blue-">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-50 text-sm font-semibold text-blue-600">
                   {i + 1}
                 </span>
                 <div>
@@ -141,7 +155,7 @@ export default async function GuidePage({ params }: Props) {
                   {step.url && (
                     <a
                       href={step.url}
-                      className="mt-1 inline-block text-sm font-medium text-blue- hover:text-blue-"
+                      className="mt-1 inline-block text-sm font-medium text-blue-600 hover:text-blue-700"
                     >
                       Use the calculator &rarr;
                     </a>
@@ -157,21 +171,17 @@ export default async function GuidePage({ params }: Props) {
         <div className="md:col-span-2 space-y-8">
           {content.sections.map((section, i) => (
             <section key={i} className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm">
-              <h2 className="mb-3 text-xl font-semibold text-zinc-950">
-                {section.heading}
-              </h2>
+              <h2 className="mb-3 text-xl font-semibold text-zinc-950">{section.heading}</h2>
               <p className="text-zinc-600 leading-relaxed">{section.body}</p>
             </section>
           ))}
           {content.keyTakeaways && content.keyTakeaways.length > 0 && (
-            <section className="rounded-lg border border-blue- bg-blue- p-5 shadow-sm">
-              <h2 className="mb-3 text-xl font-semibold text-zinc-950">
-                Key Takeaways
-              </h2>
+            <section className="rounded-lg border border-blue-200 bg-blue-50 p-5 shadow-sm">
+              <h2 className="mb-3 text-xl font-semibold text-zinc-950">Key Takeaways</h2>
               <ul className="space-y-2">
                 {content.keyTakeaways.map((takeaway, i) => (
                   <li key={i} className="flex gap-2 text-sm text-zinc-700">
-                    <span className="mt-0.5 shrink-0 text-blue-">&#10003;</span>
+                    <span className="mt-0.5 shrink-0 text-blue-600">&#10003;</span>
                     <span>{takeaway}</span>
                   </li>
                 ))}
@@ -207,7 +217,7 @@ export default async function GuidePage({ params }: Props) {
                   href={`/${locale.slug}/guides/${g.slug}`}
                   className={`block rounded-md px-2 py-1.5 text-sm hover:bg-zinc-100 ${
                     g.slug === guide.slug
-                      ? "font-medium text-blue- bg-blue-"
+                      ? "font-medium text-blue-600 bg-blue-50"
                       : "text-zinc-700 hover:text-zinc-950"
                   }`}
                 >
@@ -219,9 +229,7 @@ export default async function GuidePage({ params }: Props) {
 
           {content.faqs.length > 0 && (
             <div className="rounded-lg border border-zinc-200 bg-white p-4 shadow-sm">
-              <h3 className="mb-3 font-semibold text-zinc-950">
-                Frequently Asked Questions
-              </h3>
+              <h3 className="mb-3 font-semibold text-zinc-950">Frequently Asked Questions</h3>
               <div className="space-y-3">
                 {content.faqs.map((faq, i) => (
                   <details key={i} className="text-sm">
@@ -240,5 +248,5 @@ export default async function GuidePage({ params }: Props) {
       <LastUpdated />
       <SourceFooter localeSlug={locale.slug} />
     </div>
-  )
+  );
 }

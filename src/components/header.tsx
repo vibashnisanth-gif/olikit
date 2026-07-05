@@ -1,6 +1,6 @@
 "use client";
 
-import {useState} from "react";
+import {memo, useState} from "react";
 import {getAllCountries} from "@/lib/content/country-registry";
 import {CountrySwitcher} from "./country-switcher";
 
@@ -8,7 +8,7 @@ type Props = {
   currentSlug: string | null;
 };
 
-export function Header({currentSlug}: Props) {
+export const Header = memo(function Header({currentSlug}: Props) {
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -42,6 +42,12 @@ export function Header({currentSlug}: Props) {
 
   return (
     <header className="sticky top-0 z-30 border-b border-zinc-200/80 bg-white/95 backdrop-blur">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-blue-600 focus:px-4 focus:py-2 focus:text-sm focus:text-white focus:outline-none"
+      >
+        Skip to content
+      </a>
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
         <a
           href={isGlobal ? "/" : `/${currentSlug}`}
@@ -150,7 +156,7 @@ export function Header({currentSlug}: Props) {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="rounded-md px-4 py-3 text-sm font-medium text-zinc-700 hover:bg-blue-50 hover:text-blue-700"
+                  className="rounded-md px-4 py-3 text-sm font-medium text-zinc-700 hover:bg-blue-100 hover:text-blue-700"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
@@ -174,4 +180,4 @@ export function Header({currentSlug}: Props) {
       )}
     </header>
   );
-}
+});

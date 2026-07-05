@@ -1,12 +1,12 @@
-import type { ProfessionPageContent } from "@/types/profession-page"
-import { HeroSection } from "@/components/hero-section"
-import { FAQSection } from "@/components/faq-section"
-import { SourcesSection } from "@/components/sources-section"
-import { RelatedPagesSection } from "@/components/related-pages-section"
-import { MethodologySection } from "@/components/methodology-section"
-import { FlagImage } from "@/components/ui/flag-image"
+import type {ProfessionPageContent} from "@/types/profession-page";
+import {HeroSection} from "@/components/hero-section";
+import {FAQSection} from "@/components/faq-section";
+import {SourcesSection} from "@/components/sources-section";
+import {RelatedPagesSection} from "@/components/related-pages-section";
+import {MethodologySection} from "@/components/methodology-section";
+import {FlagImage} from "@/components/ui/flag-image";
 
-function KeyTakeawaysSection({ items }: { items: { title: string; description: string }[] }) {
+function KeyTakeawaysSection({items}: {items: {title: string; description: string}[]}) {
   return (
     <section>
       <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Key Takeaways</h2>
@@ -19,36 +19,43 @@ function KeyTakeawaysSection({ items }: { items: { title: string; description: s
         ))}
       </div>
     </section>
-  )
+  );
 }
 
-function SalaryCardsSection({ cards }: { cards: { label: string; value: string }[] }) {
+function SalaryCardsSection({cards}: {cards: {label: string; value: string}[]}) {
   return (
     <div className="grid gap-3 sm:grid-cols-3">
       {cards.map((card, i) => (
-        <div key={i} className="rounded-lg border border-zinc-200 bg-white p-5 text-center shadow-sm">
-          <p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">{card.label}</p>
+        <div
+          key={i}
+          className="rounded-lg border border-zinc-200 bg-white p-5 text-center shadow-sm"
+        >
+          <p className="text-xs font-semibold uppercase tracking-wider text-zinc-600">
+            {card.label}
+          </p>
           <p className="mt-1.5 text-3xl font-bold text-zinc-950">{card.value}</p>
         </div>
       ))}
     </div>
-  )
+  );
 }
 
-function ProseSection({ title, paragraphs }: { title: string; paragraphs: string[] }) {
+function ProseSection({title, paragraphs}: {title: string; paragraphs: string[]}) {
   return (
     <section className="rounded-lg border border-zinc-200 bg-white px-5 py-6 shadow-sm sm:px-8">
       <h2 className="mb-4 text-2xl font-semibold text-zinc-950">{title}</h2>
       {paragraphs.map((p, i) => (
-        <p key={i} className="mb-3 text-base leading-7 text-zinc-700 last:mb-0">{p}</p>
+        <p key={i} className="mb-3 text-base leading-7 text-zinc-700 last:mb-0">
+          {p}
+        </p>
       ))}
     </section>
-  )
+  );
 }
 
-function SalaryTableSection({ table }: { table: NonNullable<ProfessionPageContent["salaryTable"]> }) {
-  const headers = table.headers
-  const keys = Object.keys(table.rows[0] || {})
+function SalaryTableSection({table}: {table: NonNullable<ProfessionPageContent["salaryTable"]>}) {
+  const headers = table.headers;
+  const keys = Object.keys(table.rows[0] || {});
   return (
     <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-6 shadow-sm sm:px-8">
       <h2 className="mb-4 text-2xl font-semibold text-zinc-950">{table.title}</h2>
@@ -57,7 +64,16 @@ function SalaryTableSection({ table }: { table: NonNullable<ProfessionPageConten
           <thead>
             <tr className="bg-zinc-100">
               {headers.map((h, i) => (
-                <th scope="col" key={i} className={"px-4 py-3 font-semibold text-zinc-900 " + (i === 0 ? "text-left" : "text-right")}>{h}</th>
+                <th
+                  scope="col"
+                  key={i}
+                  className={
+                    "px-4 py-3 font-semibold text-zinc-900 " +
+                    (i === 0 ? "text-left" : "text-right")
+                  }
+                >
+                  {h}
+                </th>
               ))}
             </tr>
           </thead>
@@ -65,7 +81,15 @@ function SalaryTableSection({ table }: { table: NonNullable<ProfessionPageConten
             {table.rows.map((row, i) => (
               <tr key={i} className="border-t border-zinc-100">
                 {keys.map((key, j) => (
-                  <td key={j} className={"px-4 py-3 " + (j === 0 ? "font-medium text-zinc-950 text-left" : "text-right text-zinc-950")}>{row[key]}</td>
+                  <td
+                    key={j}
+                    className={
+                      "px-4 py-3 " +
+                      (j === 0 ? "font-medium text-zinc-950 text-left" : "text-right text-zinc-950")
+                    }
+                  >
+                    {row[key]}
+                  </td>
                 ))}
               </tr>
             ))}
@@ -73,10 +97,14 @@ function SalaryTableSection({ table }: { table: NonNullable<ProfessionPageConten
         </table>
       </div>
     </section>
-  )
+  );
 }
 
-function ComparisonTableSection({ table }: { table: NonNullable<ProfessionPageContent["comparisonTable"]> }) {
+function ComparisonTableSection({
+  table,
+}: {
+  table: NonNullable<ProfessionPageContent["comparisonTable"]>;
+}) {
   return (
     <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-6 shadow-sm sm:px-8">
       <h2 className="mb-4 text-2xl font-semibold text-zinc-950">{table.title}</h2>
@@ -84,9 +112,15 @@ function ComparisonTableSection({ table }: { table: NonNullable<ProfessionPageCo
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-zinc-100">
-              <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-900">Category</th>
-              <th scope="col" className="px-4 py-3 text-right font-semibold text-zinc-900">Country A</th>
-              <th scope="col" className="px-4 py-3 text-right font-semibold text-zinc-900">Country B</th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-900">
+                Category
+              </th>
+              <th scope="col" className="px-4 py-3 text-right font-semibold text-zinc-900">
+                Country A
+              </th>
+              <th scope="col" className="px-4 py-3 text-right font-semibold text-zinc-900">
+                Country B
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -101,10 +135,14 @@ function ComparisonTableSection({ table }: { table: NonNullable<ProfessionPageCo
         </table>
       </div>
     </section>
-  )
+  );
 }
 
-function CountryRankingSection({ ranking }: { ranking: NonNullable<ProfessionPageContent["countryRanking"]> }) {
+function CountryRankingSection({
+  ranking,
+}: {
+  ranking: NonNullable<ProfessionPageContent["countryRanking"]>;
+}) {
   return (
     <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-6 shadow-sm sm:px-8">
       <h2 className="mb-4 text-2xl font-semibold text-zinc-950">{ranking.title}</h2>
@@ -112,16 +150,24 @@ function CountryRankingSection({ ranking }: { ranking: NonNullable<ProfessionPag
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-zinc-100">
-              <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-900">Rank</th>
-              <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-900">Country</th>
-              <th scope="col" className="px-4 py-3 text-right font-semibold text-zinc-900">Average Salary</th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-900">
+                Rank
+              </th>
+              <th scope="col" className="px-4 py-3 text-left font-semibold text-zinc-900">
+                Country
+              </th>
+              <th scope="col" className="px-4 py-3 text-right font-semibold text-zinc-900">
+                Average Salary
+              </th>
             </tr>
           </thead>
           <tbody>
             {ranking.entries.map((entry, i) => (
               <tr key={i} className="border-t border-zinc-100">
                 <td className="px-4 py-3 font-medium text-zinc-500">{"#" + entry.rank}</td>
-                <td className="px-4 py-3 font-medium text-zinc-950"><FlagImage code={entry.slug} name={entry.name} size="lg" /> {entry.name}</td>
+                <td className="px-4 py-3 font-medium text-zinc-950">
+                  <FlagImage code={entry.slug} name={entry.name} size="lg" /> {entry.name}
+                </td>
                 <td className="px-4 py-3 text-right text-zinc-950">{entry.salary}</td>
               </tr>
             ))}
@@ -129,10 +175,10 @@ function CountryRankingSection({ ranking }: { ranking: NonNullable<ProfessionPag
         </table>
       </div>
     </section>
-  )
+  );
 }
 
-function CountryCardsSection({ data }: { data: NonNullable<ProfessionPageContent["countryCards"]> }) {
+function CountryCardsSection({data}: {data: NonNullable<ProfessionPageContent["countryCards"]>}) {
   return (
     <section className="rounded-lg border border-zinc-200 bg-zinc-50 px-5 py-6 shadow-sm sm:px-8">
       <h2 className="mb-4 text-2xl font-semibold text-zinc-950">{data.title}</h2>
@@ -147,7 +193,9 @@ function CountryCardsSection({ data }: { data: NonNullable<ProfessionPageContent
             <div className="grid grid-cols-2 gap-2">
               {c.metrics.map((m, j) => (
                 <div key={j}>
-                  <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-500">{m.label}</p>
+                  <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-500">
+                    {m.label}
+                  </p>
                   <p className="text-sm font-semibold text-zinc-950">{m.value}</p>
                 </div>
               ))}
@@ -156,10 +204,10 @@ function CountryCardsSection({ data }: { data: NonNullable<ProfessionPageContent
         ))}
       </div>
     </section>
-  )
+  );
 }
 
-function InsightsSection({ items }: { items: string[] }) {
+function InsightsSection({items}: {items: string[]}) {
   return (
     <section className="rounded-lg border border-blue-200 bg-blue-50 px-5 py-6 shadow-sm sm:px-8">
       <h2 className="mb-4 text-2xl font-semibold text-zinc-950">Key Insights</h2>
@@ -169,16 +217,16 @@ function InsightsSection({ items }: { items: string[] }) {
         ))}
       </ul>
     </section>
-  )
+  );
 }
 
 interface ProfessionPageRendererProps {
-  content: ProfessionPageContent
+  content: ProfessionPageContent;
 }
 
-export function ProfessionPageRenderer({ content }: ProfessionPageRendererProps) {
+export function ProfessionPageRenderer({content}: ProfessionPageRendererProps) {
   return (
-    <div className="space-y-12">
+    <article className="space-y-12">
       <HeroSection
         badge={content.hero.badge}
         title={content.hero.title}
@@ -187,9 +235,7 @@ export function ProfessionPageRenderer({ content }: ProfessionPageRendererProps)
         secondaryCta={content.hero.secondaryCta}
       />
 
-      {content.salaryTable && (
-        <SalaryTableSection table={content.salaryTable} />
-      )}
+      {content.salaryTable && <SalaryTableSection table={content.salaryTable} />}
 
       {content.salaryCards && content.salaryCards.length > 0 && (
         <SalaryCardsSection cards={content.salaryCards} />
@@ -203,25 +249,18 @@ export function ProfessionPageRenderer({ content }: ProfessionPageRendererProps)
         <InsightsSection items={content.insights} />
       )}
 
-      {content.proseSections && content.proseSections.map((section, i) => (
-        <ProseSection key={i} title={section.title} paragraphs={section.paragraphs} />
-      ))}
+      {content.proseSections &&
+        content.proseSections.map((section, i) => (
+          <ProseSection key={i} title={section.title} paragraphs={section.paragraphs} />
+        ))}
 
-      {content.comparisonTable && (
-        <ComparisonTableSection table={content.comparisonTable} />
-      )}
+      {content.comparisonTable && <ComparisonTableSection table={content.comparisonTable} />}
 
-      {content.countryRanking && (
-        <CountryRankingSection ranking={content.countryRanking} />
-      )}
+      {content.countryRanking && <CountryRankingSection ranking={content.countryRanking} />}
 
-      {content.countryCards && (
-        <CountryCardsSection data={content.countryCards} />
-      )}
+      {content.countryCards && <CountryCardsSection data={content.countryCards} />}
 
-      {content.faqs && content.faqs.length > 0 && (
-        <FAQSection faqs={content.faqs} />
-      )}
+      {content.faqs && content.faqs.length > 0 && <FAQSection faqs={content.faqs} />}
 
       {content.methodology && content.methodology.length > 0 && (
         <MethodologySection title="Methodology" methodology={content.methodology} />
@@ -234,6 +273,6 @@ export function ProfessionPageRenderer({ content }: ProfessionPageRendererProps)
       {content.relatedPages && content.relatedPages.length > 0 && (
         <RelatedPagesSection pages={content.relatedPages} />
       )}
-    </div>
-  )
+    </article>
+  );
 }

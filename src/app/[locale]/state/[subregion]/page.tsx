@@ -7,7 +7,7 @@ import {SITE_URL} from "@/lib/seo/constants";
 import {getToolsBySlugs, stateSeoToolSlugs} from "@/lib/content/templates";
 import {buildWebPageJsonLd, buildBreadcrumbJsonLd} from "@/lib/seo/json-ld";
 import {SourceFooter} from "@/components/source-footer";
-import { FlagImage } from "@/components/ui/flag-image"
+import {FlagImage} from "@/components/ui/flag-image";
 
 type Props = {
   params: Promise<{locale: string; subregion: string}>;
@@ -90,12 +90,10 @@ export default async function SubRegionPage({params}: Props) {
       <section>
         <a
           href={`/${slug}/state/${subRegion.slug}/take-home-pay`}
-          className="block rounded-lg border-2 border-blue- bg-blue- p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-blue- hover:shadow-md"
+          className="block rounded-lg border-2 border-blue-200 bg-blue-50 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-400 hover:shadow-md"
         >
-          <h2 className="text-lg font-bold text-blue- mb-1">
-            {name} Take-Home Pay Calculator
-          </h2>
-          <p className="text-sm text-blue-">
+          <h2 className="text-lg font-bold text-blue-600 mb-1">{name} Take-Home Pay Calculator</h2>
+          <p className="text-sm text-blue-600">
             See exactly how much you take home after federal, state, and FICA taxes for {name}.
           </p>
         </a>
@@ -142,7 +140,7 @@ export default async function SubRegionPage({params}: Props) {
           </div>
           <a
             href={`/${slug}/states`}
-            className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue- hover:text-blue-"
+            className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700"
           >
             View all <FlagImage code={slug} size="lg" /> {countryName} states & regions →
           </a>

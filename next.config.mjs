@@ -19,32 +19,57 @@ const nextConfig = {
       },
       {
         source: "/comparisons/software-engineer-us-vs-canada",
-        destination: "/software-engineer-us-vs-canada",
+        destination: "/us/comparisons/salary/software-engineer-us-vs-canada",
         permanent: true,
       },
       {
         source: "/comparisons/software-engineer-us-vs-australia",
-        destination: "/software-engineer-us-vs-australia",
+        destination: "/us/comparisons/salary/software-engineer-us-vs-australia",
         permanent: true,
       },
       {
         source: "/comparisons/software-engineer-uk-vs-australia",
-        destination: "/software-engineer-uk-vs-australia",
+        destination: "/uk/comparisons/salary/software-engineer-uk-vs-australia",
         permanent: true,
       },
       {
         source: "/comparisons/software-engineer-india-vs-singapore",
-        destination: "/software-engineer-india-vs-singapore",
+        destination: "/in/comparisons/salary/software-engineer-india-vs-singapore",
         permanent: true,
       },
       {
         source: "/comparisons/software-engineer-us-vs-uk",
-        destination: "/software-engineer-us-vs-uk",
+        destination: "/us/comparisons/salary/software-engineer-us-vs-uk",
         permanent: true,
       },
       {
         source: "/product-manager-highest-paying-countries",
         destination: "/highest-paying-countries-for-product-managers",
+        permanent: true,
+      },
+      {
+        source: "/comparisons/data-scientist-us-vs-canada",
+        destination: "/us/comparisons/salary/data-scientist-us-vs-canada",
+        permanent: true,
+      },
+      {
+        source: "/comparisons/data-scientist-us-vs-australia",
+        destination: "/us/comparisons/salary/data-scientist-us-vs-australia",
+        permanent: true,
+      },
+      {
+        source: "/comparisons/data-scientist-uk-vs-australia",
+        destination: "/uk/comparisons/salary/data-scientist-uk-vs-australia",
+        permanent: true,
+      },
+      {
+        source: "/comparisons/data-scientist-india-vs-singapore",
+        destination: "/in/comparisons/salary/data-scientist-india-vs-singapore",
+        permanent: true,
+      },
+      {
+        source: "/comparisons/data-scientist-us-vs-uk",
+        destination: "/us/comparisons/salary/data-scientist-us-vs-uk",
         permanent: true,
       },
     ]

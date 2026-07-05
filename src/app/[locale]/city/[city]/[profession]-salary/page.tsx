@@ -294,7 +294,7 @@ export default async function CityProfessionSalaryPage({params}: Props) {
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <Link
               href={`/${locale}/salary/${cleanSlug}`}
-              className="rounded-lg border p-4 hover:border-blue-300 hover:bg-blue-50"
+              className="rounded-lg border p-4 hover:border-blue-300 hover:bg-blue-100"
             >
               <p className="font-medium text-gray-900">
                 {profession.name} Salary in {cityData.country}
@@ -303,21 +303,21 @@ export default async function CityProfessionSalaryPage({params}: Props) {
             </Link>
             <Link
               href={`/${locale}/tools/salary-calculator`}
-              className="rounded-lg border p-4 hover:border-blue-300 hover:bg-blue-50"
+              className="rounded-lg border p-4 hover:border-blue-300 hover:bg-blue-100"
             >
               <p className="font-medium text-gray-900">Salary Calculator</p>
               <p className="text-sm text-gray-500">Convert between pay periods</p>
             </Link>
             <Link
               href={`/${locale}/tools/cost-of-living-calculator`}
-              className="rounded-lg border p-4 hover:border-blue-300 hover:bg-blue-50"
+              className="rounded-lg border p-4 hover:border-blue-300 hover:bg-blue-100"
             >
               <p className="font-medium text-gray-900">Cost of Living Calculator</p>
               <p className="text-sm text-gray-500">Compare cities worldwide</p>
             </Link>
             <Link
               href={`/${locale}/tools/tax-calculator`}
-              className="rounded-lg border p-4 hover:border-blue-300 hover:bg-blue-50"
+              className="rounded-lg border p-4 hover:border-blue-300 hover:bg-blue-100"
             >
               <p className="font-medium text-gray-900">Tax Calculator</p>
               <p className="text-sm text-gray-500">Estimate take-home pay</p>

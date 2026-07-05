@@ -1,69 +1,70 @@
-import type { Metadata } from "next"
-import { notFound } from "next/navigation"
-import { getLocale, locales } from "@/lib/seo/locales"
-import { buildMetadata } from "@/lib/seo/metadata"
-import { getToolBySlug, tools as allTools } from "@/lib/content/templates"
-import { generateComparisonContent } from "@/lib/content/generators"
-import { getComparisonLinks } from "@/lib/linking/internal-links"
-import { buildWebPageJsonLd, buildFaqJsonLd } from "@/lib/seo/json-ld"
-import { SourceFooter } from "@/components/source-footer"
-import { LastUpdated } from "@/components/last-updated"
+import type {Metadata} from "next";
+import {notFound} from "next/navigation";
+import {getLocale, locales} from "@/lib/seo/locales";
+import {buildMetadata} from "@/lib/seo/metadata";
+import {getToolBySlug, tools as allTools} from "@/lib/content/templates";
+import {generateComparisonContent} from "@/lib/content/generators";
+import {getComparisonLinks} from "@/lib/linking/internal-links";
+import {buildWebPageJsonLd, buildFaqJsonLd} from "@/lib/seo/json-ld";
+import {SourceFooter} from "@/components/source-footer";
+import {LastUpdated} from "@/components/last-updated";
 
 type Props = {
-  params: Promise<{ locale: string; tool: string }>
-  searchParams: Promise<{ with?: string }>
-}
+  params: Promise<{locale: string; tool: string}>;
+  searchParams: Promise<{with?: string}>;
+};
 
 export async function generateStaticParams() {
-  const params: { locale: string; tool: string }[] = []
+  const params: {locale: string; tool: string}[] = [];
   for (const locale of locales) {
     for (const tool of allTools) {
-      params.push({ locale: locale.slug, tool: tool.slug })
+      params.push({locale: locale.slug, tool: tool.slug});
     }
   }
-  return params
+  return params;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale: localeSlug, tool: toolSlug } = await params
-  const locale = getLocale(localeSlug)
-  const tool = getToolBySlug(toolSlug)
-  if (!locale || !tool) return {}
+export async function generateMetadata({params, searchParams}: Props): Promise<Metadata> {
+  const {locale: localeSlug, tool: toolSlug} = await params;
+  const {with: compareWith} = await searchParams;
+  const locale = getLocale(localeSlug);
+  const tool = getToolBySlug(toolSlug);
+  if (!locale || !tool) return {};
   return {
     ...buildMetadata(locale, tool, `/${locale.slug}/tools/${tool.slug}/compare`),
-    robots: { index: false, follow: true },
-  }
+    robots: {index: !!compareWith, follow: true},
+  };
 }
 
-export default async function ComparePage({ params, searchParams }: Props) {
-  const { locale: localeSlug, tool: toolSlug } = await params
-  const { with: compareWith } = await searchParams
+export default async function ComparePage({params, searchParams}: Props) {
+  const {locale: localeSlug, tool: toolSlug} = await params;
+  const {with: compareWith} = await searchParams;
 
-  const localeVal = getLocale(localeSlug)
-  const toolVal = getToolBySlug(toolSlug)
-  if (!localeVal || !toolVal) notFound()
+  const localeVal = getLocale(localeSlug);
+  const toolVal = getToolBySlug(toolSlug);
+  if (!localeVal || !toolVal) notFound();
 
-  const locale = localeVal
-  const tool = toolVal
-  const path = `/${locale.slug}/tools/${tool.slug}/compare`
+  const locale = localeVal;
+  const tool = toolVal;
+  const path = `/${locale.slug}/tools/${tool.slug}/compare`;
 
-  const comparisonLinks = getComparisonLinks(tool, locale)
+  const comparisonLinks = getComparisonLinks(tool, locale);
 
-  let comparisonContent = null
+  let comparisonContent = null;
   if (compareWith) {
-    const otherLocale = getLocale(compareWith)
+    const otherLocale = getLocale(compareWith);
     if (otherLocale) {
-      comparisonContent = generateComparisonContent(tool, locale, otherLocale)
+      comparisonContent = generateComparisonContent(tool, locale, otherLocale);
     }
   }
 
-  const localeName = locale.name
-  const localeSlug2 = locale.slug
-  const toolName = tool.name
-  const toolSlug2 = tool.slug
+  const localeName = locale.name;
+  const localeSlug2 = locale.slug;
+  const toolName = tool.name;
+  const toolSlug2 = tool.slug;
 
-  const webPageJsonLd = buildWebPageJsonLd(locale, path)
-  const faqJsonLd = comparisonContent?.faqs ? buildFaqJsonLd(comparisonContent.faqs) : null
+  const webPageJsonLd = buildWebPageJsonLd(locale, path);
+  const faqJsonLd = comparisonContent?.faqs ? buildFaqJsonLd(comparisonContent.faqs) : null;
 
   return (
     <div>
@@ -82,19 +83,15 @@ export default async function ComparePage({ params, searchParams }: Props) {
         />
       )}
       <div className="mb-10">
-        <h1 className="text-3xl font-bold mb-4">
-          {toolName} - Compare Across Countries
-        </h1>
+        <h1 className="text-3xl font-bold mb-4">{toolName} - Compare Across Countries</h1>
         <p className="text-lg text-zinc-600">
-          See how {toolName.toLowerCase()} differs between countries. Select a
-          country below to compare with {localeName}.
+          See how {toolName.toLowerCase()} differs between countries. Select a country below to
+          compare with {localeName}.
         </p>
       </div>
 
       <section className="mb-10">
-        <h2 className="text-xl font-semibold mb-4">
-          Compare {localeName} with
-        </h2>
+        <h2 className="text-xl font-semibold mb-4">Compare {localeName} with</h2>
         <div className="flex flex-wrap gap-3">
           {comparisonLinks.map((link) => (
             <a
@@ -115,15 +112,11 @@ export default async function ComparePage({ params, searchParams }: Props) {
       {comparisonContent && (
         <div className="space-y-8">
           <div className="p-6 rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100">
-            <h2 className="text-2xl font-bold mb-4">
-              {comparisonContent.h1}
-            </h2>
-            <p className="text-zinc-700 mb-6 leading-relaxed">
-              {comparisonContent.intro}
-            </p>
+            <h2 className="text-2xl font-bold mb-4">{comparisonContent.h1}</h2>
+            <p className="text-zinc-700 mb-6 leading-relaxed">{comparisonContent.intro}</p>
             <div className="flex gap-3">
               <a
-          href={`/${localeSlug2}/tools/${toolSlug2}`}
+                href={`/${localeSlug2}/tools/${toolSlug2}`}
                 className="px-5 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
               >
                 {localeName} Calculator
@@ -131,7 +124,7 @@ export default async function ComparePage({ params, searchParams }: Props) {
               {compareWith && (
                 <a
                   href={`/${compareWith}/tools/${toolSlug2}`}
-                  className="px-5 py-2 bg-white text-blue-600 font-medium rounded-lg border border-blue-300 hover:bg-blue-50 transition-colors"
+                  className="px-5 py-2 bg-white text-blue-600 font-medium rounded-lg border border-blue-300 hover:bg-blue-100 transition-colors"
                 >
                   {getLocale(compareWith)?.name} Calculator
                 </a>
@@ -141,16 +134,9 @@ export default async function ComparePage({ params, searchParams }: Props) {
 
           <div className="grid gap-6 md:grid-cols-2">
             {comparisonContent.sections.map((section, i) => (
-              <section
-                key={i}
-                className="p-5 rounded-lg border border-zinc-200"
-              >
-                <h3 className="font-semibold text-lg mb-3">
-                  {section.heading}
-                </h3>
-                <p className="text-zinc-600 leading-relaxed">
-                  {section.body}
-                </p>
+              <section key={i} className="p-5 rounded-lg border border-zinc-200">
+                <h3 className="font-semibold text-lg mb-3">{section.heading}</h3>
+                <p className="text-zinc-600 leading-relaxed">{section.body}</p>
               </section>
             ))}
           </div>
@@ -178,7 +164,8 @@ export default async function ComparePage({ params, searchParams }: Props) {
               Select a country above to compare {toolName} across countries.
             </p>
             <p className="text-sm text-zinc-500">
-              See how tax rates, brackets, and rules differ between {localeName} and other countries.
+              See how tax rates, brackets, and rules differ between {localeName} and other
+              countries.
             </p>
           </div>
           <div className="border-t border-zinc-200 pt-6">
@@ -190,7 +177,7 @@ export default async function ComparePage({ params, searchParams }: Props) {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="block px-4 py-3 rounded-lg bg-white border border-zinc-200 text-center text-sm font-medium text-zinc-700 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-colors"
+                  className="block px-4 py-3 rounded-lg bg-white border border-zinc-200 text-center text-sm font-medium text-zinc-700 hover:bg-blue-100 hover:border-blue-300 hover:text-blue-700 transition-colors"
                 >
                   {link.label}
                 </a>
@@ -213,5 +200,5 @@ export default async function ComparePage({ params, searchParams }: Props) {
         <SourceFooter localeSlug={localeSlug2} />
       </div>
     </div>
-  )
+  );
 }

@@ -1,12 +1,8 @@
-import type { Locale, Tool, JsonLd, SubRegion, StateDataPoints } from "@/types/seo"
-import { SITE_URL } from "./constants"
-import { getDateModified } from "./freshness"
+import type {Locale, Tool, JsonLd, SubRegion, StateDataPoints} from "@/types/seo";
+import {SITE_URL} from "./constants";
+import {getDateModified} from "./freshness";
 
-export function buildWebApplicationJsonLd(
-  tool: Tool,
-  locale: Locale,
-  path: string
-): JsonLd {
+export function buildWebApplicationJsonLd(tool: Tool, locale: Locale, path: string): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "WebApplication",
@@ -27,12 +23,10 @@ export function buildWebApplicationJsonLd(
     },
     dateModified: getDateModified(),
     inLanguage: locale.code,
-  }
+  };
 }
 
-export function buildFaqJsonLd(
-  faqs: { question: string; answer: string }[]
-): JsonLd {
+export function buildFaqJsonLd(faqs: {question: string; answer: string}[]): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -44,12 +38,10 @@ export function buildFaqJsonLd(
         text: faq.answer,
       },
     })),
-  }
+  };
 }
 
-export function buildBreadcrumbJsonLd(
-  items: { label: string; url: string }[]
-): JsonLd {
+export function buildBreadcrumbJsonLd(items: {label: string; url: string}[]): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -59,13 +51,13 @@ export function buildBreadcrumbJsonLd(
       name: item.label,
       item: item.url,
     })),
-  }
+  };
 }
 
 export function buildHowToJsonLd(
   name: string,
   description: string,
-  steps: { name: string; text: string }[]
+  steps: {name: string; text: string}[]
 ): JsonLd {
   return {
     "@context": "https://schema.org",
@@ -77,34 +69,11 @@ export function buildHowToJsonLd(
       name: step.name,
       text: step.text,
     })),
-  }
+  };
 }
 
-export function buildProductJsonLd(
-  tool: Tool,
-  locale: Locale
-): JsonLd {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: `${tool.name} - ${locale.name}`,
-    description: tool.description,
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-    },
-  }
-}
-
-export function buildWebSiteJsonLd(
-  locale: Locale,
-  subRegion?: SubRegion
-): JsonLd {
-  const name = subRegion
-    ? `Olikit ${subRegion.name}`
-    : `Olikit ${locale.name}`
+export function buildWebSiteJsonLd(locale: Locale, subRegion?: SubRegion): JsonLd {
+  const name = subRegion ? `Olikit ${subRegion.name}` : `Olikit ${locale.name}`;
 
   return {
     "@context": "https://schema.org",
@@ -119,29 +88,27 @@ export function buildWebSiteJsonLd(
       },
       "query-input": "required name=search_term_string",
     },
-  }
+  };
 }
 
-export function buildOrganizationJsonLd(
-  locale: Locale
-): JsonLd {
+export function buildOrganizationJsonLd(locale: Locale): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Olikit",
     url: `${SITE_URL}/${locale.slug}`,
     description: locale.defaultDescription,
-  }
+    logo: `${SITE_URL}/logo.png`,
+    sameAs: [
+      "https://x.com/olikit",
+      "https://linkedin.com/company/olikit",
+      "https://github.com/olikit",
+    ],
+  };
 }
 
-export function buildWebPageJsonLd(
-  locale: Locale,
-  path: string,
-  subRegion?: SubRegion
-): JsonLd {
-  const name = subRegion
-    ? `Olikit ${subRegion.name}`
-    : `Olikit ${locale.name}`
+export function buildWebPageJsonLd(locale: Locale, path: string, subRegion?: SubRegion): JsonLd {
+  const name = subRegion ? `Olikit ${subRegion.name}` : `Olikit ${locale.name}`;
 
   return {
     "@context": "https://schema.org",
@@ -155,14 +122,14 @@ export function buildWebPageJsonLd(
       name: "Olikit",
       url: `${SITE_URL}/${locale.slug}`,
     },
-  }
+  };
 }
 
 export function buildArticleJsonLd(
   title: string,
   description: string,
   path: string,
-  locale: Locale,
+  locale: Locale
 ): JsonLd {
   return {
     "@context": "https://schema.org",
@@ -187,7 +154,7 @@ export function buildArticleJsonLd(
       "@type": "WebPage",
       "@id": `${SITE_URL}${path}`,
     },
-  }
+  };
 }
 
 export function buildSpeakableJsonLd(): JsonLd {
@@ -198,59 +165,85 @@ export function buildSpeakableJsonLd(): JsonLd {
       "@type": "SpeakableSpecification",
       cssSelector: [".direct-answer", ".quick-answer"],
     },
-  }
+  };
 }
 
-export function buildDatasetJsonLd(
-  dataPoints: StateDataPoints,
-  subRegion: SubRegion,
-): JsonLd {
+export function buildDatasetJsonLd(dataPoints: StateDataPoints, subRegion: SubRegion): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "Dataset",
     name: `${subRegion.name} Financial Data Points`,
     description: `Key financial indicators for ${subRegion.name} including average salary, median household income, minimum wage, state income tax rate, property tax rate, median home value, and cost of living index.`,
+    dateModified: getDateModified(),
     about: {
       "@type": "State",
       name: subRegion.name,
     },
     variableMeasured: [
-      { name: "Average Salary", description: `$${dataPoints.averageSalary.toLocaleString()} per year` },
-      { name: "Median Household Income", description: `$${dataPoints.medianHouseholdIncome.toLocaleString()} per year` },
-      { name: "Minimum Wage", description: `$${dataPoints.minimumWage.toFixed(2)} per hour` },
-      { name: "State Income Tax", description: dataPoints.stateIncomeTaxRate },
-      { name: "Effective Property Tax Rate", description: `${dataPoints.effectivePropertyTaxRate}%` },
-      { name: "Median Home Value", description: `$${dataPoints.medianHomeValue.toLocaleString()}` },
-      { name: "Cost of Living Index", description: `${dataPoints.costOfLivingIndex} (US average = 100)` },
+      {
+        "@type": "PropertyValue",
+        name: "Average Salary",
+        description: `$${dataPoints.averageSalary.toLocaleString()} per year`,
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Median Household Income",
+        description: `$${dataPoints.medianHouseholdIncome.toLocaleString()} per year`,
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Minimum Wage",
+        description: `$${dataPoints.minimumWage.toFixed(2)} per hour`,
+      },
+      {
+        "@type": "PropertyValue",
+        name: "State Income Tax",
+        description: dataPoints.stateIncomeTaxRate,
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Effective Property Tax Rate",
+        description: `${dataPoints.effectivePropertyTaxRate}%`,
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Median Home Value",
+        description: `$${dataPoints.medianHomeValue.toLocaleString()}`,
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Cost of Living Index",
+        description: `${dataPoints.costOfLivingIndex} (US average = 100)`,
+      },
     ],
-  }
+  };
 }
 
 export function buildAggregateJsonLd(
   tool: Tool,
   locale: Locale,
   path: string,
-  faqs?: { question: string; answer: string }[],
-  steps?: { name: string; text: string }[]
+  faqs?: {question: string; answer: string}[],
+  steps?: {name: string; text: string}[]
 ): JsonLd[] {
   const graphs: JsonLd[] = [
     buildWebApplicationJsonLd(tool, locale, path),
     buildBreadcrumbJsonLd([
-      { label: "Home", url: `${SITE_URL}/${locale.slug}` },
-      { label: tool.name, url: `${SITE_URL}${path}` },
+      {label: "Home", url: `${SITE_URL}/${locale.slug}`},
+      {label: tool.name, url: `${SITE_URL}${path}`},
     ]),
     buildWebSiteJsonLd(locale),
     buildSpeakableJsonLd(),
-  ]
+  ];
 
   if (faqs && faqs.length > 0) {
-    graphs.push(buildFaqJsonLd(faqs))
+    graphs.push(buildFaqJsonLd(faqs));
   }
 
   if (steps && steps.length > 0) {
-    const resolvedDescription = tool.description.replace("{country}", locale.name)
-    graphs.push(buildHowToJsonLd(tool.name, resolvedDescription, steps))
+    const resolvedDescription = tool.description.replace("{country}", locale.name);
+    graphs.push(buildHowToJsonLd(tool.name, resolvedDescription, steps));
   }
 
-  return graphs
+  return graphs;
 }

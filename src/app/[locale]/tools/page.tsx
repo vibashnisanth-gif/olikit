@@ -1,24 +1,24 @@
-import type { Metadata } from "next"
-import { notFound } from "next/navigation"
-import { getLocale, locales } from "@/lib/seo/locales"
-import { COUNTRY_FLAGS } from "@/lib/content/country-registry"
-import { tools } from "@/lib/content/templates"
-import { buildWebPageJsonLd, buildBreadcrumbJsonLd } from "@/lib/seo/json-ld"
-import { SITE_URL } from "@/lib/seo/constants"
-import { FlagImage } from "@/components/ui/flag-image"
+import type {Metadata} from "next";
+import {notFound} from "next/navigation";
+import {getLocale, locales} from "@/lib/seo/locales";
+import {COUNTRY_FLAGS} from "@/lib/content/country-registry";
+import {tools} from "@/lib/content/templates";
+import {buildWebPageJsonLd, buildBreadcrumbJsonLd} from "@/lib/seo/json-ld";
+import {SITE_URL} from "@/lib/seo/constants";
+import {FlagImage} from "@/components/ui/flag-image";
 
 type Props = {
-  params: Promise<{ locale: string }>
-}
+  params: Promise<{locale: string}>;
+};
 
 export async function generateStaticParams() {
-  return locales.map((locale) => ({ locale: locale.slug }))
+  return locales.map((locale) => ({locale: locale.slug}));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale: localeSlug } = await params
-  const locale = getLocale(localeSlug)
-  if (!locale) return {}
+export async function generateMetadata({params}: Props): Promise<Metadata> {
+  const {locale: localeSlug} = await params;
+  const locale = getLocale(localeSlug);
+  if (!locale) return {};
 
   return {
     title: `Financial Calculators for ${locale.name} | Olikit`,
@@ -30,24 +30,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `Financial Calculators for ${locale.name}`,
       description: `Free financial calculators for ${locale.name}.`,
     },
-  }
+  };
 }
 
-export default async function ToolsHubPage({ params }: Props) {
-  const { locale: localeSlug } = await params
-  const locale = getLocale(localeSlug)
-  if (!locale) notFound()
+export default async function ToolsHubPage({params}: Props) {
+  const {locale: localeSlug} = await params;
+  const locale = getLocale(localeSlug);
+  if (!locale) notFound();
 
-  const slug = locale.slug
-  const name = locale.name
-  const flag = COUNTRY_FLAGS[slug] || ""
-  const categories = [...new Set(tools.map((t) => t.category))]
-  const path = `/${slug}/tools`
-  const webPageJsonLd = buildWebPageJsonLd(locale, path)
+  const slug = locale.slug;
+  const name = locale.name;
+  const flag = COUNTRY_FLAGS[slug] || "";
+  const categories = [...new Set(tools.map((t) => t.category))];
+  const path = `/${slug}/tools`;
+  const webPageJsonLd = buildWebPageJsonLd(locale, path);
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { label: "Home", url: `${SITE_URL}/${slug}` },
-    { label: `Financial Calculators`, url: `${SITE_URL}${path}` },
-  ])
+    {label: "Home", url: `${SITE_URL}/${slug}`},
+    {label: `Financial Calculators`, url: `${SITE_URL}${path}`},
+  ]);
 
   return (
     <div className="space-y-12">
@@ -64,19 +64,20 @@ export default async function ToolsHubPage({ params }: Props) {
         }}
       />
       <section className="rounded-lg border border-zinc-200 bg-white px-5 py-10 shadow-sm sm:px-8 sm:py-12">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-600">
           <FlagImage code={slug} size="lg" /> Free financial tools for {name}
         </p>
         <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
           Financial Calculators for {name}
         </h1>
         <p className="mt-4 max-w-2xl text-lg leading-8 text-zinc-600">
-          Free financial calculators for {name}. Salary, tax, mortgage, investment, retirement, business loan, and break-even calculators with {name}-specific rates and regulations.
+          Free financial calculators for {name}. Salary, tax, mortgage, investment, retirement,
+          business loan, and break-even calculators with {name}-specific rates and regulations.
         </p>
       </section>
 
       {categories.map((category) => {
-        const categoryTools = tools.filter((t) => t.category === category)
+        const categoryTools = tools.filter((t) => t.category === category);
         return (
           <section key={category}>
             <h2 className="mb-4 text-xl font-semibold capitalize text-zinc-950">
@@ -100,8 +101,8 @@ export default async function ToolsHubPage({ params }: Props) {
               ))}
             </div>
           </section>
-        )
+        );
       })}
     </div>
-  )
+  );
 }

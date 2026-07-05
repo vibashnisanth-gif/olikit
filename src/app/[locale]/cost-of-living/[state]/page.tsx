@@ -1,40 +1,40 @@
-import type { Metadata } from "next"
-import Link from "next/link"
-import { notFound } from "next/navigation"
-import { locales, getLocale, getSubRegion } from "@/lib/seo/locales"
-import { generateCostOfLivingContent, costOfLivingData } from "@/lib/content/state-expansion"
-import { SITE_URL } from "@/lib/seo/constants"
-import { getLastUpdated } from "@/lib/seo/freshness"
+import type {Metadata} from "next";
+import Link from "next/link";
+import {notFound} from "next/navigation";
+import {locales, getLocale, getSubRegion} from "@/lib/seo/locales";
+import {generateCostOfLivingContent, costOfLivingData} from "@/lib/content/state-expansion";
+import {SITE_URL} from "@/lib/seo/constants";
+import {getLastUpdated} from "@/lib/seo/freshness";
 
 export async function generateStaticParams() {
-  const params: { locale: string; state: string }[] = []
+  const params: {locale: string; state: string}[] = [];
   for (const locale of locales) {
-    if (!locale.states) continue
+    if (!locale.states) continue;
     for (const stateSlug of Object.keys(costOfLivingData)) {
       if (locale.states.some((s) => s.slug === stateSlug)) {
-        params.push({ locale: locale.slug, state: stateSlug })
+        params.push({locale: locale.slug, state: stateSlug});
       }
     }
   }
-  return params
+  return params;
 }
 
 export async function generateMetadata(props: {
-  params: Promise<{ locale: string; state: string }>
+  params: Promise<{locale: string; state: string}>;
 }): Promise<Metadata> {
-  const { locale: localeSlug, state: stateSlug } = await props.params
-  const locale = getLocale(localeSlug)
-  if (!locale) return {}
-  const subRegion = getSubRegion(locale, stateSlug)
-  if (!subRegion) return {}
+  const {locale: localeSlug, state: stateSlug} = await props.params;
+  const locale = getLocale(localeSlug);
+  if (!locale) return {};
+  const subRegion = getSubRegion(locale, stateSlug);
+  if (!subRegion) return {};
 
-  const content = generateCostOfLivingContent(stateSlug, subRegion.name)
-  if (!content) return {}
+  const content = generateCostOfLivingContent(stateSlug, subRegion.name);
+  if (!content) return {};
 
   return {
     title: `Cost of Living in ${subRegion.name} (2025-2026) | Olikit`,
     description: `The cost of living in ${subRegion.name} is ${content.breakdown.overall}% of the US average. Housing: ${content.breakdown.housing}%, Utilities: ${content.breakdown.utilities}%, Food: ${content.breakdown.food}%. Free salary calculator included.`,
-    alternates: { canonical: `${SITE_URL}/${locale.slug}/cost-of-living/${stateSlug}` },
+    alternates: {canonical: `${SITE_URL}/${locale.slug}/cost-of-living/${stateSlug}`},
     openGraph: {
       title: `Cost of Living in ${subRegion.name}`,
       description: `${subRegion.name} cost of living index: ${content.breakdown.overall} (US average: 100). Compare housing, utilities, food, and transportation costs.`,
@@ -43,24 +43,24 @@ export async function generateMetadata(props: {
       locale: locale.code,
       type: "website",
     },
-  }
+  };
 }
 
 export default async function CostOfLivingPage(props: {
-  params: Promise<{ locale: string; state: string }>
+  params: Promise<{locale: string; state: string}>;
 }) {
-  const { locale: localeSlug, state: stateSlug } = await props.params
-  const locale = getLocale(localeSlug)
-  if (!locale) notFound()
+  const {locale: localeSlug, state: stateSlug} = await props.params;
+  const locale = getLocale(localeSlug);
+  if (!locale) notFound();
 
-  const subRegion = getSubRegion(locale, stateSlug)
-  if (!subRegion) notFound()
+  const subRegion = getSubRegion(locale, stateSlug);
+  if (!subRegion) notFound();
 
-  const content = generateCostOfLivingContent(stateSlug, subRegion.name)
-  if (!content) notFound()
+  const content = generateCostOfLivingContent(stateSlug, subRegion.name);
+  if (!content) notFound();
 
-  const lastUpdated = getLastUpdated()
-  const col = content.breakdown
+  const lastUpdated = getLastUpdated();
+  const col = content.breakdown;
 
   const faqJsonLd = {
     "@context": "https://schema.org",
@@ -68,13 +68,16 @@ export default async function CostOfLivingPage(props: {
     mainEntity: content.faqs.map((f) => ({
       "@type": "Question",
       name: f.question,
-      acceptedAnswer: { "@type": "Answer", text: f.answer },
+      acceptedAnswer: {"@type": "Answer", text: f.answer},
     })),
-  }
+  };
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{__html: JSON.stringify(faqJsonLd)}}
+      />
       <div className="max-w-4xl mx-auto px-4 py-12 space-y-10">
         <section>
           <h1 className="text-4xl font-bold mb-4">{content.h1}</h1>
@@ -83,9 +86,11 @@ export default async function CostOfLivingPage(props: {
 
         <section className="rounded-xl border border-zinc-200 bg-white shadow-sm">
           <div className="flex">
-            <div className="w-1 shrink-0 rounded-l-xl bg-blue-" />
+            <div className="w-1 shrink-0 rounded-l-xl bg-blue-50" />
             <div className="min-w-0 flex-1 p-6">
-              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Quick Answer</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+                Quick Answer
+              </p>
               <p className="mt-2 text-sm leading-7 text-zinc-600">{content.quickAnswer}</p>
             </div>
           </div>
@@ -106,26 +111,44 @@ export default async function CostOfLivingPage(props: {
             <table className="w-full border-collapse">
               <thead>
                 <tr className="border-b-2">
-                  <th scope="col" className="text-left py-3 px-4 font-semibold text-zinc-700 dark:text-zinc-300">Category</th>
-                  <th scope="col" className="text-right py-3 px-4 font-semibold text-zinc-700 dark:text-zinc-300">{subRegion.name} Index</th>
-                  <th scope="col" className="text-right py-3 px-4 font-semibold text-zinc-500">US Average</th>
-                  <th scope="col" className="text-right py-3 px-4 font-semibold text-zinc-500">Difference</th>
+                  <th
+                    scope="col"
+                    className="text-left py-3 px-4 font-semibold text-zinc-700 dark:text-zinc-300"
+                  >
+                    Category
+                  </th>
+                  <th
+                    scope="col"
+                    className="text-right py-3 px-4 font-semibold text-zinc-700 dark:text-zinc-300"
+                  >
+                    {subRegion.name} Index
+                  </th>
+                  <th scope="col" className="text-right py-3 px-4 font-semibold text-zinc-500">
+                    US Average
+                  </th>
+                  <th scope="col" className="text-right py-3 px-4 font-semibold text-zinc-500">
+                    Difference
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  { label: "Overall", value: col.overall },
-                  { label: "Housing", value: col.housing },
-                  { label: "Utilities", value: col.utilities },
-                  { label: "Food", value: col.food },
-                  { label: "Transportation", value: col.transport },
-                  { label: "Healthcare", value: col.healthcare },
+                  {label: "Overall", value: col.overall},
+                  {label: "Housing", value: col.housing},
+                  {label: "Utilities", value: col.utilities},
+                  {label: "Food", value: col.food},
+                  {label: "Transportation", value: col.transport},
+                  {label: "Healthcare", value: col.healthcare},
                 ].map((row, i) => (
                   <tr key={i} className="border-b">
-                    <td className="py-3 px-4 font-medium text-zinc-700 dark:text-zinc-300">{row.label}</td>
+                    <td className="py-3 px-4 font-medium text-zinc-700 dark:text-zinc-300">
+                      {row.label}
+                    </td>
                     <td className="py-3 px-4 text-right">{row.value}</td>
                     <td className="py-3 px-4 text-right text-zinc-500">100</td>
-                    <td className={`py-3 px-4 text-right ${row.value > 100 ? "text-red-600" : "text-green-600"}`}>
+                    <td
+                      className={`py-3 px-4 text-right ${row.value > 100 ? "text-red-600" : "text-green-600"}`}
+                    >
                       {row.value > 100 ? `+${row.value - 100}%` : `${row.value - 100}%`}
                     </td>
                   </tr>
@@ -133,13 +156,16 @@ export default async function CostOfLivingPage(props: {
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-zinc-500 mt-2">Base: US average = 100. Values above 100 indicate above-average costs.</p>
+          <p className="text-xs text-zinc-500 mt-2">
+            Base: US average = 100. Values above 100 indicate above-average costs.
+          </p>
         </section>
 
         <section className="border rounded-lg p-6 bg-white dark:bg-zinc-800/50">
           <h2 className="text-2xl font-semibold mb-4">Calculate Your Budget in {subRegion.name}</h2>
           <p className="text-zinc-700 dark:text-zinc-300 mb-4">
-            Use our free calculators to estimate your salary, mortgage, and taxes in {subRegion.name}.
+            Use our free calculators to estimate your salary, mortgage, and taxes in{" "}
+            {subRegion.name}.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
@@ -179,7 +205,9 @@ export default async function CostOfLivingPage(props: {
           <div className="space-y-4">
             {content.faqs.map((faq, i) => (
               <div key={i} className="border-b pb-4">
-                <h3 className="font-medium text-zinc-800 dark:text-zinc-200 mb-2">{faq.question}</h3>
+                <h3 className="font-medium text-zinc-800 dark:text-zinc-200 mb-2">
+                  {faq.question}
+                </h3>
                 <p className="text-zinc-600 dark:text-zinc-400">{faq.answer}</p>
               </div>
             ))}
@@ -187,15 +215,24 @@ export default async function CostOfLivingPage(props: {
         </section>
 
         <section className="flex flex-wrap gap-4 text-sm">
-          <Link href={`/${locale.slug}/tools/salary-calculator`} className="text-blue-600 hover:underline">
+          <Link
+            href={`/${locale.slug}/tools/salary-calculator`}
+            className="text-blue-600 hover:underline"
+          >
             Salary Calculator
           </Link>
           <span className="text-zinc-300">|</span>
-          <Link href={`/${locale.slug}/average-salary/${stateSlug}`} className="text-blue-600 hover:underline">
+          <Link
+            href={`/${locale.slug}/average-salary/${stateSlug}`}
+            className="text-blue-600 hover:underline"
+          >
             Average Salary in {subRegion.name}
           </Link>
           <span className="text-zinc-300">|</span>
-          <Link href={`/${locale.slug}/state/${stateSlug}/mortgage-calculator`} className="text-blue-600 hover:underline">
+          <Link
+            href={`/${locale.slug}/state/${stateSlug}/mortgage-calculator`}
+            className="text-blue-600 hover:underline"
+          >
             {subRegion.name} Mortgage Calculator
           </Link>
         </section>
@@ -211,5 +248,5 @@ export default async function CostOfLivingPage(props: {
         </section>
       </div>
     </>
-  )
+  );
 }

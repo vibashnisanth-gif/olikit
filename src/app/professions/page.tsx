@@ -1,18 +1,20 @@
-import type { Metadata } from "next"
-import { SITE_URL } from "@/lib/seo/constants"
-import { locales } from "@/lib/seo/locales"
-import { professions, getProfession } from "@/lib/content/professions-data"
-import { COUNTRY_FLAGS } from "@/lib/content/country-registry"
-import { formatSalaryBySlug } from "@/lib/currency"
-import { FlagImage } from "@/components/ui/flag-image"
+import type {Metadata} from "next";
+import {SITE_URL} from "@/lib/seo/constants";
+import {locales} from "@/lib/seo/locales";
+import {professions, getProfession} from "@/lib/content/professions-data";
+import {COUNTRY_FLAGS} from "@/lib/content/country-registry";
+import {formatSalaryBySlug} from "@/lib/currency";
+import {FlagImage} from "@/components/ui/flag-image";
 
 export const metadata: Metadata = {
   title: "Browse Professions by Salary",
-  description: "Browse salaries for software engineer, data scientist, doctor, nurse, teacher, accountant, and more across major economies. Compare highest paying professions.",
-  alternates: { canonical: `${SITE_URL}/professions` },
+  description:
+    "Browse salaries for software engineer, data scientist, doctor, nurse, teacher, accountant, and more across major economies. Compare highest paying professions.",
+  alternates: {canonical: `${SITE_URL}/professions`},
   openGraph: {
     title: "Browse Professions by Salary",
-    description: "Browse salaries for software engineer, data scientist, doctor, nurse, teacher, accountant, and more across major economies. Compare highest paying professions.",
+    description:
+      "Browse salaries for software engineer, data scientist, doctor, nurse, teacher, accountant, and more across major economies. Compare highest paying professions.",
     url: `${SITE_URL}/professions`,
     siteName: "Olikit",
     locale: "en-US",
@@ -21,13 +23,14 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Browse Professions by Salary",
-    description: "Browse salaries for software engineer, data scientist, doctor, nurse, teacher, accountant, and more across major economies. Compare highest paying professions.",
+    description:
+      "Browse salaries for software engineer, data scientist, doctor, nurse, teacher, accountant, and more across major economies. Compare highest paying professions.",
   },
-}
+};
 
 export default function ProfessionsPage() {
   return (
-      <div className="space-y-12">
+    <div className="space-y-12">
       <section className="rounded-lg border border-zinc-200 bg-white px-5 py-8 shadow-sm sm:px-8 sm:py-10">
         <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-700">
           Olikit Global
@@ -36,19 +39,28 @@ export default function ProfessionsPage() {
           Browse Professions by Salary
         </h1>
         <p className="mt-4 max-w-2xl text-lg leading-8 text-zinc-600">
-          Compare salaries for popular professions across major economies. Find salary data for technology, healthcare, finance, education, engineering, and trades.
+          Compare salaries for popular professions across major economies. Find salary data for
+          technology, healthcare, finance, education, engineering, and trades.
         </p>
       </section>
 
       <section>
-        <h2 className="mb-4 text-xl font-semibold text-zinc-950">Highest Paying Professions (US)</h2>
+        <h2 className="mb-4 text-xl font-semibold text-zinc-950">
+          Highest Paying Professions (US)
+        </h2>
         <div className="overflow-hidden rounded-lg border border-zinc-200 shadow-sm">
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-zinc-50">
-                <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Profession</th>
-                <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">Category</th>
-                <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">US Salary</th>
+                <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">
+                  Profession
+                </th>
+                <th scope="col" className="px-4 py-3 text-left font-medium text-zinc-700">
+                  Category
+                </th>
+                <th scope="col" className="px-4 py-3 text-right font-medium text-zinc-700">
+                  US Salary
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -56,18 +68,21 @@ export default function ProfessionsPage() {
                 .sort((a, b) => b.salaries.us.average - a.salaries.us.average)
                 .slice(0, 5)
                 .map((prof) => (
-                <tr key={prof.id} className="border-t border-zinc-100">
-                  <td className="px-4 py-3">
-                    <a href={`/us/salary/${prof.slug}`} className="font-medium text-zinc-950 hover:text-blue-600">
-                      {prof.name}
-                    </a>
-                  </td>
-                  <td className="px-4 py-3 text-zinc-500 capitalize">{prof.id}</td>
-                  <td className="px-4 py-3 text-right font-medium text-zinc-950 tabular-nums">
-                    {formatSalaryBySlug(prof.salaries.us.average, "us", { showCode: true })}
-                  </td>
-                </tr>
-              ))}
+                  <tr key={prof.id} className="border-t border-zinc-100">
+                    <td className="px-4 py-3">
+                      <a
+                        href={`/us/salary/${prof.slug}`}
+                        className="font-medium text-zinc-950 hover:text-blue-700"
+                      >
+                        {prof.name}
+                      </a>
+                    </td>
+                    <td className="px-4 py-3 text-zinc-500 capitalize">{prof.id}</td>
+                    <td className="px-4 py-3 text-right font-medium text-zinc-950 tabular-nums">
+                      {formatSalaryBySlug(prof.salaries.us.average, "us", {showCode: true})}
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>
@@ -76,47 +91,84 @@ export default function ProfessionsPage() {
       <section>
         <h2 className="mb-4 text-xl font-semibold text-zinc-950">Career Intelligence Hubs</h2>
         <p className="mb-6 text-sm leading-6 text-zinc-600 max-w-2xl">
-          Dedicated hubs for the most-requested professions with country-by-country salary data, tax analysis, rankings, and career comparisons.
+          Dedicated hubs for the most-requested professions with country-by-country salary data, tax
+          analysis, rankings, and career comparisons.
         </p>
         <div className="grid gap-6 sm:grid-cols-3">
           <a
             href="/software-engineer"
             className="card-hover group rounded-xl border border-zinc-200 bg-white p-6 shadow-sm"
           >
-            <h3 className="text-lg font-semibold text-zinc-950 group-hover:text-zinc-700">Software Engineer</h3>
-            <p className="mt-2 text-sm leading-6 text-zinc-600">Salaries, taxes, PPP-adjusted income, and career comparisons across 7 major economies.</p>
+            <h3 className="text-lg font-semibold text-zinc-950 group-hover:text-zinc-700">
+              Software Engineer
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-zinc-600">
+              Salaries, taxes, PPP-adjusted income, and career comparisons across 7 major economies.
+            </p>
             <div className="mt-4 flex flex-wrap gap-2">
-              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Salary by Country</span>
-              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Rankings</span>
-              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Comparisons</span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">
+                Salary by Country
+              </span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">
+                Rankings
+              </span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">
+                Comparisons
+              </span>
             </div>
-            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600 group-hover:text-blue-700">Explore Hub &rarr;</span>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600 group-hover:text-blue-700">
+              Explore Hub &rarr;
+            </span>
           </a>
           <a
             href="/data-scientist"
             className="card-hover group rounded-xl border border-zinc-200 bg-white p-6 shadow-sm"
           >
-            <h3 className="text-lg font-semibold text-zinc-950 group-hover:text-zinc-700">Data Scientist</h3>
-            <p className="mt-2 text-sm leading-6 text-zinc-600">Data science compensation, salary rankings, and career analysis across global markets.</p>
+            <h3 className="text-lg font-semibold text-zinc-950 group-hover:text-zinc-700">
+              Data Scientist
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-zinc-600">
+              Data science compensation, salary rankings, and career analysis across global markets.
+            </p>
             <div className="mt-4 flex flex-wrap gap-2">
-              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Salary by Country</span>
-              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Rankings</span>
-              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Comparisons</span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">
+                Salary by Country
+              </span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">
+                Rankings
+              </span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">
+                Comparisons
+              </span>
             </div>
-            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600 group-hover:text-blue-700">Explore Hub &rarr;</span>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600 group-hover:text-blue-700">
+              Explore Hub &rarr;
+            </span>
           </a>
           <a
             href="/product-manager"
             className="card-hover group rounded-xl border border-zinc-200 bg-white p-6 shadow-sm"
           >
-            <h3 className="text-lg font-semibold text-zinc-950 group-hover:text-zinc-700">Product Manager</h3>
-            <p className="mt-2 text-sm leading-6 text-zinc-600">Product management compensation benchmarks and salary data across countries.</p>
+            <h3 className="text-lg font-semibold text-zinc-950 group-hover:text-zinc-700">
+              Product Manager
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-zinc-600">
+              Product management compensation benchmarks and salary data across countries.
+            </p>
             <div className="mt-4 flex flex-wrap gap-2">
-              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Salary by Country</span>
-              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Rankings</span>
-              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">Comparisons</span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">
+                Salary by Country
+              </span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">
+                Rankings
+              </span>
+              <span className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">
+                Comparisons
+              </span>
             </div>
-            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600 group-hover:text-blue-700">Explore Hub &rarr;</span>
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600 group-hover:text-blue-700">
+              Explore Hub &rarr;
+            </span>
           </a>
         </div>
       </section>
@@ -132,7 +184,9 @@ export default function ProfessionsPage() {
             >
               <h3 className="mb-2 text-lg font-semibold text-zinc-950">{prof.name}</h3>
               <p className="text-sm leading-6 text-zinc-600">{prof.description}</p>
-              <span className="mt-2 inline-block text-sm font-medium text-blue-600">View salaries →</span>
+              <span className="mt-2 inline-block text-sm font-medium text-blue-600">
+                View salaries →
+              </span>
             </a>
           ))}
         </div>
@@ -147,16 +201,17 @@ export default function ProfessionsPage() {
               <p className="mt-1 text-sm text-zinc-500">{prof.description}</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {locales.map((loc) => {
-                  const salary = prof.salaries[loc.slug]
+                  const salary = prof.salaries[loc.slug];
                   return salary ? (
                     <a
                       key={loc.slug}
                       href={`/${loc.slug}/salary/${prof.slug}`}
                       className="rounded-md bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-700 hover:bg-zinc-200 hover:text-zinc-950 transition-colors"
                     >
-                      <FlagImage code={loc.slug} size="sm" /> {loc.name}: {formatSalaryBySlug(salary.average, loc.slug, { showCode: true })}
+                      <FlagImage code={loc.slug} size="sm" /> {loc.name}:{" "}
+                      {formatSalaryBySlug(salary.average, loc.slug, {showCode: true})}
                     </a>
-                  ) : null
+                  ) : null;
                 })}
               </div>
             </div>
@@ -164,5 +219,5 @@ export default function ProfessionsPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

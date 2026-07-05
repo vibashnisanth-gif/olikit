@@ -1,4 +1,4 @@
-import type { MetadataRoute } from "next"
+import type {MetadataRoute} from "next";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/"],
+        disallow: ["/api/", "/_next/", "/manifest.json", "/favicon.ico"],
       },
       {
         userAgent: "GPTBot",
@@ -38,5 +38,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: "https://olikit.com/sitemap.xml",
-  }
+  };
 }
