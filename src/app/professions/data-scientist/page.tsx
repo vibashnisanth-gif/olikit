@@ -39,22 +39,22 @@ export default function DataScientistHub() {
     {
       question: "Which country pays data scientists the most in 2026?",
       answer:
-        "The United States retains the highest Olikit Compensation Score globally (98/100) with an estimated base salary of $142,000 USD equivalent.",
+        "The United States retains the highest Olikit Compensation Score globally (98/100) with an estimated base salary of $142,000 USD equivalent. However, Singapore offers stronger after-tax outcomes due to its low personal income tax rates, and Canada provides the best combination of salary, immigration accessibility and quality of life.",
     },
     {
-      question: "What is the Olikit Compensation Score?",
+      question: "What skills command the highest salary premium for data scientists?",
       answer:
-        "The Olikit Compensation Score (0-100) evaluates median base salary, standard equity/bonus packages, and marginal tax burdens to create a standardized cross-border intelligence metric.",
+        "MLOps and production ML pipeline skills command the highest premiums in 2026, with engineers who can deploy and monitor models in production earning 25-40% more than analysts who only build models in notebooks. LLM fine-tuning, prompt engineering and AI alignment expertise are the fastest-growing premium skills.",
     },
     {
-      question: "Which countries offer the best immigration pathways for data scientists?",
+      question: "Is data science becoming automated in 2026?",
       answer:
-        "Canada and Australia offer the highest Olikit Relocation Scores due to structured, predictable points-based tech migration pathways. Canada's Express Entry and Australia's MLTSSL visa frameworks are the most accessible.",
+        "Routine data extraction, cleaning and basic analysis are heavily automated by AI tools. However, the ability to design experiments, validate model accuracy, interpret business implications and communicate findings to stakeholders remains difficult to automate. The salary gap between generalist analysts and specialized data scientists continues to widen.",
     },
     {
-      question: "What skills are most valuable for data scientists in 2026?",
+      question: "What is the career trajectory for data scientists?",
       answer:
-        "The premium has shifted toward predictive modeling, algorithmic auditing, and Machine Learning Operations (MLOps). Routine data extraction is heavily automated, widening the salary gap between generalists and specialists.",
+        "Data scientists typically progress from exploratory analysis (0-2 years) to independent model development (3-5 years) to architecture and MLOps leadership (5+ years). The highest-paying paths lead to ML Engineering, AI Platform leadership or Chief Data Officer roles. Many data scientists also transition into product management or consulting.",
     },
   ]);
 
@@ -353,6 +353,71 @@ export default function DataScientistHub() {
               compensation, primarily in the US market.
             </p>
           </div>
+        </section>
+
+        {/* SKILLS PREMIUM & CAREER PIVOTS */}
+        <section>
+          <h2 className="mb-4 text-2xl font-semibold text-zinc-950">
+            Data Science Skills Premium &amp; Career Pivot Paths
+          </h2>
+          <p className="mb-4 text-sm leading-7 text-zinc-600">
+            The data science salary landscape in 2026 is defined by a clear split: generalist
+            analysts who primarily use SQL and dashboards face compression from AI tools, while
+            engineers who can build, deploy and monitor ML systems in production command significant
+            premiums.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm">
+              <h3 className="mb-2 text-base font-semibold text-zinc-950">Highest-Premium Skills</h3>
+              <ul className="space-y-1.5 text-sm leading-6 text-zinc-600">
+                <li>
+                  <strong>MLOps / Model Deployment</strong> &mdash; +25-40% over generalist roles
+                </li>
+                <li>
+                  <strong>LLM Fine-tuning &amp; Prompt Engineering</strong> &mdash; +20-35%
+                </li>
+                <li>
+                  <strong>GPU Computing &amp; Distributed Training</strong> &mdash; +20-30%
+                </li>
+                <li>
+                  <strong>AI Alignment &amp; Safety</strong> &mdash; +15-25%
+                </li>
+                <li>
+                  <strong>Causal Inference &amp; Experimentation</strong> &mdash; +10-20%
+                </li>
+              </ul>
+            </div>
+            <div className="rounded-lg border border-zinc-200 bg-white p-5 shadow-sm">
+              <h3 className="mb-2 text-base font-semibold text-zinc-950">
+                Common Career Pivot Paths
+              </h3>
+              <ul className="space-y-1.5 text-sm leading-6 text-zinc-600">
+                <li>
+                  <strong>Data Scientist &rarr; ML Engineer</strong> &mdash; Higher comp, more
+                  engineering focus
+                </li>
+                <li>
+                  <strong>Data Scientist &rarr; Product Manager</strong> &mdash; Leverages domain
+                  expertise
+                </li>
+                <li>
+                  <strong>Data Scientist &rarr; AI Platform Lead</strong> &mdash; Infrastructure +
+                  strategy
+                </li>
+                <li>
+                  <strong>Data Scientist &rarr; Quantitative Analyst</strong> &mdash; Finance sector
+                  premium
+                </li>
+                <li>
+                  <strong>Data Scientist &rarr; AI Consultant</strong> &mdash; Higher autonomy,
+                  variable income
+                </li>
+              </ul>
+            </div>
+          </div>
+          <p className="mt-3 text-xs text-zinc-500">
+            Premiums are relative to generalist data analyst roles at the same experience level.
+          </p>
         </section>
 
         {/* RELOCATION CONSIDERATIONS */}
