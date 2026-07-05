@@ -217,8 +217,8 @@ export default function DataScientistUSvsCanada() {
         <RelatedPagesSection
           pages={[
             { label: "Data Scientist Hub", href: "/professions/data-scientist" },
-            { label: "Data Scientist Salary US", href: "/data-scientist-salary-us" },
-            { label: "Data Scientist Salary Canada", href: "/data-scientist-salary-canada" },
+            { label: "Data Scientist Salary US", href: "/us/salary/data-scientist" },
+            { label: "Data Scientist Salary Canada", href: "/ca/salary/data-scientist" },
             { label: "Olikit Global Data Scientist Index 2026", href: "/research/data-scientist-salary-index-2026" },
             { label: "Highest Paying Countries for Data Scientists", href: "/rankings/highest-paying-countries-data-scientists" },
             { label: "Data Scientist US vs UK", href: "/comparisons/data-scientist-us-vs-uk" },

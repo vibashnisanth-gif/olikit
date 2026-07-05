@@ -435,7 +435,7 @@ export default function SoftwareEngineerHub() {
                       </td>
                       <td className="px-4 py-3">
                         <a
-                          href={`/software-engineer-salary-${COUNTRY_ROUTES[c.slug]}`}
+                          href={`/${c.slug}/salary/software-engineer`}
                           className="font-medium text-zinc-950 hover:text-blue-700"
                         >
                           <FlagImage code={data.slug} size="lg" /> {data.name}
@@ -499,7 +499,7 @@ export default function SoftwareEngineerHub() {
                 return (
                   <a
                     key={loc.slug}
-                    href={`/software-engineer-salary-${route}`}
+                    href={`/${loc.slug}/salary/software-engineer`}
                     className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
                   >
                     <p className="mb-1 text-2xl">

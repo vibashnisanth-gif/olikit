@@ -326,7 +326,7 @@ export default function BestCountriesInfographic() {
             <div className="text-sm text-gray-500">Visual comparison across 7 countries</div>
           </Link>
           <Link
-            href="/us/city/san-francisco/software-engineer"
+            href="/us/salary/software-engineer"
             className="rounded-lg border p-4 hover:border-blue-300 hover:bg-blue-100"
           >
             <div className="font-medium text-gray-900">

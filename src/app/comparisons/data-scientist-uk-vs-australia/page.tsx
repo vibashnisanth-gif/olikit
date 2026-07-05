@@ -194,8 +194,8 @@ export default function UKvsAustraliaPage() {
         <RelatedPagesSection
           pages={[
             { label: "Data Scientist Hub", href: "/professions/data-scientist" },
-            { label: "Data Scientist Salary UK", href: "/data-scientist-salary-uk" },
-            { label: "Data Scientist Salary Australia", href: "/data-scientist-salary-australia" },
+            { label: "Data Scientist Salary UK", href: "/uk/salary/data-scientist" },
+            { label: "Data Scientist Salary Australia", href: "/au/salary/data-scientist" },
             { label: "Data Scientist Salary Index 2026", href: "/research/data-scientist-salary-index-2026" },
             { label: "Highest Paying Countries for Data Scientists", href: "/rankings/highest-paying-countries-data-scientists" },
             { label: "Data Scientist US vs UK", href: "/comparisons/data-scientist-us-vs-uk" },

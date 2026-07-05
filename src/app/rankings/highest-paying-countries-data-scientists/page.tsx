@@ -123,9 +123,9 @@ export default function HighestPayingCountriesDataScientists() {
             { label: "Data Scientist Hub", href: "/professions/data-scientist" },
             { label: "Olikit Global Data Scientist Index 2026", href: "/research/data-scientist-salary-index-2026" },
             { label: "Data Scientist vs Software Engineer", href: "/data-scientist-vs-software-engineer" },
-            { label: "Data Scientist Salary US", href: "/data-scientist-salary-us" },
-            { label: "Data Scientist Salary UK", href: "/data-scientist-salary-uk" },
-            { label: "Data Scientist Salary Australia", href: "/data-scientist-salary-australia" },
+            { label: "Data Scientist Salary US", href: "/us/salary/data-scientist" },
+            { label: "Data Scientist Salary UK", href: "/uk/salary/data-scientist" },
+            { label: "Data Scientist Salary Australia", href: "/au/salary/data-scientist" },
             { label: "Data Scientist India vs Singapore", href: "/comparisons/data-scientist-india-vs-singapore" },
           ]}
         />

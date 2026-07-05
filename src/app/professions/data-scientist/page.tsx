@@ -515,7 +515,7 @@ export default function DataScientistHub() {
               </p>
             </a>
             <a
-              href="/data-scientist-salary-us"
+              href="/us/salary/data-scientist"
               className="block rounded-lg border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-md"
             >
               <h3 className="mb-2 text-lg font-semibold text-zinc-950">

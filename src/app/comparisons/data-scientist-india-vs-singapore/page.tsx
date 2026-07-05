@@ -194,8 +194,8 @@ export default function IndiavsSingaporePage() {
         <RelatedPagesSection
           pages={[
             { label: "Data Scientist Hub", href: "/professions/data-scientist" },
-            { label: "Data Scientist Salary India", href: "/data-scientist-salary-india" },
-            { label: "Data Scientist Salary Singapore", href: "/data-scientist-salary-singapore" },
+            { label: "Data Scientist Salary India", href: "/in/salary/data-scientist" },
+            { label: "Data Scientist Salary Singapore", href: "/sg/salary/data-scientist" },
             { label: "Data Scientist Salary Index 2026", href: "/research/data-scientist-salary-index-2026" },
             { label: "Highest Paying Countries for Data Scientists", href: "/rankings/highest-paying-countries-data-scientists" },
             { label: "Data Scientist US vs UK", href: "/comparisons/data-scientist-us-vs-uk" },
