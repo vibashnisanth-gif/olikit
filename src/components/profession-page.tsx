@@ -241,6 +241,41 @@ export function ProfessionPageRenderer({content}: ProfessionPageRendererProps) {
         <SalaryCardsSection cards={content.salaryCards} />
       )}
 
+      {/* DECISION GUIDE — So What? */}
+      <section className="rounded-xl border border-blue-200 bg-blue-50 px-6 py-8 shadow-sm sm:px-10">
+        <h2 className="mb-4 text-xl font-semibold text-zinc-950">What This Means For You</h2>
+        <div className="grid gap-6 sm:grid-cols-2">
+          <div>
+            <h3 className="mb-2 text-sm font-semibold text-zinc-950">Decision Factors</h3>
+            <ul className="space-y-1.5 text-sm leading-6 text-zinc-600">
+              <li>
+                <strong>Take-home pay differs:</strong> Two countries with similar gross salaries
+                can have very different net pay after taxes and social contributions
+              </li>
+              <li>
+                <strong>Purchasing power matters:</strong> A higher salary in an expensive city may
+                leave you with less disposable income than a moderate salary in an affordable one
+              </li>
+              <li>
+                <strong>Career growth varies:</strong> Some markets offer faster advancement,
+                stronger networks or more specialized opportunities
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="mb-2 text-sm font-semibold text-zinc-950">
+              Who Benefits From This Data
+            </h3>
+            <ul className="space-y-1.5 text-sm leading-6 text-zinc-600">
+              <li>Professionals evaluating international job offers</li>
+              <li>Anyone considering a career move or relocation</li>
+              <li>Teams benchmarking compensation across offices</li>
+              <li>Students choosing specializations or career paths</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {content.keyTakeaways && content.keyTakeaways.length > 0 && (
         <KeyTakeawaysSection items={content.keyTakeaways} />
       )}

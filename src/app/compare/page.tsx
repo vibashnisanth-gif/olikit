@@ -177,6 +177,42 @@ export default function ComparePage() {
 
       <SalaryComparisonCalculator />
 
+      {/* DECISION GUIDE — So What? */}
+      <section className="rounded-xl border border-blue-200 bg-blue-50 px-6 py-8 shadow-sm sm:px-10">
+        <h2 className="mb-4 text-xl font-semibold text-zinc-950">How To Use These Comparisons</h2>
+        <div className="grid gap-6 sm:grid-cols-2">
+          <div>
+            <h3 className="mb-2 text-sm font-semibold text-zinc-950">
+              Don&apos;t Just Compare Salaries
+            </h3>
+            <ul className="space-y-1.5 text-sm leading-6 text-zinc-600">
+              <li>
+                <strong>Tax burden varies wildly:</strong> A $150K salary in Singapore nets ~$127K
+                after tax. The same salary in the UK nets ~$95K. That&apos;s a $32K difference for
+                the same gross pay.
+              </li>
+              <li>
+                <strong>Cost of living changes everything:</strong> $100K in Austin, TX buys roughly
+                the same lifestyle as $160K in San Francisco. Geographic arbitrage is real.
+              </li>
+              <li>
+                <strong>Benefits add 20-40%:</strong> Healthcare, retirement matching, equity and
+                bonuses can dramatically change total compensation.
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="mb-2 text-sm font-semibold text-zinc-950">Who Should Use This Tool</h3>
+            <ul className="space-y-1.5 text-sm leading-6 text-zinc-600">
+              <li>Professionals with competing international job offers</li>
+              <li>Remote workers choosing where to base themselves</li>
+              <li>Companies benchmarking compensation across offices</li>
+              <li>Anyone evaluating a relocation decision</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm sm:px-10">
         <h2 className="mb-6 text-lg font-semibold text-zinc-950 sm:text-xl">
           Salary Equivalent Comparisons

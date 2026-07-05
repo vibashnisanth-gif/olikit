@@ -112,6 +112,44 @@ export default async function ToolPage({params}: Props) {
           <CalculatorInteractive toolSlug={tool.slug} localeSlug={locale.slug} />
         </div>
 
+        {/* DECISION GUIDE — So What? */}
+        <section className="rounded-xl border border-blue-200 bg-blue-50 px-6 py-8 shadow-sm sm:px-10">
+          <h2 className="mb-4 text-xl font-semibold text-zinc-950">What This Means For You</h2>
+          <div className="grid gap-6 sm:grid-cols-2">
+            <div>
+              <h3 className="mb-2 text-sm font-semibold text-zinc-950">Who Benefits Most</h3>
+              <ul className="space-y-1.5 text-sm leading-6 text-zinc-600">
+                <li>Professionals evaluating job offers across {locale.name} regions</li>
+                <li>Relocating workers comparing {locale.name} against other countries</li>
+                <li>Anyone planning major financial decisions in {locale.name}</li>
+                <li>Finance teams benchmarking compensation packages</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="mb-2 text-sm font-semibold text-zinc-950">Key Decision Factors</h3>
+              <ul className="space-y-1.5 text-sm leading-6 text-zinc-600">
+                <li>
+                  <strong>Tax brackets matter:</strong> A higher salary in a high-tax region may net
+                  less than a moderate salary in a low-tax one
+                </li>
+                <li>
+                  <strong>Cost of living varies:</strong> San Francisco and rural Texas offer very
+                  different purchasing power for the same salary
+                </li>
+                <li>
+                  <strong>Benefits add value:</strong> Healthcare, retirement contributions and
+                  equity can add 20-40% to total compensation
+                </li>
+              </ul>
+            </div>
+          </div>
+          <p className="mt-4 text-xs text-zinc-500">
+            This calculator provides estimates based on published tax brackets and standard
+            deductions. Actual results may vary based on individual circumstances, credits and
+            deductions not modeled here.
+          </p>
+        </section>
+
         {content.aiAnswer && (
           <div className="quick-answer rounded-xl border border-zinc-200 bg-white shadow-sm">
             <div className="flex">
