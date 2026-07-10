@@ -57,3 +57,8 @@ stale-content-report.json
 
 # Salary sanity report (generated)
 salary-sanity-report.json
+
+# opencode config (contains API tokens)
+opencode.json
+opencode.jsonc
+.opencode/
