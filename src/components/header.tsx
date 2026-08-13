@@ -29,7 +29,7 @@ export function Header({ currentSlug }: Props) {
     { label: "Comparisons", href: "/compare" },
     { label: "Rankings", href: "/rankings" },
     { label: "Research", href: "/research" },
-    { label: "Guides", href: isGlobal ? "/us/guides" : `/${currentSlug}/guides` },
+    { label: "Guides", href: isGlobal ? "/research" : `/${currentSlug}/guides` },
     { label: "About", href: "/about" },
   ]
 
