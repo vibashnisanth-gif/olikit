@@ -3,6 +3,22 @@
 :root {
   --background: #ffffff;
   --foreground: #111827;
+  --paper: #FAFAF7;
+  --paper-2: #F4F4EF;
+  --ink: #171717;
+  --muted: #686863;
+  --line: #DEDED7;
+  --white: #FFF;
+  --blue: #2453D4;
+  --blue-soft: #EDF2FF;
+  --green: #18794E;
+  --green-soft: #EDF7F1;
+  --amber: #A76500;
+  --amber-soft: #FFF5E5;
+  --red: #B42318;
+  --red-soft: #FEF0EF;
+  --shadow: 0 14px 40px rgba(23,23,23,.06);
+  --max: 1180px;
 }
 
 @theme inline {
@@ -82,6 +98,11 @@ button {
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
+}
+
+@keyframes grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
 .card-hover {

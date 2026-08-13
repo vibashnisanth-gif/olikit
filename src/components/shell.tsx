@@ -11,7 +11,15 @@ import { CookieConsent } from "./cookie-consent"
 import { PageTracker } from "@/lib/analytics/page-tracker"
 import { CurrencyToggle } from "@/components/ui/currency-toggle"
 
-export function Shell({ children, localeSlug }: { children: React.ReactNode; localeSlug?: string }) {
+type ShellProps = {
+  children: React.ReactNode
+  localeSlug?: string
+  customHeader?: React.ReactNode
+  customFooter?: React.ReactNode
+  bare?: boolean
+}
+
+export function Shell({ children, localeSlug, customHeader, customFooter, bare }: ShellProps) {
   const pathname = usePathname()
   const slug = localeSlug ?? (pathname?.split("/")[1] || null)
   const country = slug ? getCountry(slug) : null
@@ -22,11 +30,23 @@ export function Shell({ children, localeSlug }: { children: React.ReactNode; loc
     } catch {}
   }
 
+  if (bare) {
+    return (
+      <div className="flex flex-col min-h-full">
+        <PageTracker />
+        {customHeader}
+        {children}
+        {customFooter}
+        <CookieConsent />
+      </div>
+    )
+  }
+
   return (
     <div className="flex flex-col min-h-full">
       <ContextBar slug={country?.slug ?? null} name={country?.name ?? null} currencyCode={country?.currencyCode ?? ""} taxAuthority={country?.taxAuthority ?? ""} />
       <PageTracker />
-      <Header currentSlug={country?.slug ?? null} />
+      {customHeader ?? <Header currentSlug={country?.slug ?? null} />}
       <main className="flex-1 mx-auto w-full max-w-6xl px-4 py-8 sm:py-10">
         <Breadcrumbs />
         <div className="flex justify-end mb-4">
@@ -34,7 +54,7 @@ export function Shell({ children, localeSlug }: { children: React.ReactNode; loc
         </div>
         {children}
       </main>
-      <Footer currentSlug={country?.slug ?? null} />
+      {customFooter ?? <Footer currentSlug={country?.slug ?? null} />}
       <CookieConsent />
     </div>
   )
