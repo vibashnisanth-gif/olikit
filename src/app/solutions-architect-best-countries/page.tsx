@@ -10,7 +10,7 @@ const pagePath = "/solutions-architect-best-countries"
 const seoTitle = "Best Countries for Solutions Architects (2026)"
 const seoDesc = "Discover the best countries for solutions architects in 2026. Compare salary, tax, cost of living, career growth, and quality of life."
 
-export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
+export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath, { noindex: true })
 
 export default function Page() {
   const breadcrumbSchema = buildBreadcrumbJsonLd([

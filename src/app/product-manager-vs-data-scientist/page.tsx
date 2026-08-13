@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Product Manager vs Data Scientist (2026) Comparison",
   description: "Compare product manager and data scientist salaries, career paths, education requirements, and job outlook. Detailed compensation analysis across experience levels and industries.",
   alternates: { canonical: `${SITE_URL}${pagePath}` },
-  robots: { index: true, follow: true },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Product Manager vs Data Scientist (2026) | Olikit",
     description: "Detailed comparison of product manager and data scientist careers. Salary, education, skills, and job outlook analysis.",

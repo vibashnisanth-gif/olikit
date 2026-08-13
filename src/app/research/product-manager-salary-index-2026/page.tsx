@@ -62,7 +62,7 @@ const contentData: SalaryIndexContent = {
   researchMetadata: {
     coverageYear: "2026",
     profession: "Product Manager",
-    methodologyVersion: "Olikix (Public Data)",
+    methodologyVersion: "Olikit (Public Data)",
     countriesCount: "7",
     lastUpdated: "June 2026",
     dataStatus: "Published",

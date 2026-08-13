@@ -10,7 +10,7 @@ const pagePath = "/data-engineer-ppp-adjusted-salary"
 const seoTitle = "Data Engineer PPP-Adjusted Salary (2026)"
 const seoDesc = "Compare data engineer salaries adjusted for purchasing power parity across 7 major economies. See the real value of compensation."
 
-export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
+export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath, { noindex: true })
 
 export default function Page() {
   const breadcrumbSchema = buildBreadcrumbJsonLd([

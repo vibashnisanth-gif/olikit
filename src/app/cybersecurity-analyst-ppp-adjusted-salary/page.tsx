@@ -10,7 +10,7 @@ const pagePath = "/cybersecurity-analyst-ppp-adjusted-salary"
 const seoTitle = "Cybersecurity Analyst PPP-Adjusted Salary (2026)"
 const seoDesc = "Compare cybersecurity analyst salaries adjusted for purchasing power parity across 7 major economies. See the real value of compensation."
 
-export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
+export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath, { noindex: true })
 
 export default function Page() {
   const breadcrumbSchema = buildBreadcrumbJsonLd([

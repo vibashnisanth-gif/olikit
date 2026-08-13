@@ -15,6 +15,7 @@ export function buildProfessionMetadata(
   title: string,
   description: string,
   path: string,
+  options?: { noindex?: boolean },
 ): Metadata {
   const ogImage = { url: `${SITE_URL}/api/og?title=${encodeURIComponent(title)}&type=website&year=2026`, width: 1200, height: 630 }
   return {
@@ -35,7 +36,7 @@ export function buildProfessionMetadata(
       description,
       images: [ogImage.url],
     },
-    robots: { index: true, follow: true },
+    robots: { index: !options?.noindex, follow: true },
   }
 }
 

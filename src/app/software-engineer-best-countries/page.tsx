@@ -10,7 +10,7 @@ const pagePath = "/software-engineer-best-countries"
 const seoTitle = "Best Countries for Software Engineers (2026)"
 const seoDesc = "Discover the best countries for software engineers in 2026. Compare salary, tax, cost of living, career growth, and quality of life across major economies."
 
-export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
+export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath, { noindex: true })
 
 export default function Page() {
   const breadcrumbSchema = buildBreadcrumbJsonLd([

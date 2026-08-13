@@ -10,7 +10,7 @@ const pagePath = "/business-analyst-tax-adjusted-salary"
 const seoTitle = "Business Analyst Tax-Adjusted Salary (2026)"
 const seoDesc = "Compare business analyst salaries adjusted for income tax across 7 major economies. See how tax systems affect real take-home pay."
 
-export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
+export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath, { noindex: true })
 
 export default function Page() {
   const breadcrumbSchema = buildBreadcrumbJsonLd([

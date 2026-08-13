@@ -10,7 +10,7 @@ const pagePath = "/data-scientist-uk-vs-australia"
 const seoTitle = "Data Scientist UK vs Australia: Salary & Career Comparison (2026)"
 const seoDesc = "Compare data scientist salaries, taxes, and career opportunities between the United Kingdom and Australia."
 
-export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
+export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath, { noindex: true })
 
 export default function Page() {
   const breadcrumbSchema = buildBreadcrumbJsonLd([

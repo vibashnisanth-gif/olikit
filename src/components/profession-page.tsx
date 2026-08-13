@@ -6,6 +6,7 @@ import { FAQSection } from "@/components/faq-section"
 import { SourcesSection } from "@/components/sources-section"
 import { RelatedPagesSection } from "@/components/related-pages-section"
 import { MethodologySection } from "@/components/methodology-section"
+import { AuthorByline } from "@/components/author-byline"
 
 function KeyTakeawaysSection({ items }: { items: { title: string; description: string }[] }) {
   return (
@@ -187,6 +188,8 @@ export function ProfessionPageRenderer({ content }: ProfessionPageRendererProps)
         cta={content.hero.cta}
         secondaryCta={content.hero.secondaryCta}
       />
+
+      <AuthorByline author="Vibash" lastUpdated="2026" />
 
       {content.salaryCards && content.salaryCards.length > 0 && (
         <SalaryCardsSection cards={content.salaryCards} />

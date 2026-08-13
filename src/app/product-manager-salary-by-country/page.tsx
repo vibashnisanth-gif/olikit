@@ -10,7 +10,7 @@ const pagePath = "/product-manager-salary-by-country"
 const seoTitle = "Product Manager Salary by Country (2026)"
 const seoDesc = "Compare product manager salaries by country in 2026. View average, entry-level, and experienced salaries for product managers across 7 major economies."
 
-export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
+export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath, { noindex: true })
 
 export default function Page() {
   const articleSchema = buildArticleJsonLd(seoTitle, seoDesc, pagePath, { code: "en", name: "English", slug: "en" } as any)

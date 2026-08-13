@@ -10,7 +10,7 @@ const pagePath = "/highest-paying-countries-for-product-managers"
 const seoTitle = "Highest Paying Countries for Product Managers (2026)"
 const seoDesc = "Ranking of the highest paying countries for product managers in 2026. Compare average salaries, tax-adjusted income, and purchasing power across major economies."
 
-export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
+export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath, { noindex: true })
 
 export default function Page() {
   const articleSchema = buildArticleJsonLd(seoTitle, seoDesc, pagePath, { code: "en", name: "English", slug: "en" } as any)

@@ -10,7 +10,7 @@ const pagePath = "/project-manager-ppp-adjusted-salary"
 const seoTitle = "Project Manager PPP-Adjusted Salary (2026)"
 const seoDesc = "Compare project manager salaries adjusted for purchasing power parity across 7 major economies. See the real value of compensation."
 
-export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
+export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath, { noindex: true })
 
 export default function Page() {
   const breadcrumbSchema = buildBreadcrumbJsonLd([

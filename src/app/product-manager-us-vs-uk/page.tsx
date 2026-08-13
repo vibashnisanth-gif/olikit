@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   title: "Product Manager US vs UK (2026) Salary Comparison",
   description: "Compare product manager salaries, taxes, cost of living, and career opportunities between the United States and the United Kingdom. Data-driven analysis for informed career decisions.",
   alternates: { canonical: `${SITE_URL}${pagePath}` },
-  robots: { index: true, follow: true },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Product Manager US vs UK (2026) Comparison | Olikit",
     description: "Detailed comparison of product manager careers in the US vs UK. Salary, tax, cost of living, and opportunity analysis.",

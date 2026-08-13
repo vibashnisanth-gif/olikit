@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   title: "Product Manager UK vs Australia (2026) Salary Comparison",
   description: "Compare product manager salaries, taxes, cost of living, and career opportunities between the United Kingdom and Australia. Data-driven analysis for informed career decisions.",
   alternates: { canonical: `${SITE_URL}${pagePath}` },
-  robots: { index: true, follow: true },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Product Manager UK vs Australia (2026) Comparison | Olikit",
     description: "Detailed comparison of product manager careers in the UK vs Australia. Salary, tax, cost of living, and opportunity analysis.",

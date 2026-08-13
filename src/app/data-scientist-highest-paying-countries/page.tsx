@@ -10,7 +10,7 @@ const pagePath = "/data-scientist-highest-paying-countries"
 const seoTitle = "Highest Paying Countries for Data Scientists (2026)"
 const seoDesc = "Ranking of the highest paying countries for data scientists in 2026. Compare salaries, tax-adjusted income, and career opportunities across major economies."
 
-export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
+export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath, { noindex: true })
 
 export default function Page() {
   const breadcrumbSchema = buildBreadcrumbJsonLd([

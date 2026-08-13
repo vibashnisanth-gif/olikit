@@ -10,7 +10,7 @@ const pagePath = "/solutions-architect-ppp-adjusted-salary"
 const seoTitle = "Solutions Architect PPP-Adjusted Salary (2026)"
 const seoDesc = "Compare solutions architect salaries adjusted for purchasing power parity across 7 major economies. See the real value of compensation."
 
-export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath)
+export const metadata: Metadata = buildProfessionMetadata(seoTitle, seoDesc, pagePath, { noindex: true })
 
 export default function Page() {
   const breadcrumbSchema = buildBreadcrumbJsonLd([
