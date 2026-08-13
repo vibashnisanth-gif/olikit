@@ -43,8 +43,6 @@ export default function robots(): MetadataRoute.Robots {
           "/*/glossary/",
           // Rankings pages
           "/*/rankings/",
-          // Profession list pages
-          "/professions",
         ],
       },
       {
@@ -99,7 +97,6 @@ export default function robots(): MetadataRoute.Robots {
           "/*/tools/",
           "/*/glossary/",
           "/*/rankings/",
-          "/professions",
         ],
       },
       {

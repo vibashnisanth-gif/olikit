@@ -56,7 +56,6 @@ export function Footer({ currentSlug }: Props) {
               <li><a href="/software-engineer" className="transition-colors hover:text-zinc-950">Software Engineer</a></li>
               <li><a href="/data-scientist" className="transition-colors hover:text-zinc-950">Data Scientist</a></li>
               <li><a href="/product-manager" className="transition-colors hover:text-zinc-950">Product Manager</a></li>
-              <li><a href="/professions" className="transition-colors hover:text-zinc-950">All Professions</a></li>
             </ul>
           </div>
 
@@ -67,7 +66,6 @@ export function Footer({ currentSlug }: Props) {
               <li><a href="/comparisons" className="transition-colors hover:text-zinc-950">Salary Comparisons</a></li>
               <li><a href="/rankings" className="transition-colors hover:text-zinc-950">Global Rankings</a></li>
               <li><a href="/research" className="transition-colors hover:text-zinc-950">Global Research</a></li>
-              <li><a href="/professions" className="transition-colors hover:text-zinc-950">Professions by Salary</a></li>
             </ul>
           </div>
 
